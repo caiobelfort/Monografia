@@ -3,9 +3,6 @@
 \begin_document
 \begin_header
 \textclass article
-\begin_preamble
-\usepackage{hyperref}
-\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -28,7 +25,6 @@
 \bibtex_command default
 \index_command default
 \paperfontsize default
-\spacing single
 \use_hyperref false
 \papersize default
 \use_geometry false
@@ -72,13 +68,11 @@
 
 \begin_body
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Arquivo principal, incluir arquivos de seções como filhos
-\end_layout
+\begin_layout Section
+Fundamentação Teórica 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:fundamentation"
 
 \end_inset
 
@@ -86,96 +80,14 @@ Arquivo principal, incluir arquivos de seções como filhos
 \end_layout
 
 \begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Introdução
-\end_layout
-
-\end_inset
-
-
+Nesta seção, serão abordados os conceitos necessários para o entendimento
+ da metologia proposta.
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset include
-LatexCommand include
-filename "/home/caio/Workspace/Monografia/projeto/intro/intro.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Objetivos
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "/home/caio/Workspace/Monografia/projeto/objectives/objectives.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Fundamentação Teórica
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset include
-LatexCommand include
-filename "/home/caio/Workspace/Monografia/projeto/fundamentation/fundamentation_main.lyx"
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Bibliografia
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset CommandInset bibtex
-LatexCommand bibtex
-bibfiles "xampl,/home/caio/Workspace/Monografia/projeto/references/references"
-options "plain"
+LatexCommand input
+filename "termography/termo.lyx"
 
 \end_inset
 
