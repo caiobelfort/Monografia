@@ -101,7 +101,7 @@ Introdução
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "/home/caio/Workspace/Monografia/projeto/intro/intro.lyx"
+filename "../intro/intro.lyx"
 
 \end_inset
 
@@ -124,7 +124,7 @@ Objetivos
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "/home/caio/Workspace/Monografia/projeto/objectives/objectives.lyx"
+filename "../objectives/objectives.lyx"
 
 \end_inset
 
@@ -147,7 +147,7 @@ Fundamentação Teórica
 \begin_layout Standard
 \begin_inset CommandInset include
 LatexCommand include
-filename "/home/caio/Workspace/Monografia/projeto/fundamentation/fundamentation_main.lyx"
+filename "../fundamentation/fundamentation_main.lyx"
 
 \end_inset
 
@@ -170,7 +170,7 @@ Bibliografia
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
-bibfiles "xampl,/home/caio/Workspace/Monografia/projeto/references/references"
+bibfiles "../references/references"
 options "plain"
 
 \end_inset

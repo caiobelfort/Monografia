@@ -87,43 +87,15 @@ O
 Registro de Imagens 
 \emph default
 é uma técnica que consegue mapear ou alinhar os pontos de uma imagem para
- pontos homólogos de um objeto em outra imagem 
+ pontos homólogos de um objeto em outra imagem.
+ A Figura
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:mapping"
 
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Standard
-Na literatura, é possível encontrar diversas definições para o problema
- de registro de imagens.
- De acordo com 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "brown1992survey"
-
-\end_inset
-
-, o processo de registro de imagens é transformação de conjuntos distintos
- de dadados para um mesmo sistema de coordenadas.
- Em 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "crum2014non"
-
-\end_inset
-
- é definido como um processo que determina correspondências entre as característ
-icas de imagens extraídas em diferentes momentos, pontos de vista ou aparelhos.
- Tais correspondências podem ser utilizadas para aplicar transformações
- (rotação, translação, alongamento, etc.) em uma imagem de forma que seja
- posssível a comparação entre as duas imagens.
- A forma mais intuitiva de utilização do registro é para corrigir diferenças
- na posição entre scans de uma mamografia por exemplo.
- 
+ mostra o efeito desse mapeamento.
 \end_layout
 
 \begin_layout Standard
@@ -131,7 +103,7 @@ icas de imagens extraídas em diferentes momentos, pontos de vista ou aparelhos.
 placement h
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -171,6 +143,184 @@ name "fig:mapping"
 
 \end_layout
 
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na literatura, é possível encontrar diversas definições para o problema
+ de registro de imagens.
+ De acordo com 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "brown1992survey"
+
+\end_inset
+
+, o processo de registro de imagens é transformação de conjuntos distintos
+ de dadados para um mesmo sistema de coordenadas.
+ Em 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "crum2014non"
+
+\end_inset
+
+ é definido como um processo que determina correspondências entre as característ
+icas de imagens extraídas em diferentes momentos, pontos de vista ou aparelhos.
+ Tais correspondências podem ser utilizadas para aplicar transformações
+ (rotação, translação, alongamento, etc.) em uma imagem de forma que seja
+ posssível a comparação entre as duas imagens.
+ A forma mais intuitiva de utilização do registro é para corrigir diferenças
+ na posição entre scans .
+ Registro de imagens adiciona valor à imagens, permitindo que imagens estruturai
+s (CT, MR, ultrasom) e funcionais (PET, SPECT, functional MRI) sejam vistas
+ e analisadas no mesmo sistema de coordenadas, e facilita o uso de novas
+ imagens, como para monitorar e quantificar a evolução de uma doença à medida
+ que o tempo passa 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "crum2014non"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+O registro de imagens pode ser classificado como 
+\emph on
+rígido 
+\emph default
+(onde pressupõe-se que as imagens são objetos em que transformações simples
+ como a rotação e translação são capazes de mapear as imagens distintas)
+ ou 
+\emph on
+não-rigido 
+\emph default
+(onde não é possível realizar o mapeamento sem realizar algum alargamento
+ local na imagem a ser mapeada)
+\emph on
+ 
+\emph default
+também chamado de 
+\emph on
+deformável 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "crum2014non"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fluxo-registro"
+
+\end_inset
+
+ mostra o fluxograma básico de um processo de registro de imagens.
+ O conjuto de entrada básico de um processo de registro de imagens é composto
+ de duas imagens: uma definida como fixa 
+\begin_inset Formula $f(X)$
+\end_inset
+
+, e outra definida como móvel 
+\begin_inset Formula $m(X)$
+\end_inset
+
+.
+ O processo pode ser visto como um problema de otimização com o objetivo
+ de achar a melhor transformação que mapeie a imagem móvel na imagem fixa
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ibanez2003itk"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+O algoritmo de registro pode ser decomposto em três componentes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "crum2014non"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+Uma médida de similaridade que irá quantizar a correspondência entre as
+ imagens.
+\end_layout
+
+\begin_layout Itemize
+Uma transformação, que especifíca o modo como a imagem móvel será modificada
+ para corresponder à fixa.
+\end_layout
+
+\begin_layout Itemize
+Um processo de otimização que varia os parâmetros da transformação de forma
+ a maximar o critério de correspondência.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename images/fluxo.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fluxograma do processo de registro de imagens.
+ Fonte: 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ibanez2003itk"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fluxo-registro"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Plain Layout
 
 \end_layout
@@ -178,6 +328,16 @@ name "fig:mapping"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+Registro rígido
+\end_layout
+
+\begin_layout Subsubsection
+Registro deformável 
+\emph on
+B-Spline
 \end_layout
 
 \end_body
