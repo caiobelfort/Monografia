@@ -250,32 +250,6 @@ key "ibanez2003itk"
 \end_layout
 
 \begin_layout Standard
-O algoritmo de registro pode ser decomposto em três componentes 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "crum2014non"
-
-\end_inset
-
-:
-\end_layout
-
-\begin_layout Itemize
-Uma médida de similaridade que irá quantizar a correspondência entre as
- imagens.
-\end_layout
-
-\begin_layout Itemize
-Uma transformação, que especifíca o modo como a imagem móvel será modificada
- para corresponder à fixa.
-\end_layout
-
-\begin_layout Itemize
-Um processo de otimização que varia os parâmetros da transformação de forma
- a maximar o critério de correspondência.
-\end_layout
-
-\begin_layout Standard
 \begin_inset Float figure
 placement h
 wide false

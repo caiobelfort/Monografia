@@ -131,6 +131,25 @@ filename "registration/registration.lyx"
 \end_layout
 
 \begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+GLCM
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset include
+LatexCommand input
+filename "glcm/glcm.lyx"
+
+\end_inset
+
 
 \end_layout
 
