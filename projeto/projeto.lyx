@@ -1,0 +1,2677 @@
+#LyX 2.1 created this file. For more info see http://www.lyx.org/
+\lyxformat 474
+\begin_document
+\begin_header
+\textclass abntex2
+\begin_preamble
+\usepackage[alf]{abntex2cite}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language brazilian
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_math auto
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Chapter
+Introdução 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:intro"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Lorem ipsum dolor sit amet, soleat oblique inciderint mei at.
+ Mea harum legere delicata ut.
+ Zril maiorum ea eum, affert adipiscing ad per, veniam nostro sit in.
+ Nec ea falli oratio expetendis.
+ Alii impetus prodesset mea ad, eum ei erroribus appellantur.
+\end_layout
+
+\begin_layout Standard
+Eum etiam interpretaris ei, ad probo labores nam.
+ Possit indoctum est no, nulla persius elaboraret sed ne.
+ Vide summo pertinacia ea nec, et ius vocibus feugait.
+ Dicat fuisset ex vix, dicta dolores pri et.
+ Ex tempor petentium consulatu cum, dico eius dicat no est, ea cum liber
+ virtute.
+ Convenire posidonium mea in, pertinax scribentur eloquentiam eam ei, usu
+ et labore dictas complectitur.
+\end_layout
+
+\begin_layout Standard
+Ad sit eruditi dolorum, purto omittantur vix ut.
+ Mel ad fugit adolescens, et nisl oblique molestiae pri, in incorrupte elaborare
+t vim.
+ Vis erat praesent in, pri ad eros pertinax.
+ Ex adhuc meliore delicatissimi cum, ut ius justo nulla, in ferri ceteros
+ nam.
+\end_layout
+
+\begin_layout Standard
+At mei quas admodum appellantur, cum ex dolores intellegam, sale soluta
+ probatus ea eum.
+ Rebum bonorum in pri, ad nam graeco insolens, ex esse facete has.
+ Qui ei elit referrentur, eum alii scripta ne.
+ Ei ius tantas mucius latine, justo percipitur cu ius, eum dicam mollis
+ iisque eu.
+ Nam dico tota splendide cu, pri an omittam dignissim voluptatum.
+ Aeque tacimates consulatu eu usu, an pro pertinax electram.
+\end_layout
+
+\begin_layout Standard
+Iudicabit corrumpit scribentur ad est, appareat vituperatoribus cu vix,
+ case movet at quo.
+ Dolorum maiestatis disputando no sit.
+ At etiam dolorem usu, lorem summo quo an, pro dolore nusquam quaerendum
+ eu.
+ Eos suas mazim invenire et, accusam fabellas id nam, te eum doctus consequuntur.
+ Conceptam elaboraret ad nec, est in etiam minimum fabella.
+\end_layout
+
+\begin_layout Chapter
+Objetivos 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:objectives"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Objetivos Gerais 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:objectives:general_objectives"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Desenvolver uma metodologia computacional que analíse um exame termográfico
+ dinâmico das mamas, a fim de encontrar padrões que diferenciem mamas saudáveis
+ de mamas doentes.
+ 
+\end_layout
+
+\begin_layout Standard
+A principal motivação do trabalho é ajudar médicos especialistas no diagnóstico
+ precoce do câncer de mama, portanto qualquer informação que possa discriminar
+ mamas saudáveis de mamas doentes é relevante.
+\end_layout
+
+\begin_layout Section
+Objetivos Específicos 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:objectives:specific_objectives"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Alguns objetivos extras são necessários para completar os objetivos gerais,
+ sendo eles:
+\end_layout
+
+\begin_layout Itemize
+Desenvolver técnicas que permitam a correção de postura em exames termográficos
+ dinâmicos.
+ Tais técnicas são conhecidas como registro de imagens, onde o resultado
+ final pode variar muito de uma técnica utilizada para outra.
+ Portanto, deve-se utilizar a que melhor se encaixe no problema.
+\end_layout
+
+\begin_layout Itemize
+Analisar a variação de temperatura entre os diferentes tempos do exame,
+ gerando características que sejam capazes de diferenciar os exames de pacientes
+ saudáveis de exames de pacientes doentes.
+\end_layout
+
+\begin_layout Itemize
+Utilizar as características extraídas para gerar um classificador automático,
+ que seja capaz de classificar corretamente novos exames.
+\end_layout
+
+\begin_layout Chapter
+Fundamentação Teórica 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:fundamentation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nesta seção, serão abordados os conceitos necessários para o entendimento
+ da metologia proposta.
+\end_layout
+
+\begin_layout Section
+A Termografia 
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:fundamentation:termography"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A termografia é uma técnica que permite a visualização dos raios do espectro
+ infravermelho de forma a mapear a temperatura de um objeto.
+ A termografia infravermelha da mama é um tipo de exame que detecta a radiação
+ infravermelha emitida pela superfície da mama produzindo um mapa de temperatura
+ conhecido como termograma.
+ A grande vantagem deste tipo de exame em relação aos exames mais conhecidos,
+ como a mamografia, é que este não utiliza radiação no processo de obtenção
+ das imagens e também não causa incômodo físico ao paciente, pois não é
+ necessário a compressão das mamas, como ocorre na termografia.
+ Outro fator a se levar em consideração é o custo extremente baixo e o fácil
+ manuseio do equipamento necessário para obtenção do exame 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "borchartt2013breast"
+
+\end_inset
+
+.
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fundamentation:thermography:breast-thermography"
+
+\end_inset
+
+ apresenta uma termografia em pseudocor, onde a temperatura varia de acordo
+ com a paleta de cores à direita da imagem.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/fundamentation/termography/termography.jpg
+	scale 25
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Termografia mamária.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fundamentation:thermography:breast-thermography"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Citar fonte projeto PROENG
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Termografia Estática
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:fundamentation:termography:static"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A termografia estática (TI), é o tipo de termografia onde a medição de temperatu
+ra é feita uma única vez.
+ No caso de TI das mamas são procedimentos 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "silva2014new"
+
+\end_inset
+
+ de preparação do ambiente e cuidados extras ao paciente para que o exame
+ tenha resultado satisfatório, pois vários fatores podem influenciar o resultado
+ final 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lincoln_thesis2015"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Termografia Dinâmica
+\end_layout
+
+\begin_layout Standard
+A termografia dinâmica (TID), é um tipo de termografia onde a mediação de
+ temperatura é realizada através de várias etapas de tempo, ou seja, TID
+ mede as mudanças de temperatura sobre um determinado periodo de tempo.
+ Originalmente conceituada por 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "anbar1987computerized"
+
+\end_inset
+
+, onde notou-se que mudanças bruscas na temperatura da pele produziam informaçõe
+s valiosas, que não podem ser obtidos por meio de uma TI.
+\end_layout
+
+\begin_layout Standard
+A TID apresenta uma característica importante na detecção de lesões mamárias,
+ pois áreas saudáveis apresentam um comportamento distinto de áreas com
+ algum tipo de patologia.
+ Neoplásias são associadas com a angiogênese que causa um aumento de vasculariza
+ção na região, sendo que, os vasos recém formados apresentam a características
+ de possuir poucas terminações nervosas, o que causa um comportamento irregular
+ a estimulos externos, que é detectável através de um exame de termografia
+ dinâmico 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lincoln_thesis2015"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Na prática a TID monitora as mudanças na temperatura da pele, onde o estimulo
+ térmico através de uma corrente de ar produz um contraste entre tecidos
+ saudáveis e doentes.
+ Regiões saudáveis da mama tendem a apresentar uma diminuição de temperatura
+ com o estímulo de ar, enquanto as regiões doentes tendem a permanecer estáticas
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "amalu2004nondestructive"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Section
+Registro de Imagens
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:fundamentation:image_registration"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Quando imagens que foram extraídas de diferentes tempos, pontos de vista
+ ou aparelhos precisam ser comparadas, ocorre um problema de alinhamento
+ das coordenadas dessas imagens.
+ É necessário efetuar alguma forma de processamento para que essas imagens
+ possam ser comparadas adequadademente .
+
+\emph on
+ 
+\emph default
+O 
+\emph on
+Registro de Imagens 
+\emph default
+é uma técnica que consegue mapear ou alinhar os pontos de uma imagem para
+ pontos homólogos de um objeto em outra imagem.
+ A Figura
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fundamentation:image_registration:mapping"
+
+\end_inset
+
+ mostra o efeito desse mapeamento.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/fundamentation/image_registration/mapping.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Registro de imagens é a tarefa de achar uma transformação espacial de uma
+ imagem em outra.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fundamentation:image_registration:mapping"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ibanez2003itk"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Na literatura, é possível encontrar diversas definições para o problema
+ de registro de imagens.
+ De acordo com 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "brown1992survey"
+
+\end_inset
+
+, o processo de registro de imagens é transformação de conjuntos distintos
+ de dadados para um mesmo sistema de coordenadas.
+ Em 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "crum2014non"
+
+\end_inset
+
+ é definido como um processo que determina correspondências entre as característ
+icas de imagens extraídas em diferentes momentos, pontos de vista ou aparelhos.
+ Tais correspondências podem ser utilizadas para aplicar transformações
+ (rotação, translação, alongamento, etc.) em uma imagem de forma que seja
+ posssível a comparação entre as duas imagens.
+ A forma mais intuitiva de utilização do registro é para corrigir diferenças
+ na posição entre scans .
+ Registro de imagens adiciona valor à imagens, permitindo que imagens estruturai
+s (CT, MR, ultrasom) e funcionais (PET, SPECT, functional MRI) sejam vistas
+ e analisadas no mesmo sistema de coordenadas, e facilita o uso de novas
+ imagens, como para monitorar e quantificar a evolução de uma doença à medida
+ que o tempo passa 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "crum2014non"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+O registro de imagens pode ser classificado como 
+\emph on
+rígido 
+\emph default
+(onde pressupõe-se que as imagens são objetos em que transformações simples
+ como a rotação e translação são capazes de mapear as imagens distintas)
+ ou 
+\emph on
+não-rigido 
+\emph default
+(onde não é possível realizar o mapeamento sem realizar algum alargamento
+ local na imagem a ser mapeada)
+\emph on
+ 
+\emph default
+também chamado de 
+\emph on
+deformável 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "crum2014non"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fluxo-registro"
+
+\end_inset
+
+ mostra o fluxograma básico de um processo de registro de imagens.
+ O conjuto de entrada básico de um processo de registro de imagens é composto
+ de duas imagens: uma definida como fixa 
+\begin_inset Formula $f(X)$
+\end_inset
+
+, e outra definida como móvel 
+\begin_inset Formula $m(X)$
+\end_inset
+
+, uma métrica de similaridade, uma função de transformação, um otimizador
+ e um interpolador.
+ O processo pode ser visto como um problema de otimização com o objetivo
+ de achar a melhor transformação
+\begin_inset Formula $T$
+\end_inset
+
+ que mapeie a imagem móvel na imagem fixa 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ibanez2003itk"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement h
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fundamentation/registration/images/fluxo.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fluxograma do processo de registro de imagens.
+ Fonte: 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "parraga2008atlas"
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fluxo-registro"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A métrica de similaridade é responsável por dizer o quanto duas imagens
+ são semelhantes.
+ A transformação é o que define como os pontos da imagem móvel serão mapeados
+ na imagem fixa, sendo que o otimizador é responsável por encontrar a melhor
+ função de transformação que maximize a métrica de similaridade entre as
+ duas imagens.
+ O interpolador é responsável por efetuar a transformação da imagem móvel.
+\end_layout
+
+\begin_layout Standard
+Em imagens médicas, o registro é responsável por alinhas duas imagens para
+ que essas possam ser relacionadas 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "hajnal2001medical"
+
+\end_inset
+
+, podendo ser extraídas por sensores distintos ou em diferentes tempos,
+ como no caso da 
+\emph on
+TID
+\emph default
+.
+\end_layout
+
+\begin_layout Subsection
+Registro deformável 
+\emph on
+B-Spline
+\end_layout
+
+\begin_layout Section
+Matrizes de Co-ocorrência de Níveis de Cinza
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:fundamentation:glcm"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A análise de textura em imagens é uma técnica importante na identificação
+ de características em imagens digitais.
+ Uma das primeiras técnicas utilizadas para a extração dessas características
+ foram as Matrizes de Co-ocorrências de níveis de cinza também chamadas
+ de 
+\emph on
+GLCMs 
+\emph default
+(Gray Level Co-ocurrence Matrix) originalmente propostas em 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "haralick1973textural"
+
+\end_inset
+
+.
+ Desde então elas vem sendo bastante utilizadas em várias aplicações de
+ análise de textura e permanecem sendo uma ferramenta importante no domínio
+ de análise de texturas 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sebastian2012gray"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A GLCM é uma técnica que utilizada para extrair características estatísticas
+ de textura de segunda ordem 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "albregtsen2008statistical"
+
+\end_inset
+
+, ou seja, a medição considera a relação entre pares de pixels, geralmente
+ vizinhos 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "glcm_tutorial"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Subsection
+Construção de uma GLCM
+\end_layout
+
+\begin_layout Standard
+Seja 
+\begin_inset Formula $I$
+\end_inset
+
+ uma imagem em níveis de cinza e
+\begin_inset Formula $N$
+\end_inset
+
+ a quantidade de níveis de cinza, uma matriz de co-ocurrência 
+\begin_inset Formula $G$
+\end_inset
+
+ é uma matriz quadrada de ordem 
+\begin_inset Formula $N$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sebastian2012gray"
+
+\end_inset
+
+.
+ O elemento da matriz 
+\begin_inset Formula $P(i,j|\Delta x,\Delta y)$
+\end_inset
+
+ é a frequência relativa em que dois pixels de intensidade 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+, separados por uma distância 
+\begin_inset Formula $(\Delta x,\Delta y)$
+\end_inset
+
+, são vizinhos.
+ Também é possível dizer que o elemento 
+\begin_inset Formula $P(i,j|d,\theta)$
+\end_inset
+
+ contém os valores da probabilidade de segunda ordem para mudanças entre
+ os níveis de cinza 
+\begin_inset Formula $i$
+\end_inset
+
+ e 
+\begin_inset Formula $j$
+\end_inset
+
+ em uma distância 
+\begin_inset Formula $d$
+\end_inset
+
+ e um ângulo 
+\begin_inset Formula $\theta$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "albregtsen2008statistical"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Seja 
+\begin_inset Formula $I$
+\end_inset
+
+ uma imagem de dimensões 
+\begin_inset Formula $WxH$
+\end_inset
+
+, então uma GLCM de ir pode ser definida pela Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:glcm:def"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+G(i,j|\Delta x,\Delta y)=\sum_{p=1}^{W}\sum_{q=1}^{H}A\label{eq:glcm:def}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+A=\begin{cases}
+1,\:se\:I(p,q)=i\:e\:I(p+\Delta x,q+\Delta y)=j\\
+0,\:caso\:contrário
+\end{cases}\label{eq:glcm:case}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Como exemplo temos uma imagem 
+\begin_inset Formula $I$
+\end_inset
+
+ de dimensões 
+\begin_inset Formula $5x5$
+\end_inset
+
+, com 
+\begin_inset Formula $4$
+\end_inset
+
+ níveis de cinza.
+ Então as matriz de co-ocorrência 
+\begin_inset Formula $G(i,j|\Delta x=1,\Delta y=0)$
+\end_inset
+
+ e 
+\begin_inset Formula $G(i,j|\Delta x=1,\Delta y=1)$
+\end_inset
+
+ são representadas abaixo.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+I=\begin{bmatrix}2 & 0 & 2 & 1 & 1\\
+2 & 1 & 2 & 3 & 1\\
+3 & 1 & 3 & 2 & 0\\
+0 & 0 & 1 & 2 & 2\\
+3 & 3 & 3 & 1 & 1
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+G(i,j|\Delta x=1,\Delta y=0)=\begin{bmatrix}1 & 1 & 1 & 0\\
+0 & 2 & 2 & 1\\
+2 & 2 & 1 & 1\\
+0 & 3 & 1 & 2
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\[
+G(i,j|\Delta x=1,\Delta y=1)=\begin{bmatrix}0 & 0 & 1 & 2\\
+0 & 3 & 0 & 1\\
+0 & 3 & 2 & 1\\
+2 & 0 & 1 & 0
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+GLCM Normalizada
+\end_layout
+
+\begin_layout Standard
+Considere 
+\begin_inset Formula $N=\sum_{i}\sum_{j}G_{d}(i,j)$
+\end_inset
+
+, que é a quantidade co-ocorrências de pares em 
+\begin_inset Formula $G_{d}$
+\end_inset
+
+.
+ Seja 
+\begin_inset Formula $GN_{d}(i,j)=\frac{1}{N}G_{d}(i,j)\cdot GN_{d}$
+\end_inset
+
+, chamada de matriz de co-ocorrência normalizada, onde as entradas 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+ de 
+\begin_inset Formula $GN_{d}(i,j)$
+\end_inset
+
+ são as probabilidades de co-ocorrência de um determinado pixel com intensidade
+ 
+\begin_inset Formula $i$
+\end_inset
+
+ ser separado de um pixel de intensidade
+\begin_inset Formula $j$
+\end_inset
+
+ por uma distância 
+\begin_inset Formula $k$
+\end_inset
+
+ em uma determinada direção 
+\begin_inset Formula $d$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sebastian2012gray"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Características de Textura
+\end_layout
+
+\begin_layout Standard
+A partir de uma GLCM, é possível extrair um conjunto de características
+ que descrevem a textura de determinada imagem 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "albregtsen2008statistical"
+
+\end_inset
+
+, disponíveis em 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "haralick1973textural,haralick1979statistical,conners1984segmentation"
+
+\end_inset
+
+.
+ De acordo com 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "glcm_tutorial"
+
+\end_inset
+
+ temos as seguintes características que podem ser extraídas a partir de
+ uma GLCM:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Constraste=\sum_{i,j=0}^{N-1}P_{i,j}(i-j)^{2}\label{eq:fundamentation:glcm:contraste}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Dissimilaridade=\sum_{i,j=0}^{N-1}P_{i,j}|i-j|\label{eq:fundamentation:glcm:dissimilaridade}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Homogeineidade=\sum_{i,j=0}^{N-1}\frac{P_{i,j}}{1+(i-j)^{2}}\label{eq:fundamentation:glcm:homogeneidade}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+ASM=\sum_{i,j=0}^{N-1}P_{i,j}^{2}\label{eq:fundamentation:glcm:asm}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Energia=\sqrt{ASM}\label{eq:fundamentationg:glcm:energia}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Correlação=\sum_{i,j=0}^{N-1}P_{i,j}\left[\frac{(i-\mu_{i})\cdot(j-\mu_{j})}{\sqrt{(\sigma_{i}^{2})\cdot(\sigma_{j}^{2})}}\right]\label{eq:fundamentationg:glcm:correlação}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mu_{i}=\sum_{i,j=0}^{N-1}i\cdot(P_{i,j})\label{eq:fundamentationg:glcm:media_i}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mu_{j}=\sum_{i,j=0}^{N-1}j\cdot(P_{i,j})\label{eq:fundamentationg:glcm:media_j}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sigma_{i}^{2}=\sum_{i,j=0}^{N-1}P_{i,j}(i-\mu_{i})^{2}\label{eq:fundamentationg:glcm:variantion_i}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sigma_{j}^{2}=\sum_{i,j=0}^{N-1}P_{i,j}(j-\mu_{j})^{2}\label{eq:fundamentationg:lcm:variation_j}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+onde 
+\begin_inset Formula $N$
+\end_inset
+
+ é quantidade de níveis de cinza 
+\begin_inset Formula $P_{i,j}$
+\end_inset
+
+é a frequência de um par de pixels 
+\begin_inset Formula $i$
+\end_inset
+
+ e 
+\begin_inset Formula $j$
+\end_inset
+
+ serem vizinhos.
+ 
+\end_layout
+
+\begin_layout Section
+Redução de Dimensionalidade
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:fundamentation:dimensionality_reduction"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Em 
+\emph on
+Aprendizado de Máquina
+\emph default
+, geralmente possuimos um conjunto de dados previamente disponíveis para
+ utilizar em um classificador qualquer.
+ Nesse conjunto de dados, cada índividuo é representado por um conjuto de
+ características extraídas do dado original.
+ Por exemplo, em imagens de níveis de cinza é possível extrair as característica
+s representadas pelas Equações 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:glcm:contraste"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:glcm:dissimilaridade"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:glcm:homogeneidade"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:glcm:asm"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentationg:glcm:energia"
+
+\end_inset
+
+e
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentationg:glcm:correlação"
+
+\end_inset
+
+ a partir de um GLCM qualquer.
+ A quantidade de características que um indivíduo possui é o que chamamos
+ de 
+\emph on
+dimensão
+\emph default
+.
+ Para um conjunto de dados de dimensão 
+\begin_inset Formula $D=6$
+\end_inset
+
+, então temos 
+\begin_inset Formula $6$
+\end_inset
+
+ características que descrevem cada índividuo.
+ 
+\end_layout
+
+\begin_layout Standard
+A fácil pensar que quanto maior o número de caracterísicas, melhor para
+ discriminar os índividuos.
+ Porém, um conjunto de dados com uma dimensão muito alta implica maior complexid
+ade no problema de classificação.
+ Outro problema é que, em muitos casos, nem todas as características são
+ consideradas importantes para o entendimento de um certo problema
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fodor2002survey"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Em termos matemáticos, o problema de 
+\emph on
+Redução de Dimensionalidade
+\emph default
+ pode ser descrito da seguinte forma: Dado um conjunto dados com 
+\begin_inset Formula $p$
+\end_inset
+
+ dimensões 
+\begin_inset Formula $x=(x_{1},x_{2},...,x_{p})^{T}$
+\end_inset
+
+, encontrar uma representação de menor dimensão 
+\begin_inset Formula $s=(s_{1},s_{2},...,s_{k})^{T}$
+\end_inset
+
+, onde 
+\begin_inset Formula $k\le p$
+\end_inset
+
+ , que seja capaz de capturar o conteúdo dos dados originais, de acordo
+ com um critério pré-estabelecido 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fodor2002survey"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Algumas técnicas de redução de dimensionalidade são descritas abaixo
+\emph on
+.
+\end_layout
+
+\begin_layout Subsection
+Seleção de características univariada
+\end_layout
+
+\begin_layout Standard
+A seleção de características univariada seleciona as melhores características
+ baseada em testes estatísticos univariados 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "scikit-learn-feat"
+
+\end_inset
+
+.
+ Por exemplo, podemos selecionar as 
+\begin_inset Formula $K$
+\end_inset
+
+ melhores características através de um teste estatístico que classifique
+ as características que melhor separam as classes de índividuos de um conjunto
+ de dados.
+ 
+\end_layout
+
+\begin_layout Subsection
+
+\emph on
+Principal Component Analysis
+\end_layout
+
+\begin_layout Standard
+O 
+\emph on
+Principal Component Analysis 
+\emph default
+(PCA) é uma técnica de redução linear 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "jackson2005user"
+
+\end_inset
+
+.
+ Por ser baseada na matriz de covariância dos dados, é um método de segunda
+ ordem.
+ O PCA reduz a dimensionalidade encontrando os 
+\emph on
+principais componentes 
+\emph default
+(PCs) do conjunto de dados com maior variância, que são vetores formados
+ pelas combinações das características originais.
+ Por exemplo, o primeiro PC é o que possui maior variância, Temos 
+\begin_inset Formula $s_{1}=x^{T}w_{1}$
+\end_inset
+
+, onde o vetor de coeficientes de 
+\begin_inset Formula $p$
+\end_inset
+
+ dimensões é 
+\begin_inset Formula $w_{1}=(w_{1,1},...,w_{1,p})^{T}$
+\end_inset
+
+ que resolve: 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+w_{1}=arg\:max_{||w=1||}Var\{x^{T}w\}\label{eq:fundamentation:reduction:pca}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O segundo PC é a combinação linear com a segunda maior variância e ortogonal
+ ao primeiro PC, e assim sucessivamente.
+ Existem tantos PCs quanto o número de características originais 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fodor2002survey"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Geralmente, normaliza-se os dados antes da aplicação do PCA, pois o método
+ é dependente da escala.
+ Um dos métodos possíveis para a normalização é escalar cada características
+ entre 0 e 1.
+ Então, assumindo que os dados estão normalizados, podemos calcular a matriz
+ de covariância
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C=\frac{1}{p-1}\sum_{i=1}^{p}(x_{i}-\bar{x})\cdot(x_{i}-\bar{x})^{T},\label{eq:fundamentation:reduction:pca:cov}
+\end{equation}
+
+\end_inset
+
+onde 
+\begin_inset Formula $\bar{x}$
+\end_inset
+
+é o vetor médio dado por
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\bar{x}=\frac{1}{p}\sum_{i=1}^{p}x_{i}\label{eq:fundamentation:reduction:pca:mean_vector}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Utilizando a relação dos autovetores e autovalores
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Cv=\lambda v,\label{eq:fundamentation:reduction:pca:eigen}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+onde 
+\begin_inset Formula $v$
+\end_inset
+
+ é um autovetor de 
+\begin_inset Formula $C$
+\end_inset
+
+ e 
+\begin_inset Formula $\lambda$
+\end_inset
+
+o seu respectivo autovalor.
+ Cada autovetor corresponde a um PC, e os respectivos autovalores indicam
+ o grau de variância de cada PC.
+ Assim, escolhendo os 
+\begin_inset Formula $k$
+\end_inset
+
+ PCs com maior variância absoluta, podemos mapear nossos dados originais
+ em um novo conjunto 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+S=W^{T}X,\label{eq:fundamentation:reduction:pca:result}
+\end{equation}
+
+\end_inset
+
+onde 
+\begin_inset Formula $X$
+\end_inset
+
+ é o conjunto de dados originais e 
+\begin_inset Formula $W$
+\end_inset
+
+ uma matriz de transformação
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+W=(v_{1},...v_{k}),\label{eq:fundamentation:reduction:pca:transform}
+\end{equation}
+
+\end_inset
+
+onde 
+\begin_inset Formula $v_{1}$
+\end_inset
+
+é o PC de maior variância e 
+\begin_inset Formula $v_{k}$
+\end_inset
+
+ o k-ésimo PC de maior variância.
+\end_layout
+
+\begin_layout Standard
+É uma técnica muito útil quando queremos transformar nossas características
+ originais, onde alguma delas não oferecem muita variação nos dados, em
+ um espaço novo com menor dimensão onde as novas características possuem
+ uma melhor dispersão nos dados.
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fundamentation:reduction:pca:samples"
+
+\end_inset
+
+ mostra um conjunto de índividuos gerados por distribuições normais multivariada
+s com 3 características.
+ Utilizando o PCA para reduzir o espaço dimensional para apenas 2, temos
+ a Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fundamentation:reduction:pca:samples_transformed"
+
+\end_inset
+
+, que exemplifica o efeito da redução.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/fundamentation/dimensionality_reduction/pca_samples.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Amostras geradas utilizando um distribuição normal multivariada.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fundamentation:reduction:pca:samples"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/fundamentation/dimensionality_reduction/pca_samples_transformd.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Amostras reduzidas para o espaço bidimensional utilizando os dois principais
+ componentes.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fundamentation:reduction:pca:samples_transformed"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+
+\emph on
+Linear Discriminant Analysis
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+Linear Discriminant Analysis 
+\emph default
+(LDA) é uma técnica similar ao PCA, onde buscamos combinações lineares da
+ características para formar um novo espaço de dimensões reduzidas.
+ A diferênça é que ao contrário do PCA que busca combinações com maior variância
+ entre os dados, o LDA procura combinações que melhor separam as classes
+ de um determinado problema, portanto podemos dizer que o LDA é uma técnica
+ supervisionada, pois precisamos conhecer as classes que cada índividuo
+ pertence.
+\end_layout
+
+\begin_layout Standard
+Normalmente é utilizado para redução de dimensionalidade, como um pré-processame
+nto de técnicas de aprendizado de máquina e reconhecimento de padrões
+\begin_inset CommandInset citation
+LatexCommand cite
+key "raschkaLDA"
+
+\end_inset
+
+.
+ Também é possível utilizar o LDA como um classificador.
+ Originalmente proposto em 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "fisher1936use"
+
+\end_inset
+
+como um problema de 
+\emph on
+2-class
+\emph default
+, que foi generalizado para um problema 
+\emph on
+multi-class 
+\emph default
+em 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "rao1948utilization"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Considerando um conjunto de observações 
+\begin_inset Formula $X$
+\end_inset
+
+ de dimensões 
+\begin_inset Formula $k\times p$
+\end_inset
+
+, em que 
+\begin_inset Formula $k$
+\end_inset
+
+ corresponde à quantidade de indivíduos e 
+\begin_inset Formula $p$
+\end_inset
+
+ à quantidade de características de cada indivíduo.
+ Para cada indivíduo em 
+\begin_inset Formula $X$
+\end_inset
+
+, existe um elemento em 
+\begin_inset Formula $y$
+\end_inset
+
+ que indica a classe ao qual pertence.
+ O objetivo é encontrar uma transformação 
+\begin_inset Formula $W$
+\end_inset
+
+, que maximize a distância entre classes (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fundamentation:reduction:lda:bc"
+
+\end_inset
+
+) e minimize a distância intra-classe (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fundamentation:reduction:lda:wc"
+
+\end_inset
+
+).
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/fundamentation/dimensionality_reduction/wc.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Distância intra-classe.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fundamentation:reduction:lda:wc"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/fundamentation/dimensionality_reduction/bc.png
+	scale 45
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Distancia entre-classes.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fundamentation:reduction:lda:bc"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dessa forma
+\begin_inset Formula $W$
+\end_inset
+
+ mapeia 
+\begin_inset Formula $X$
+\end_inset
+
+ em 
+\begin_inset Formula $\bar{X}$
+\end_inset
+
+ através da Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:reduction:lda:map"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\bar{X}=W^{T}\cdot X\label{eq:fundamentation:reduction:lda:map}
+\end{equation}
+
+\end_inset
+
+onde 
+\begin_inset Formula $W$
+\end_inset
+
+ é formado pelos 
+\begin_inset Formula $m$
+\end_inset
+
+ autovetores com maiores autovalores absolutos da matriz 
+\begin_inset Formula $S$
+\end_inset
+
+ dada pela Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:reduction:lda:sigma"
+
+\end_inset
+
+ .
+ Uma observação importante é que 
+\begin_inset Formula $m<c-1$
+\end_inset
+
+, onde 
+\begin_inset Formula $c$
+\end_inset
+
+ é a quantidade de classes que existem em 
+\begin_inset Formula $y$
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "raschkaLDA"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+S=S_{W}^{-1}\cdot S_{B}\label{eq:fundamentation:reduction:lda:sigma}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A matriz 
+\begin_inset Formula $S_{W}$
+\end_inset
+
+ é o que chamamos de matriz de dispersão intra-classe e é definida por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+S_{W}=\sum_{i=1}^{c}S_{i}\label{eq:fundamentation:reduction:lda:wc}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+S_{i}=\sum_{x\in c_{i}}^{n}(x-\mu_{i})\cdot(x-\mu_{i})^{T}\label{eq:fundamentation:reduction:lda:scatter_every_class}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\mu_{i}=\frac{1}{n_{i}}\sum_{x\in c_{i}}^{n}x_{k}\label{eq:fundamentation:reduction:lda:mean_vector_class}
+\end{equation}
+
+\end_inset
+
+onde, 
+\begin_inset Formula $S_{i}$
+\end_inset
+
+ é matriz de dispersão da classe 
+\begin_inset Formula $c_{i}$
+\end_inset
+
+ e 
+\begin_inset Formula $\mu_{i}$
+\end_inset
+
+ é o vetor que representa os valores médios de cada característica de indivíduos
+ que pertecem a classe 
+\begin_inset Formula $c_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+A matriz 
+\begin_inset Formula $S_{B}$
+\end_inset
+
+ é chamada de matriz de dispersão entre-classes e é definida por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+S_{B}=\sum_{i=1}^{c}N_{i}(\mu_{i}-\mu)\cdot(\mu_{i}-\mu)^{T}\label{eq:fundamentation:reduction:lda:bc}
+\end{equation}
+
+\end_inset
+
+onde, 
+\begin_inset Formula $N_{i}$
+\end_inset
+
+ é a quantidade de indivíduos que pertecem a classe 
+\begin_inset Formula $c_{i}$
+\end_inset
+
+ e 
+\begin_inset Formula $\mu$
+\end_inset
+
+é o vetor que representa a média das características de todos os indivíduos
+ em 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+A vantagem de utilizar o LDA é que simplificamos o problema de classificação
+ criando novas características, a partir das originais, que melhor separam
+ as classes do conjunto de dados.
+ A grande desvantagem é que não é possível saber quais características originais
+ tem maior peso, pois os discriminantes são formados a partir de combinações
+ lineares de todas elas.
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fundamentation:reduction:lda:samples"
+
+\end_inset
+
+ apresenta um conjunto de indivíduos que pertecem a três classes distintas.
+ Cada classe foi gerada a partir de uma distribuição normal multivariada,
+ onde os parâmetros diferem entre elas.
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fundamentation:reduction:lda:samples_transformed"
+
+\end_inset
+
+ apresenta o resultado da aplicação do LDA para efetuar a redução do espaço
+ tridimensional para bidimensional.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/fundamentation/dimensionality_reduction/lda_samples.png
+	scale 50
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Amostras geradas de distribuções normais multivariadas.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fundamentation:reduction:lda:samples"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/fundamentation/dimensionality_reduction/lda_samples_transformed.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Resultado da aplicação do LDA para reduzir as amostras da Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fundamentation:reduction:lda:samples"
+
+\end_inset
+
+.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fundamentation:reduction:lda:samples_transformed"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+
+\emph on
+Support Vector Machines
+\end_layout
+
+\begin_layout Standard
+Problemas de classificação geralmente envolvem classificar se um certo indivíduo
+ pertence à classe 
+\begin_inset Formula $A$
+\end_inset
+
+,
+\begin_inset Formula $B$
+\end_inset
+
+ ou 
+\begin_inset Formula $C$
+\end_inset
+
+.
+ Atualmente existem diversas técnicas de aprendizado de máquina capazes
+ de realizar essa tarefa com êxito e umas das principais técnicas utilizadas
+ hoje em dia são as 
+\emph on
+Support Vector Machines
+\emph default
+ (SVM).
+ Foram originalmente propostas por 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "cortes1995support"
+
+\end_inset
+
+ como uma classificador binário, capaz de dizer se um determinado indivíduo
+ pertence à classe 
+\begin_inset Formula $A$
+\end_inset
+
+ ou 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ São parte do grupo de técnicas de aprendizado supervisionado, onde é necessário
+ conhecer previamente um conjunto de indivíduos para que o algoritmo gere
+ um modelo que seja capaz de predizer qual a classe uma nova entrada pertence.
+\end_layout
+
+\begin_layout Standard
+Uma SVM constrói hiperplanos em um espaço de alta dimensão, que pode ser
+ utilizado para a tarefa de classificação.
+ Uma boa separação é obtida através do hiperplano que possui maior distância
+ entre os pontos mais próximos de cada classe no conjunto de dados de treino
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sklearn-svm"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename fundamentation/svm/images/plot_separating_hyperplane.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Construção de hiperplanos.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fundamentation:svm:hiperplanos"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+\begin_inset CommandInset citation
+LatexCommand cite
+key "sklearn-svm"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+De acordo com 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "giovannitcc"
+
+\end_inset
+
+, dado 
+\begin_inset Formula $(x_{k},y_{k})$
+\end_inset
+
+ o conjunto de amostras para treinamento, sendo que 
+\begin_inset Formula $x_{i}\in\mathbb{R}^{n}$
+\end_inset
+
+ correspondente ao vetor de características do indivíduo 
+\begin_inset Formula $i$
+\end_inset
+
+, 
+\begin_inset Formula $y_{i}\in\{1,-1\}$
+\end_inset
+
+ corresponde à classe do indivíduo 
+\begin_inset Formula $i$
+\end_inset
+
+, sendo 
+\begin_inset Formula $i=1,2,...,k$
+\end_inset
+
+.
+ O objetivo do problema de classificação é encontrar uma função 
+\begin_inset Formula $f(x):\mathbb{R}^{n}\rightarrow\{1,-1\}$
+\end_inset
+
+ que seja capaz de estimar corretamente a classe do indivíduo 
+\begin_inset Formula $x$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Na etapa de treinamento a função 
+\begin_inset Formula $f(x)=(w\cdot x)+b$
+\end_inset
+
+ é estimada, de forma que a seguinte relação seja satisfeita:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y_{i}((w\cdot x_{i})+b)\ge1\label{eq:fundamentation:svm:relation}
+\end{equation}
+
+\end_inset
+
+onde 
+\begin_inset Formula $w$
+\end_inset
+
+ é o vetor normal ao hiperplano e 
+\begin_inset Formula $b$
+\end_inset
+
+ a distância da função 
+\begin_inset Formula $f$
+\end_inset
+
+ em relação à origem.
+ Os valores ótimos de 
+\begin_inset Formula $w$
+\end_inset
+
+ e 
+\begin_inset Formula $b$
+\end_inset
+
+ são encontrados de acordo com a restrição dada pela Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:svm:relation"
+
+\end_inset
+
+ ao minimizar a equação:
+\begin_inset Formula 
+\begin{equation}
+\phi(w)=\frac{w^{2}}{2}\label{eq:fundamentation:svm:min}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+O SVM possibilita encontrar um hiperplano que minimize a ocorrência de erros
+ nos casos em que a separação ótima entre as classes não seja possível.
+ Com o advento de variáveis de folga, é possível relaxar a restrição da
+ Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:svm:relation"
+
+\end_inset
+
+.
+ Dessa forma o SVM resolve problema de otimização:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+min\:\phi(w,\zeta)=\frac{w^{2}}{2}C\sum_{i=1}^{N}\zeta_{i}\label{eq:fundamentation:svm:problem}
+\end{equation}
+
+\end_inset
+
+sujeito à:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+y_{i}((w\cdot x_{i})+b)+\zeta_{i}\ge1\label{eq:fundamentation:svm:relaxed}
+\end{equation}
+
+\end_inset
+
+onde 
+\begin_inset Formula $C$
+\end_inset
+
+ é um parâmetro de treinamento que define o equilíbrio entre a complexicidade
+ do modelo e o erro de treinamento.
+\end_layout
+
+\begin_layout Standard
+Utilizando a teoria do multiplicadores de Lagrange é possível obter:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+L(a)=\sum_{i=1}^{N}a_{i}-\frac{1}{2}\sum_{i,j=1}^{N}a_{i}a_{j}y_{i}y_{j}(x_{i},x_{j})\label{eq:fundamentation:svm:lagrange}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Assim, o objetivo passar a ser encontrar os multiplicadores de Lagrange
+ 
+\begin_inset Formula $a_{i}$
+\end_inset
+
+ ótimos que satisfação a Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:svm:lagrange2"
+
+\end_inset
+
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "chaves2006extraccao"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\sum_{i=1}^{N}a_{i}y_{i}=0,\:0\le a_{i}\le C\label{eq:fundamentation:svm:lagrange2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Apenas os pontos onde a restrição imposta pela Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:svm:relation"
+
+\end_inset
+
+ é igual
+\begin_inset Formula $1$
+\end_inset
+
+, tem correspondentes 
+\begin_inset Formula $a_{i}\neq0$
+\end_inset
+
+.
+ Esses pontos são chamados de vetores de suporte, e estão geometricamente
+ sobre as margens, possuindo grande importância na definição do hiperplano
+ ótimo, pois delimitam as margens do conjunto de treinamento.
+ Na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fundamentation:svm:vetores"
+
+\end_inset
+
+, os vetores de suporte são representados por circulos circuscritos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/fundamentation/svm/vetores.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Vetores de suporte.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fundamentation:svm:vetores"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pontos além da margem não tem influência suficiente para determinar o hiperplano
+, porém esses vetores de suporte são essenciais nessa tarefa.
+\end_layout
+
+\begin_layout Standard
+Agora considere o conjunto de amostras da Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fundamentation:svm:data_nao_linear"
+
+\end_inset
+
+.
+ Vemos que não é possível traçar uma reta capaz de separar as classes, tornando
+ o problema um caso não-linear.
+ De acordo com 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "giovannitcc"
+
+\end_inset
+
+, necessitamos de uma transformação não-linear capaz de mapear o conjunto
+ original (espaço dados) para um novo espaço (espaço de características).
+ Esse novo espaço deve apresentar dimensões suficientes para que seja possível
+ realizar a separação linear do conjunto de dados.
+ Dessa forma, o hiperplano de separação é definido como uma função linear
+ de vetores retirados do espaço de características e não do espaço de dados.
+ A construção desse conjunto depende de uma função 
+\emph on
+
+\begin_inset Formula $K$
+\end_inset
+
+
+\emph default
+, chamada de 
+\emph on
+kernel
+\emph default
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "haykin2001redes"
+
+\end_inset
+
+.
+ A Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:svm:lagrange3"
+
+\end_inset
+
+ apresenta a forma modificada da 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:svm:lagrange2"
+
+\end_inset
+
+ utilizando uma função 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/fundamentation/svm/nao_linear.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Conjunto de indivíduos não separáveis linearmente.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fundamentation:svm:data_nao_linear"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+L(a)=\sum_{i=1}^{N}a_{i}-\frac{1}{2}\sum_{i,j=1}^{N}a_{i}a_{j}y_{i}y_{j}K(x_{i},x_{j})\label{eq:fundamentation:svm:lagrange3}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um conjunto de funções amplamente utilizadas em conjunto com o SVM para
+ classificação de dados não linearmente separavéis sãos as funções de base
+ radial (RBF).
+ Uma função RBF é definida por:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+K(x_{i},y_{i})=exp(-\gamma||x_{i}-y_{i}||^{2})\label{eq:fundamentation:svm:rbf}
+\end{equation}
+
+\end_inset
+
+onde 
+\begin_inset Formula $\gamma=1/\sigma^{2}$
+\end_inset
+
+, onde 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ é a variância.
+\end_layout
+
+\begin_layout Chapter
+Metodologia 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:metodologia"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "references"
+options "abntex2-num"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
