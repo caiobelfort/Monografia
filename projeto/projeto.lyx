@@ -428,9 +428,35 @@ O
 \emph on
 Registro de Imagens 
 \emph default
-é uma técnica que consegue mapear ou alinhar os pontos de uma imagem para
- pontos homólogos de um objeto em outra imagem.
- A Figura
+é uma técnica que utiliza uma transformação 
+\begin_inset Formula $T$
+\end_inset
+
+ para mapear a posição e o valor de intensidade de um pixel 
+\begin_inset Formula $p$
+\end_inset
+
+ da imagem 
+\begin_inset Formula $A$
+\end_inset
+
+ para 
+\begin_inset Formula $q$
+\end_inset
+
+ na imagem 
+\begin_inset Formula $B$
+\end_inset
+
+, como pode ser visto pela Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:image_registration:transform_eq"
+
+\end_inset
+
+.
+ Figura
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:fundamentation:image_registration:mapping"
@@ -438,6 +464,18 @@ reference "fig:fundamentation:image_registration:mapping"
 \end_inset
 
  mostra o efeito desse mapeamento.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+T:p\rightarrow q\Leftrightarrow T(p)=q\label{eq:fundamentation:image_registration:transform_eq}
+\end{equation}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -505,7 +543,7 @@ key "brown1992survey"
 \end_inset
 
 , o processo de registro de imagens é transformação de conjuntos distintos
- de dadados para um mesmo sistema de coordenadas.
+ de dados para um mesmo sistema de coordenadas.
  Em 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -535,35 +573,6 @@ key "crum2014non"
 \end_layout
 
 \begin_layout Standard
-O registro de imagens pode ser classificado como 
-\emph on
-rígido 
-\emph default
-(onde pressupõe-se que as imagens são objetos em que transformações simples
- como a rotação e translação são capazes de mapear as imagens distintas)
- ou 
-\emph on
-não-rigido 
-\emph default
-(onde não é possível realizar o mapeamento sem realizar algum alargamento
- local na imagem a ser mapeada)
-\emph on
- 
-\emph default
-também chamado de 
-\emph on
-deformável 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "crum2014non"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
 A Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -573,29 +582,35 @@ reference "fig:fluxo-registro"
 
  mostra o fluxograma básico de um processo de registro de imagens.
  O conjuto de entrada básico de um processo de registro de imagens é composto
- de duas imagens: uma definida como fixa 
-\begin_inset Formula $f(X)$
-\end_inset
+ por:
+\end_layout
 
-, e outra definida como móvel 
-\begin_inset Formula $m(X)$
-\end_inset
+\begin_layout Itemize
+Imagem fixa: imagem estática cujo espaço de coordenadas é o objetivo.
+\end_layout
 
-, uma métrica de similaridade, uma função de transformação, um otimizador
- e um interpolador.
- O processo pode ser visto como um problema de otimização com o objetivo
- de achar a melhor transformação
-\begin_inset Formula $T$
-\end_inset
+\begin_layout Itemize
+Imagem móvel: imagem que será transformada para o espaço de coordenadas
+ da imagem fixa.
+\end_layout
 
- que mapeie a imagem móvel na imagem fixa 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "ibanez2003itk"
+\begin_layout Itemize
+Transformação: função que irá ser responsável por mapear os pixels da imagem
+ móvel na imagem fixa.
+\end_layout
 
-\end_inset
+\begin_layout Itemize
+Métrica: uma medida que indica o quanto duas imagens são equivalentes.
+\end_layout
 
-.
+\begin_layout Itemize
+Interpolador: uma técnica para interpolar os valores da imagem móvel quando
+ são reamostrados através da transformação.
+\end_layout
+
+\begin_layout Itemize
+Otimizador: o método utilizador para achar os melhores parâmetros da transformaç
+ão que otimizam a métrica entres as duas imagens.
  
 \end_layout
 
@@ -609,7 +624,7 @@ status collapsed
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename fundamentation/registration/images/fluxo.png
+	filename figures/fundamentation/image_registration/fluxo.png
 	scale 50
 
 \end_inset
@@ -623,14 +638,7 @@ status collapsed
 
 \begin_layout Plain Layout
 Fluxograma do processo de registro de imagens.
- Fonte: 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "parraga2008atlas"
-
-\end_inset
-
-
+ 
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:fluxo-registro"
@@ -645,42 +653,237 @@ name "fig:fluxo-registro"
 
 \end_layout
 
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-A métrica de similaridade é responsável por dizer o quanto duas imagens
- são semelhantes.
- A transformação é o que define como os pontos da imagem móvel serão mapeados
- na imagem fixa, sendo que o otimizador é responsável por encontrar a melhor
- função de transformação que maximize a métrica de similaridade entre as
- duas imagens.
- O interpolador é responsável por efetuar a transformação da imagem móvel.
-\end_layout
-
-\begin_layout Standard
-Em imagens médicas, o registro é responsável por alinhas duas imagens para
- que essas possam ser relacionadas 
+\begin_layout Fonte
 \begin_inset CommandInset citation
 LatexCommand cite
-key "hajnal2001medical"
+key "parraga2008atlas"
 
 \end_inset
 
-, podendo ser extraídas por sensores distintos ou em diferentes tempos,
- como no caso da 
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Métricas de similaridade
+\end_layout
+
+\begin_layout Standard
+As métricas de similaridade são provavelmente o elemento mais crítico no
+ problema do registro de imagens, pois define o objetivo final do processo
+ que é medir o quanto a imagem móvel é equivalente à imagem fixa após a
+ transformação ser aplicada.
+ Existem métricas que podem ser utilizadas no processo do registro, entre
+ elas temos a 
 \emph on
-TID
+Correlação Cruzada Normalizada
 \emph default
+ dada pela Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:image_registration:normalized_cross_correlation"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+C(f,m)=-1\cdot\frac{\sum_{i=1}^{N}(f_{i}\cdot m_{i})}{\sqrt{\sum_{i=1}^{N}f_{i}^{2}\cdot}\sum_{i=1}^{N}m_{i}^{2}}\label{eq:fundamentation:image_registration:normalized_cross_correlation}
+\end{equation}
+
+\end_inset
+
+onde, 
+\begin_inset Formula $f$
+\end_inset
+
+ e 
+\begin_inset Formula $m$
+\end_inset
+
+ são os valores de pixels em forma de vetor das imagens fixa e móvel, respectiva
+mente, 
+\begin_inset Formula $i$
+\end_inset
+
+ indica a posição do pixel em 
+\begin_inset Formula $f$
+\end_inset
+
+ e 
+\begin_inset Formula $m$
+\end_inset
+
+, 
+\begin_inset Formula $N$
+\end_inset
+
+ é a quantidade pixels a ser considerado.
+ Note que o a equação é multiplicada por 
+\begin_inset Formula $-1$
+\end_inset
+
 .
+ Esse fator é responsável por fazer o otimizador procurar os valores que
+ mais se aproximem de 
+\begin_inset Formula $0$
+\end_inset
+
+, que é quando duas imagens são ditas equivalentes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ibanez2003itk"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsection
+Transformação
+\end_layout
+
+\begin_layout Standard
+A transformormação é responsável por mapear os pixels da imagem móvel para
+ a imagem fixa.
+ Podemos dividir as transformações em dois conjuntos distintos, rígidas
+ e deformáveis.
+ 
+\end_layout
+
+\begin_layout Standard
+As transformações rígidas aplicam sobre a imagem móvel apenas transformações
+ simples como operações de translação e rotação, dessa forma a imagem móvel
+ não sofre deformações, sofrendo apenas o alinhamento de suas coordenadas.
+ Registros que utilizam transformações rígidas são chamados de regístro
+ rígidos e na prática não são utilizados individualmente, pois não são capazes
+ de corrigir erros locais que necessitam de transformações mais complexas
+ para serem resolvidas.
+ Apesar disso, são bastante utilizados como pré-processamento para os chamados
+ regístros deformáveis.
+ 
+\end_layout
+
+\begin_layout Standard
+As transformações deformáveis são capazes de efetuar deformações nas imagens,
+ dessa forma é possível corrigir erros que uma transformação rígida não
+ é capaz de corrigir.
+ Regístro de imagens que utilizam esse tipo de transformação são geralmente
+ chamados de regístros não-rígidos ou deformáveis.
+ Um tipo de registro deformável muito utilizado atualmente é o 
+\emph on
+Registro Deformável B-Spline
+\emph default
+, que utiliza 
+\emph on
+B-Splines 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "de1978practical"
+
+\end_inset
+
+ 
+\emph default
+de terceira ordem para gerar um conjunto de parâmetros para realizar o mapeament
+o da imagem móvel.
+\end_layout
+
+\begin_layout Subsection
+Interpolador
+\end_layout
+
+\begin_layout Standard
+No processo do registro, a métrica geralmente compara os valores de intensidade
+ dos pixels da imagem fixa com os pixels correspondentes na imagem móvel
+ transformada.
+ Quando transformamos um ponto de um espaço para o outro através de uma
+ transformação, este geralmente irá ser mapeado para uma posição fora da
+ grade de pixels da imagem.
+ Dessa forma precisamos de interpolador para calcular o valor de pixel na
+ posição mapeada.
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fundamentation:image_registration:interpolation_1"
+
+\end_inset
+
+ (esquerda) mostra o mapeamento do espaço da imagem fixa na imagem móvel
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/fundamentation/image_registration/ITKSoftwareGuide-Book2258x.png
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A imagem móvel é mapeada no espaçõ da imagem fixa a partir de uma transformação.
+ Um iterador anda pela imagem fixa e as coordenadas são mapeada na imagem
+ móvel.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fundamentation:image_registration:interpolation_1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+\begin_inset CommandInset citation
+LatexCommand cite
+key "ibanez2003itk"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Subsection
 Registro deformável 
 \emph on
-B-Spline
+B-Spline 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:fundamentation:image_registration:bspline_registration"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -2189,7 +2392,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Graphics
-	filename fundamentation/svm/images/plot_separating_hyperplane.png
+	filename figures/fundamentation/svm/plot_separating_hyperplane.png
 	scale 50
 
 \end_inset
@@ -2660,6 +2863,739 @@ name "sec:metodologia"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Nesta seção, são apresentados os procedimentos propostos para a realização
+ dos objetivos descritos na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:objectives"
+
+\end_inset
+
+.
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:metothology:fluxogram"
+
+\end_inset
+
+ apresenta o fluxo das etapas executadas.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/fluxograma_metodologia.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fluxograma da metodologia.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:metothology:fluxogram"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Aquisição de Imagens
+\end_layout
+
+\begin_layout Standard
+A aquisição de imagens é uma etapa crucial na metodologia proposta, pois
+ sem imagens para casos de teste não é possível validar a metodologia.
+ Atualmente existem poucos bancos de imagem termográfias mamárias disponíveis
+ para o público geral, sendo a maioria deles de propósito privado.
+ As imagens utilizadas neste trabalho são provinientes do 
+\emph on
+Database for Mastology Research with Infrared Image 
+\emph default
+- DMR-IR, acessível através da interface on-line 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+httt://visual.ic.uff.br/dmi
+\end_layout
+
+\end_inset
+
+.
+ Mais informações sobre a base de imagens utilizada podem ser encontradas
+ em 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "silvaasmd"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "silva2014new"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+De acordo com 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "silva2014new"
+
+\end_inset
+
+, no protocolo de termografias dinâmicas as pacientes são submetidas à um
+ estresse térmico causado pela refrigeração por um ventilador elétrico.
+ Quando a média de temperatura entre as mamas é de 30.5ºC (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:acquisition:mean_monitoring"
+
+\end_inset
+
+), ou 5 minutos de estresse foram aplicados, a refrigeração é interrompida
+ e a aquisição sequencial das imagens é iniciada, extraíndo um total de
+ 20 imagens sequenciais com intervalos de tempo fixos.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/protocol_mean.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Monitoramento da temperatura média para começar a aquisição sequencial.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:acquisition:mean_monitoring"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+\begin_inset CommandInset citation
+LatexCommand cite
+key "silva2014new"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+As imagens utilizadas possuem dimensão de 640 pixels de largura e 480 pixels
+ de largura e foram utilizados os valores de temperatura (em graus celsius)
+ obtidos diretamente da câmera termográfica utilizada na aquisição.
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:acquisition:matrix"
+
+\end_inset
+
+ apresenta essas matrizes são armazenadas em formato 
+\emph on
+.txt
+\emph default
+, onde cada exame é composto por 20 arquivos separados por tempo de acquisição.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/temp_matrix.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Matriz de temperatura.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:acquisition:matrix"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lincoln_thesis2015"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+No total foram utilizados 70 exames previamente diagnósticados para aplicação
+ desta metodologia, sendo que 35 são de pacientes saudáveis e os 35 restantes
+ de pacientes que apresentam algum tipo de anomalia nas mamas.
+\end_layout
+
+\begin_layout Section
+Extração da Região de Interesse
+\end_layout
+
+\begin_layout Standard
+Essa etapa consiste em extrair a região de interesse (ROI) da imagem.
+ Como a metodologia tem o objetivo de detectar anomalias no padrão de vasculariz
+ação das mamas, é de interesse que as demais regiões de uma TID sejam excluídas
+ do processo.
+ Alguns métodos de segmentação automática são encontrados na literatura
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "marques2012segmentaccao"
+
+\end_inset
+
+, porém existem limitações que não tornam possíveis a utilização desse tipo
+ de técnica.
+ Dessa forma, a região de interesse é extraída de forma manual, através
+ da utilização de um programa de visualização e extração de imagens.
+ 
+\end_layout
+
+\begin_layout Standard
+Apesar de cada TID possuir um total de 20 sequências de termogramas, utilizamos
+ apenas a sequência no tempo inicial para gerar uma máscara responsável
+ por demarcar a ROI segmentada manualmente através do software ImageJ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "abramoff2004image,rasband1997bethesda"
+
+\end_inset
+
+.
+ Utilizando a máscara da sequência inicial é possível extrair as ROIs das
+ demais sequências após a aplicação do registro dos termogramas (Seção
+\emph on
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:methodology:image_registration"
+
+\end_inset
+
+
+\emph default
+).
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:roi:segmentation"
+
+\end_inset
+
+ demonstra a etapa de segmentação manual utilizando o mouse para desenhar
+ o polígono que definirá a ROI.
+ Como resultado uma máscara binária (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:roi:mask"
+
+\end_inset
+
+) é gerada, para ser utilizada como ROI para todos as 20 sequências de termogram
+as em um exame.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/segmentation_click.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:roi:segmentation"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/roi_mask.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:roi:mask"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Extração da região das mamas através do software ImageJ.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lincoln_thesis2015"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Registro das Imagens
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:methodology:image_registration"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Durante o protocolo de aquisição de imagens, é natural que a paciente execute
+ movimentos involutários causados pela respiração e ajuste de postura.
+ Esses movimentos causam diferenças espaciais de uma sequência para a outra.
+ As Figuras 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:image_registration:t1"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:image_registration:t2"
+
+\end_inset
+
+ são termogramas sequênciais de tempos 
+\begin_inset Formula $t=1$
+\end_inset
+
+ e 
+\begin_inset Formula $t=2$
+\end_inset
+
+, respectivamente.
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:image_registration:squared_diff"
+
+\end_inset
+
+ apresenta a diferença quadrática 
+\begin_inset Formula $d=(P_{t}(i,j)-P_{t}(i,j))$
+\end_inset
+
+, onde 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+ é a posição do pixels, sendo 
+\begin_inset Formula $i=0,...,639$
+\end_inset
+
+ e 
+\begin_inset Formula $j=0,...,479$
+\end_inset
+
+, e 
+\begin_inset Formula $P_{t}(i,j)$
+\end_inset
+
+ é o valor de pixel na posição 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+ no tempo 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ É possível notar que existe uma diferença causada pela movimentação involutária
+ da paciente.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/series1.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:image_registration:t1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/series2.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:image_registration:t2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/series_diff.png
+	scale 20
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:image_registration:squared_diff"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Termogramas dos sequenciais e a diferença de postura entre eles
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Para analisar as sequências de termogramas de um determinado exame é necessário
+ corrigir essas diferênças, dessa forma o registro 
+\emph on
+B-Spline 
+\emph default
+apresentado na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:fundamentation:image_registration:bspline_registration"
+
+\end_inset
+
+ é utilizado.
+ Como dito anteriormente, o registro é uma técnica de projeção de uma imagem
+ no espaço de coordenadas de outra, ou seja, ideal para o problema de correção
+ de postura.
+ Utilizando o primeiro termograma da sequência de um exame como imagem fixa
+ e os termogramas restantes como imagem móvel, executamos o registro para
+ um determinado exame 19 vezes, uma para cada imagem móvel.
+ O registro utiliza a Correlação (Equação X) como métrica de similaridade.
+ O 
 \end_layout
 
 \begin_layout Standard
