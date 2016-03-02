@@ -30,7 +30,7 @@
 \paperfontsize default
 \spacing single
 \use_hyperref false
-\papersize default
+\papersize a4paper
 \use_geometry false
 \use_package amsmath 1
 \use_package amssymb 1
@@ -597,6 +597,7 @@ Imagem móvel: imagem que será transformada para o espaço de coordenadas
 \begin_layout Itemize
 Transformação: função que irá ser responsável por mapear os pixels da imagem
  móvel na imagem fixa.
+ Geralmente é responsável por dar nome ao registro.
 \end_layout
 
 \begin_layout Itemize
@@ -711,12 +712,12 @@ reference "eq:fundamentation:image_registration:normalized_cross_correlation"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-C(f,m)=-1\cdot\frac{\sum_{i=1}^{N}(f_{i}\cdot m_{i})}{\sqrt{\sum_{i=1}^{N}f_{i}^{2}\cdot}\sum_{i=1}^{N}m_{i}^{2}}\label{eq:fundamentation:image_registration:normalized_cross_correlation}
+C(f,m)=-1\cdot\frac{\sum_{i=1}^{N}(f_{i}\cdot m_{i})}{\sqrt{\sum_{i=1}^{N}f_{i}^{2}\cdot}\sum_{i=1}^{N}m_{i}^{2}},\label{eq:fundamentation:image_registration:normalized_cross_correlation}
 \end{equation}
 
 \end_inset
 
-onde, 
+onde 
 \begin_inset Formula $f$
 \end_inset
 
@@ -899,10 +900,6 @@ name "fig:fundamentation:image_registration:transform:translate"
 Elaborada pelo autor
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -1007,10 +1004,6 @@ name "fig:fundamentation:image_registration:transform:rotation"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -1107,7 +1100,7 @@ reference "fig:fundamentation:image_registration:transform:scale"
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -1146,6 +1139,283 @@ Elaborada pelo autor
 \end_inset
 
 
+\end_layout
+
+\begin_layout Subsubsection
+Transformações FFD baseadas em 
+\emph on
+B-Splines 
+\emph default
+cúbicas
+\end_layout
+
+\begin_layout Standard
+Um dos tipos de transformações não-rígidas mais comuns atualmente são as
+ chamadas transformações FFD (deformação de forma livre) baseadas em 
+\emph on
+b-splines
+\emph default
+ cúbicas 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "yin2009mass"
+
+\end_inset
+
+.
+ A ideia básica desse tipo de transformação é manipular a grade de pixels
+ a partir dos chamados pontos de controle.
+ Essa manipulação permite criar um campo de deslocamento, que irá mapear
+ os pixels da imagem móvel.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/fundamentation/image_registration/displacement.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+O conceito de campo de deslocamento.
+ Para cada posição de pixel na imagem móvel, existe uma direção e distância
+ que ele precisa se mover para se assemelhar à imagem fixa.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+\begin_inset CommandInset citation
+LatexCommand cite
+key "schwarz2007non"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seja 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ a grade uniforme de dimensões 
+\begin_inset Formula $n_{x}\times n_{y}\times n_{z}$
+\end_inset
+
+ com 
+\begin_inset Formula $\Phi_{i,j,k}$
+\end_inset
+
+ representando o deslocamento do 
+\begin_inset Formula $ijk$
+\end_inset
+
+-ésimo ponto de controle.
+ O espaço entre as grandes controle nas direções 
+\begin_inset Formula $x$
+\end_inset
+
+, 
+\begin_inset Formula $y$
+\end_inset
+
+ e 
+\begin_inset Formula $z$
+\end_inset
+
+ são denotadas por 
+\begin_inset Formula $\delta_{x}$
+\end_inset
+
+, 
+\begin_inset Formula $\delta_{y}$
+\end_inset
+
+e 
+\begin_inset Formula $\delta_{z}$
+\end_inset
+
+, respectivamente.
+ A transformação 
+\begin_inset Formula $T(\text{{x}}:\Phi)$
+\end_inset
+
+ é definida por 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+T(\text{{x}}:\Phi)=\sum_{l=0}^{3}\sum_{m=0}^{3}\sum_{n=0}^{3}\beta_{l}(u)\beta_{m}(v)\beta_{n}(w)\Phi_{i+l,j+m,k+n},\label{eq:fundamentation:image_registration:ffd_bspline:transform}
+\end{equation}
+
+\end_inset
+
+onde os parâmetros são dados por
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+i=|\frac{x}{\delta_{x}}|-1,\label{eq:fundamentation:image_registration:ffd_bspline:p1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+j=|\frac{y}{\delta_{y}}|-1,\label{eq:fundamentation:image_registration:ffd_bspline:p2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+z=|\frac{z}{\delta_{z}}|-1,\label{eq:fundamentation:image_registration:ffd_bspline:p3}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+u=\frac{x}{\delta_{x}}-(i+1),\label{eq:fundamentation:image_registration:ffd_bspline:p4}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+v=\frac{y}{\delta_{y}}-(j+1),\label{eq:fundamentation:image_registration:ffd_bspline:p5}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+w=\frac{z}{\delta_{z}}-(z+1).\label{eq:fundamentation:image_registration:ffd_bspline:p6}
+\end{equation}
+
+\end_inset
+
+As funções 
+\begin_inset Formula $\beta$
+\end_inset
+
+ são 
+\emph on
+B-splines 
+\emph default
+cúbicas e definidas por
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\beta_{0}(t)=(-t^{3}+3t^{2}-3t+1)/6,\label{eq:fundamentation:image_registration:ffd_bspline:b0}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\beta_{1}(t)=(3t^{3}-6t^{2}+4)/6,\label{eq:fundamentation:image_registration:ffd_bspline:b1}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\beta_{2}(t)=(-3t^{3}+3t^{2}+3t+1)/6,\label{eq:fundamentation:image_registration:ffd_bspline:b2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+\beta_{3}(t)=t^{3}/6,\label{eq:fundamentation:image_registration:ffd_bspline:b3}
+\end{equation}
+
+\end_inset
+
+onde 
+\begin_inset Formula $0\le t\le1$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Um parâmetro muito importante desse tipo de transformação é a resolução
+ da grade de controle, pois a partir dela serão gerados os campos de deslocament
+os.
+ Uma grade muito espaçosa permite a modelagem de transformações deformáveis
+ globais, enquanto uma grade mais fina modela deformações altamente locais
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "yin2009mass"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Subsection
@@ -4098,7 +4368,7 @@ reference "sec:fundamentation:image_registration:bspline_registration"
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "references"
-options "abntex2-num"
+options "plain"
 
 \end_inset
 
