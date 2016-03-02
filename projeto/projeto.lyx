@@ -683,6 +683,13 @@ As métricas de similaridade são provavelmente o elemento mais crítico no
 
 \begin_layout Subsubsection
 Correlação Cruzada Normalizada
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:fundamentation:image_registration:metric:ccn"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1146,7 +1153,14 @@ Transformações FFD baseadas em
 \emph on
 B-Splines 
 \emph default
-cúbicas
+cúbicas 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:fundamentation:image_registration:transform:bspline"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1502,6 +1516,13 @@ key "ibanez2003itk"
 
 \begin_layout Subsubsection
 Interpolador Linear
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:fundamentation:image_registration:interpolator:linear"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -1573,6 +1594,13 @@ key "burges2005learning"
 
 \begin_layout Subsubsection
 LBFGS
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:fundamentation:image_registration:otimizator:lbfgs"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3657,7 +3685,7 @@ reference "fig:metothology:fluxogram"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -4150,14 +4178,14 @@ reference "fig:methodology:image_registration:squared_diff"
 \end_inset
 
  apresenta a diferença quadrática 
-\begin_inset Formula $d=(P_{t}(i,j)-P_{t}(i,j))$
+\begin_inset Formula $d=(P_{t}(i,j)-P_{t}(i,j))^{2}$
 \end_inset
 
 , onde 
 \begin_inset Formula $(i,j)$
 \end_inset
 
- é a posição do pixels, sendo 
+ é a posição do pixel, sendo 
 \begin_inset Formula $i=0,...,639$
 \end_inset
 
@@ -4187,7 +4215,7 @@ reference "fig:methodology:image_registration:squared_diff"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Float figure
@@ -4265,10 +4293,6 @@ name "fig:methodology:image_registration:t2"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -4310,10 +4334,6 @@ name "fig:methodology:image_registration:squared_diff"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -4323,7 +4343,9 @@ name "fig:methodology:image_registration:squared_diff"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Termogramas dos sequenciais e a diferença de postura entre eles
+Termogramas de tempos distintos.
+ Tons mais claros denotam uma maior diferênça entre as regiões.
+ 
 \end_layout
 
 \end_inset
@@ -4342,33 +4364,412 @@ Elaborada pelo autor.
 
 \begin_layout Standard
 Para analisar as sequências de termogramas de um determinado exame é necessário
- corrigir essas diferênças, dessa forma o registro 
-\emph on
-B-Spline 
-\emph default
-apresentado na Seção 
+ corrigir essas diferênças, dessa forma o registro de imagens é uma etapa
+ essencial de pré-processamento das mamas.
+ Para a construção da técnica de registro, as seguintes técnicas foram utilizada
+s:
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Itemize
+Métrica: Correlação Cruzada Normalizada (Seção
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:fundamentation:image_registration:bspline_registration"
+reference "eq:fundamentation:image_registration:normalized_cross_correlation"
 
 \end_inset
 
- é utilizado.
- Como dito anteriormente, o registro é uma técnica de projeção de uma imagem
- no espaço de coordenadas de outra, ou seja, ideal para o problema de correção
- de postura.
- Utilizando o primeiro termograma da sequência de um exame como imagem fixa
- e os termogramas restantes como imagem móvel, executamos o registro para
- um determinado exame 19 vezes, uma para cada imagem móvel.
- O registro utiliza a Correlação (Equação X) como métrica de similaridade.
- O 
+)
+\end_layout
+
+\begin_layout Itemize
+Transformação: 
+\emph on
+B-Splines
+\emph default
+ (Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:fundamentation:image_registration:transform:bspline"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+Interpolador: Linear (Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:fundamentation:image_registration:interpolator:linear"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Itemize
+Otimizador: LBFGS (Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:fundamentation:image_registration:otimizator:lbfgs"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Utilizando a primeira sequência do conjunto de termograma como imagem fixa,
+ executamos o algoritmo de registro 19 vezes, sendo que as demais sequências
+ restantes são as imagens móveis.
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:registration:result"
+
+\end_inset
+
+ demostra a utilização do registro construído na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:image_registration:t2"
+
+\end_inset
+
+ como imagem móvel e tendo a Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:image_registration:t1"
+
+\end_inset
+
+ como imagem móvel.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/registered_squared_differences1.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Resultado da aplicação do registro na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:image_registration:t2"
+
+\end_inset
+
+ como móvel e a Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:image_registration:t1"
+
+\end_inset
+
+ como fixa.
+ Note que a diferença de postura foi corrigida, deixando a imagem majoritariamen
+te escura.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:registration:result"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Extração de características 1
+\end_layout
+
+\begin_layout Standard
+Dado um exame TID, temos 20 sequências de termogramas, cada um correspondendo
+ à um tempo distinto em ordem sequêncial.
+ Precisamos extrair características que diferenciem as TID de pacientes
+ saudáveis de TID de pacientes com algum tipo de anomalia.
+ A forma encontrada foi criar um vetor 
+\begin_inset Formula $p=[I_{1}(i,j),I_{2}(i,j),...I_{20}(i,j)]$
+\end_inset
+
+, onde 
+\begin_inset Formula $I_{t}(i,j)$
+\end_inset
+
+ é o valor de temperatura do termograma de tempo 
+\begin_inset Formula $t$
+\end_inset
+
+ na posição 
+\begin_inset Formula $(i,j)$
+\end_inset
+
+.
+ Dessa forma, podemos extrair 4 valores estatíscos do vetor 
+\begin_inset Formula $p$
+\end_inset
+
+, sendo eles:
+\end_layout
+
+\begin_layout Itemize
+A temperatura de inicial, ou seja, o valor de 
+\begin_inset Formula $I_{1}(i,j).$
+\end_inset
+
+ Notamos que a temperatura inicial da sequência de termogramas é um bom
+ descriminador, pois regiões com anomalias tendem a ficar mais definidas
+ durante o processo de resfriamento no protocolo de aquisição de imagens
+ e não possuem regiões equivalentes na mama oposta.
+ A Figura 
+\end_layout
+
+\begin_layout Itemize
+O ganho de temperatura total dado por 
+\begin_inset Formula $G=I_{20}(i,j)-I_{1}(i,j)$
+\end_inset
+
+.
+ Essa medida informa o quanto uma dada região se aqueceu ou esfriou durante
+ o tempo de extração das características.
+ Durante os teste realizados notamos regiões que sofrem algum tipo de anomalia
+ tendem a ganhar mais temperatura durante o tempo de extração das imagens.
+ Em imagens saudáveis quando ocorre esse tipo de comportamento, geralmente
+ a um tipo de espalhamento, de forma que ele aparece nas duas mamas.
+ A Figura
+\end_layout
+
+\begin_layout Itemize
+O ganho médio de temperatura entres os tempos dado pela Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:methodology:fps:mean_bt"
+
+\end_inset
+
+.
+ Essa característica se assemelha ao ganho total de temperatura, onde regiões
+ com algum tipo de anomalia tendem ter uma média maior que as demais regiões
+ e não apresentam uma similaridade na mesma região da outra mama.
+ A Figura
+\end_layout
+
+\begin_layout Itemize
+O desvio padrão do ganho de temperatura entres os tempos dada pela Equação
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:methodology:fps:std_bt"
+
+\end_inset
+
+.
+ Essa caracterísca apresenta um grande fator de discriminância entres regiões
+ saudáveis e com anomalias.
+ Regiões saudáveis tendem a ganhar temperatura de forma uniforme durante
+ a aquisição dos termogramas, ao contrário de regiões anomalas que variam
+ bastante no ganho de temperatura.
+ Dessa forma regiões saudáveis apresentam um valor para 
+\begin_inset Formula $S$
+\end_inset
+
+ mais baixo em relação à regiões que possuem algum tipo de anomalia.
+ A Figura 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+M=\frac{1}{19}\cdot\sum_{t=2}^{20}I_{t}(i,j)-I_{t-1}(i,j)\label{eq:methodology:fps:mean_bt}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+S=\sqrt{\frac{1}{19}\cdot\sum_{t=2}^{20}((I_{t}(i,j)-I_{t-1}(i,j))-M)^{2}}\label{eq:methodology:fps:std_bt}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/fps1_n.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/fps1_d.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Temperatura Inicial.
+ Em (a) temos um termograma de paciente saudável, enquanto em (b) temos
+ uma paciente com carcinoma ductal infiltrante.
+ Note a assimetria existente em (b).
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:fps:feat_1"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout LyX-Code
+
 \end_layout
 
 \begin_layout Standard
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "references"
-options "plain"
+options "abntex2-num"
 
 \end_inset
 
