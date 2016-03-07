@@ -5,6 +5,15 @@
 \textclass abntex2
 \begin_preamble
 \usepackage[alf]{abntex2cite}
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+
+
+\usepackage{microtype} 
+% para melhorias de justificação
+\usepackage[brazilian,hyperpageref]{backref}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -57,8 +66,8 @@
 \end_index
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation indent
-\paragraph_indentation default
+\paragraph_separation skip
+\defskip medskip
 \quotes_language english
 \papercolumns 1
 \papersides 1
@@ -72,6 +81,407 @@
 
 \begin_body
 
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Capa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\size large
+\color black
+UNIVERSIDADE FEDERAL DO MARANHÃO
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\size large
+\color black
+CENTRO DE CIÊNCIAS EXATAS E TECNOLÓGICAS
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\size large
+\color black
+DEPARTAMENTO DE INFORMÁTICA
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\size large
+\color black
+CURSO DE CIÊNCIA DA COMPUTAÇÃO
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 6cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\size large
+\color black
+PROJETO DE MONOGRAFIA
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+Análise e Classificação de Termografias Dinâmicas das Mamas Utilizando a
+ Variação de Temperatura e Máquinas de Vetor de Suporte
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 6cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+São Luís
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+2016
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Contra-Capa
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 6cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0ex"
+width "7cm"
+height "0.5pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
+\align center
+
+\emph on
+Caio Nogueira Silva Belfort
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
+\align center
+Aluno do Curso de Ciência da Computação
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0ex"
+width "7cm"
+height "0.5pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
+\align center
+
+\emph on
+Prof.
+ Dr.
+ Aristófanes Côrrea Silva
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
+\align center
+Orientador
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 2cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
+\align center
+\begin_inset CommandInset line
+LatexCommand rule
+offset "0ex"
+width "7cm"
+height "0.5pt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
+\align center
+
+\emph on
+Prof.
+ Msc.
+ Carlos Eduardo Portela Serra de Castro
+\end_layout
+
+\begin_layout Standard
+\paragraph_spacing other 0.5
+\noindent
+\align center
+Coordenador do Curso de Ciência da Computação
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Resumo
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Resumo
+A termografia das mamas é um exame de imagem que utiliza a radiação infravermelh
+a naturalmente emitida pelo corpo da paciente para detecção de anomalias.
+ Possui a capacidade de detectar o câncer de mama mais precocemente que
+ a mamografia, sem causar nenhum efeito colateral ou incômodo físico na
+ paciente.
+ O processamento de imagens médicas é uma área que vem ganhando destaque
+ recentemente, pois metodologias de diagnóstico automático podem auxiliar
+ médicos especialistas na detecção de doenças de forma precoce, aumentando
+ as chances de cura.
+ Este trabalho apresenta uma metodologia de processamento e análise de termograf
+ias dinâmicas da mama, como forma de auxiliar médicos especialista no diagnóstic
+o de doenças relacionadas ao tecido mamário.
+ O registro de imagens é utilizado para efetuar a correção do erro de postura
+ entre os diversos tempos de uma termografia dinâmica.
+ Valores estatísticos são utilizados para medir a variação de temperatura
+ entre os pixels, formando novas imagens a partir da termografia original.
+ Em seguida a extração de características de textura é efetuada em cada
+ imagem estatística, formando um conjunto de valores conhecido como vetor
+ de características.
+ O vetor de característica é reduzido através de técnicas de redução de
+ características para posteriormente servir de entrada para uma máquina
+ de vetor de suporte que irá efetuar a classificação em exame saudável ou
+ exame com algum tipo de anomalia.
+ A metodologia apresenta 82,5% de acurácia, 84,1 % de sensibilidade e 81,0%
+ de especificidade.
+\end_layout
+
+\begin_layout Resumo
+Palavras chave: Câncer, Mama, Termografia, Aprendizado de Máquina
+\end_layout
+
+\begin_layout Resumo
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pdfbookmark[0]{
+\backslash
+listfigurename}{lof} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+listoffigures* 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pdfbookmark[0]{
+\backslash
+listtablename}{lot}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+listoftables* 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pdfbookmark[0]{
+\backslash
+contentsname}{toc} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+tableofcontents* 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+cleardoublepage
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
 \begin_layout Chapter
 Introdução 
 \begin_inset CommandInset label
@@ -84,52 +494,115 @@ name "sec:intro"
 \end_layout
 
 \begin_layout Standard
-Lorem ipsum dolor sit amet, soleat oblique inciderint mei at.
- Mea harum legere delicata ut.
- Zril maiorum ea eum, affert adipiscing ad per, veniam nostro sit in.
- Nec ea falli oratio expetendis.
- Alii impetus prodesset mea ad, eum ei erroribus appellantur.
+
 \end_layout
 
 \begin_layout Standard
-Eum etiam interpretaris ei, ad probo labores nam.
- Possit indoctum est no, nulla persius elaboraret sed ne.
- Vide summo pertinacia ea nec, et ius vocibus feugait.
- Dicat fuisset ex vix, dicta dolores pri et.
- Ex tempor petentium consulatu cum, dico eius dicat no est, ea cum liber
- virtute.
- Convenire posidonium mea in, pertinax scribentur eloquentiam eam ei, usu
- et labore dictas complectitur.
+O câncer de mama é o tipo mais comum entre as mulheres em todo o mundo,
+ respondendo por 25% dos casos a cada ano
+\begin_inset CommandInset citation
+LatexCommand cite
+key "inca"
+
+\end_inset
+
+.
+ Quando diagnósticado tardiamente, as chances de cura são extremamente reduzidas
+, tornando o diagnóstico precoce um dos fatores mais importantes na redução
+ da taxa de mortalidade desse tipo de doença.
+ O incidência aumenta juntamente com a faixa etária, sendo que mulheres
+ acima de 50 anos são mais suscetíveis ao desenvolvimento da patologia.
+ No entanto, existem outros fatores de risco que implicam numa maior chance
+ de aparecimento, como o histórico desse tipo de câncer na família, gestação
+ tardia, terapia de reposição hormonal e exposição à radiação.
+ 
 \end_layout
 
 \begin_layout Standard
-Ad sit eruditi dolorum, purto omittantur vix ut.
- Mel ad fugit adolescens, et nisl oblique molestiae pri, in incorrupte elaborare
-t vim.
- Vis erat praesent in, pri ad eros pertinax.
- Ex adhuc meliore delicatissimi cum, ut ius justo nulla, in ferri ceteros
- nam.
+Os exames mais tradicionais na detecção do câncer de mama são os exames
+ de toque e a mamografia.
+ O exame de toque é um exame de triagem, onde o própria mulher pode procurar
+ por nódulos nos seios.
+ Porém nem sempre o câncer resulta em aparecimento de nódulos e as vezes
+ os nódulos existentes são difíceis de detectar através do toque.
+ Dessa forma, a mamografia se tornou um exame essencial nos dias de hoje,
+ pois utiliza os raios-x para detectar regiões de alta densidade nas mamas.
+ Apesar de ser o tipo de exame mais recomendado pelos especialistas, a mamografi
+a não é passível de falhas, pois mamas com alta densidade apresentam uma
+ dificuldade elevada na detecção de tumores, pois estes podem ficar escondidos
+ pelo tecido denso da mama.
+ Mulheres jovens geralmente apresentam alta densidade nas mamas, tornando
+ a mamografia um exame não recomendável para essa faixa etária, pois utiliza
+ a radiação na geração das imagens, o que pode futuramente causar o aparecimento
+ do câncer na paciente.
+ Dessa forma é necessário que outros tipo de exames sejam utilizados como
+ forma de prevenção e diagnóstico precoce.
 \end_layout
 
 \begin_layout Standard
-At mei quas admodum appellantur, cum ex dolores intellegam, sale soluta
- probatus ea eum.
- Rebum bonorum in pri, ad nam graeco insolens, ex esse facete has.
- Qui ei elit referrentur, eum alii scripta ne.
- Ei ius tantas mucius latine, justo percipitur cu ius, eum dicam mollis
- iisque eu.
- Nam dico tota splendide cu, pri an omittam dignissim voluptatum.
- Aeque tacimates consulatu eu usu, an pro pertinax electram.
+A termografia mamária é um exame de imagem não radioativo capaz detectar
+ tumores que não seriam possíveis de descobrir através da mamografia.
+ Esse tipo de exame utiliza a radiação infravermelha, emitida naturalmente
+ pelo corpo da paciente, para detecção da doença.
+ Regiões próximas à um tumor tendem a ter um aumento na vascularização,
+ ocorrendo uma maior circulação de sangue na região, que causará um aumento
+ de temperatura em relação as outras regiões da mama.
+ Esse aumento de temperatura é detectável através da termografia, permitindo
+ que especialistas detectem a formação de um tumor antes mesmo que ele seja
+ palpável.
+ 
 \end_layout
 
 \begin_layout Standard
-Iudicabit corrumpit scribentur ad est, appareat vituperatoribus cu vix,
- case movet at quo.
- Dolorum maiestatis disputando no sit.
- At etiam dolorem usu, lorem summo quo an, pro dolore nusquam quaerendum
- eu.
- Eos suas mazim invenire et, accusam fabellas id nam, te eum doctus consequuntur.
- Conceptam elaboraret ad nec, est in etiam minimum fabella.
+Existem duas formas na obtenção de exames de termografia mamária.
+ A primeira delas é o que chamamos de termografia estática, onde apenas
+ uma imagem da paciente é gerada e analisada.
+ A segunda forma é a chamada termografia dinâmica, onde várias imagens sequencia
+is são geradas, permitindo que o especialista analise a evolução na distribuição
+ de calor nas mamas da paciente.
+ A metodologia proposta utiliza as termografias dinâmicas para auxiliar
+ médicos especialistas no diagnóstico precoce do câncer de mama.
+ 
+\end_layout
+
+\begin_layout Standard
+Durante um exame de termografia dinâmico, a paciente executa movimentos
+ involuntários, causados pela respiração e pelo ajuste de postura, dessa
+ forma as imagens sequenciais do exame não se encaixam perfeitamente, causando
+ um erro que pode influenciar na metodologia.
+ O registro de imagens deformável por 
+\emph on
+B-Splines 
+\emph default
+é utilizado para efetuar a correção desse erro.
+ Posteriormente, extrai-se as regiões de interesse do exame, que são as
+ mamas da paciente.
+ Essa extração é feita de forma manual através de um aplicativo, onde o
+ especialista deverá demarcar a região da mama.
+ Finalmente a etapa de extração de características é executada, onde os
+ pixels de mesma posição e diferentes tempos da termografia são analisados
+ como uma série de tempo, produzindo um conjunto de valores estatísticos
+ para cada pixel, formando novas imagens a partir da termografia dinâmica
+ original.
+ A partir dessas imagens geradas, são extraídas o conjunto de características
+ de textura a partir de matrizes de coocorrência.
+ Essas características podem ser reduzidas através de técnicas de redução
+ de características como a técnica de 
+\emph on
+Análise dos Componentes Principais
+\emph default
+ e a 
+\emph on
+Análise Discriminante Linear.
+ 
+\emph default
+No final do processo, as características reduzidas irão servir de entrada
+ para uma 
+\emph on
+Máquina de Vetor de Suporte
+\emph default
+ que irá ser responsável por classificar as pacientes em saudável e doente.
+ 
 \end_layout
 
 \begin_layout Chapter
@@ -255,7 +728,7 @@ reference "fig:fundamentation:thermography:breast-thermography"
 
 \end_inset
 
- apresenta uma termografia em pseudocor, onde a temperatura varia de acordo
+ apresenta uma termografia em pseudo cor, onde a temperatura varia de acordo
  com a paleta de cores à direita da imagem.
 \end_layout
 
@@ -293,13 +766,10 @@ name "fig:fundamentation:thermography:breast-thermography"
 
 \end_layout
 
-\begin_layout Plain Layout
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Citar fonte projeto PROENG
-\end_layout
+\begin_layout Fonte
+\begin_inset CommandInset citation
+LatexCommand cite
+key "silva2014new"
 
 \end_inset
 
@@ -329,7 +799,7 @@ name "sub:fundamentation:termography:static"
 \begin_layout Standard
 A termografia estática (TI), é o tipo de termografia onde a medição de temperatu
 ra é feita uma única vez.
- No caso de TI das mamas são procedimentos 
+ No caso de TI das mamas são necessários procedimentos 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "silva2014new"
@@ -346,7 +816,6 @@ key "lincoln_thesis2015"
 \end_inset
 
 .
- 
 \end_layout
 
 \begin_layout Subsection
@@ -355,8 +824,8 @@ Termografia Dinâmica
 
 \begin_layout Standard
 A termografia dinâmica (TID), é um tipo de termografia onde a mediação de
- temperatura é realizada através de várias etapas de tempo, ou seja, TID
- mede as mudanças de temperatura sobre um determinado periodo de tempo.
+ temperatura é realizada através de várias etapas de tempo, ou seja, a TID
+ mede as mudanças de temperatura sobre um determinado período de tempo.
  Originalmente conceituada por 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -365,17 +834,17 @@ key "anbar1987computerized"
 \end_inset
 
 , onde notou-se que mudanças bruscas na temperatura da pele produziam informaçõe
-s valiosas, que não podem ser obtidos por meio de uma TI.
+s valiosas, que não podem ser obtidas por meio de uma TI.
 \end_layout
 
 \begin_layout Standard
 A TID apresenta uma característica importante na detecção de lesões mamárias,
  pois áreas saudáveis apresentam um comportamento distinto de áreas com
  algum tipo de patologia.
- Neoplásias são associadas com a angiogênese que causa um aumento de vasculariza
+ Neoplasias são associadas com a angiogênese que causa um aumento de vasculariza
 ção na região, sendo que, os vasos recém formados apresentam a características
  de possuir poucas terminações nervosas, o que causa um comportamento irregular
- a estimulos externos, que é detectável através de um exame de termografia
+ à estímulos externos, que é detectável através de um exame de termografia
  dinâmico 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -415,11 +884,11 @@ name "sec:fundamentation:image_registration"
 \end_layout
 
 \begin_layout Standard
-Quando imagens que foram extraídas de diferentes tempos, pontos de vista
+Quando imagens que foram extraídas entre diferentes tempos, pontos de vista
  ou aparelhos precisam ser comparadas, ocorre um problema de alinhamento
  das coordenadas dessas imagens.
  É necessário efetuar alguma forma de processamento para que essas imagens
- possam ser comparadas adequadademente .
+ possam ser comparadas adequadamente .
 
 \emph on
  
@@ -554,15 +1023,15 @@ key "crum2014non"
  é definido como um processo que determina correspondências entre as característ
 icas de imagens extraídas em diferentes momentos, pontos de vista ou aparelhos.
  Tais correspondências podem ser utilizadas para aplicar transformações
- (rotação, translação, alongamento, etc.) em uma imagem de forma que seja
- possível a comparação entre as duas imagens.
+ (rotação, translação, alongamento, etc.) em uma das imagens, de forma que
+ seja possível a comparação entre as duas.
  A forma mais intuitiva de utilização do registro é para corrigir diferenças
- na posição entre scans .
- Registro de imagens adiciona valor à imagens, permitindo que imagens estruturai
-s (CT, MR, ultrasom) e funcionais (PET, SPECT, functional MRI) sejam vistas
- e analisadas no mesmo sistema de coordenadas, e facilita o uso de novas
- imagens, como para monitorar e quantificar a evolução de uma doença à medida
- que o tempo passa 
+ na posição entre varreduras .
+ O registro de imagens adiciona valor à imagens, permitindo que imagens
+ estruturais (CT, MR, ultrasom) e funcionais (PET, SPECT, functional MRI)
+ sejam vistas e analisadas no mesmo sistema de coordenadas, e facilita o
+ uso de novas imagens, como para monitorar e quantificar a evolução de uma
+ doença à medida que o tempo passa 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "crum2014non"
@@ -620,7 +1089,7 @@ Otimizador: o método utilizador para achar os melhores parâmetros da transform
 placement h
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -779,7 +1248,7 @@ A transformação é responsável por mapear os pixels da imagem móvel para
 As transformações rígidas aplicam sobre a imagem móvel apenas transformações
  simples como operações de translação e rotação, dessa forma a imagem móvel
  não sofre deformações, sofrendo apenas o alinhamento de suas coordenadas.
- Registros que utilizam transformações rígidas são chamados de regístro
+ Registros que utilizam transformações rígidas são chamados de registro
  rígidos e na prática não são utilizados individualmente, pois não são capazes
  de corrigir erros locais que necessitam de transformações mais complexas
  para serem resolvidas.
@@ -917,8 +1386,8 @@ Rotação
 \end_layout
 
 \begin_layout Standard
-A transformação é de rotação é uma transformação rígida capaz de rotacionar
- os objetos a partir de um centro de rotação.
+A rotação é uma transformação rígida capaz de rotacionar os objetos em relação
+ a um determinado ponto.
  Dado um ponto 
 \begin_inset Formula $p=(x,y)$
 \end_inset
@@ -1009,6 +1478,10 @@ name "fig:fundamentation:image_registration:transform:rotation"
 \end_inset
 
 
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor
 \end_layout
 
 \end_inset
@@ -1107,7 +1580,7 @@ reference "fig:fundamentation:image_registration:transform:scale"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1167,7 +1640,7 @@ name "sec:fundamentation:image_registration:transform:bspline"
 Um dos tipos de transformações não-rígidas mais comuns atualmente são as
  chamadas transformações FFD (deformação de forma livre) baseadas em 
 \emph on
-b-splines
+B-splines
 \emph default
  cúbicas 
 \begin_inset CommandInset citation
@@ -1250,7 +1723,7 @@ Seja
 \end_inset
 
 -ésimo ponto de controle.
- O espaço entre as grandes controle nas direções 
+ O espaço entre as grandes de controle nas direções 
 \begin_inset Formula $x$
 \end_inset
 
@@ -1466,7 +1939,7 @@ key "ibanez2003itk"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -1721,7 +2194,7 @@ key "sebastian2012gray"
 \end_layout
 
 \begin_layout Standard
-A GLCM é uma técnica que utilizada para extrair características estatísticas
+A GLCM é uma técnica utilizada para extrair características estatísticas
  de textura de segunda ordem 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -1750,11 +2223,11 @@ Seja
 \begin_inset Formula $I$
 \end_inset
 
- uma imagem em níveis de cinza e
+ uma imagem em níveis de cinza e 
 \begin_inset Formula $N$
 \end_inset
 
- a quantidade de níveis de cinza, uma matriz de coocorrência 
+ a quantidade de níveis de cinza, uma GLCM 
 \begin_inset Formula $G$
 \end_inset
 
@@ -1823,7 +2296,11 @@ Seja
 \begin_inset Formula $WxH$
 \end_inset
 
-, então uma GLCM de ir pode ser definida pela Equação 
+, então uma GLCM de 
+\begin_inset Formula $I$
+\end_inset
+
+ é definida pela Equação 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:glcm:def"
@@ -1872,7 +2349,7 @@ Como exemplo temos uma imagem
 \end_inset
 
  níveis de cinza.
- Então as matriz de co-ocorrência 
+ Então as matriz de coocorrência 
 \begin_inset Formula $G(i,j|\Delta x=1,\Delta y=0)$
 \end_inset
 
@@ -1938,7 +2415,7 @@ Considere
 \begin_inset Formula $N=\sum_{i}\sum_{j}G_{d}(i,j)$
 \end_inset
 
-, que é a quantidade coocorrências de pares em 
+, que é a quantidade ocorrências de pares em 
 \begin_inset Formula $G_{d}$
 \end_inset
 
@@ -1947,7 +2424,7 @@ Considere
 \begin_inset Formula $GN_{d}(i,j)=\frac{1}{N}G_{d}(i,j)\cdot GN_{d}$
 \end_inset
 
-, chamada de matriz de coocorrência normalizada, onde as entradas 
+, chamada de GLCM normalizada, onde as entradas 
 \begin_inset Formula $(i,j)$
 \end_inset
 
@@ -1960,7 +2437,7 @@ Considere
 \begin_inset Formula $i$
 \end_inset
 
- ser separado de um pixel de intensidade
+ ser separado de um pixel de intensidade 
 \begin_inset Formula $j$
 \end_inset
 
@@ -2161,54 +2638,11 @@ Em
 \emph on
 Aprendizado de Máquina
 \emph default
-, geralmente possuímos um conjunto de dados previamente disponíveis para
- utilizar em um classificador qualquer.
+, geralmente possuímos um conjunto de dados previamente disponíveis .
  Nesse conjunto de dados, cada indivíduo é representado por um conjunto
  de características extraídas do dado original.
  Por exemplo, em imagens de níveis de cinza é possível extrair as característica
-s representadas pelas Equações 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentation:glcm:contraste"
-
-\end_inset
-
-,
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentation:glcm:dissimilaridade"
-
-\end_inset
-
-,
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentation:glcm:homogeneidade"
-
-\end_inset
-
-,
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentation:glcm:asm"
-
-\end_inset
-
-,
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentationg:glcm:energia"
-
-\end_inset
-
-e
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentationg:glcm:correlação"
-
-\end_inset
-
- a partir de um GLCM qualquer.
+s a partir de uma GLCM.
  A quantidade de características que um indivíduo possui é o que chamamos
  de 
 \emph on
@@ -2282,7 +2716,7 @@ Algumas técnicas de redução de dimensionalidade são descritas abaixo
 \end_layout
 
 \begin_layout Subsection
-Seleção de características univariada
+Seleção de Características Univariada
 \end_layout
 
 \begin_layout Standard
@@ -2300,21 +2734,19 @@ key "scikit-learn-feat"
 \end_inset
 
  melhores características através de um teste estatístico que classifique
- as características que melhor separam as classes de índividuos de um conjunto
+ as características que melhor separam as classes de indivíduos de um conjunto
  de dados.
  
 \end_layout
 
 \begin_layout Subsection
-
-\emph on
-Principal Component Analysis
+Análise de Componentes Principais
 \end_layout
 
 \begin_layout Standard
-O 
+A Análise de Componentes Principais
 \emph on
-Principal Component Analysis 
+ 
 \emph default
 (PCA) é uma técnica de redução linear 
 \begin_inset CommandInset citation
@@ -2399,7 +2831,7 @@ onde
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-\bar{x}=\frac{1}{p}\sum_{i=1}^{p}x_{i}\label{eq:fundamentation:reduction:pca:mean_vector}
+\bar{x}=\frac{1}{p}\sum_{i=1}^{p}x_{i}.\label{eq:fundamentation:reduction:pca:mean_vector}
 \end{equation}
 
 \end_inset
@@ -2408,7 +2840,7 @@ onde
 \end_layout
 
 \begin_layout Standard
-Utilizando a relação dos autovetores e autovalores
+Utilizando a relação
 \end_layout
 
 \begin_layout Standard
@@ -2496,7 +2928,7 @@ reference "fig:fundamentation:reduction:pca:samples"
 
 \end_inset
 
- mostra um conjunto de índividuos gerados por distribuições normais multivariada
+ mostra um conjunto de indivíduos gerados por distribuições normais multivariada
 s com 3 características.
  Utilizando o PCA para reduzir o espaço dimensional para apenas 2, temos
  a Figura 
@@ -2608,22 +3040,17 @@ Elaborada pelo autor
 \end_layout
 
 \begin_layout Subsection
-
-\emph on
-Linear Discriminant Analysis
+Análise Discriminante Linear
 \end_layout
 
 \begin_layout Standard
-
-\emph on
-Linear Discriminant Analysis 
-\emph default
-(LDA) é uma técnica similar ao PCA, onde buscamos combinações lineares da
- características para formar um novo espaço de dimensões reduzidas.
- A diferênça é que ao contrário do PCA que busca combinações com maior variância
+A Análise Discriminante Linear (LDA) é uma técnica similar ao PCA, onde
+ buscamos combinações lineares da características para formar um novo espaço
+ de dimensões reduzidas.
+ A diferença é que ao contrário do PCA que busca combinações com maior variância
  entre os dados, o LDA procura combinações que melhor separam as classes
  de um determinado problema, portanto podemos dizer que o LDA é uma técnica
- supervisionada, pois precisamos conhecer as classes que cada índividuo
+ supervisionada, pois precisamos conhecer as classes que cada individuo
  pertence.
 \end_layout
 
@@ -2645,7 +3072,7 @@ key "fisher1936use"
 
 \end_inset
 
-como um problema de 
+como um problema 
 \emph on
 2-class
 \emph default
@@ -2780,7 +3207,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Distancia entre-classes.
+Distancia inter-classes.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -2941,7 +3368,7 @@ onde,
 \end_inset
 
  é o vetor que representa os valores médios de cada característica de indivíduos
- que pertecem a classe 
+ que pertencem a classe 
 \begin_inset Formula $c_{i}$
 \end_inset
 
@@ -2953,7 +3380,7 @@ A matriz
 \begin_inset Formula $S_{B}$
 \end_inset
 
- é chamada de matriz de dispersão entre-classes e é definida por:
+ é chamada de matriz de dispersão inter-classes e é definida por:
 \end_layout
 
 \begin_layout Standard
@@ -2968,7 +3395,7 @@ onde,
 \begin_inset Formula $N_{i}$
 \end_inset
 
- é a quantidade de indivíduos que pertecem a classe 
+ é a quantidade de indivíduos que pertencem a classe 
 \begin_inset Formula $c_{i}$
 \end_inset
 
@@ -2999,7 +3426,7 @@ reference "fig:fundamentation:reduction:lda:samples"
 
 \end_inset
 
- apresenta um conjunto de indivíduos que pertecem a três classes distintas.
+ apresenta um conjunto de indivíduos que pertencem a três classes distintas.
  Cada classe foi gerada a partir de uma distribuição normal multivariada,
  onde os parâmetros diferem entre elas.
  A Figura 
@@ -3111,9 +3538,7 @@ Elaborada pelo autor
 \end_layout
 
 \begin_layout Section
-
-\emph on
-Support Vector Machines
+Máquinas de Vetor de Suporte
 \end_layout
 
 \begin_layout Standard
@@ -3133,11 +3558,7 @@ Problemas de classificação geralmente envolvem classificar se um certo indiví
 .
  Atualmente existem diversas técnicas de aprendizado de máquina capazes
  de realizar essa tarefa com êxito e umas das principais técnicas utilizadas
- hoje em dia são as 
-\emph on
-Support Vector Machines
-\emph default
- (SVM).
+ hoje em dia são as Máquinas de Vetor de Suporte (SVM).
  Foram originalmente propostas por 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3330,8 +3751,8 @@ reference "eq:fundamentation:svm:relation"
 \begin_layout Standard
 O SVM possibilita encontrar um hiperplano que minimize a ocorrência de erros
  nos casos em que a separação ótima entre as classes não seja possível.
- Com o advento de variáveis de folga, é possível relaxar a restrição da
- Equação 
+ Com a utilização de variáveis de folga, é possível relaxar a restrição
+ da Equação 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:fundamentation:svm:relation"
@@ -3365,7 +3786,7 @@ onde
 \begin_inset Formula $C$
 \end_inset
 
- é um parâmetro de treinamento que define o equilíbrio entre a complexicidade
+ é um parâmetro de treinamento que define o equilíbrio entre a complexidade
  do modelo e o erro de treinamento.
 \end_layout
 
@@ -3445,7 +3866,7 @@ reference "fig:fundamentation:svm:vetores"
 
 \end_inset
 
-, os vetores de suporte são representados por circulos circuscritos.
+, os vetores de suporte são representados por círculos circunscritos.
 \end_layout
 
 \begin_layout Standard
@@ -3623,8 +4044,8 @@ L(a)=\sum_{i=1}^{N}a_{i}-\frac{1}{2}\sum_{i,j=1}^{N}a_{i}a_{j}y_{i}y_{j}K(x_{i},
 \end_layout
 
 \begin_layout Standard
-Um conjunto de funções amplamente utilizadas em conjunto com o SVM para
- classificação de dados não linearmente separavéis sãos as funções de base
+Um conjunto de funções amplamente utilizadas em conjunto com uma SVM para
+ classificação de dados não linearmente separáveis sãos as funções de base
  radial (RBF).
  Uma função RBF é definida por:
 \end_layout
@@ -3738,9 +4159,9 @@ Aquisição de Imagens
 \begin_layout Standard
 A aquisição de imagens é uma etapa crucial na metodologia proposta, pois
  sem imagens para casos de teste não é possível validar a metodologia.
- Atualmente existem poucos bancos de imagem termográfias mamárias disponíveis
+ Atualmente existem poucos bancos de imagem termográficas mamárias disponíveis
  para o público geral, sendo a maioria deles de propósito privado.
- As imagens utilizadas neste trabalho são provinientes do 
+ As imagens utilizadas neste trabalho são provenientes do 
 \emph on
 Database for Mastology Research with Infrared Image 
 \emph default
@@ -3782,7 +4203,7 @@ key "silva2014new"
 
 \end_inset
 
-, no protocolo de termografias dinâmicas as pacientes são submetidas à um
+, no protocolo de termografias dinâmicas as pacientes são submetidas a um
  estresse térmico causado pela refrigeração por um ventilador elétrico.
  Quando a média de temperatura entre as mamas é de 30.5ºC (Figura 
 \begin_inset CommandInset ref
@@ -3792,7 +4213,7 @@ reference "fig:methodology:acquisition:mean_monitoring"
 \end_inset
 
 ), ou 5 minutos de estresse foram aplicados, a refrigeração é interrompida
- e a aquisição sequencial das imagens é iniciada, extraíndo um total de
+ e a aquisição sequencial das imagens é iniciada, extraindo um total de
  20 imagens sequenciais com intervalos de tempo fixos.
 \end_layout
 
@@ -3801,7 +4222,7 @@ reference "fig:methodology:acquisition:mean_monitoring"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3868,7 +4289,7 @@ reference "fig:methodology:acquisition:matrix"
 \emph on
 .txt
 \emph default
-, onde cada exame é composto por 20 arquivos separados por tempo de acquisição.
+, onde cada exame é composto por 20 arquivos separados por tempo de aquisição.
  
 \end_layout
 
@@ -3877,7 +4298,7 @@ reference "fig:methodology:acquisition:matrix"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -3930,206 +4351,9 @@ key "lincoln_thesis2015"
 \end_layout
 
 \begin_layout Standard
-No total foram utilizados 70 exames previamente diagnósticados para aplicação
+No total foram utilizados 70 exames previamente diagnosticados para aplicação
  desta metodologia, sendo que 35 são de pacientes saudáveis e os 35 restantes
  de pacientes que apresentam algum tipo de anomalia nas mamas.
-\end_layout
-
-\begin_layout Section
-Extração da Região de Interesse
-\end_layout
-
-\begin_layout Standard
-Essa etapa consiste em extrair a região de interesse (ROI) da imagem.
- Como a metodologia tem o objetivo de detectar anomalias no padrão de vasculariz
-ação das mamas, é de interesse que as demais regiões de uma TID sejam excluídas
- do processo.
- Alguns métodos de segmentação automática são encontrados na literatura
- 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "marques2012segmentaccao"
-
-\end_inset
-
-, porém existem limitações que não tornam possíveis a utilização desse tipo
- de técnica.
- Dessa forma, a região de interesse é extraída de forma manual, através
- da utilização de um programa de visualização e extração de imagens.
- 
-\end_layout
-
-\begin_layout Standard
-Apesar de cada TID possuir um total de 20 sequências de termogramas, utilizamos
- apenas a sequência no tempo inicial para gerar uma máscara responsável
- por demarcar a ROI segmentada manualmente através do software ImageJ 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "abramoff2004image,rasband1997bethesda"
-
-\end_inset
-
-.
- Utilizando a máscara da sequência inicial é possível extrair as ROIs das
- demais sequências após a aplicação do registro dos termogramas (Seção
-\emph on
- 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:methodology:image_registration"
-
-\end_inset
-
-
-\emph default
-).
- A Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:methodology:roi:segmentation"
-
-\end_inset
-
- demonstra a etapa de segmentação manual utilizando o mouse para desenhar
- o polígono que definirá a ROI.
- Como resultado uma máscara binária (Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:methodology:roi:mask"
-
-\end_inset
-
-) é gerada, para ser utilizada como ROI para todos as 20 sequências de termogram
-as em um exame.
- 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\begin_inset space \hfill{}
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/methodology/segmentation_click.png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:methodology:roi:segmentation"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset space \hfill{}
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/methodology/roi_mask.png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:methodology:roi:mask"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset space \hfill{}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Extração da região das mamas através do software ImageJ.
- 
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Fonte
-\begin_inset CommandInset citation
-LatexCommand cite
-key "lincoln_thesis2015"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Section
@@ -4145,7 +4369,7 @@ name "sec:methodology:image_registration"
 
 \begin_layout Standard
 Durante o protocolo de aquisição de imagens, é natural que a paciente execute
- movimentos involutários causados pela respiração e ajuste de postura.
+ movimentos involuntários causados pela respiração e ajuste de postura.
  Esses movimentos causam diferenças espaciais de uma sequência para a outra.
  As Figuras 
 \begin_inset CommandInset ref
@@ -4161,7 +4385,7 @@ reference "fig:methodology:image_registration:t2"
 
 \end_inset
 
- são termogramas sequênciais de tempos 
+ são termogramas sequências de tempos 
 \begin_inset Formula $t=1$
 \end_inset
 
@@ -4206,8 +4430,8 @@ reference "fig:methodology:image_registration:squared_diff"
 \end_inset
 
 .
- É possível notar que existe uma diferença causada pela movimentação involutária
- da paciente.
+ É possível notar que existe uma diferença causada pela movimentação involuntári
+a da paciente.
 \end_layout
 
 \begin_layout Standard
@@ -4364,10 +4588,9 @@ Elaborada pelo autor.
 
 \begin_layout Standard
 Para analisar as sequências de termogramas de um determinado exame é necessário
- corrigir essas diferênças, dessa forma o registro de imagens é uma etapa
- essencial de pré-processamento das mamas.
- Para a construção da técnica de registro, as seguintes técnicas foram utilizada
-s:
+ corrigir essas diferenças, dessa forma o registro de imagens é uma etapa
+ essencial de pré-processamento das termografias.
+ Para a construção do registro, as seguintes técnicas foram utilizadas:
 \end_layout
 
 \begin_layout --Separator--
@@ -4428,8 +4651,8 @@ reference "sec:fundamentation:image_registration:otimizator:lbfgs"
 
 \begin_layout Standard
 Utilizando a primeira sequência do conjunto de termograma como imagem fixa,
- executamos o algoritmo de registro 19 vezes, sendo que as demais sequências
- restantes são as imagens móveis.
+ executamos o algoritmo de registro 19 vezes, sendo que as sequências restantes
+ são as imagens móveis.
  A Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4437,7 +4660,7 @@ reference "fig:methodology:registration:result"
 
 \end_inset
 
- demostra a utilização do registro construído na Figura 
+ demostra a utilização do registro construído, na Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:methodology:image_registration:t2"
@@ -4451,7 +4674,7 @@ reference "fig:methodology:image_registration:t1"
 
 \end_inset
 
- como imagem móvel.
+ como imagem fixa.
 \end_layout
 
 \begin_layout Standard
@@ -4459,7 +4682,7 @@ reference "fig:methodology:image_registration:t1"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -4513,12 +4736,216 @@ name "fig:methodology:registration:result"
 \end_layout
 
 \begin_layout Section
+Extração da Região de Interesse
+\end_layout
+
+\begin_layout Standard
+Essa etapa consiste em extrair a região de interesse (ROI) da imagem.
+ Como a metodologia tem o objetivo de detectar anomalias no padrão de vasculariz
+ação das mamas, é de interesse que as demais regiões de uma TID sejam excluídas
+ do processo.
+ Alguns métodos de segmentação automática são encontrados na literatura
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "marques2012segmentaccao"
+
+\end_inset
+
+, porém existem limitações que não tornam possíveis a utilização desse tipo
+ de técnica.
+ Dessa forma, a região de interesse é extraída de forma manual, através
+ da utilização de um programa de visualização e edição de imagens.
+ 
+\end_layout
+
+\begin_layout Standard
+Apesar de cada TID possuir um total de 20 sequências de termogramas, utilizamos
+ apenas a sequência no tempo inicial para gerar uma máscara responsável
+ por demarcar a ROI segmentada manualmente através do software ImageJ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "abramoff2004image,rasband1997bethesda"
+
+\end_inset
+
+.
+ Utilizando a máscara da sequência inicial é possível extrair as ROIs das
+ demais sequências após a aplicação do registro dos termogramas (Seção
+\emph on
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:methodology:image_registration"
+
+\end_inset
+
+
+\emph default
+).
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:roi:segmentation"
+
+\end_inset
+
+ demonstra a etapa de segmentação manual utilizando o mouse para desenhar
+ o polígono que definirá a ROI.
+ Como resultado uma máscara binária (Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:roi:mask"
+
+\end_inset
+
+) é gerada, para ser utilizada como ROI para todos as 20 sequências de termogram
+as em um exame.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/segmentation_click.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:roi:segmentation"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/roi_mask.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:roi:mask"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Extração da região das mamas através do software ImageJ.
+ 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lincoln_thesis2015"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Extração de características 1
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:methodology:fps"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Dado um exame TID, temos 20 sequências de termogramas, cada um correspondendo
- à um tempo distinto em ordem sequêncial.
+ à um tempo distinto em ordem sequencial.
  Precisamos extrair características que diferenciem as TID de pacientes
  saudáveis de TID de pacientes com algum tipo de anomalia.
  A forma encontrada foi criar um vetor 
@@ -4538,7 +4965,7 @@ Dado um exame TID, temos 20 sequências de termogramas, cada um correspondendo
 \end_inset
 
 .
- Dessa forma, podemos extrair 4 valores estatíscos do vetor 
+ Dessa forma, podemos extrair 4 valores estatísticos do vetor 
 \begin_inset Formula $p$
 \end_inset
 
@@ -4555,6 +4982,13 @@ A temperatura de inicial, ou seja, o valor de
  durante o processo de resfriamento no protocolo de aquisição de imagens
  e não possuem regiões equivalentes na mama oposta.
  A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:fps:feat_1"
+
+\end_inset
+
+ mostra a diferença entre uma TID saudável e outra com anomalia.
 \end_layout
 
 \begin_layout Itemize
@@ -4569,7 +5003,25 @@ O ganho de temperatura total dado por
  tendem a ganhar mais temperatura durante o tempo de extração das imagens.
  Em imagens saudáveis quando ocorre esse tipo de comportamento, geralmente
  a um tipo de espalhamento, de forma que ele aparece nas duas mamas.
- A Figura
+ Na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fig:methodology:fps:feat_2:a"
+
+\end_inset
+
+ vemos uma TID de paciente saudável.
+ Notamos um aspecto simétrico entre as regiões.
+ Já a Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fig:methodology:fps:feat_2:b"
+
+\end_inset
+
+ possui uma região de alto ganho de temperatura em relação as demais da
+ mama, coincidindo com a região em que o tumor existe.
+ 
 \end_layout
 
 \begin_layout Itemize
@@ -4584,7 +5036,15 @@ reference "eq:methodology:fps:mean_bt"
  Essa característica se assemelha ao ganho total de temperatura, onde regiões
  com algum tipo de anomalia tendem ter uma média maior que as demais regiões
  e não apresentam uma similaridade na mesma região da outra mama.
- A Figura
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:fps:feat_3"
+
+\end_inset
+
+ apresenta o resultado da extração dessa característica em TID de paciente
+ saudável e em uma TID de paciente doente.
 \end_layout
 
 \begin_layout Itemize
@@ -4597,10 +5057,10 @@ reference "eq:methodology:fps:std_bt"
 \end_inset
 
 .
- Essa caracterísca apresenta um grande fator de discriminância entres regiões
- saudáveis e com anomalias.
+ Essa característica apresenta um grande fator de discriminância entres
+ regiões saudáveis e com anomalias.
  Regiões saudáveis tendem a ganhar temperatura de forma uniforme durante
- a aquisição dos termogramas, ao contrário de regiões anomalas que variam
+ a aquisição dos termogramas, ao contrário de regiões anômalas que variam
  bastante no ganho de temperatura.
  Dessa forma regiões saudáveis apresentam um valor para 
 \begin_inset Formula $S$
@@ -4608,6 +5068,14 @@ reference "eq:methodology:fps:std_bt"
 
  mais baixo em relação à regiões que possuem algum tipo de anomalia.
  A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:fps:feat_4"
+
+\end_inset
+
+ apresenta o desvio padrão do ganho de temperatura em uma TID de paciente
+ saudável e em uma TID de paciente doente.
 \end_layout
 
 \begin_layout Standard
@@ -4630,6 +5098,74 @@ S=\sqrt{\frac{1}{19}\cdot\sum_{t=2}^{20}((I_{t}(i,j)-I_{t-1}(i,j))-M)^{2}}\label
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+Essas características quando analisadas em conjunto oferecem um grande discrimin
+ador entre as pacientes.
+ É possível perceber a similaridade entre as mamas direita e esquerda nas
+ Figuras 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:fps:feat_1:a"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fig:methodology:fps:feat_2:a"
+
+\end_inset
+
+ e
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fig:methodology:fps:feat_3:a"
+
+\end_inset
+
+, e uma homogeneidade na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:fps:feat_4:a"
+
+\end_inset
+
+.
+ Essas imagens representam uma paciente saudável.
+ Já nas Figuras 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:fps:feat_1:b"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fig:methodology:fps:feat_2:b"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fig:methodology:fps:feat_3:b"
+
+\end_inset
+
+ a similaridade entre as mamas é quebrada por regiões de pico de valores
+ que são coincidentes entre elas, e na Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:methodology:fps:feat_4:b"
+
+\end_inset
+
+ temos regiões com uma maior desvio padrão em relação as demais regiões
+ da mama, coincidindo com as regiões de maior pico nas imagens das outras
+ características.
 \end_layout
 
 \begin_layout Standard
@@ -4665,15 +5201,17 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-
-\end_layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:fps:feat_1:a"
 
 \end_inset
 
 
 \end_layout
 
-\begin_layout Plain Layout
+\end_inset
+
 
 \end_layout
 
@@ -4704,6 +5242,12 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:fps:feat_1:b"
+
+\end_inset
+
 
 \end_layout
 
@@ -4761,8 +5305,1790 @@ Elaborada pelo autor
 
 \end_layout
 
-\begin_layout LyX-Code
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
 
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/fps2_n.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fig:methodology:fps:feat_2:a"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/fps2_d.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fig:methodology:fps:feat_2:b"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ganho de temperatura total.
+ Em (a) temos um termograma de paciente saudável, enquanto em (b) temos
+ uma paciente com carcinoma ductal infiltrante.
+ A região mais avermelhada em (b) coincide com a região em que o tumor aparece.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:fps:feat_2"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/fps3_n.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fig:methodology:fps:feat_3:a"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/fps3_d.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fig:methodology:fps:feat_3:b"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Ganho de temperatura média entre os tempos da TID.
+ Em (a) vemos um exame de paciente saudável, enquanto em (b) temos uma paciente
+ com lesão na mama.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:fps:feat_3"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/fps4_n.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:fps:feat_4:a"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename figures/methodology/fps4_d.png
+	scale 50
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:fps:feat_4:b"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hfill{}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Desvio padrão do ganho de temperatura em uma TID.
+ Em (a) temos um termograma de paciente saudável, enquanto em (b) temos
+ uma paciente com lesão.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:methodology:fps:feat_4"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Extração de Características 2
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:methodology:sps"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A partir das imagens geradas na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:methodology:fps"
+
+\end_inset
+
+, são extraídas um conjunto de características baseadas em GLCM, definidas
+ pelas Equações 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:glcm:contraste"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:glcm:dissimilaridade"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:glcm:homogeneidade"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:glcm:asm"
+
+\end_inset
+
+,
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentationg:glcm:energia"
+
+\end_inset
+
+ e 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentationg:glcm:correlação"
+
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Antes de gerarmos as GLCM é necessário converter a escala de valores para
+ níveis de cinza.
+ Essa conversão é obtida através de
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+X'=a-\frac{(X-X_{min})(b-a)}{X_{max}-X_{min}},\label{eq:methodology:feature_scaling}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+onde 
+\begin_inset Formula $X$
+\end_inset
+
+ é o conjunto de valores, 
+\begin_inset Formula $X_{min}$
+\end_inset
+
+ o menor valor valor do conjunto, 
+\begin_inset Formula $X_{max}$
+\end_inset
+
+ o maior valor, 
+\begin_inset Formula $b$
+\end_inset
+
+ o valor máximo desejado e 
+\begin_inset Formula $a$
+\end_inset
+
+ o valor mínimo desejado.
+ No caso das imagens extraídas na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:methodology:fps"
+
+\end_inset
+
+ temos 
+\begin_inset Formula $a=0$
+\end_inset
+
+ e 
+\begin_inset Formula $b=255$
+\end_inset
+
+, dessa forma serão convertidas em níveis de cinza.
+\end_layout
+
+\begin_layout Standard
+A partir das imagens convertidas para valores de níveis de cinza podemos
+ extrair as GLCM.
+ No total são extraídas 4 matrizes, com distâncias 
+\begin_inset Formula $(\Delta x=1,\Delta_{y}=0)$
+\end_inset
+
+, 
+\begin_inset Formula $\Delta x=1,\Delta_{y}=1),$
+\end_inset
+
+ 
+\begin_inset Formula $\Delta x=0,\Delta_{y}=1)$
+\end_inset
+
+ e 
+\begin_inset Formula $\Delta x=-1,\Delta_{y}=1)$
+\end_inset
+
+.
+ A partir daí serão geradas as 6 características citadas acima para cada
+ matriz, formando um total de 96 características que serão utilizadas na
+ etapa de classificação da metodologia.
+\end_layout
+
+\begin_layout Section
+Redução de Características
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:methodology:reduction"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Essa etapa consiste em reduzir o conjunto de 96 características previamente
+ extraídas para um conjunto menor e mais conciso de características.
+ Foram utilizados os 3 métodos descritos na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:fundamentation:dimensionality_reduction"
+
+\end_inset
+
+.
+ Dessa forma temos distintos conjuntos de dados que serão utilizados na
+ etapa de classificação, sendo eles:
+\end_layout
+
+\begin_layout Itemize
+K-best
+\emph on
+ 
+\emph default
+com 
+\begin_inset Formula $K=40$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+K-best com 
+\begin_inset Formula $K=20.$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+K-best
+\emph on
+ 
+\emph default
+com 
+\begin_inset Formula $K=10$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+PCA com 
+\begin_inset Formula $C=20$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+PCA com 
+\begin_inset Formula $C=10$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+LDA com 
+\begin_inset Formula $C=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Classificação
+\end_layout
+
+\begin_layout Standard
+Essa etapa consiste em classificar um determinado exame TID em saudável
+ ou doente.
+ Utilizando as características extraídas da Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:methodology:sps"
+
+\end_inset
+
+ e posteriormente reduzidas como entrada para uma SVM.
+ 
+\end_layout
+
+\begin_layout Standard
+Durante essa etapa o conjunto de características originais são subdividas
+ em 2 conjuntos distintos que chamamos de base de treino e teste, que não
+ possuem indivíduos em comum entre eles.
+ Antes da etapa de treinamento de uma SVM, selecionamos as melhores característi
+cas através de um dos métodos descritos na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:methodology:reduction"
+
+\end_inset
+
+.
+ Essa seleção é feita na base de treino e depois aplicada na base de testes,
+ dessa forma a base de teste não tem influência na seleção.
+ 
+\end_layout
+
+\begin_layout Standard
+A etapa de treinamento entra em ação, onde a base de treino juntamente com
+ seus valores de classe é utilizada para encontrar os melhores vetores de
+ suporte para a SVM.
+ Após o termino do treinamento, a validação do modelo é executada, onde
+ utilizamos a base de teste sem os valores de classe como entrada no modelo
+ SVM, que irá classificar os indivíduos existentes na base.
+ Os resultados são comparados com os valores de classe conhecidos para validação
+ do modelo.
+ São extraídos os valores de acurácia (Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:methodology:classification:acc"
+
+\end_inset
+
+) que mede a taxa de acerto geral, a sensibilidade (Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eq:methodology:classification:sensitivity"
+
+\end_inset
+
+) que mede a taxa de acerto para os casos que possuem anomalia e a especificidad
+e (Equação 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:eq:methodology:classification:specificity"
+
+\end_inset
+
+) que mede a taxa de acerto de casos saudáveis.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Acurácia=\frac{TP+TN}{TP+FP+TN+FN}\label{eq:methodology:classification:acc}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Sensibilidade=\frac{TP}{TP+FN}\label{eq:eq:methodology:classification:sensitivity}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+Especificidade=\frac{TN}{TN+FP}\label{eq:eq:methodology:classification:specificity}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+onde 
+\begin_inset Formula $TP,TN,FP$
+\end_inset
+
+ e 
+\begin_inset Formula $FN$
+\end_inset
+
+ são as quantidades de verdadeiro positivo, verdadeiro negativo, falso positivo
+ e falso negativo, respectivamente.
+ 
+\end_layout
+
+\begin_layout Chapter
+Resultados Parciais
+\end_layout
+
+\begin_layout Standard
+Nesse capítulo são apresentados os resultados parciais da aplicação da metodolog
+ia para a classificação de termografias dinâmicas em saudável e doente.
+ Os teste são aplicados 100 vezes consecutivas e a média dos resultados
+ é analisada.
+ Em cada teste, a base é inicialmente dividida em 80% dos casos para o treinamen
+to do SVM e 20% para validação do modelo.
+ Os indivíduos são selecionados aleatoriamente de forma que a proporção
+ entre as classes seja mantida.
+ Como a base utilizada apresenta balanceamento de 1:1 entre as classes,
+ não ocorre o desbalanceamento na etapa de treinamento e validação.
+ Após a divisão das bases, a redução de dimensionalidade é utilizada, onde
+ a base de treino é utilizada como referência para a analise de quais caracterís
+ticas são as mais eficientes.
+ As técnicas de redução utilizadas são as descritas na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:methodology:reduction"
+
+\end_inset
+
+.
+ Então a base de treino é utilizada para gerar o modelo SVM, que posteriormente
+ será utilizado na classificação dos indivíduos.
+ A Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:results:mean_table"
+
+\end_inset
+
+ apresenta os resultados parciais da metodologia.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="8" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Método
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Acurácia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sensibilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Especificidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sem redução
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+42,4%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23,7%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+68,9%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+K-best, K=40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+48,1%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+28,1%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+68,1%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+K-best, K=20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+49,8%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+29,1%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+70,5%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PCA, K=30
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+48,2%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+44,1%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+52,2%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PCA, K=20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+47,5%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+44,7%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+54,4%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LDA, K=1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+78,3%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+79,9%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+76,7%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PCA+LDA, k1= 40, k2=1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+82,5%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+84,1%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+81,0%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Média final da execução dos testes 100 vezes para cada método de seleção
+ de características.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:results:mean_table"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Analisando a tabela, vemos que a estratégia sem reduzir as características
+ não apresenta bom resultado, ficando abaixo dos 50% de acurácia.
+ As técnicas 
+\emph on
+K-best
+\emph default
+ e PCA também não produziram resultados satisfatórios.
+ A técnica de redução que obteve um bom resultado foi a LDA, que sozinho
+ demonstrou ser a melhor para a redução das características.
+ No entanto, a combinação da aplicação do PCA seguida da aplicação do LDA
+ foi a que demonstrou melhores resultados nos testes realizados até o momento,
+ onde a acurácia, sensibilidade e especificidade ficaram acima dos 80%.
+ 
+\end_layout
+
+\begin_layout Standard
+Um fator que contribui bastante para os resultados abaixo do esperado é
+ a quantidade de exames disponíveis.
+ A base utilizada é relativamente pequena em comparação com bases utilizadas
+ por metodologias baseadas em mamografia, que chegam a possuir mais de 3000
+ mil exames disponíveis para os pesquisadores.
+ Apesar disso, é possível dizer que os resultados demonstrados são promissores
+ e com a utilização de outras características que possam discriminar as
+ classes é possível que melhores resultados sejam obtidos.
+ 
+\end_layout
+
+\begin_layout Chapter
+Cronograma do Plano de Trabalho
+\end_layout
+
+\begin_layout Standard
+A plano de trabalho na elaboração da metodologia pode ser subdividido em:
+\end_layout
+
+\begin_layout Enumerate
+Pesquisa Bibliográfica
+\end_layout
+
+\begin_layout Enumerate
+Coleta de Dados
+\end_layout
+
+\begin_layout Enumerate
+Elaboração do Projeto de Monografia
+\end_layout
+
+\begin_layout Enumerate
+Revisão Gramatical e Ortográfica
+\end_layout
+
+\begin_layout Enumerate
+Defesa de Monografia
+\end_layout
+
+\begin_layout Standard
+A Tabela
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:cronograma:plano"
+
+\end_inset
+
+ apresenta o cronograma de execução das atividades.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="6" columns="9">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Etapas
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+09/2015
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+10/2015
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+11/2015
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+12/2015
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+01/2016
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+02/2016
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+03/2016
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+04/2016
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+1 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+5
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+X
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cronograma do plano de trabalho.
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:cronograma:plano"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Conclusão
+\end_layout
+
+\begin_layout Standard
+A metodologia apresenta uma forma de auxiliar médicos especialistas na detecção
+ do câncer de mama.
+ O objetivo não é indicar o local suspeito, apenas dizer se um determinado
+ paciente apresenta ou não algum tipo de anomalia na região das mamas.
+ 
+\end_layout
+
+\begin_layout Standard
+A termografia é um exame que não deve ser utilizado isoladamente para a
+ detecção desse tipo de câncer, mas em conjunto com outros tipos de exame,
+ como a mamografia.
+ A vantagem desse tipo de imagem é que o equipamento utilizado para extração
+ das imagens é fácil de carregar, permitindo a locomoção para diferentes
+ lugares.
+ Apesar disso, é necessário um ambiente controlado na etapa de extração
+ das imagens.
+ 
+\end_layout
+
+\begin_layout Standard
+O resultados apresentados pela metodologia demonstram ser promissores, com
+ 82,5% de acurácia, 84,1 % de sensibilidade e 81,0% de especificidade.
+ 
+\end_layout
+
+\begin_layout Section
+Trabalhos Futuros
+\end_layout
+
+\begin_layout Standard
+O maior impasse na metodologia é pequena base de imagens previamente diagnostica
+das disponível.
+ Foram utilizadas apenas 70 imagens na metodologia, longe da quantidade
+ ideal para algoritmos de aprendizado de máquina.
+ Com a obtenção de novas imagens é possível conseguir melhores resultados.
+\end_layout
+
+\begin_layout Standard
+Novos métricas também podem ser estudadas, com o objetivo de incluí-las
+ na metodologia apresentada, deixando-a mais robusta e mais precisa.
 \end_layout
 
 \begin_layout Standard

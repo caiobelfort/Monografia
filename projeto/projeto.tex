@@ -1,10 +1,13 @@
 %% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[oneside,brazil,oldfontcommands]{abntex2}
+\documentclass[a4paper,oneside,brazil,oldfontcommands]{abntex2}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{color}
 \usepackage{float}
 \usepackage{textcomp}
 \usepackage{url}
@@ -16,12 +19,26 @@
 \makeatletter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\pdfpageheight\paperheight
+\pdfpagewidth\paperwidth
+
 \newcommand{\docedilla}[2]{\underaccent{#1\mathchar'30}{#2}}
 \newcommand{\cedilla}[1]{\mathpalette\docedilla{#1}}
 
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \usepackage[alf]{abntex2cite}
+\usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+
+
+\usepackage{microtype} 
+% para melhorias de justificação
+\usepackage[brazilian,hyperpageref]{backref}
 
 \@ifundefined{showcaptionsetup}{}{%
  \PassOptionsToPackage{caption=false}{subfig}}
@@ -31,37 +48,222 @@
 \usepackage{babel}
 \begin{document}
 
+
+\noindent \begin{center}
+\textcolor{black}{\large{}UNIVERSIDADE FEDERAL DO MARANHÃO}
+\par\end{center}{\large \par}
+
+\noindent \begin{center}
+\textcolor{black}{\large{}CENTRO DE CIÊNCIAS EXATAS E TECNOLÓGICAS}
+\par\end{center}{\large \par}
+
+\noindent \begin{center}
+\textcolor{black}{\large{}DEPARTAMENTO DE INFORMÁTICA}
+\par\end{center}{\large \par}
+
+\noindent \begin{center}
+\textcolor{black}{\large{}CURSO DE CIÊNCIA DA COMPUTAÇÃO}
+\par\end{center}{\large \par}
+
+\vspace{6cm}
+
+
+\noindent \begin{center}
+\textcolor{black}{\large{}PROJETO DE MONOGRAFIA}
+\par\end{center}{\large \par}
+
+\noindent \begin{center}
+Análise e Classificação de Termografias Dinâmicas das Mamas Utilizando
+a Variação de Temperatura e Máquinas de Vetor de Suporte
+\par\end{center}
+
+\vspace{6cm}
+
+
+\noindent \begin{center}
+São Luís
+\par\end{center}
+
+\noindent \begin{center}
+2016
+\par\end{center}
+
+\newpage{}
+
+
+
+\vspace{6cm}
+
+
+\begin{Spacing}{0.5}
+\noindent \begin{center}
+\rule{7cm}{0.5pt}
+\par\end{center}
+
+\noindent \begin{center}
+\emph{Caio Nogueira Silva Belfort}
+\par\end{center}
+
+\noindent \begin{center}
+Aluno do Curso de Ciência da Computação
+\par\end{center}
+\end{Spacing}
+
+\vspace{2cm}
+
+
+\begin{Spacing}{0.5}
+\noindent \begin{center}
+\rule{7cm}{0.5pt}
+\par\end{center}
+
+\noindent \begin{center}
+\emph{Prof. Dr. Aristófanes Côrrea Silva}
+\par\end{center}
+
+\noindent \begin{center}
+Orientador
+\par\end{center}
+\end{Spacing}
+
+\vspace{2cm}
+
+
+\begin{Spacing}{0.5}
+\noindent \begin{center}
+\rule{7cm}{0.5pt}
+\par\end{center}
+
+\noindent \begin{center}
+\emph{Prof. Msc. Carlos Eduardo Portela Serra de Castro}
+\par\end{center}
+
+\noindent \begin{center}
+Coordenador do Curso de Ciência da Computação
+\par\end{center}
+\end{Spacing}
+
+\newpage{}
+\begin{resumo}
+\thispagestyle{empty}
+
+A termografia das mamas é um exame de imagem que utiliza a radiação
+infravermelha naturalmente emitida pelo corpo da paciente para detecção
+de anomalias. Possui a capacidade de detectar o câncer de mama mais
+precocemente que a mamografia, sem causar nenhum efeito colateral
+ou incômodo físico na paciente. O processamento de imagens médicas
+é uma área que vem ganhando destaque recentemente, pois metodologias
+de diagnóstico automático podem auxiliar médicos especialistas na
+detecção de doenças de forma precoce, aumentando as chances de cura.
+Este trabalho apresenta uma metodologia de processamento e análise
+de termografias dinâmicas da mama, como forma de auxiliar médicos
+especialista no diagnóstico de doenças relacionadas ao tecido mamário.
+O registro de imagens é utilizado para efetuar a correção do erro
+de postura entre os diversos tempos de uma termografia dinâmica. Valores
+estatísticos são utilizados para medir a variação de temperatura entre
+os pixels, formando novas imagens a partir da termografia original.
+Em seguida a extração de características de textura é efetuada em
+cada imagem estatística, formando um conjunto de valores conhecido
+como vetor de características. O vetor de característica é reduzido
+através de técnicas de redução de características para posteriormente
+servir de entrada para uma máquina de vetor de suporte que irá efetuar
+a classificação em exame saudável ou exame com algum tipo de anomalia.
+A metodologia apresenta 82,5\% de acurácia, 84,1 \% de sensibilidade
+e 81,0\% de especificidade.
+
+Palavras chave: Câncer, Mama, Termografia, Aprendizado de Máquina
+
+\newpage{}
+\end{resumo}
+\pdfbookmark[0]{\listfigurename}{lof} 
+\listoffigures* 
+\cleardoublepage
+
+\newpage{}
+
+\pdfbookmark[0]{\listtablename}{lot}
+\listoftables* 
+\cleardoublepage
+
+\newpage{}
+
+\pdfbookmark[0]{\contentsname}{toc} 
+\tableofcontents* 
+\cleardoublepage
+
+
 \chapter{Introdução \label{sec:intro}}
 
-Lorem ipsum dolor sit amet, soleat oblique inciderint mei at. Mea
-harum legere delicata ut. Zril maiorum ea eum, affert adipiscing ad
-per, veniam nostro sit in. Nec ea falli oratio expetendis. Alii impetus
-prodesset mea ad, eum ei erroribus appellantur.
 
-Eum etiam interpretaris ei, ad probo labores nam. Possit indoctum
-est no, nulla persius elaboraret sed ne. Vide summo pertinacia ea
-nec, et ius vocibus feugait. Dicat fuisset ex vix, dicta dolores pri
-et. Ex tempor petentium consulatu cum, dico eius dicat no est, ea
-cum liber virtute. Convenire posidonium mea in, pertinax scribentur
-eloquentiam eam ei, usu et labore dictas complectitur.
 
-Ad sit eruditi dolorum, purto omittantur vix ut. Mel ad fugit adolescens,
-et nisl oblique molestiae pri, in incorrupte elaboraret vim. Vis erat
-praesent in, pri ad eros pertinax. Ex adhuc meliore delicatissimi
-cum, ut ius justo nulla, in ferri ceteros nam.
+O câncer de mama é o tipo mais comum entre as mulheres em todo o mundo,
+respondendo por 25\% dos casos a cada ano\cite{inca}. Quando diagnósticado
+tardiamente, as chances de cura são extremamente reduzidas, tornando
+o diagnóstico precoce um dos fatores mais importantes na redução da
+taxa de mortalidade desse tipo de doença. O incidência aumenta juntamente
+com a faixa etária, sendo que mulheres acima de 50 anos são mais suscetíveis
+ao desenvolvimento da patologia. No entanto, existem outros fatores
+de risco que implicam numa maior chance de aparecimento, como o histórico
+desse tipo de câncer na família, gestação tardia, terapia de reposição
+hormonal e exposição à radiação. 
 
-At mei quas admodum appellantur, cum ex dolores intellegam, sale soluta
-probatus ea eum. Rebum bonorum in pri, ad nam graeco insolens, ex
-esse facete has. Qui ei elit referrentur, eum alii scripta ne. Ei
-ius tantas mucius latine, justo percipitur cu ius, eum dicam mollis
-iisque eu. Nam dico tota splendide cu, pri an omittam dignissim voluptatum.
-Aeque tacimates consulatu eu usu, an pro pertinax electram.
+Os exames mais tradicionais na detecção do câncer de mama são os exames
+de toque e a mamografia. O exame de toque é um exame de triagem, onde
+o própria mulher pode procurar por nódulos nos seios. Porém nem sempre
+o câncer resulta em aparecimento de nódulos e as vezes os nódulos
+existentes são difíceis de detectar através do toque. Dessa forma,
+a mamografia se tornou um exame essencial nos dias de hoje, pois utiliza
+os raios-x para detectar regiões de alta densidade nas mamas. Apesar
+de ser o tipo de exame mais recomendado pelos especialistas, a mamografia
+não é passível de falhas, pois mamas com alta densidade apresentam
+uma dificuldade elevada na detecção de tumores, pois estes podem ficar
+escondidos pelo tecido denso da mama. Mulheres jovens geralmente apresentam
+alta densidade nas mamas, tornando a mamografia um exame não recomendável
+para essa faixa etária, pois utiliza a radiação na geração das imagens,
+o que pode futuramente causar o aparecimento do câncer na paciente.
+Dessa forma é necessário que outros tipo de exames sejam utilizados
+como forma de prevenção e diagnóstico precoce.
 
-Iudicabit corrumpit scribentur ad est, appareat vituperatoribus cu
-vix, case movet at quo. Dolorum maiestatis disputando no sit. At etiam
-dolorem usu, lorem summo quo an, pro dolore nusquam quaerendum eu.
-Eos suas mazim invenire et, accusam fabellas id nam, te eum doctus
-consequuntur. Conceptam elaboraret ad nec, est in etiam minimum fabella.
+A termografia mamária é um exame de imagem não radioativo capaz detectar
+tumores que não seriam possíveis de descobrir através da mamografia.
+Esse tipo de exame utiliza a radiação infravermelha, emitida naturalmente
+pelo corpo da paciente, para detecção da doença. Regiões próximas
+à um tumor tendem a ter um aumento na vascularização, ocorrendo uma
+maior circulação de sangue na região, que causará um aumento de temperatura
+em relação as outras regiões da mama. Esse aumento de temperatura
+é detectável através da termografia, permitindo que especialistas
+detectem a formação de um tumor antes mesmo que ele seja palpável. 
+
+Existem duas formas na obtenção de exames de termografia mamária.
+A primeira delas é o que chamamos de termografia estática, onde apenas
+uma imagem da paciente é gerada e analisada. A segunda forma é a chamada
+termografia dinâmica, onde várias imagens sequenciais são geradas,
+permitindo que o especialista analise a evolução na distribuição de
+calor nas mamas da paciente. A metodologia proposta utiliza as termografias
+dinâmicas para auxiliar médicos especialistas no diagnóstico precoce
+do câncer de mama. 
+
+Durante um exame de termografia dinâmico, a paciente executa movimentos
+involuntários, causados pela respiração e pelo ajuste de postura,
+dessa forma as imagens sequenciais do exame não se encaixam perfeitamente,
+causando um erro que pode influenciar na metodologia. O registro de
+imagens deformável por \emph{B-Splines }é utilizado para efetuar a
+correção desse erro. Posteriormente, extrai-se as regiões de interesse
+do exame, que são as mamas da paciente. Essa extração é feita de forma
+manual através de um aplicativo, onde o especialista deverá demarcar
+a região da mama. Finalmente a etapa de extração de características
+é executada, onde os pixels de mesma posição e diferentes tempos da
+termografia são analisados como uma série de tempo, produzindo um
+conjunto de valores estatísticos para cada pixel, formando novas imagens
+a partir da termografia dinâmica original. A partir dessas imagens
+geradas, são extraídas o conjunto de características de textura a
+partir de matrizes de coocorrência. Essas características podem ser
+reduzidas através de técnicas de redução de características como a
+técnica de \emph{Análise dos Componentes Principais} e a \emph{Análise
+Discriminante Linear. }No final do processo, as características reduzidas
+irão servir de entrada para uma \emph{Máquina de Vetor de Suporte}
+que irá ser responsável por classificar as pacientes em saudável e
+doente. 
 
 
 \chapter{Objetivos \label{sec:objectives}}
@@ -115,8 +317,8 @@ das imagens e também não causa incômodo físico ao paciente, pois não
 fator a se levar em consideração é o custo extremamente baixo e o
 fácil manuseio do equipamento necessário para obtenção do exame \cite{borchartt2013breast}.
 A Figura \ref{fig:fundamentation:thermography:breast-thermography}
-apresenta uma termografia em pseudocor, onde a temperatura varia de
-acordo com a paleta de cores à direita da imagem.
+apresenta uma termografia em pseudo cor, onde a temperatura varia
+de acordo com a paleta de cores à direita da imagem.
 
 \begin{figure}[H]
 \begin{centering}
@@ -125,6 +327,7 @@ acordo com a paleta de cores à direita da imagem.
 \par\end{centering}
 
 
+\fonte{\cite{silva2014new}}
 
 \end{figure}
 
@@ -134,27 +337,27 @@ acordo com a paleta de cores à direita da imagem.
 
 A termografia estática (TI), é o tipo de termografia onde a medição
 de temperatura é feita uma única vez. No caso de TI das mamas são
-procedimentos \cite{silva2014new} de preparação do ambiente e cuidados
-extras ao paciente para que o exame tenha resultado satisfatório,
-pois vários fatores podem influenciar o resultado final \cite{lincoln_thesis2015}. 
+necessários procedimentos \cite{silva2014new} de preparação do ambiente
+e cuidados extras ao paciente para que o exame tenha resultado satisfatório,
+pois vários fatores podem influenciar o resultado final \cite{lincoln_thesis2015}.
 
 
 \subsection{Termografia Dinâmica}
 
 A termografia dinâmica (TID), é um tipo de termografia onde a mediação
 de temperatura é realizada através de várias etapas de tempo, ou seja,
-TID mede as mudanças de temperatura sobre um determinado periodo de
-tempo. Originalmente conceituada por \cite{anbar1987computerized},
+a TID mede as mudanças de temperatura sobre um determinado período
+de tempo. Originalmente conceituada por \cite{anbar1987computerized},
 onde notou-se que mudanças bruscas na temperatura da pele produziam
-informações valiosas, que não podem ser obtidos por meio de uma TI.
+informações valiosas, que não podem ser obtidas por meio de uma TI.
 
 A TID apresenta uma característica importante na detecção de lesões
 mamárias, pois áreas saudáveis apresentam um comportamento distinto
-de áreas com algum tipo de patologia. Neoplásias são associadas com
+de áreas com algum tipo de patologia. Neoplasias são associadas com
 a angiogênese que causa um aumento de vascularização na região, sendo
 que, os vasos recém formados apresentam a características de possuir
 poucas terminações nervosas, o que causa um comportamento irregular
-a estimulos externos, que é detectável através de um exame de termografia
+à estímulos externos, que é detectável através de um exame de termografia
 dinâmico \cite{lincoln_thesis2015}.
 
 Na prática a TID monitora as mudanças na temperatura da pele, onde
@@ -166,11 +369,11 @@ as regiões doentes tendem a permanecer estáticas \cite{amalu2004nondestructive}.
 
 \section{Registro de Imagens\label{sec:fundamentation:image_registration}}
 
-Quando imagens que foram extraídas de diferentes tempos, pontos de
-vista ou aparelhos precisam ser comparadas, ocorre um problema de
-alinhamento das coordenadas dessas imagens. É necessário efetuar alguma
-forma de processamento para que essas imagens possam ser comparadas
-adequadademente .\emph{ }O \emph{Registro de Imagens }é uma técnica
+Quando imagens que foram extraídas entre diferentes tempos, pontos
+de vista ou aparelhos precisam ser comparadas, ocorre um problema
+de alinhamento das coordenadas dessas imagens. É necessário efetuar
+alguma forma de processamento para que essas imagens possam ser comparadas
+adequadamente .\emph{ }O \emph{Registro de Imagens }é uma técnica
 que utiliza uma transformação $T$ para mapear a posição e o valor
 de intensidade de um pixel $p$ da imagem $A$ para $q$ na imagem
 $B$, como pode ser visto pela Equação \ref{eq:fundamentation:image_registration:transform_eq}.
@@ -203,13 +406,13 @@ para um mesmo sistema de coordenadas. Em \cite{crum2014non} é definido
 como um processo que determina correspondências entre as características
 de imagens extraídas em diferentes momentos, pontos de vista ou aparelhos.
 Tais correspondências podem ser utilizadas para aplicar transformações
-(rotação, translação, alongamento, etc.) em uma imagem de forma que
-seja possível a comparação entre as duas imagens. A forma mais intuitiva
+(rotação, translação, alongamento, etc.) em uma das imagens, de forma
+que seja possível a comparação entre as duas. A forma mais intuitiva
 de utilização do registro é para corrigir diferenças na posição entre
-scans . Registro de imagens adiciona valor à imagens, permitindo que
-imagens estruturais (CT, MR, ultrasom) e funcionais (PET, SPECT, functional
-MRI) sejam vistas e analisadas no mesmo sistema de coordenadas, e
-facilita o uso de novas imagens, como para monitorar e quantificar
+varreduras . O registro de imagens adiciona valor à imagens, permitindo
+que imagens estruturais (CT, MR, ultrasom) e funcionais (PET, SPECT,
+functional MRI) sejam vistas e analisadas no mesmo sistema de coordenadas,
+e facilita o uso de novas imagens, como para monitorar e quantificar
 a evolução de uma doença à medida que o tempo passa \cite{crum2014non}.
 
 A Figura \ref{fig:fluxo-registro} mostra o fluxograma básico de um
@@ -252,7 +455,7 @@ processo que é medir o quanto a imagem móvel é equivalente à imagem
 fixa após a transformação ser aplicada. 
 
 
-\subsubsection{Correlação Cruzada Normalizada}
+\subsubsection{Correlação Cruzada Normalizada\label{sec:fundamentation:image_registration:metric:ccn}}
 
 A Correlação Cruzada Normalizada é uma métrica insensível à fatores
 multiplicativos entre as imagens. Produz uma função de custo com picos
@@ -282,7 +485,7 @@ As transformações rígidas aplicam sobre a imagem móvel apenas transformações
 simples como operações de translação e rotação, dessa forma a imagem
 móvel não sofre deformações, sofrendo apenas o alinhamento de suas
 coordenadas. Registros que utilizam transformações rígidas são chamados
-de regístro rígidos e na prática não são utilizados individualmente,
+de registro rígidos e na prática não são utilizados individualmente,
 pois não são capazes de corrigir erros locais que necessitam de transformações
 mais complexas para serem resolvidas. Apesar disso, são bastante utilizados
 como pré-processamento para os chamados registros deformáveis. 
@@ -342,10 +545,10 @@ as posições dos pixels foram alteradas.
 
 \subsubsection{Rotação}
 
-A transformação é de rotação é uma transformação rígida capaz de rotacionar
-os objetos a partir de um centro de rotação. Dado um ponto $p=(x,y)$
-e um ângulo de rotação $\theta$ em radianos, o ponto $q$ é o resultado
-da rotação de $p$ em $\theta$ radianos dado por
+A rotação é uma transformação rígida capaz de rotacionar os objetos
+em relação a um determinado ponto. Dado um ponto $p=(x,y)$ e um ângulo
+de rotação $\theta$ em radianos, o ponto $q$ é o resultado da rotação
+de $p$ em $\theta$ radianos dado por
 
 \begin{equation}
 q=\begin{bmatrix}x'\\
@@ -367,6 +570,10 @@ representa uma transformação de 90º em torno da origem dos eixos.
 \par\end{centering}
 
 \caption{Rotação de $\theta=\frac{\pi}{2}=90\text{º}.$\label{fig:fundamentation:image_registration:transform:rotation}}
+
+
+
+\fonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -424,11 +631,11 @@ objeto transformado.
 
 
 
-\subsubsection{Transformações FFD baseadas em \emph{B-Splines }cúbicas}
+\subsubsection{Transformações FFD baseadas em \emph{B-Splines }cúbicas \label{sec:fundamentation:image_registration:transform:bspline}}
 
 Um dos tipos de transformações não-rígidas mais comuns atualmente
 são as chamadas transformações FFD (deformação de forma livre) baseadas
-em \emph{b-splines} cúbicas \cite{yin2009mass}. A ideia básica desse
+em \emph{B-splines} cúbicas \cite{yin2009mass}. A ideia básica desse
 tipo de transformação é manipular a grade de pixels a partir dos chamados
 pontos de controle. Essa manipulação permite criar um campo de deslocamento,
 que irá mapear os pixels da imagem móvel. 
@@ -450,7 +657,7 @@ para se assemelhar à imagem fixa. }
 
 Seja $\Phi$ a grade uniforme de dimensões $n_{x}\times n_{y}\times n_{z}$
 com $\Phi_{i,j,k}$ representando o deslocamento do $ijk$-ésimo ponto
-de controle. O espaço entre as grandes controle nas direções $x$,
+de controle. O espaço entre as grandes de controle nas direções $x$,
 $y$ e $z$ são denotadas por $\delta_{x}$, $\delta_{y}$e $\delta_{z}$,
 respectivamente. A transformação $T(\text{{x}}:\Phi)$ é definida
 por 
@@ -543,7 +750,7 @@ na imagem móvel.\label{fig:fundamentation:image_registration:grid}}
 
 
 
-\subsubsection{Interpolador Linear}
+\subsubsection{Interpolador Linear\label{sec:fundamentation:image_registration:interpolator:linear}}
 
 O interpolador linear assume que os valores de intensidade dos pixels
 variam de forma linear entre as posições de grade. Dessa forma, os
@@ -567,7 +774,7 @@ utilizados, como os \emph{Algoritmos Genéticos \cite{whitley1994genetic}
 }e o \emph{Gradiente Descendente} \cite{burges2005learning}.
 
 
-\subsubsection{LBFGS}
+\subsubsection{LBFGS\label{sec:fundamentation:image_registration:otimizator:lbfgs}}
 
 O \emph{LBFGS }(Limited-memory Broyden-Fletcher-Goldfarb-Shanno) é
 um método de otimização bastante comum em problemas de registro de
@@ -612,7 +819,7 @@ Desde então elas vem sendo bastante utilizadas em várias aplicações
 de análise de textura e permanecem sendo uma ferramenta importante
 no domínio de análise de texturas \cite{sebastian2012gray}.
 
-A GLCM é uma técnica que utilizada para extrair características estatísticas
+A GLCM é uma técnica utilizada para extrair características estatísticas
 de textura de segunda ordem \cite{albregtsen2008statistical}, ou
 seja, a medição considera a relação entre pares de pixels, geralmente
 vizinhos \cite{glcm_tutorial}. 
@@ -620,17 +827,17 @@ vizinhos \cite{glcm_tutorial}.
 
 \subsection{Construção de uma GLCM}
 
-Seja $I$ uma imagem em níveis de cinza e$N$ a quantidade de níveis
-de cinza, uma matriz de coocorrência $G$ é uma matriz quadrada de
-ordem $N$ \cite{sebastian2012gray}. O elemento da matriz $P(i,j|\Delta x,\Delta y)$
-é a frequência relativa em que dois pixels de intensidade $(i,j)$,
-separados por uma distância $(\Delta x,\Delta y)$, são vizinhos.
-Também é possível dizer que o elemento $P(i,j|d,\theta)$ contém os
-valores da probabilidade de segunda ordem para mudanças entre os níveis
-de cinza $i$ e $j$ em uma distância $d$ e um ângulo $\theta$ \cite{albregtsen2008statistical}.
+Seja $I$ uma imagem em níveis de cinza e $N$ a quantidade de níveis
+de cinza, uma GLCM $G$ é uma matriz quadrada de ordem $N$ \cite{sebastian2012gray}.
+O elemento da matriz $P(i,j|\Delta x,\Delta y)$ é a frequência relativa
+em que dois pixels de intensidade $(i,j)$, separados por uma distância
+$(\Delta x,\Delta y)$, são vizinhos. Também é possível dizer que
+o elemento $P(i,j|d,\theta)$ contém os valores da probabilidade de
+segunda ordem para mudanças entre os níveis de cinza $i$ e $j$ em
+uma distância $d$ e um ângulo $\theta$ \cite{albregtsen2008statistical}.
 
-Seja $I$ uma imagem de dimensões $WxH$, então uma GLCM de ir pode
-ser definida pela Equação \ref{eq:glcm:def}.
+Seja $I$ uma imagem de dimensões $WxH$, então uma GLCM de $I$ é
+definida pela Equação \ref{eq:glcm:def}.
 
 \begin{equation}
 G(i,j|\Delta x,\Delta y)=\sum_{p=1}^{W}\sum_{q=1}^{H}A\label{eq:glcm:def}
@@ -646,7 +853,7 @@ A=\begin{cases}
 
 
 Como exemplo temos uma imagem $I$ de dimensões $5x5$, com $4$ níveis
-de cinza. Então as matriz de co-ocorrência $G(i,j|\Delta x=1,\Delta y=0)$
+de cinza. Então as matriz de coocorrência $G(i,j|\Delta x=1,\Delta y=0)$
 e $G(i,j|\Delta x=1,\Delta y=1)$ são representadas abaixo.
 
 \[
@@ -680,12 +887,12 @@ G(i,j|\Delta x=1,\Delta y=1)=\begin{bmatrix}0 & 0 & 1 & 2\\
 
 \subsection{GLCM Normalizada}
 
-Considere $N=\sum_{i}\sum_{j}G_{d}(i,j)$, que é a quantidade coocorrências
+Considere $N=\sum_{i}\sum_{j}G_{d}(i,j)$, que é a quantidade ocorrências
 de pares em $G_{d}$. Seja $GN_{d}(i,j)=\frac{1}{N}G_{d}(i,j)\cdot GN_{d}$,
-chamada de matriz de coocorrência normalizada, onde as entradas $(i,j)$
-de $GN_{d}(i,j)$ são as probabilidades de coocorrência de um determinado
-pixel com intensidade $i$ ser separado de um pixel de intensidade$j$
-por uma distância $k$ em uma determinada direção $d$ \cite{sebastian2012gray}.
+chamada de GLCM normalizada, onde as entradas $(i,j)$ de $GN_{d}(i,j)$
+são as probabilidades de coocorrência de um determinado pixel com
+intensidade $i$ ser separado de um pixel de intensidade $j$ por
+uma distância $k$ em uma determinada direção $d$ \cite{sebastian2012gray}.
 
 
 \subsection{Características de Textura}
@@ -753,15 +960,13 @@ de um par de pixels $i$ e $j$ serem vizinhos.
 \section{Redução de Dimensionalidade\label{sec:fundamentation:dimensionality_reduction}}
 
 Em \emph{Aprendizado de Máquina}, geralmente possuímos um conjunto
-de dados previamente disponíveis para utilizar em um classificador
-qualquer. Nesse conjunto de dados, cada indivíduo é representado por
-um conjunto de características extraídas do dado original. Por exemplo,
-em imagens de níveis de cinza é possível extrair as características
-representadas pelas Equações \ref{eq:fundamentation:glcm:contraste},\ref{eq:fundamentation:glcm:dissimilaridade},\ref{eq:fundamentation:glcm:homogeneidade},\ref{eq:fundamentation:glcm:asm},\ref{eq:fundamentationg:glcm:energia}e\ref{eq:fundamentationg:glcm:correla=0000E7=0000E3o}
-a partir de um GLCM qualquer. A quantidade de características que
-um indivíduo possui é o que chamamos de \emph{dimensão}. Para um conjunto
-de dados de dimensão $D=6$, então temos $6$ características que
-descrevem cada indivíduo. 
+de dados previamente disponíveis . Nesse conjunto de dados, cada indivíduo
+é representado por um conjunto de características extraídas do dado
+original. Por exemplo, em imagens de níveis de cinza é possível extrair
+as características a partir de uma GLCM. A quantidade de características
+que um indivíduo possui é o que chamamos de \emph{dimensão}. Para
+um conjunto de dados de dimensão $D=6$, então temos $6$ características
+que descrevem cada indivíduo. 
 
 A fácil pensar que quanto maior o número de características, melhor
 para discriminar os indivíduos. Porém, um conjunto de dados com uma
@@ -779,25 +984,25 @@ com um critério preestabelecido \cite{fodor2002survey}.
 Algumas técnicas de redução de dimensionalidade são descritas abaixo\emph{.}
 
 
-\subsection{Seleção de características univariada}
+\subsection{Seleção de Características Univariada}
 
 A seleção de características univariada seleciona as melhores características
 baseada em testes estatísticos univariados \cite{scikit-learn-feat}.
 Por exemplo, podemos selecionar as $K$ melhores características através
 de um teste estatístico que classifique as características que melhor
-separam as classes de índividuos de um conjunto de dados. 
+separam as classes de indivíduos de um conjunto de dados. 
 
 
-\subsection{\emph{Principal Component Analysis}}
+\subsection{Análise de Componentes Principais}
 
-O \emph{Principal Component Analysis }(PCA) é uma técnica de redução
-linear \cite{jackson2005user}. Por ser baseada na matriz de covariância
-dos dados, é um método de segunda ordem. O PCA reduz a dimensionalidade
-encontrando os \emph{principais componentes }(PCs) do conjunto de
-dados com maior variância, que são vetores formados pelas combinações
-das características originais. Por exemplo, o primeiro PC é o que
-possui maior variância, Temos $s_{1}=x^{T}w_{1}$, onde o vetor de
-coeficientes de $p$ dimensões é $w_{1}=(w_{1,1},...,w_{1,p})^{T}$
+A Análise de Componentes Principais\emph{ }(PCA) é uma técnica de
+redução linear \cite{jackson2005user}. Por ser baseada na matriz
+de covariância dos dados, é um método de segunda ordem. O PCA reduz
+a dimensionalidade encontrando os \emph{principais componentes }(PCs)
+do conjunto de dados com maior variância, que são vetores formados
+pelas combinações das características originais. Por exemplo, o primeiro
+PC é o que possui maior variância, Temos $s_{1}=x^{T}w_{1}$, onde
+o vetor de coeficientes de $p$ dimensões é $w_{1}=(w_{1,1},...,w_{1,p})^{T}$
 que resolve: 
 
 \begin{equation}
@@ -820,11 +1025,11 @@ C=\frac{1}{p-1}\sum_{i=1}^{p}(x_{i}-\bar{x})\cdot(x_{i}-\bar{x})^{T},\label{eq:f
 onde $\bar{x}$é o vetor médio dado por
 
 \begin{equation}
-\bar{x}=\frac{1}{p}\sum_{i=1}^{p}x_{i}\label{eq:fundamentation:reduction:pca:mean_vector}
+\bar{x}=\frac{1}{p}\sum_{i=1}^{p}x_{i}.\label{eq:fundamentation:reduction:pca:mean_vector}
 \end{equation}
 
 
-Utilizando a relação dos autovetores e autovalores
+Utilizando a relação
 
 \begin{equation}
 Cv=\lambda v,\label{eq:fundamentation:reduction:pca:eigen}
@@ -852,7 +1057,7 @@ maior variância.
 originais, onde alguma delas não oferecem muita variação nos dados,
 em um espaço novo com menor dimensão onde as novas características
 possuem uma melhor dispersão nos dados. A Figura \ref{fig:fundamentation:reduction:pca:samples}
-mostra um conjunto de índividuos gerados por distribuições normais
+mostra um conjunto de indivíduos gerados por distribuições normais
 multivariadas com 3 características. Utilizando o PCA para reduzir
 o espaço dimensional para apenas 2, temos a Figura \ref{fig:fundamentation:reduction:pca:samples_transformed},
 que exemplifica o efeito da redução. 
@@ -886,21 +1091,21 @@ principais componentes.\label{fig:fundamentation:reduction:pca:samples_transform
 
 
 
-\subsection{\emph{Linear Discriminant Analysis}}
+\subsection{Análise Discriminante Linear}
 
-\emph{Linear Discriminant Analysis }(LDA) é uma técnica similar ao
-PCA, onde buscamos combinações lineares da características para formar
-um novo espaço de dimensões reduzidas. A diferênça é que ao contrário
+A Análise Discriminante Linear (LDA) é uma técnica similar ao PCA,
+onde buscamos combinações lineares da características para formar
+um novo espaço de dimensões reduzidas. A diferença é que ao contrário
 do PCA que busca combinações com maior variância entre os dados, o
 LDA procura combinações que melhor separam as classes de um determinado
 problema, portanto podemos dizer que o LDA é uma técnica supervisionada,
-pois precisamos conhecer as classes que cada índividuo pertence.
+pois precisamos conhecer as classes que cada individuo pertence.
 
 Normalmente é utilizado para redução de dimensionalidade, como um
 pré-processamento de técnicas de aprendizado de máquina e reconhecimento
 de padrões\cite{raschkaLDA}. Também é possível utilizar o LDA como
 um classificador. Originalmente proposto em \cite{fisher1936use}como
-um problema de \emph{2-class}, que foi generalizado para um problema
+um problema \emph{2-class}, que foi generalizado para um problema
 \emph{multi-class }em \cite{rao1948utilization}.
 
 Considerando um conjunto de observações $X$ de dimensões $k\times p$,
@@ -927,7 +1132,7 @@ e minimize a distância intra-classe (Figura \ref{fig:fundamentation:reduction:ld
 
 \begin{figure}[H]
 \begin{centering}
-\includegraphics[scale=0.45]{figures/fundamentation/dimensionality_reduction/bc}\caption{Distancia entre-classes. \label{fig:fundamentation:reduction:lda:bc}}
+\includegraphics[scale=0.45]{figures/fundamentation/dimensionality_reduction/bc}\caption{Distancia inter-classes. \label{fig:fundamentation:reduction:lda:bc}}
 
 \par\end{centering}
 
@@ -969,15 +1174,15 @@ S_{i}=\sum_{x\in c_{i}}^{n}(x-\mu_{i})\cdot(x-\mu_{i})^{T}\label{eq:fundamentati
 \end{equation}
 onde, $S_{i}$ é matriz de dispersão da classe $c_{i}$ e $\mu_{i}$
 é o vetor que representa os valores médios de cada característica
-de indivíduos que pertecem a classe $c_{i}$.
+de indivíduos que pertencem a classe $c_{i}$.
 
-A matriz $S_{B}$ é chamada de matriz de dispersão entre-classes e
+A matriz $S_{B}$ é chamada de matriz de dispersão inter-classes e
 é definida por:
 
 \begin{equation}
 S_{B}=\sum_{i=1}^{c}N_{i}(\mu_{i}-\mu)\cdot(\mu_{i}-\mu)^{T}\label{eq:fundamentation:reduction:lda:bc}
 \end{equation}
-onde, $N_{i}$ é a quantidade de indivíduos que pertecem a classe
+onde, $N_{i}$ é a quantidade de indivíduos que pertencem a classe
 $c_{i}$ e $\mu$é o vetor que representa a média das características
 de todos os indivíduos em $X$. 
 
@@ -987,7 +1192,7 @@ separam as classes do conjunto de dados. A grande desvantagem é que
 não é possível saber quais características originais tem maior peso,
 pois os discriminantes são formados a partir de combinações lineares
 de todas elas. A Figura \ref{fig:fundamentation:reduction:lda:samples}
-apresenta um conjunto de indivíduos que pertecem a três classes distintas.
+apresenta um conjunto de indivíduos que pertencem a três classes distintas.
 Cada classe foi gerada a partir de uma distribuição normal multivariada,
 onde os parâmetros diferem entre elas. A Figura \ref{fig:fundamentation:reduction:lda:samples_transformed}
 apresenta o resultado da aplicação do LDA para efetuar a redução do
@@ -1019,13 +1224,13 @@ espaço tridimensional para bidimensional.
 
 
 
-\section{\emph{Support Vector Machines}}
+\section{Máquinas de Vetor de Suporte}
 
 Problemas de classificação geralmente envolvem classificar se um certo
 indivíduo pertence à classe $A$,$B$ ou $C$. Atualmente existem
 diversas técnicas de aprendizado de máquina capazes de realizar essa
 tarefa com êxito e umas das principais técnicas utilizadas hoje em
-dia são as \emph{Support Vector Machines} (SVM). Foram originalmente
+dia são as Máquinas de Vetor de Suporte (SVM). Foram originalmente
 propostas por \cite{cortes1995support} como uma classificador binário,
 capaz de dizer se um determinado indivíduo pertence à classe $A$
 ou $B$. São parte do grupo de técnicas de aprendizado supervisionado,
@@ -1075,7 +1280,7 @@ ao minimizar a equação:
 
 O SVM possibilita encontrar um hiperplano que minimize a ocorrência
 de erros nos casos em que a separação ótima entre as classes não seja
-possível. Com o advento de variáveis de folga, é possível relaxar
+possível. Com a utilização de variáveis de folga, é possível relaxar
 a restrição da Equação \ref{eq:fundamentation:svm:relation}. Dessa
 forma o SVM resolve problema de otimização:
 
@@ -1088,7 +1293,7 @@ sujeito à:
 y_{i}((w\cdot x_{i})+b)+\zeta_{i}\ge1\label{eq:fundamentation:svm:relaxed}
 \end{equation}
 onde $C$ é um parâmetro de treinamento que define o equilíbrio entre
-a complexicidade do modelo e o erro de treinamento.
+a complexidade do modelo e o erro de treinamento.
 
 Utilizando a teoria do multiplicadores de Lagrange é possível obter:
 
@@ -1111,7 +1316,7 @@ Apenas os pontos onde a restrição imposta pela Equação \ref{eq:fundamentation:sv
 de vetores de suporte, e estão geometricamente sobre as margens, possuindo
 grande importância na definição do hiperplano ótimo, pois delimitam
 as margens do conjunto de treinamento. Na Figura \ref{fig:fundamentation:svm:vetores},
-os vetores de suporte são representados por circulos circuscritos.
+os vetores de suporte são representados por círculos circunscritos.
 
 \begin{figure}
 \begin{centering}
@@ -1163,8 +1368,8 @@ L(a)=\sum_{i=1}^{N}a_{i}-\frac{1}{2}\sum_{i,j=1}^{N}a_{i}a_{j}y_{i}y_{j}K(x_{i},
 \end{equation}
 
 
-Um conjunto de funções amplamente utilizadas em conjunto com o SVM
-para classificação de dados não linearmente separavéis sãos as funções
+Um conjunto de funções amplamente utilizadas em conjunto com uma SVM
+para classificação de dados não linearmente separáveis sãos as funções
 de base radial (RBF). Uma função RBF é definida por:
 
 \begin{equation}
@@ -1200,20 +1405,20 @@ apresenta o fluxo das etapas executadas.
 
 A aquisição de imagens é uma etapa crucial na metodologia proposta,
 pois sem imagens para casos de teste não é possível validar a metodologia.
-Atualmente existem poucos bancos de imagem termográfias mamárias disponíveis
-para o público geral, sendo a maioria deles de propósito privado.
-As imagens utilizadas neste trabalho são provinientes do \emph{Database
-for Mastology Research with Infrared Image }- DMR-IR, acessível através
-da interface on-line \url{httt://visual.ic.uff.br/dmi}. Mais informações
-sobre a base de imagens utilizada podem ser encontradas em \cite{silvaasmd}
-e \cite{silva2014new}.
+Atualmente existem poucos bancos de imagem termográficas mamárias
+disponíveis para o público geral, sendo a maioria deles de propósito
+privado. As imagens utilizadas neste trabalho são provenientes do
+\emph{Database for Mastology Research with Infrared Image }- DMR-IR,
+acessível através da interface on-line \url{httt://visual.ic.uff.br/dmi}.
+Mais informações sobre a base de imagens utilizada podem ser encontradas
+em \cite{silvaasmd} e \cite{silva2014new}.
 
 De acordo com \cite{silva2014new}, no protocolo de termografias dinâmicas
-as pacientes são submetidas à um estresse térmico causado pela refrigeração
+as pacientes são submetidas a um estresse térmico causado pela refrigeração
 por um ventilador elétrico. Quando a média de temperatura entre as
 mamas é de 30.5ºC (Figura \ref{fig:methodology:acquisition:mean_monitoring}),
 ou 5 minutos de estresse foram aplicados, a refrigeração é interrompida
-e a aquisição sequencial das imagens é iniciada, extraíndo um total
+e a aquisição sequencial das imagens é iniciada, extraindo um total
 de 20 imagens sequenciais com intervalos de tempo fixos.
 
 \begin{figure}[H]
@@ -1237,7 +1442,7 @@ As imagens utilizadas possuem dimensão de 640 pixels de largura e
 (em graus celsius) obtidos diretamente da câmera termográfica utilizada
 na aquisição. A Figura \ref{fig:methodology:acquisition:matrix} apresenta
 essas matrizes são armazenadas em formato \emph{.txt}, onde cada exame
-é composto por 20 arquivos separados por tempo de acquisição. 
+é composto por 20 arquivos separados por tempo de aquisição. 
 
 \begin{figure}[H]
 \begin{centering}
@@ -1255,10 +1460,82 @@ essas matrizes são armazenadas em formato \emph{.txt}, onde cada exame
 \end{figure}
 
 
-No total foram utilizados 70 exames previamente diagnósticados para
+No total foram utilizados 70 exames previamente diagnosticados para
 aplicação desta metodologia, sendo que 35 são de pacientes saudáveis
 e os 35 restantes de pacientes que apresentam algum tipo de anomalia
 nas mamas.
+
+
+\section{Registro das Imagens\label{sec:methodology:image_registration}}
+
+Durante o protocolo de aquisição de imagens, é natural que a paciente
+execute movimentos involuntários causados pela respiração e ajuste
+de postura. Esses movimentos causam diferenças espaciais de uma sequência
+para a outra. As Figuras \ref{fig:methodology:image_registration:t1}
+e \ref{fig:methodology:image_registration:t2} são termogramas sequências
+de tempos $t=1$ e $t=2$, respectivamente. A Figura \ref{fig:methodology:image_registration:squared_diff}
+apresenta a diferença quadrática $d=(P_{t}(i,j)-P_{t}(i,j))^{2}$,
+onde $(i,j)$ é a posição do pixel, sendo $i=0,...,639$ e $j=0,...,479$,
+e $P_{t}(i,j)$ é o valor de pixel na posição $(i,j)$ no tempo $t$.
+É possível notar que existe uma diferença causada pela movimentação
+involuntária da paciente.
+
+\begin{figure}[H]
+\subfloat[\label{fig:methodology:image_registration:t1}]{\begin{centering}
+\includegraphics[scale=0.2]{figures/methodology/series1}
+\par\end{centering}
+
+}\hfill{}\subfloat[\label{fig:methodology:image_registration:t2}]{\begin{centering}
+\includegraphics[scale=0.2]{figures/methodology/series2}
+\par\end{centering}
+
+}\hfill{}\subfloat[\label{fig:methodology:image_registration:squared_diff}]{\begin{centering}
+\includegraphics[scale=0.2]{figures/methodology/series_diff}
+\par\end{centering}
+
+}
+
+\caption{Termogramas de tempos distintos. Tons mais claros denotam uma maior
+diferênça entre as regiões. }
+
+
+
+\fonte{Elaborada pelo autor.}
+\end{figure}
+
+
+Para analisar as sequências de termogramas de um determinado exame
+é necessário corrigir essas diferenças, dessa forma o registro de
+imagens é uma etapa essencial de pré-processamento das termografias.
+Para a construção do registro, as seguintes técnicas foram utilizadas:
+
+
+\begin{itemize}
+\item Métrica: Correlação Cruzada Normalizada (Seção\ref{eq:fundamentation:image_registration:normalized_cross_correlation})
+\item Transformação: \emph{B-Splines} (Seção \ref{sec:fundamentation:image_registration:transform:bspline})
+\item Interpolador: Linear (Seção \ref{sec:fundamentation:image_registration:interpolator:linear})
+\item Otimizador: LBFGS (Seção \ref{sec:fundamentation:image_registration:otimizator:lbfgs})
+\end{itemize}
+
+
+Utilizando a primeira sequência do conjunto de termograma como imagem
+fixa, executamos o algoritmo de registro 19 vezes, sendo que as sequências
+restantes são as imagens móveis. A Figura \ref{fig:methodology:registration:result}
+demostra a utilização do registro construído, na Figura \ref{fig:methodology:image_registration:t2}
+como imagem móvel e tendo a Figura \ref{fig:methodology:image_registration:t1}
+como imagem fixa.
+
+\begin{figure}[H]
+\begin{centering}
+\includegraphics[scale=0.5]{figures/methodology/registered_squared_differences1}
+\par\end{centering}
+
+\caption{Resultado da aplicação do registro na Figura \ref{fig:methodology:image_registration:t2}
+como móvel e a Figura \ref{fig:methodology:image_registration:t1}
+como fixa. Note que a diferença de postura foi corrigida, deixando
+a imagem majoritariamente escura.\label{fig:methodology:registration:result}}
+\end{figure}
+
 
 
 \section{Extração da Região de Interesse}
@@ -1271,7 +1548,7 @@ automática são encontrados na literatura \cite{marques2012segmentaccao},
 porém existem limitações que não tornam possíveis a utilização desse
 tipo de técnica. Dessa forma, a região de interesse é extraída de
 forma manual, através da utilização de um programa de visualização
-e extração de imagens. 
+e edição de imagens. 
 
 Apesar de cada TID possuir um total de 20 sequências de termogramas,
 utilizamos apenas a sequência no tempo inicial para gerar uma máscara
@@ -1307,59 +1584,392 @@ como ROI para todos as 20 sequências de termogramas em um exame.
 
 
 
-\section{Registro das Imagens\label{sec:methodology:image_registration}}
+\section{Extração de características 1\label{sec:methodology:fps}}
 
-Durante o protocolo de aquisição de imagens, é natural que a paciente
-execute movimentos involutários causados pela respiração e ajuste
-de postura. Esses movimentos causam diferenças espaciais de uma sequência
-para a outra. As Figuras \ref{fig:methodology:image_registration:t1}
-e \ref{fig:methodology:image_registration:t2} são termogramas sequênciais
-de tempos $t=1$ e $t=2$, respectivamente. A Figura \ref{fig:methodology:image_registration:squared_diff}
-apresenta a diferença quadrática $d=(P_{t}(i,j)-P_{t}(i,j))$, onde
-$(i,j)$ é a posição do pixels, sendo $i=0,...,639$ e $j=0,...,479$,
-e $P_{t}(i,j)$ é o valor de pixel na posição $(i,j)$ no tempo $t$.
-É possível notar que existe uma diferença causada pela movimentação
-involutária da paciente.
+Dado um exame TID, temos 20 sequências de termogramas, cada um correspondendo
+à um tempo distinto em ordem sequencial. Precisamos extrair características
+que diferenciem as TID de pacientes saudáveis de TID de pacientes
+com algum tipo de anomalia. A forma encontrada foi criar um vetor
+$p=[I_{1}(i,j),I_{2}(i,j),...I_{20}(i,j)]$, onde $I_{t}(i,j)$ é
+o valor de temperatura do termograma de tempo $t$ na posição $(i,j)$.
+Dessa forma, podemos extrair 4 valores estatísticos do vetor $p$,
+sendo eles:
+\begin{itemize}
+\item A temperatura de inicial, ou seja, o valor de $I_{1}(i,j).$ Notamos
+que a temperatura inicial da sequência de termogramas é um bom descriminador,
+pois regiões com anomalias tendem a ficar mais definidas durante o
+processo de resfriamento no protocolo de aquisição de imagens e não
+possuem regiões equivalentes na mama oposta. A Figura \ref{fig:methodology:fps:feat_1}
+mostra a diferença entre uma TID saudável e outra com anomalia.
+\item O ganho de temperatura total dado por $G=I_{20}(i,j)-I_{1}(i,j)$.
+Essa medida informa o quanto uma dada região se aqueceu ou esfriou
+durante o tempo de extração das características. Durante os teste
+realizados notamos regiões que sofrem algum tipo de anomalia tendem
+a ganhar mais temperatura durante o tempo de extração das imagens.
+Em imagens saudáveis quando ocorre esse tipo de comportamento, geralmente
+a um tipo de espalhamento, de forma que ele aparece nas duas mamas.
+Na Figura \ref{fig:fig:methodology:fps:feat_2:a} vemos uma TID de
+paciente saudável. Notamos um aspecto simétrico entre as regiões.
+Já a Figura \ref{fig:fig:methodology:fps:feat_2:b} possui uma região
+de alto ganho de temperatura em relação as demais da mama, coincidindo
+com a região em que o tumor existe. 
+\item O ganho médio de temperatura entres os tempos dado pela Equação \ref{eq:methodology:fps:mean_bt}.
+Essa característica se assemelha ao ganho total de temperatura, onde
+regiões com algum tipo de anomalia tendem ter uma média maior que
+as demais regiões e não apresentam uma similaridade na mesma região
+da outra mama. A Figura \ref{fig:methodology:fps:feat_3} apresenta
+o resultado da extração dessa característica em TID de paciente saudável
+e em uma TID de paciente doente.
+\item O desvio padrão do ganho de temperatura entres os tempos dada pela
+Equação \ref{eq:methodology:fps:std_bt}. Essa característica apresenta
+um grande fator de discriminância entres regiões saudáveis e com anomalias.
+Regiões saudáveis tendem a ganhar temperatura de forma uniforme durante
+a aquisição dos termogramas, ao contrário de regiões anômalas que
+variam bastante no ganho de temperatura. Dessa forma regiões saudáveis
+apresentam um valor para $S$ mais baixo em relação à regiões que
+possuem algum tipo de anomalia. A Figura \ref{fig:methodology:fps:feat_4}
+apresenta o desvio padrão do ganho de temperatura em uma TID de paciente
+saudável e em uma TID de paciente doente.
+\end{itemize}
+\begin{equation}
+M=\frac{1}{19}\cdot\sum_{t=2}^{20}I_{t}(i,j)-I_{t-1}(i,j)\label{eq:methodology:fps:mean_bt}
+\end{equation}
+
+
+\begin{equation}
+S=\sqrt{\frac{1}{19}\cdot\sum_{t=2}^{20}((I_{t}(i,j)-I_{t-1}(i,j))-M)^{2}}\label{eq:methodology:fps:std_bt}
+\end{equation}
+
+
+Essas características quando analisadas em conjunto oferecem um grande
+discriminador entre as pacientes. É possível perceber a similaridade
+entre as mamas direita e esquerda nas Figuras \ref{fig:methodology:fps:feat_1:a},
+\ref{fig:fig:methodology:fps:feat_2:a} e\ref{fig:fig:methodology:fps:feat_3:a},
+e uma homogeneidade na Figura \ref{fig:methodology:fps:feat_4:a}.
+Essas imagens representam uma paciente saudável. Já nas Figuras \ref{fig:methodology:fps:feat_1:b},\ref{fig:fig:methodology:fps:feat_2:b}
+e \ref{fig:fig:methodology:fps:feat_3:b} a similaridade entre as
+mamas é quebrada por regiões de pico de valores que são coincidentes
+entre elas, e na Figura \ref{fig:methodology:fps:feat_4:b} temos
+regiões com uma maior desvio padrão em relação as demais regiões da
+mama, coincidindo com as regiões de maior pico nas imagens das outras
+características.
 
 \begin{figure}[H]
-\subfloat[\label{fig:methodology:image_registration:t1}]{\begin{centering}
-\includegraphics[scale=0.2]{figures/methodology/series1}
+\hfill{}\subfloat[\label{fig:methodology:fps:feat_1:a}]{\begin{centering}
+\includegraphics[scale=0.5]{figures/methodology/fps1_n}
 \par\end{centering}
 
-}\hfill{}\subfloat[\label{fig:methodology:image_registration:t2}]{\begin{centering}
-\includegraphics[scale=0.2]{figures/methodology/series2}
-\par\end{centering}
-
-
-
-}\hfill{}\subfloat[\label{fig:methodology:image_registration:squared_diff}]{\begin{centering}
-\includegraphics[scale=0.2]{figures/methodology/series_diff}
+\centering{}}\hfill{}\subfloat[\label{fig:methodology:fps:feat_1:b}]{\begin{centering}
+\includegraphics[scale=0.5]{figures/methodology/fps1_d}
 \par\end{centering}
 
 
 
-}
+}\hfill{}
 
-\caption{Termogramas dos sequenciais e a diferença de postura entre eles}
+\caption{Temperatura Inicial. Em (a) temos um termograma de paciente saudável,
+enquanto em (b) temos uma paciente com carcinoma ductal infiltrante.
+Note a assimetria existente em (b). \label{fig:methodology:fps:feat_1}}
 
 
 
-\fonte{Elaborada pelo autor.}
+\fonte{Elaborada pelo autor}
+
 \end{figure}
 
 
-Para analisar as sequências de termogramas de um determinado exame
-é necessário corrigir essas diferênças, dessa forma o registro \emph{B-Spline
-}apresentado na Seção \ref{sec:fundamentation:image_registration:bspline_registration}
-é utilizado. Como dito anteriormente, o registro é uma técnica de
-projeção de uma imagem no espaço de coordenadas de outra, ou seja,
-ideal para o problema de correção de postura. Utilizando o primeiro
-termograma da sequência de um exame como imagem fixa e os termogramas
-restantes como imagem móvel, executamos o registro para um determinado
-exame 19 vezes, uma para cada imagem móvel. O registro utiliza a Correlação
-(Equação X) como métrica de similaridade. O 
+\begin{figure}[H]
+\hfill{}\subfloat[\label{fig:fig:methodology:fps:feat_2:a}]{\begin{centering}
+\includegraphics[scale=0.5]{figures/methodology/fps2_n}
+\par\end{centering}
 
-\bibliographystyle{plain}
+\centering{}}\hfill{}\subfloat[\label{fig:fig:methodology:fps:feat_2:b}]{\begin{centering}
+\includegraphics[scale=0.5]{figures/methodology/fps2_d}
+\par\end{centering}
+
+}\hfill{}
+
+\caption{Ganho de temperatura total. Em (a) temos um termograma de paciente
+saudável, enquanto em (b) temos uma paciente com carcinoma ductal
+infiltrante. A região mais avermelhada em (b) coincide com a região
+em que o tumor aparece. \label{fig:methodology:fps:feat_2}}
+
+
+
+\fonte{Elaborada pelo autor}
+\end{figure}
+
+
+\begin{figure}[H]
+\hfill{}\subfloat[\label{fig:fig:methodology:fps:feat_3:a}]{\begin{centering}
+\includegraphics[scale=0.5]{figures/methodology/fps3_n}
+\par\end{centering}
+
+\centering{}}\hfill{}\subfloat[\label{fig:fig:methodology:fps:feat_3:b}]{\begin{centering}
+\includegraphics[scale=0.5]{figures/methodology/fps3_d}
+\par\end{centering}
+
+}\hfill{}
+
+\caption{Ganho de temperatura média entre os tempos da TID. Em (a) vemos um
+exame de paciente saudável, enquanto em (b) temos uma paciente com
+lesão na mama. \label{fig:methodology:fps:feat_3}}
+
+
+
+\fonte{Elaborada pelo autor}
+\end{figure}
+
+
+\begin{figure}[H]
+\hfill{}\subfloat[\label{fig:methodology:fps:feat_4:a}]{\begin{centering}
+\includegraphics[scale=0.5]{figures/methodology/fps4_n}
+\par\end{centering}
+
+\centering{}}\hfill{}\subfloat[\label{fig:methodology:fps:feat_4:b}]{\begin{centering}
+\includegraphics[scale=0.5]{figures/methodology/fps4_d}
+\par\end{centering}
+
+}\hfill{}
+
+\caption{Desvio padrão do ganho de temperatura em uma TID. Em (a) temos um
+termograma de paciente saudável, enquanto em (b) temos uma paciente
+com lesão. \label{fig:methodology:fps:feat_4}}
+
+
+
+\fonte{Elaborada pelo autor}
+\end{figure}
+
+
+
+\section{Extração de Características 2\label{sec:methodology:sps}}
+
+A partir das imagens geradas na Seção \ref{sec:methodology:fps},
+são extraídas um conjunto de características baseadas em GLCM, definidas
+pelas Equações \ref{eq:fundamentation:glcm:contraste},\ref{eq:fundamentation:glcm:dissimilaridade},\ref{eq:fundamentation:glcm:homogeneidade},\ref{eq:fundamentation:glcm:asm},\ref{eq:fundamentationg:glcm:energia}
+e \ref{eq:fundamentationg:glcm:correla=0000E7=0000E3o}. 
+
+Antes de gerarmos as GLCM é necessário converter a escala de valores
+para níveis de cinza. Essa conversão é obtida através de
+
+\begin{equation}
+X'=a-\frac{(X-X_{min})(b-a)}{X_{max}-X_{min}},\label{eq:methodology:feature_scaling}
+\end{equation}
+
+
+onde $X$ é o conjunto de valores, $X_{min}$ o menor valor valor
+do conjunto, $X_{max}$ o maior valor, $b$ o valor máximo desejado
+e $a$ o valor mínimo desejado. No caso das imagens extraídas na Seção
+\ref{sec:methodology:fps} temos $a=0$ e $b=255$, dessa forma serão
+convertidas em níveis de cinza.
+
+A partir das imagens convertidas para valores de níveis de cinza podemos
+extrair as GLCM. No total são extraídas 4 matrizes, com distâncias
+$(\Delta x=1,\Delta_{y}=0)$, $\Delta x=1,\Delta_{y}=1),$ $\Delta x=0,\Delta_{y}=1)$
+e $\Delta x=-1,\Delta_{y}=1)$. A partir daí serão geradas as 6 características
+citadas acima para cada matriz, formando um total de 96 características
+que serão utilizadas na etapa de classificação da metodologia.
+
+
+\section{Redução de Características\label{sec:methodology:reduction}}
+
+Essa etapa consiste em reduzir o conjunto de 96 características previamente
+extraídas para um conjunto menor e mais conciso de características.
+Foram utilizados os 3 métodos descritos na Seção \ref{sec:fundamentation:dimensionality_reduction}.
+Dessa forma temos distintos conjuntos de dados que serão utilizados
+na etapa de classificação, sendo eles:
+\begin{itemize}
+\item K-best\emph{ }com $K=40$.
+\item K-best com $K=20.$
+\item K-best\emph{ }com $K=10$.
+\item PCA com $C=20$.
+\item PCA com $C=10$.
+\item LDA com $C=1$.
+\end{itemize}
+
+\section{Classificação}
+
+Essa etapa consiste em classificar um determinado exame TID em saudável
+ou doente. Utilizando as características extraídas da Seção \ref{sec:methodology:sps}
+e posteriormente reduzidas como entrada para uma SVM. 
+
+Durante essa etapa o conjunto de características originais são subdividas
+em 2 conjuntos distintos que chamamos de base de treino e teste, que
+não possuem indivíduos em comum entre eles. Antes da etapa de treinamento
+de uma SVM, selecionamos as melhores características através de um
+dos métodos descritos na Seção \ref{sec:methodology:reduction}. Essa
+seleção é feita na base de treino e depois aplicada na base de testes,
+dessa forma a base de teste não tem influência na seleção. 
+
+A etapa de treinamento entra em ação, onde a base de treino juntamente
+com seus valores de classe é utilizada para encontrar os melhores
+vetores de suporte para a SVM. Após o termino do treinamento, a validação
+do modelo é executada, onde utilizamos a base de teste sem os valores
+de classe como entrada no modelo SVM, que irá classificar os indivíduos
+existentes na base. Os resultados são comparados com os valores de
+classe conhecidos para validação do modelo. São extraídos os valores
+de acurácia (Equação \ref{eq:methodology:classification:acc}) que
+mede a taxa de acerto geral, a sensibilidade (Equação \ref{eq:eq:methodology:classification:sensitivity})
+que mede a taxa de acerto para os casos que possuem anomalia e a especificidade
+(Equação \ref{eq:eq:methodology:classification:specificity}) que
+mede a taxa de acerto de casos saudáveis.
+
+\begin{equation}
+Acur\acute{a}cia=\frac{TP+TN}{TP+FP+TN+FN}\label{eq:methodology:classification:acc}
+\end{equation}
+
+
+\begin{equation}
+Sensibilidade=\frac{TP}{TP+FN}\label{eq:eq:methodology:classification:sensitivity}
+\end{equation}
+
+
+\begin{equation}
+Especificidade=\frac{TN}{TN+FP}\label{eq:eq:methodology:classification:specificity}
+\end{equation}
+
+
+onde $TP,TN,FP$ e $FN$ são as quantidades de verdadeiro positivo,
+verdadeiro negativo, falso positivo e falso negativo, respectivamente. 
+
+
+\chapter{Resultados Parciais}
+
+Nesse capítulo são apresentados os resultados parciais da aplicação
+da metodologia para a classificação de termografias dinâmicas em saudável
+e doente. Os teste são aplicados 100 vezes consecutivas e a média
+dos resultados é analisada. Em cada teste, a base é inicialmente dividida
+em 80\% dos casos para o treinamento do SVM e 20\% para validação
+do modelo. Os indivíduos são selecionados aleatoriamente de forma
+que a proporção entre as classes seja mantida. Como a base utilizada
+apresenta balanceamento de 1:1 entre as classes, não ocorre o desbalanceamento
+na etapa de treinamento e validação. Após a divisão das bases, a redução
+de dimensionalidade é utilizada, onde a base de treino é utilizada
+como referência para a analise de quais características são as mais
+eficientes. As técnicas de redução utilizadas são as descritas na
+Seção \ref{sec:methodology:reduction}. Então a base de treino é utilizada
+para gerar o modelo SVM, que posteriormente será utilizado na classificação
+dos indivíduos. A Tabela \ref{tab:results:mean_table} apresenta os
+resultados parciais da metodologia.
+
+\begin{table}[H]
+\begin{centering}
+\begin{tabular}{|c|c|c|c|}
+\hline 
+Método & Acurácia & Sensibilidade & Especificidade\tabularnewline
+\hline 
+\hline 
+Sem redução & 42,4\% & 23,7\% & 68,9\%\tabularnewline
+\hline 
+K-best, K=40 & 48,1\% & 28,1\% & 68,1\%\tabularnewline
+\hline 
+K-best, K=20 & 49,8\% & 29,1\% & 70,5\%\tabularnewline
+\hline 
+PCA, K=30 & 48,2\% & 44,1\% & 52,2\%\tabularnewline
+\hline 
+PCA, K=20 & 47,5\% & 44,7\% & 54,4\%\tabularnewline
+\hline 
+LDA, K=1 & 78,3\% & 79,9\% & 76,7\%\tabularnewline
+\hline 
+PCA+LDA, k1= 40, k2=1 & 82,5\% & 84,1\% & 81,0\%\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Média final da execução dos testes 100 vezes para cada método de seleção
+de características.\label{tab:results:mean_table}}
+\end{table}
+
+
+Analisando a tabela, vemos que a estratégia sem reduzir as características
+não apresenta bom resultado, ficando abaixo dos 50\% de acurácia.
+As técnicas \emph{K-best} e PCA também não produziram resultados satisfatórios.
+A técnica de redução que obteve um bom resultado foi a LDA, que sozinho
+demonstrou ser a melhor para a redução das características. No entanto,
+a combinação da aplicação do PCA seguida da aplicação do LDA foi a
+que demonstrou melhores resultados nos testes realizados até o momento,
+onde a acurácia, sensibilidade e especificidade ficaram acima dos
+80\%. 
+
+Um fator que contribui bastante para os resultados abaixo do esperado
+é a quantidade de exames disponíveis. A base utilizada é relativamente
+pequena em comparação com bases utilizadas por metodologias baseadas
+em mamografia, que chegam a possuir mais de 3000 mil exames disponíveis
+para os pesquisadores. Apesar disso, é possível dizer que os resultados
+demonstrados são promissores e com a utilização de outras características
+que possam discriminar as classes é possível que melhores resultados
+sejam obtidos. 
+
+
+\chapter{Cronograma do Plano de Trabalho}
+
+A plano de trabalho na elaboração da metodologia pode ser subdividido
+em:
+\begin{enumerate}
+\item Pesquisa Bibliográfica
+\item Coleta de Dados
+\item Elaboração do Projeto de Monografia
+\item Revisão Gramatical e Ortográfica
+\item Defesa de Monografia
+\end{enumerate}
+A Tabela\ref{tab:cronograma:plano} apresenta o cronograma de execução
+das atividades.
+
+\begin{table}[H]
+\begin{centering}
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+\hline 
+Etapas & 09/2015 & 10/2015 & 11/2015 & 12/2015 & 01/2016 & 02/2016 & 03/2016 & 04/2016\tabularnewline
+\hline 
+\hline 
+1  & X & X & X &  &  &  &  & \tabularnewline
+\hline 
+2 &  &  & X & X &  &  &  & \tabularnewline
+\hline 
+3 &  &  &  & X & X & X &  & \tabularnewline
+\hline 
+4 &  &  &  &  &  & X & X & \tabularnewline
+\hline 
+5 &  &  &  &  &  &  &  & X\tabularnewline
+\hline 
+\end{tabular}
+\par\end{centering}
+
+\caption{Cronograma do plano de trabalho.\label{tab:cronograma:plano}}
+\end{table}
+
+
+
+\chapter{Conclusão}
+
+A metodologia apresenta uma forma de auxiliar médicos especialistas
+na detecção do câncer de mama. O objetivo não é indicar o local suspeito,
+apenas dizer se um determinado paciente apresenta ou não algum tipo
+de anomalia na região das mamas. 
+
+A termografia é um exame que não deve ser utilizado isoladamente para
+a detecção desse tipo de câncer, mas em conjunto com outros tipos
+de exame, como a mamografia. A vantagem desse tipo de imagem é que
+o equipamento utilizado para extração das imagens é fácil de carregar,
+permitindo a locomoção para diferentes lugares. Apesar disso, é necessário
+um ambiente controlado na etapa de extração das imagens. 
+
+O resultados apresentados pela metodologia demonstram ser promissores,
+com 82,5\% de acurácia, 84,1 \% de sensibilidade e 81,0\% de especificidade. 
+
+
+\section{Trabalhos Futuros}
+
+O maior impasse na metodologia é pequena base de imagens previamente
+diagnosticadas disponível. Foram utilizadas apenas 70 imagens na metodologia,
+longe da quantidade ideal para algoritmos de aprendizado de máquina.
+Com a obtenção de novas imagens é possível conseguir melhores resultados.
+
+Novos métricas também podem ser estudadas, com o objetivo de incluí-las
+na metodologia apresentada, deixando-a mais robusta e mais precisa.
+
+\bibliographystyle{abntex2-num}
 \bibliography{references}
 
 \end{document}
