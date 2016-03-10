@@ -1,12 +1,12 @@
 %% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
-\documentclass[a4paper,oneside,brazil,oldfontcommands]{abntex2}
+\documentclass[oneside,brazil,oldfontcommands]{abntex2}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=2cm,lmargin=3cm,rmargin=2cm}
 \setcounter{secnumdepth}{3}
 \setcounter{tocdepth}{3}
-\setlength{\parskip}{\medskipamount}
-\setlength{\parindent}{0pt}
 \usepackage{color}
 \usepackage{float}
 \usepackage{textcomp}
@@ -19,9 +19,6 @@
 \makeatletter
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
-\pdfpageheight\paperheight
-\pdfpagewidth\paperwidth
-
 \newcommand{\docedilla}[2]{\underaccent{#1\mathchar'30}{#2}}
 \newcommand{\cedilla}[1]{\mathpalette\docedilla{#1}}
 
@@ -30,15 +27,8 @@
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \usepackage[alf]{abntex2cite}
-\usepackage{lmodern}			% Usa a fonte Latin Modern			
-\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage{lastpage}			% Usado pela Ficha catalográfica
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-
-
-\usepackage{microtype} 
-% para melhorias de justificação
-\usepackage[brazilian,hyperpageref]{backref}
+\usepackage{indentfirst}
+\usepackage{layout}
 
 \@ifundefined{showcaptionsetup}{}{%
  \PassOptionsToPackage{caption=false}{subfig}}
@@ -181,23 +171,16 @@ Palavras chave: Câncer, Mama, Termografia, Aprendizado de Máquina
 
 \newpage{}
 
-\pdfbookmark[0]{\listtablename}{lot}
-\listoftables* 
-\cleardoublepage
-
-\newpage{}
-
 \pdfbookmark[0]{\contentsname}{toc} 
 \tableofcontents* 
 \cleardoublepage
+\layout
 
 
 \chapter{Introdução \label{sec:intro}}
 
-
-
 O câncer de mama é o tipo mais comum entre as mulheres em todo o mundo,
-respondendo por 25\% dos casos a cada ano\cite{inca}. Quando diagnósticado
+respondendo por 25\% dos casos a cada ano \cite{inca}. Quando diagnosticado
 tardiamente, as chances de cura são extremamente reduzidas, tornando
 o diagnóstico precoce um dos fatores mais importantes na redução da
 taxa de mortalidade desse tipo de doença. O incidência aumenta juntamente
@@ -209,30 +192,31 @@ hormonal e exposição à radiação.
 
 Os exames mais tradicionais na detecção do câncer de mama são os exames
 de toque e a mamografia. O exame de toque é um exame de triagem, onde
-o própria mulher pode procurar por nódulos nos seios. Porém nem sempre
-o câncer resulta em aparecimento de nódulos e as vezes os nódulos
-existentes são difíceis de detectar através do toque. Dessa forma,
-a mamografia se tornou um exame essencial nos dias de hoje, pois utiliza
-os raios-x para detectar regiões de alta densidade nas mamas. Apesar
-de ser o tipo de exame mais recomendado pelos especialistas, a mamografia
-não é passível de falhas, pois mamas com alta densidade apresentam
-uma dificuldade elevada na detecção de tumores, pois estes podem ficar
-escondidos pelo tecido denso da mama. Mulheres jovens geralmente apresentam
-alta densidade nas mamas, tornando a mamografia um exame não recomendável
+o própria mulher pode procurar por nódulos nos seios. Porém, nem sempre
+o câncer resulta em aparecimento de nódulos. Dessa forma, a mamografia
+se tornou um exame essencial nos dias de hoje, pois utiliza os raios-x
+para detectar regiões de alta densidade nas mamas. Apesar de ser o
+tipo de exame mais recomendado pelos especialistas, a mamografia é
+passível a falhas, já que mamas com alta densidade apresentam um grau
+de dificuldade elevado na detecção de tumores, que podem ficar escondidos
+pelo tecido denso da mama. Mulheres jovens geralmente apresentam alta
+densidade nas mamas, tornando a mamografia um exame não recomendável
 para essa faixa etária, pois utiliza a radiação na geração das imagens,
 o que pode futuramente causar o aparecimento do câncer na paciente.
 Dessa forma é necessário que outros tipo de exames sejam utilizados
 como forma de prevenção e diagnóstico precoce.
 
-A termografia mamária é um exame de imagem não radioativo capaz detectar
-tumores que não seriam possíveis de descobrir através da mamografia.
-Esse tipo de exame utiliza a radiação infravermelha, emitida naturalmente
-pelo corpo da paciente, para detecção da doença. Regiões próximas
-à um tumor tendem a ter um aumento na vascularização, ocorrendo uma
-maior circulação de sangue na região, que causará um aumento de temperatura
-em relação as outras regiões da mama. Esse aumento de temperatura
-é detectável através da termografia, permitindo que especialistas
-detectem a formação de um tumor antes mesmo que ele seja palpável. 
+A termografia mamária é um exame de imagem não radioativo capaz de
+auxiliar médicos especialista na detecção tumores que não seriam possíveis
+de descobrir através da mamografia. Esse tipo de exame utiliza a radiação
+infravermelha, emitida naturalmente pelo corpo da paciente, para detecção
+de anomalias no padrão de temperatura das mamas, que pode indicar
+algum tipo de doença. Regiões próximas a um tumor tendem a ter um
+aumento na vascularização, ocorrendo uma maior circulação de sangue
+na região, que causará um aumento de temperatura em relação as outras
+regiões da mama. Esse aumento de temperatura é detectável através
+da termografia, permitindo que especialistas detectem a formação de
+um tumor antes mesmo que ele seja palpável. 
 
 Existem duas formas na obtenção de exames de termografia mamária.
 A primeira delas é o que chamamos de termografia estática, onde apenas
@@ -242,6 +226,13 @@ permitindo que o especialista analise a evolução na distribuição de
 calor nas mamas da paciente. A metodologia proposta utiliza as termografias
 dinâmicas para auxiliar médicos especialistas no diagnóstico precoce
 do câncer de mama. 
+
+A motivação deste trabalho é ajudar médicos especialistas no diagnóstico
+precoce do câncer de mama, portanto qualquer informação que possa
+discriminar mamas saudáveis de mamas doentes é relevante. Dessa forma,
+várias técnicas de Processamento de Imagens e Aprendizado de Máquina
+são utilizadas para aumentar o nível de informação que uma termografia
+pode dar ao especialista.
 
 Durante um exame de termografia dinâmico, a paciente executa movimentos
 involuntários, causados pela respiração e pelo ajuste de postura,
@@ -274,10 +265,6 @@ doente.
 Desenvolver uma metodologia computacional que análise um exame termográfico
 dinâmico das mamas, a fim de encontrar padrões que diferenciem mamas
 saudáveis de mamas doentes. 
-
-A principal motivação do trabalho é ajudar médicos especialistas no
-diagnóstico precoce do câncer de mama, portanto qualquer informação
-que possa discriminar mamas saudáveis de mamas doentes é relevante.
 
 
 \section{Objetivos Específicos \label{sec:objectives:specific_objectives}}
@@ -328,7 +315,6 @@ de acordo com a paleta de cores à direita da imagem.
 
 
 \fonte{\cite{silva2014new}}
-
 \end{figure}
 
 
@@ -1086,7 +1072,6 @@ principais componentes.\label{fig:fundamentation:reduction:pca:samples_transform
 
 
 \fonte{Elaborada pelo autor}
-
 \end{figure}
 
 
@@ -1126,7 +1111,6 @@ e minimize a distância intra-classe (Figura \ref{fig:fundamentation:reduction:ld
 
 
 \fonte{Elaborada pelo autor}
-
 \end{figure}
 
 
@@ -1328,7 +1312,6 @@ os vetores de suporte são representados por círculos circunscritos.
 
 
 \fonte{Elaborada pelo autor}
-
 \end{figure}
 
 
@@ -1396,7 +1379,6 @@ apresenta o fluxo das etapas executadas.
 
 
 \fonte{Elaborada pelo autor}
-
 \end{figure}
 
 
@@ -1433,7 +1415,6 @@ de 20 imagens sequenciais com intervalos de tempo fixos.
 
 
 \fonte{\cite{silva2014new}}
-
 \end{figure}
 
 
@@ -1456,7 +1437,6 @@ essas matrizes são armazenadas em formato \emph{.txt}, onde cada exame
 
 
 \fonte{\cite{lincoln_thesis2015}}
-
 \end{figure}
 
 
@@ -1567,8 +1547,6 @@ como ROI para todos as 20 sequências de termogramas em um exame.
 \includegraphics[scale=0.5]{figures/methodology/segmentation_click}
 \par\end{centering}
 
-
-
 }\hfill{}\subfloat[\label{fig:methodology:roi:mask}]{\begin{centering}
 \includegraphics[scale=0.5]{figures/methodology/roi_mask}
 \par\end{centering}
@@ -1663,8 +1641,6 @@ características.
 \includegraphics[scale=0.5]{figures/methodology/fps1_d}
 \par\end{centering}
 
-
-
 }\hfill{}
 
 \caption{Temperatura Inicial. Em (a) temos um termograma de paciente saudável,
@@ -1674,11 +1650,11 @@ Note a assimetria existente em (b). \label{fig:methodology:fps:feat_1}}
 
 
 \fonte{Elaborada pelo autor}
-
 \end{figure}
 
 
 \begin{figure}[H]
+\begin{OnehalfSpace}
 \hfill{}\subfloat[\label{fig:fig:methodology:fps:feat_2:a}]{\begin{centering}
 \includegraphics[scale=0.5]{figures/methodology/fps2_n}
 \par\end{centering}
@@ -1688,6 +1664,7 @@ Note a assimetria existente em (b). \label{fig:methodology:fps:feat_1}}
 \par\end{centering}
 
 }\hfill{}
+\end{OnehalfSpace}
 
 \caption{Ganho de temperatura total. Em (a) temos um termograma de paciente
 saudável, enquanto em (b) temos uma paciente com carcinoma ductal

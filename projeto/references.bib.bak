@@ -2,6 +2,17 @@
 % Encoding: Cp1252
 
 
+@Article{abramoff2004image,
+  Title                    = {Image processing with ImageJ},
+  Author                   = {Abr{\`a}moff, Michael D and Magalh{\~a}es, Paulo J and Ram, Sunanda J},
+  Journal                  = {Biophotonics international},
+  Year                     = {2004},
+  Number                   = {7},
+  Pages                    = {36--42},
+  Volume                   = {11},
+  Publisher                = {Laurin Publishing}
+}
+
 @Article{albregtsen2008statistical,
   Title                    = {Statistical texture measures computed from gray level coocurrence matrices},
   Author                   = {Albregtsen, Fritz and others},
@@ -51,6 +62,15 @@
   Pages                    = {325--376},
   Volume                   = {24},
   Publisher                = {ACM}
+}
+
+@InProceedings{burges2005learning,
+  Title                    = {Learning to rank using gradient descent},
+  Author                   = {Burges, Chris and Shaked, Tal and Renshaw, Erin and Lazier, Ari and Deeds, Matt and Hamilton, Nicole and Hullender, Greg},
+  Booktitle                = {Proceedings of the 22nd international conference on Machine learning},
+  Year                     = {2005},
+  Organization             = {ACM},
+  Pages                    = {89--96}
 }
 
 @PhdThesis{chaves2006extraccao,
@@ -150,10 +170,36 @@
   Publisher                = {Ieee}
 }
 
+@Book{haykin2001redes,
+  Title                    = {Redes neurais},
+  Author                   = {Haykin, Simon S},
+  Publisher                = {Bookman},
+  Year                     = {2001}
+}
+
+@Article{hill2001medical,
+  Title                    = {Medical image registration},
+  Author                   = {Hill, Derek LG and Batchelor, Philipp G and Holden, Mark and Hawkes, David J},
+  Journal                  = {Physics in medicine and biology},
+  Year                     = {2001},
+  Number                   = {3},
+  Pages                    = {R1},
+  Volume                   = {46},
+  Publisher                = {IOP Publishing}
+}
+
 @Article{ibanez2003itk,
   Title                    = {The ITK software guide},
   Author                   = {Ibanez, Luis and Schroeder, William and Ng, Lydia and Cates, Josh},
   Year                     = {2003}
+}
+
+@Misc{inca,
+  Title                    = {Mama},
+  Author                   = {INCA},
+  HowPublished             = {\url{http://www2.inca.gov.br/wps/wcm/connect/tiposdecancer/site/home/mama}},
+  Note                     = {Acessado em: 05/03/2016},
+  Year                     = {2016}
 }
 
 @Book{jackson2005user,
@@ -162,6 +208,13 @@
   Publisher                = {John Wiley \& Sons},
   Year                     = {2005},
   Volume                   = {587}
+}
+
+@Article{marques2012segmentaccao,
+  Title                    = {Segmenta{\c{c}}{\~a}o autom{\'a}tica das mamas em imagens t{\'e}rmicas},
+  Author                   = {Marques, RS},
+  Journal                  = {UFF, M. Sc. Thesis},
+  Year                     = {2012}
 }
 
 @Article{parraga2008atlas,
@@ -181,25 +234,42 @@
   Publisher                = {JSTOR}
 }
 
+@Misc{rasband1997bethesda,
+  Title                    = {Bethesda, Md, USA},
+  Author                   = {Rasband, WS and ImageJ, US and others},
+  Year                     = {1997},
+  Publisher                = {ImageJ}
+}
+
 @Misc{raschkaLDA,
   Title                    = {Linear Discriminant Analysis bit a bit},
   Author                   = {Sebastian Raschka},
   HowPublished             = {Disponível em: \url{http://sebastianraschka.com/Articles/2014_python_lda.html}},
-  Note                     = {Acesso em: 22/02/2016}
+  Note                     = {Acesso em: 22/02/2016},
+  Year                     = {2014}
+}
+
+@PhdThesis{schwarz2007non,
+  Title                    = {Non-rigid registration using free-form deformations},
+  Author                   = {Schwarz, Loren Arthur},
+  School                   = {Ph. D. thesis, Technische Universit{\"a}t M{\"u}nchen, Germany},
+  Year                     = {2007}
 }
 
 @Misc{scikit-learn-feat,
   Title                    = {Feature Selection},
   Author                   = {scikit-learn},
   HowPublished             = {Disponível em: \url{http://scikit-learn.org/stable/modules/feature_selection.html}},
-  Note                     = {Acesso em: 20/02/2016}
+  Note                     = {Acesso em: 20/02/2016},
+  Year                     = {2016}
 }
 
 @Misc{sklearn-svm,
   Title                    = {Support Vector Machines},
   Author                   = {scikit-learn},
   HowPublished             = {Disponível em: \url{http://scikit-learn.org/stable/modules/svm.html}},
-  Note                     = {Acesso em: 23/02/2016}
+  Note                     = {Acesso em: 23/02/2016},
+  Year                     = {2016}
 }
 
 @Article{sebastian2012gray,
@@ -209,6 +279,17 @@
   Year                     = {2012}
 }
 
+@Article{sheppard2008optimization,
+  Title                    = {Optimization methods for finding minimum energy paths},
+  Author                   = {Sheppard, Daniel and Terrell, Rye and Henkelman, Graeme},
+  Journal                  = {The Journal of chemical physics},
+  Year                     = {2008},
+  Number                   = {13},
+  Pages                    = {134106},
+  Volume                   = {128},
+  Publisher                = {AIP Publishing}
+}
+
 @Misc{giovannitcc,
   Title                    = {Análise de Nódulos Pulmonares Usando Índices de Diversidade para estabelecer possíveis diferênças entre padrões malignos e benignos.},
   Author                   = {Giovanni Lucca França da Silva},
@@ -216,6 +297,17 @@
   Year                     = {2015},
   School                   = {Universidade Federal do Maranhão},
   Type                     = {Monografia}
+}
+
+@Article{Silva2014,
+  Title                    = {A new database for breast research with infrared image},
+  Author                   = {Silva, LF and Saade, DCM and Sequeiros, GO and Silva, AC and Paiva, AC and Bravo, RS and Conci, A},
+  Journal                  = {Journal of Medical Imaging and Health Informatics},
+  Year                     = {2014},
+  Number                   = {1},
+  Pages                    = {92--100},
+  Volume                   = {4},
+  Publisher                = {American Scientific Publishers}
 }
 
 @Article{silva2014new,
@@ -237,112 +329,25 @@ Mama usando Séries Temporais de Temperatura},
   Year                     = {2015}
 }
 
-@book{haykin2001redes,
-  title={Redes neurais},
-  author={Haykin, Simon S},
-  year={2001},
-  publisher={Bookman}
+@Article{whitley1994genetic,
+  Title                    = {A genetic algorithm tutorial},
+  Author                   = {Whitley, Darrell},
+  Journal                  = {Statistics and computing},
+  Year                     = {1994},
+  Number                   = {2},
+  Pages                    = {65--85},
+  Volume                   = {4},
+  Publisher                = {Springer}
 }
 
-@article{silvaasmd,
-  title={ASMD, and Conci, A.(2013)},
-  author={Silva, LF and Marques, RS and Carvalho, GS and Santos, MLO and Fontes, CAP and Santos, A},
-  journal={Protocolo de captura de imagens t{\'e}rmicas da mama para constru{\c{c}}ao de um banco p{\'u}blico de exames. Encontro Nacional de Engenharia Biomec{\^a}nica}
-  year={2013}	
- }
-
-@article{silva2014new,
-  title={A new database for breast research with infrared image},
-  author={Silva, LF and Saade, DCM and Sequeiros, GO and Silva, AC and Paiva, AC and Bravo, RS and Conci, A},
-  journal={Journal of Medical Imaging and Health Informatics},
-  volume={4},
-  number={1},
-  pages={92--100},
-  year={2014},
-  publisher={American Scientific Publishers}
+@Article{yin2009mass,
+  Title                    = {Mass preserving nonrigid registration of CT lung images using cubic B-spline},
+  Author                   = {Yin, Youbing and Hoffman, Eric A and Lin, Ching-Long},
+  Journal                  = {Medical physics},
+  Year                     = {2009},
+  Number                   = {9},
+  Pages                    = {4213--4222},
+  Volume                   = {36},
+  Publisher                = {American Association of Physicists in Medicine}
 }
 
-@article{marques2012segmentaccao,
-  title={Segmenta{\c{c}}{\~a}o autom{\'a}tica das mamas em imagens t{\'e}rmicas},
-  author={Marques, RS},
-  journal={UFF, M. Sc. Thesis},
-  year={2012}
-}
-
-@article{abramoff2004image,
-  title={Image processing with ImageJ},
-  author={Abr{\`a}moff, Michael D and Magalh{\~a}es, Paulo J and Ram, Sunanda J},
-  journal={Biophotonics international},
-  volume={11},
-  number={7},
-  pages={36--42},
-  year={2004},
-  publisher={Laurin Publishing}
-}
-
-@misc{rasband1997bethesda,
-  title={Bethesda, Md, USA},
-  author={Rasband, WS and ImageJ, US and others},
-  year={1997},
-  publisher={ImageJ}
-}
-
-@article{hill2001medical,
-  title={Medical image registration},
-  author={Hill, Derek LG and Batchelor, Philipp G and Holden, Mark and Hawkes, David J},
-  journal={Physics in medicine and biology},
-  volume={46},
-  number={3},
-  pages={R1},
-  year={2001},
-  publisher={IOP Publishing}
-}
-
-@article{whitley1994genetic,
-  title={A genetic algorithm tutorial},
-  author={Whitley, Darrell},
-  journal={Statistics and computing},
-  volume={4},
-  number={2},
-  pages={65--85},
-  year={1994},
-  publisher={Springer}
-}
-
-@inproceedings{burges2005learning,
-  title={Learning to rank using gradient descent},
-  author={Burges, Chris and Shaked, Tal and Renshaw, Erin and Lazier, Ari and Deeds, Matt and Hamilton, Nicole and Hullender, Greg},
-  booktitle={Proceedings of the 22nd international conference on Machine learning},
-  pages={89--96},
-  year={2005},
-  organization={ACM}
-}
-
-@article{sheppard2008optimization,
-  title={Optimization methods for finding minimum energy paths},
-  author={Sheppard, Daniel and Terrell, Rye and Henkelman, Graeme},
-  journal={The Journal of chemical physics},
-  volume={128},
-  number={13},
-  pages={134106},
-  year={2008},
-  publisher={AIP Publishing}
-}
-
-@article{yin2009mass,
-  title={Mass preserving nonrigid registration of CT lung images using cubic B-spline},
-  author={Yin, Youbing and Hoffman, Eric A and Lin, Ching-Long},
-  journal={Medical physics},
-  volume={36},
-  number={9},
-  pages={4213--4222},
-  year={2009},
-  publisher={American Association of Physicists in Medicine}
-}
-
-@phdthesis{schwarz2007non,
-  title={Non-rigid registration using free-form deformations},
-  author={Schwarz, Loren Arthur},
-  year={2007},
-  school={Ph. D. thesis, Technische Universit{\"a}t M{\"u}nchen, Germany}
-}

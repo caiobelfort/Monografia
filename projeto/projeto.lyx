@@ -5,15 +5,10 @@
 \textclass abntex2
 \begin_preamble
 \usepackage[alf]{abntex2cite}
-\usepackage{lmodern}			% Usa a fonte Latin Modern			
-\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage{lastpage}			% Usado pela Ficha catalográfica
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{indentfirst}
+\usepackage{layout}
 
-
-\usepackage{microtype} 
-% para melhorias de justificação
-\usepackage[brazilian,hyperpageref]{backref}
+\setlength{\parindent}{1.3cm}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -39,8 +34,8 @@
 \paperfontsize default
 \spacing single
 \use_hyperref false
-\papersize a4paper
-\use_geometry false
+\papersize default
+\use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
 \use_package cancel 1
@@ -64,10 +59,14 @@
 \shortcut idx
 \color #008000
 \end_index
+\leftmargin 3cm
+\topmargin 3cm
+\rightmargin 2cm
+\bottommargin 2cm
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation skip
-\defskip medskip
+\paragraph_separation indent
+\paragraph_indentation default
 \quotes_language english
 \papercolumns 1
 \papersides 1
@@ -421,45 +420,6 @@ status open
 \backslash
 pdfbookmark[0]{
 \backslash
-listtablename}{lot}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-listoftables* 
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-cleardoublepage
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Newpage newpage
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-pdfbookmark[0]{
-\backslash
 contentsname}{toc} 
 \end_layout
 
@@ -475,6 +435,10 @@ tableofcontents*
 
 \backslash
 cleardoublepage
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -494,12 +458,8 @@ name "sec:intro"
 \end_layout
 
 \begin_layout Standard
-
-\end_layout
-
-\begin_layout Standard
 O câncer de mama é o tipo mais comum entre as mulheres em todo o mundo,
- respondendo por 25% dos casos a cada ano
+ respondendo por 25% dos casos a cada ano 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "inca"
@@ -507,7 +467,7 @@ key "inca"
 \end_inset
 
 .
- Quando diagnósticado tardiamente, as chances de cura são extremamente reduzidas
+ Quando diagnosticado tardiamente, as chances de cura são extremamente reduzidas
 , tornando o diagnóstico precoce um dos fatores mais importantes na redução
  da taxa de mortalidade desse tipo de doença.
  O incidência aumenta juntamente com a faixa etária, sendo que mulheres
@@ -523,13 +483,12 @@ Os exames mais tradicionais na detecção do câncer de mama são os exames
  de toque e a mamografia.
  O exame de toque é um exame de triagem, onde o própria mulher pode procurar
  por nódulos nos seios.
- Porém nem sempre o câncer resulta em aparecimento de nódulos e as vezes
- os nódulos existentes são difíceis de detectar através do toque.
+ Porém, nem sempre o câncer resulta em aparecimento de nódulos.
  Dessa forma, a mamografia se tornou um exame essencial nos dias de hoje,
  pois utiliza os raios-x para detectar regiões de alta densidade nas mamas.
  Apesar de ser o tipo de exame mais recomendado pelos especialistas, a mamografi
-a não é passível de falhas, pois mamas com alta densidade apresentam uma
- dificuldade elevada na detecção de tumores, pois estes podem ficar escondidos
+a é passível a falhas, já que mamas com alta densidade apresentam um grau
+ de dificuldade elevado na detecção de tumores, que podem ficar escondidos
  pelo tecido denso da mama.
  Mulheres jovens geralmente apresentam alta densidade nas mamas, tornando
  a mamografia um exame não recomendável para essa faixa etária, pois utiliza
@@ -540,11 +499,13 @@ a não é passível de falhas, pois mamas com alta densidade apresentam uma
 \end_layout
 
 \begin_layout Standard
-A termografia mamária é um exame de imagem não radioativo capaz detectar
- tumores que não seriam possíveis de descobrir através da mamografia.
+A termografia mamária é um exame de imagem não radioativo capaz de auxiliar
+ médicos especialista na detecção tumores que não seriam possíveis de descobrir
+ através da mamografia.
  Esse tipo de exame utiliza a radiação infravermelha, emitida naturalmente
- pelo corpo da paciente, para detecção da doença.
- Regiões próximas à um tumor tendem a ter um aumento na vascularização,
+ pelo corpo da paciente, para detecção de anomalias no padrão de temperatura
+ das mamas, que pode indicar algum tipo de doênça.
+ Regiões próximas a um tumor tendem a ter um aumento na vascularização,
  ocorrendo uma maior circulação de sangue na região, que causará um aumento
  de temperatura em relação as outras regiões da mama.
  Esse aumento de temperatura é detectável através da termografia, permitindo
@@ -563,6 +524,15 @@ is são geradas, permitindo que o especialista analise a evolução na distribui
  A metodologia proposta utiliza as termografias dinâmicas para auxiliar
  médicos especialistas no diagnóstico precoce do câncer de mama.
  
+\end_layout
+
+\begin_layout Standard
+A motivação deste trabalho é ajudar médicos especialistas no diagnóstico
+ precoce do câncer de mama, portanto qualquer informação que possa discriminar
+ mamas saudáveis de mamas doentes é relevante.
+ Dessa forma, várias técnicas de Processamento de Imagens e Aprendizado
+ de Máquina são utilizadas para aumentar o nível de informação que uma termograf
+ia pode dar ao especialista.
 \end_layout
 
 \begin_layout Standard
@@ -632,12 +602,6 @@ Desenvolver uma metodologia computacional que análise um exame termográfico
  dinâmico das mamas, a fim de encontrar padrões que diferenciem mamas saudáveis
  de mamas doentes.
  
-\end_layout
-
-\begin_layout Standard
-A principal motivação do trabalho é ajudar médicos especialistas no diagnóstico
- precoce do câncer de mama, portanto qualquer informação que possa discriminar
- mamas saudáveis de mamas doentes é relevante.
 \end_layout
 
 \begin_layout Section
@@ -776,10 +740,6 @@ key "silva2014new"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -807,8 +767,9 @@ key "silva2014new"
 \end_inset
 
  de preparação do ambiente e cuidados extras ao paciente para que o exame
- tenha resultado satisfatório, pois vários fatores podem influenciar o resultado
- final 
+ tenha resultado satisfatório, pois a condição da sala de exame, as loções
+ corporais, o excesso de exposição ao sol e a estimulação das mamas antes
+ do exame podem influenciar o resultado final 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "lincoln_thesis2015"
@@ -842,10 +803,10 @@ A TID apresenta uma característica importante na detecção de lesões mamária
  pois áreas saudáveis apresentam um comportamento distinto de áreas com
  algum tipo de patologia.
  Neoplasias são associadas com a angiogênese que causa um aumento de vasculariza
-ção na região, sendo que, os vasos recém formados apresentam a características
- de possuir poucas terminações nervosas, o que causa um comportamento irregular
- à estímulos externos, que é detectável através de um exame de termografia
- dinâmico 
+ção na região, sendo que, os vasos recém formados tendem a possuir poucas
+ terminações nervosas, o que causa um comportamento irregular à estímulos
+ externos, que é detectável através de um exame de termografia dinâmico
+ 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "lincoln_thesis2015"
@@ -856,7 +817,7 @@ key "lincoln_thesis2015"
 \end_layout
 
 \begin_layout Standard
-Na prática a TID monitora as mudanças na temperatura da pele, onde o estimulo
+Na prática a TID monitora as mudanças na temperatura da pele, onde o estímulo
  térmico através de uma corrente de ar produz um contraste entre tecidos
  saudáveis e doentes.
  Regiões saudáveis da mama tendem a apresentar uma diminuição de temperatura
@@ -925,7 +886,7 @@ reference "eq:fundamentation:image_registration:transform_eq"
 \end_inset
 
 .
- Figura
+ A Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:fundamentation:image_registration:mapping"
@@ -1214,12 +1175,12 @@ mente,
 \begin_inset Formula $m$
 \end_inset
 
-, 
+, e 
 \begin_inset Formula $N$
 \end_inset
 
- é a quantidade pixels a ser considerado.
- Note que o a equação é multiplicada por 
+ a quantidade pixels a ser considerado.
+ Note que a equação é multiplicada por 
 \begin_inset Formula $-1$
 \end_inset
 
@@ -1267,361 +1228,6 @@ As transformações deformáveis são capazes de efetuar deformações nas image
 \end_layout
 
 \begin_layout Subsubsection
-Translação
-\end_layout
-
-\begin_layout Standard
-A translação é uma transformação rígida bastante simples.
- Ela mapeia todos os pontos da imagem móvel adicionando um vetor à eles.
- Dado um ponto 2D 
-\begin_inset Formula $p=(x,y)$
-\end_inset
-
-, e o vetor de translação 
-\begin_inset Formula $\vec{t}=(t_{x},t_{y})$
-\end_inset
-
-, podemos dizer que o ponto transladado 
-\begin_inset Formula $q$
-\end_inset
-
- é dado por 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-q=p+\vec{t}=(x+t_{x},y+t_{y}).\label{eq:fundamentation:image_registration:transform:translate}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Utilizando a notação de matrizes em coordenadas homogêneas temos
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-q=\begin{bmatrix}x'\\
-y'\\
-1
-\end{bmatrix}=\begin{bmatrix}1 & 0 & t_{x}\\
-0 & 1 & t_{y}\\
-0 & 0 & 1
-\end{bmatrix}\cdot\begin{bmatrix}x\\
-y\\
-1
-\end{bmatrix}.\label{eq:fundamentation:image_registration:transform:translate_matrix}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-A Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:fundamentation:image_registration:transform:translate"
-
-\end_inset
-
- demonstra o resultado da transformação de translação.
- Vemos que apenas as posições dos pixels foram alteradas.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/fundamentation/image_registration/translate.png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Efeito da translação.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:fundamentation:image_registration:transform:translate"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Fonte
-Elaborada pelo autor
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
-Rotação
-\end_layout
-
-\begin_layout Standard
-A rotação é uma transformação rígida capaz de rotacionar os objetos em relação
- a um determinado ponto.
- Dado um ponto 
-\begin_inset Formula $p=(x,y)$
-\end_inset
-
- e um ângulo de rotação 
-\begin_inset Formula $\theta$
-\end_inset
-
- em radianos, o ponto 
-\begin_inset Formula $q$
-\end_inset
-
- é o resultado da rotação de 
-\begin_inset Formula $p$
-\end_inset
-
- em 
-\begin_inset Formula $\theta$
-\end_inset
-
- radianos dado por
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-q=\begin{bmatrix}x'\\
-y'\\
-1
-\end{bmatrix}=\begin{bmatrix}cos\,\theta & -sen\,\theta & 0\\
-sen\,\theta & cos\,\theta & 0\\
-0 & 0 & 1
-\end{bmatrix}.\label{eq:fundamentation:image_registration:transform:rotation}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-A Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:fundamentation:image_registration:transform:rotation"
-
-\end_inset
-
- representa uma transformação de 90º em torno da origem dos eixos.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/fundamentation/image_registration/rotation.png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Rotação de 
-\begin_inset Formula $\theta=\frac{\pi}{2}=90\text{º}.$
-\end_inset
-
-
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:fundamentation:image_registration:transform:rotation"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Fonte
-Elaborada pelo autor
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Geralmente em registro de imagens, a translação e rotação são aplicadas
- em conjunto, para que a rotação não altere a posição do objeto.
- Dessa forma, aplicamos uma operação de translação para trazer o objeto
- para a origem das coordenadas, aplicamos a rotação, então aplicamos uma
- translação inversa para levar o objeto de volta para sua posição inicial.
-\end_layout
-
-\begin_layout Subsubsection
-Escala
-\end_layout
-
-\begin_layout Standard
-A transformação de escala é uma transformação não-rígida capaz alterar a
- forma de um objeto.
- Dado um ponto 
-\begin_inset Formula $p=(x,y)$
-\end_inset
-
- e o fator de escala 
-\begin_inset Formula $s=(s_{x},s_{y})$
-\end_inset
-
-, podemos dizer que o ponto 
-\begin_inset Formula $q$
-\end_inset
-
- é dado por 
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-q=p\cdot s=(x\cdot s_{x},y\cdot s_{y}).\label{eq:fundamentation:image_registration:transform:scale}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Em notação de matrizes homogêneas temos
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\begin{equation}
-q=\begin{bmatrix}x'\\
-y'\\
-1
-\end{bmatrix}=\begin{bmatrix}s_{x} & 0 & 0\\
-0 & s_{y} & 0\\
-0 & 0 & 1
-\end{bmatrix}\cdot\begin{bmatrix}x\\
-y\\
-1
-\end{bmatrix}.\label{eq:fundamentation:image_registration:transform:scale_matrix}
-\end{equation}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-Na Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:fundamentation:image_registration:transform:scale"
-
-\end_inset
-
- vemos o efeito da transformação de escala.
- Caso os parâmetros sejam iguais 
-\begin_inset Formula $s_{x}=s_{y}$
-\end_inset
-
-, não mudamos a forma do objeto.
- Porém, caso 
-\begin_inset Formula $s_{x}\neq s_{y}$
-\end_inset
-
-, temos uma transformação que altera a forma do objeto transformado.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/fundamentation/image_registration/scale.png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Transformação de escala.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:fundamentation:image_registration:transform:scale"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Fonte
-Elaborada pelo autor
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection
 Transformações FFD baseadas em 
 \emph on
 B-Splines 
@@ -1638,7 +1244,7 @@ name "sec:fundamentation:image_registration:transform:bspline"
 
 \begin_layout Standard
 Um dos tipos de transformações não-rígidas mais comuns atualmente são as
- chamadas transformações FFD (deformação de forma livre) baseadas em 
+ chamadas transformações deformação de forma livre (FFD) baseadas em 
 \emph on
 B-splines
 \emph default
@@ -1654,7 +1260,16 @@ key "yin2009mass"
  a partir dos chamados pontos de controle.
  Essa manipulação permite criar um campo de deslocamento, que irá mapear
  os pixels da imagem móvel.
- 
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fundamentation:registration:transform:ffd:campo"
+
+\end_inset
+
+ ilustra a idéia básica desse tipo de transformação, onde o campo de deslocament
+o é utilizado para mapear os pixels da imagem móvel, de forma que se assemelhem
+ à imagem fixa.
 \end_layout
 
 \begin_layout Standard
@@ -1679,9 +1294,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-O conceito de campo de deslocamento.
- Para cada posição de pixel na imagem móvel, existe uma direção e distância
- que ele precisa se mover para se assemelhar à imagem fixa.
+Campo de deslocamento da imagem móvel para a imagem fixa.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:fundamentation:registration:transform:ffd:campo"
+
+\end_inset
+
  
 \end_layout
 
@@ -1723,7 +1343,7 @@ Seja
 \end_inset
 
 -ésimo ponto de controle.
- O espaço entre as grandes de controle nas direções 
+ O espaço entre as grades de controle nas direções 
 \begin_inset Formula $x$
 \end_inset
 
@@ -2002,7 +1622,7 @@ name "sec:fundamentation:image_registration:interpolator:linear"
 O interpolador linear assume que os valores de intensidade dos pixels variam
  de forma linear entre as posições de grade.
  Dessa forma, os valores interpolados serão contínuos espacialmente, porém
- o gradiente de intensidade será descontinuo na grade.
+ o gradiente de intensidade será descontínuo na grade.
  Se dois pontos conhecidos são dados por 
 \begin_inset Formula $(x_{0},y_{0})$
 \end_inset
@@ -2077,12 +1697,8 @@ name "sec:fundamentation:image_registration:otimizator:lbfgs"
 \end_layout
 
 \begin_layout Standard
-O 
-\emph on
-LBFGS 
-\emph default
-(Limited-memory Broyden-Fletcher-Goldfarb-Shanno) é um método de otimização
- bastante comum em problemas de registro de imagens.
+O Limited-memory Broyden-Fletcher-Goldfarb-Shanno (LBFGS) é um método de
+ otimização bastante comum em problemas de registro de imagens.
  De acordo com 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2335,77 +1951,6 @@ A=\begin{cases}
 
 \end_layout
 
-\begin_layout Standard
-Como exemplo temos uma imagem 
-\begin_inset Formula $I$
-\end_inset
-
- de dimensões 
-\begin_inset Formula $5x5$
-\end_inset
-
-, com 
-\begin_inset Formula $4$
-\end_inset
-
- níveis de cinza.
- Então as matriz de coocorrência 
-\begin_inset Formula $G(i,j|\Delta x=1,\Delta y=0)$
-\end_inset
-
- e 
-\begin_inset Formula $G(i,j|\Delta x=1,\Delta y=1)$
-\end_inset
-
- são representadas abaixo.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-I=\begin{bmatrix}2 & 0 & 2 & 1 & 1\\
-2 & 1 & 2 & 3 & 1\\
-3 & 1 & 3 & 2 & 0\\
-0 & 0 & 1 & 2 & 2\\
-3 & 3 & 3 & 1 & 1
-\end{bmatrix}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-G(i,j|\Delta x=1,\Delta y=0)=\begin{bmatrix}1 & 1 & 1 & 0\\
-0 & 2 & 2 & 1\\
-2 & 2 & 1 & 1\\
-0 & 3 & 1 & 2
-\end{bmatrix}
-\]
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Formula 
-\[
-G(i,j|\Delta x=1,\Delta y=1)=\begin{bmatrix}0 & 0 & 1 & 2\\
-0 & 3 & 0 & 1\\
-0 & 3 & 2 & 1\\
-2 & 0 & 1 & 0
-\end{bmatrix}
-\]
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Subsection
 GLCM Normalizada
 \end_layout
@@ -2415,7 +1960,7 @@ Considere
 \begin_inset Formula $N=\sum_{i}\sum_{j}G_{d}(i,j)$
 \end_inset
 
-, que é a quantidade ocorrências de pares em 
+ a quantidade ocorrências de pares em 
 \begin_inset Formula $G_{d}$
 \end_inset
 
@@ -2638,13 +2183,12 @@ Em
 \emph on
 Aprendizado de Máquina
 \emph default
-, geralmente possuímos um conjunto de dados previamente disponíveis .
+, geralmente existe um conjunto de dados previamente disponíveis .
  Nesse conjunto de dados, cada indivíduo é representado por um conjunto
  de características extraídas do dado original.
  Por exemplo, em imagens de níveis de cinza é possível extrair as característica
 s a partir de uma GLCM.
- A quantidade de características que um indivíduo possui é o que chamamos
- de 
+ A quantidade de características que um indivíduo possui é chamado de 
 \emph on
 dimensão
 \emph default
@@ -2662,12 +2206,12 @@ dimensão
 \end_layout
 
 \begin_layout Standard
-A fácil pensar que quanto maior o número de características, melhor para
+É fácil pensar que quanto maior o número de características, melhor para
  discriminar os indivíduos.
  Porém, um conjunto de dados com uma dimensão muito alta implica maior complexid
 ade no problema de classificação.
  Outro problema é que, em muitos casos, nem todas as características são
- consideradas importantes para o entendimento de um certo problema
+ consideradas importantes para o entendimento de um certo problema 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "fodor2002survey"
@@ -2729,13 +2273,12 @@ key "scikit-learn-feat"
 \end_inset
 
 .
- Por exemplo, podemos selecionar as 
+ Por exemplo, selecionar as 
 \begin_inset Formula $K$
 \end_inset
 
- melhores características através de um teste estatístico que classifique
- as características que melhor separam as classes de indivíduos de um conjunto
- de dados.
+ melhores características através de um teste estatístico que indiquem as
+ que melhor separam as classes de indivíduos de um conjunto de dados.
  
 \end_layout
 
@@ -2809,8 +2352,8 @@ Geralmente, normaliza-se os dados antes da aplicação do PCA, pois o método
  é dependente da escala.
  Um dos métodos possíveis para a normalização é escalar cada características
  entre 0 e 1.
- Então, assumindo que os dados estão normalizados, podemos calcular a matriz
- de covariância
+ Então, assumindo que os dados estão normalizados, calcula-se a matriz de
+ covariância
 \end_layout
 
 \begin_layout Standard
@@ -2825,7 +2368,7 @@ onde
 \begin_inset Formula $\bar{x}$
 \end_inset
 
-é o vetor médio dado por
+ é o vetor médio dado por
 \end_layout
 
 \begin_layout Standard
@@ -2867,15 +2410,15 @@ onde
 \begin_inset Formula $\lambda$
 \end_inset
 
-o seu respectivo autovalor.
+ o seu respectivo autovalor.
  Cada autovetor corresponde a um PC, e os respectivos autovalores indicam
  o grau de variância de cada PC.
  Assim, escolhendo os 
 \begin_inset Formula $k$
 \end_inset
 
- PCs com maior variância absoluta, podemos mapear nossos dados originais
- em um novo conjunto 
+ PCs com maior variância absoluta, podemos mapear os dados originais em
+ um novo conjunto 
 \end_layout
 
 \begin_layout Standard
@@ -2917,10 +2460,9 @@ onde
 \end_layout
 
 \begin_layout Standard
-É uma técnica muito útil quando queremos transformar nossas características
- originais, onde alguma delas não oferecem muita variação nos dados, em
- um espaço novo com menor dimensão onde as novas características possuem
- uma melhor dispersão nos dados.
+É uma técnica muito útil quando as características originais não oferecem
+ muita variação nos dados, transformando o conjunto em um novo espaço com
+ menor dimensão onde as novas características possuem uma melhor dispersão.
  A Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -2930,8 +2472,8 @@ reference "fig:fundamentation:reduction:pca:samples"
 
  mostra um conjunto de indivíduos gerados por distribuições normais multivariada
 s com 3 características.
- Utilizando o PCA para reduzir o espaço dimensional para apenas 2, temos
- a Figura 
+ Utilizando o PCA para reduzir o espaço tridimensional para bidimensional,
+ temos a Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:fundamentation:reduction:pca:samples_transformed"
@@ -3030,10 +2572,6 @@ name "fig:fundamentation:reduction:pca:samples_transformed"
 Elaborada pelo autor
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -3045,18 +2583,18 @@ Análise Discriminante Linear
 
 \begin_layout Standard
 A Análise Discriminante Linear (LDA) é uma técnica similar ao PCA, onde
- buscamos combinações lineares da características para formar um novo espaço
- de dimensões reduzidas.
+ combinações lineares da características são utilizadas para formar um novo
+ espaço de dimensões reduzidas.
  A diferença é que ao contrário do PCA que busca combinações com maior variância
  entre os dados, o LDA procura combinações que melhor separam as classes
  de um determinado problema, portanto podemos dizer que o LDA é uma técnica
- supervisionada, pois precisamos conhecer as classes que cada individuo
+ supervisionada, pois precisamos conhecer as classes que cada indivíduo
  pertence.
 \end_layout
 
 \begin_layout Standard
 Normalmente é utilizado para redução de dimensionalidade, como um pré-processame
-nto de técnicas de aprendizado de máquina e reconhecimento de padrões
+nto de técnicas de aprendizado de máquina e reconhecimento de padrões 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "raschkaLDA"
@@ -3065,14 +2603,18 @@ key "raschkaLDA"
 
 .
  Também é possível utilizar o LDA como um classificador.
- Originalmente proposto em 
+ 
+\end_layout
+
+\begin_layout Standard
+Foi originalmente proposto em 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "fisher1936use"
 
 \end_inset
 
-como um problema 
+ como um problema 
 \emph on
 2-class
 \emph default
@@ -3141,6 +2683,7 @@ reference "fig:fundamentation:reduction:lda:wc"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -3177,10 +2720,6 @@ name "fig:fundamentation:reduction:lda:wc"
 
 \begin_layout Fonte
 Elaborada pelo autor
-\end_layout
-
-\begin_layout Plain Layout
-
 \end_layout
 
 \end_inset
@@ -3233,7 +2772,7 @@ Elaborada pelo autor
 \end_layout
 
 \begin_layout Standard
-Dessa forma
+A transformação linear 
 \begin_inset Formula $W$
 \end_inset
 
@@ -3322,7 +2861,7 @@ A matriz
 \begin_inset Formula $S_{W}$
 \end_inset
 
- é o que chamamos de matriz de dispersão intra-classe e é definida por:
+ é chamada de matriz de dispersão intra-classe e é definida por:
 \end_layout
 
 \begin_layout Standard
@@ -3413,13 +2952,21 @@ onde,
 \end_layout
 
 \begin_layout Standard
-A vantagem de utilizar o LDA é que simplificamos o problema de classificação
- criando novas características, a partir das originais, que melhor separam
- as classes do conjunto de dados.
- A grande desvantagem é que não é possível saber quais características originais
+A vantagem de utilizar o LDA é que problema de classificação é simplificado
+ pela criação de novas características a partir das originais, que melhor
+ separam as classes do conjunto de dados.
+ 
+\end_layout
+
+\begin_layout Standard
+A grande desvantagem é que não é possível saber quais características originais
  tem maior peso, pois os discriminantes são formados a partir de combinações
  lineares de todas elas.
- A Figura 
+ 
+\end_layout
+
+\begin_layout Standard
+A Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:fundamentation:reduction:lda:samples"
@@ -3538,7 +3085,17 @@ Elaborada pelo autor
 \end_layout
 
 \begin_layout Section
-Máquinas de Vetor de Suporte
+Máquinas de Vetor de Suporte 
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Continuar Correção DAKI!!!!
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -3908,10 +3465,6 @@ name "fig:fundamentation:svm:vetores"
 Elaborada pelo autor
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -4143,10 +3696,6 @@ name "fig:metothology:fluxogram"
 Elaborada pelo autor
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -4265,10 +3814,6 @@ key "silva2014new"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -4338,10 +3883,6 @@ key "lincoln_thesis2015"
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Plain Layout
 
 \end_layout
 
@@ -4850,10 +4391,6 @@ name "fig:methodology:roi:segmentation"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -5256,10 +4793,6 @@ name "fig:methodology:fps:feat_1:b"
 
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -5296,10 +4829,6 @@ name "fig:methodology:fps:feat_1"
 Elaborada pelo autor
 \end_layout
 
-\begin_layout Plain Layout
-
-\end_layout
-
 \end_inset
 
 
@@ -5313,6 +4842,7 @@ sideways false
 status open
 
 \begin_layout Plain Layout
+\paragraph_spacing onehalf
 \begin_inset space \hfill{}
 \end_inset
 
