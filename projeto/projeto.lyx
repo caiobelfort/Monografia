@@ -3086,16 +3086,6 @@ Elaborada pelo autor
 
 \begin_layout Section
 Máquinas de Vetor de Suporte 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Continuar Correção DAKI!!!!
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -3116,14 +3106,18 @@ Problemas de classificação geralmente envolvem classificar se um certo indiví
  Atualmente existem diversas técnicas de aprendizado de máquina capazes
  de realizar essa tarefa com êxito e umas das principais técnicas utilizadas
  hoje em dia são as Máquinas de Vetor de Suporte (SVM).
- Foram originalmente propostas por 
+ 
+\end_layout
+
+\begin_layout Standard
+Foram originalmente propostas por 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "cortes1995support"
 
 \end_inset
 
- como uma classificador binário, capaz de dizer se um determinado indivíduo
+ como um classificador binário, capaz de dizer se um determinado indivíduo
  pertence à classe 
 \begin_inset Formula $A$
 \end_inset
@@ -3133,9 +3127,13 @@ key "cortes1995support"
 \end_inset
 
 .
- São parte do grupo de técnicas de aprendizado supervisionado, onde é necessário
+ 
+\end_layout
+
+\begin_layout Standard
+São parte do grupo de técnicas de aprendizado supervisionado, onde é necessário
  conhecer previamente um conjunto de indivíduos para que o algoritmo gere
- um modelo que seja capaz de predizer qual a classe uma nova entrada pertence.
+ um modelo capaz de predizer qual a classe de uma nova entrada.
 \end_layout
 
 \begin_layout Standard
@@ -3151,7 +3149,14 @@ key "sklearn-svm"
 \end_inset
 
 .
- 
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:fundamentation:svm:hiperplanos"
+
+\end_inset
+
+ mostra hiperplanos por gerados por uma SVM.
 \end_layout
 
 \begin_layout Standard
@@ -3316,8 +3321,7 @@ reference "eq:fundamentation:svm:relation"
 
 \end_inset
 
-.
- Dessa forma o SVM resolve problema de otimização:
+, resolvendo:
 \end_layout
 
 \begin_layout Standard
@@ -3328,7 +3332,7 @@ min\:\phi(w,\zeta)=\frac{w^{2}}{2}C\sum_{i=1}^{N}\zeta_{i}\label{eq:fundamentati
 
 \end_inset
 
-sujeito à:
+sujeito a:
 \end_layout
 
 \begin_layout Standard
@@ -3363,8 +3367,7 @@ L(a)=\sum_{i=1}^{N}a_{i}-\frac{1}{2}\sum_{i,j=1}^{N}a_{i}a_{j}y_{i}y_{j}(x_{i},x
 \end_layout
 
 \begin_layout Standard
-Assim, o objetivo passar a ser encontrar os multiplicadores de Lagrange
- 
+Assim, o objetivo é encontrar os multiplicadores de Lagrange 
 \begin_inset Formula $a_{i}$
 \end_inset
 
@@ -3404,7 +3407,7 @@ reference "eq:fundamentation:svm:relation"
 
 \end_inset
 
- é igual
+ é igual 
 \begin_inset Formula $1$
 \end_inset
 
@@ -3428,6 +3431,7 @@ reference "fig:fundamentation:svm:vetores"
 
 \begin_layout Standard
 \begin_inset Float figure
+placement H
 wide false
 sideways false
 status open
@@ -3472,11 +3476,11 @@ Elaborada pelo autor
 
 \begin_layout Standard
 Pontos além da margem não tem influência suficiente para determinar o hiperplano
-, porém esses vetores de suporte são essenciais nessa tarefa.
+, porém os vetores de suporte são essenciais nessa tarefa.
 \end_layout
 
 \begin_layout Standard
-Agora considere o conjunto de amostras da Figura 
+Considere o conjunto de amostras da Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:fundamentation:svm:data_nao_linear"
@@ -3484,8 +3488,8 @@ reference "fig:fundamentation:svm:data_nao_linear"
 \end_inset
 
 .
- Vemos que não é possível traçar uma reta capaz de separar as classes, tornando
- o problema um caso não-linear.
+ Não é possível traçar uma reta capaz de separar as classes, tornando o
+ problema um caso não-linear.
  De acordo com 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -3493,9 +3497,13 @@ key "giovannitcc"
 
 \end_inset
 
-, necessitamos de uma transformação não-linear capaz de mapear o conjunto
- original (espaço dados) para um novo espaço (espaço de características).
- Esse novo espaço deve apresentar dimensões suficientes para que seja possível
+, é necessário uma transformação não-linear capaz de mapear o conjunto original
+ (espaço dados) para um novo espaço (espaço de características).
+ 
+\end_layout
+
+\begin_layout Standard
+Esse novo espaço deve apresentar dimensões suficientes para que seja possível
  realizar a separação linear do conjunto de dados.
  Dessa forma, o hiperplano de separação é definido como uma função linear
  de vetores retirados do espaço de características e não do espaço de dados.
@@ -3526,7 +3534,7 @@ reference "eq:fundamentation:svm:lagrange3"
 
 \end_inset
 
- apresenta a forma modificada da 
+ apresenta a forma modificada da Equação 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:fundamentation:svm:lagrange2"
@@ -3598,7 +3606,7 @@ L(a)=\sum_{i=1}^{N}a_{i}-\frac{1}{2}\sum_{i,j=1}^{N}a_{i}a_{j}y_{i}y_{j}K(x_{i},
 
 \begin_layout Standard
 Um conjunto de funções amplamente utilizadas em conjunto com uma SVM para
- classificação de dados não linearmente separáveis sãos as funções de base
+ classificação de dados não linearmente separáveis são as funções de base
  radial (RBF).
  Uma função RBF é definida por:
 \end_layout
@@ -3823,72 +3831,7 @@ key "silva2014new"
 As imagens utilizadas possuem dimensão de 640 pixels de largura e 480 pixels
  de largura e foram utilizados os valores de temperatura (em graus celsius)
  obtidos diretamente da câmera termográfica utilizada na aquisição.
- A Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:methodology:acquisition:matrix"
-
-\end_inset
-
- apresenta essas matrizes são armazenadas em formato 
-\emph on
-.txt
-\emph default
-, onde cada exame é composto por 20 arquivos separados por tempo de aquisição.
  
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/methodology/temp_matrix.png
-	scale 75
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Matriz de temperatura.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:methodology:acquisition:matrix"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Fonte
-\begin_inset CommandInset citation
-LatexCommand cite
-key "lincoln_thesis2015"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -4139,7 +4082,7 @@ Para analisar as sequências de termogramas de um determinado exame é necessár
 \end_layout
 
 \begin_layout Itemize
-Métrica: Correlação Cruzada Normalizada (Seção
+Métrica: Correlação Cruzada Normalizada (Capítulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:fundamentation:image_registration:normalized_cross_correlation"
@@ -4154,7 +4097,7 @@ Transformação:
 \emph on
 B-Splines
 \emph default
- (Seção 
+ (Capítulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:fundamentation:image_registration:transform:bspline"
@@ -4165,7 +4108,7 @@ reference "sec:fundamentation:image_registration:transform:bspline"
 \end_layout
 
 \begin_layout Itemize
-Interpolador: Linear (Seção 
+Interpolador: Linear (Capítulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:fundamentation:image_registration:interpolator:linear"
@@ -4176,7 +4119,7 @@ reference "sec:fundamentation:image_registration:interpolator:linear"
 \end_layout
 
 \begin_layout Itemize
-Otimizador: LBFGS (Seção 
+Otimizador: LBFGS (Capítulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:fundamentation:image_registration:otimizator:lbfgs"
@@ -4255,8 +4198,6 @@ reference "fig:methodology:image_registration:t1"
 \end_inset
 
  como fixa.
- Note que a diferença de postura foi corrigida, deixando a imagem majoritariamen
-te escura.
 \begin_inset CommandInset label
 LatexCommand label
 name "fig:methodology:registration:result"
@@ -4285,8 +4226,11 @@ Essa etapa consiste em extrair a região de interesse (ROI) da imagem.
  Como a metodologia tem o objetivo de detectar anomalias no padrão de vasculariz
 ação das mamas, é de interesse que as demais regiões de uma TID sejam excluídas
  do processo.
- Alguns métodos de segmentação automática são encontrados na literatura
  
+\end_layout
+
+\begin_layout Standard
+Alguns métodos de segmentação automática são encontrados na literatura 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "marques2012segmentaccao"
@@ -4311,8 +4255,12 @@ key "abramoff2004image,rasband1997bethesda"
 \end_inset
 
 .
- Utilizando a máscara da sequência inicial é possível extrair as ROIs das
- demais sequências após a aplicação do registro dos termogramas (Seção
+ 
+\end_layout
+
+\begin_layout Standard
+Utilizando a máscara da sequência inicial é possível extrair as ROIs das
+ demais sequências após a aplicação do registro dos termogramas (Capítulo
 \emph on
  
 \begin_inset CommandInset ref
@@ -4340,8 +4288,8 @@ reference "fig:methodology:roi:mask"
 
 \end_inset
 
-) é gerada, para ser utilizada como ROI para todos as 20 sequências de termogram
-as em um exame.
+) é gerada, para ser utilizada como ROI para todas as 20 sequências de termogram
+as em uma TID.
  
 \end_layout
 
@@ -4485,7 +4433,11 @@ Dado um exame TID, temos 20 sequências de termogramas, cada um correspondendo
  à um tempo distinto em ordem sequencial.
  Precisamos extrair características que diferenciem as TID de pacientes
  saudáveis de TID de pacientes com algum tipo de anomalia.
- A forma encontrada foi criar um vetor 
+ 
+\end_layout
+
+\begin_layout Standard
+Dado o vetor 
 \begin_inset Formula $p=[I_{1}(i,j),I_{2}(i,j),...I_{20}(i,j)]$
 \end_inset
 
@@ -4501,12 +4453,28 @@ Dado um exame TID, temos 20 sequências de termogramas, cada um correspondendo
 \begin_inset Formula $(i,j)$
 \end_inset
 
-.
- Dessa forma, podemos extrair 4 valores estatísticos do vetor 
+, é possível extrair 
+\begin_inset Formula $4$
+\end_inset
+
+ valores estatísticos de 
 \begin_inset Formula $p$
 \end_inset
 
 , sendo eles:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+CONTINUAR DAKI
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Itemize
@@ -4514,8 +4482,8 @@ A temperatura de inicial, ou seja, o valor de
 \begin_inset Formula $I_{1}(i,j).$
 \end_inset
 
- Notamos que a temperatura inicial da sequência de termogramas é um bom
- descriminador, pois regiões com anomalias tendem a ficar mais definidas
+ Nota-se que atemperatura inicial da sequência de termogramas oferece uma
+ boa discriminação, pois regiões com anomalias tendem a ficar mais definidas
  durante o processo de resfriamento no protocolo de aquisição de imagens
  e não possuem regiões equivalentes na mama oposta.
  A Figura 
