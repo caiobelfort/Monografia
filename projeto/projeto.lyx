@@ -7,6 +7,8 @@
 \usepackage[alf]{abntex2cite}
 \usepackage{indentfirst}
 \usepackage{layout}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
 
 \setlength{\parindent}{1.3cm}
 \end_preamble
@@ -70,7 +72,7 @@
 \quotes_language english
 \papercolumns 1
 \papersides 1
-\paperpagestyle default
+\paperpagestyle plain
 \tracking_changes false
 \output_changes false
 \html_math_output 0
@@ -557,21 +559,15 @@ B-Splines
  A partir dessas imagens geradas, são extraídas o conjunto de características
  de textura a partir de matrizes de coocorrência.
  Essas características podem ser reduzidas através de técnicas de redução
- de características como a técnica de 
+ de características como a técnica de Análise dos Componentes Principais
+ e a Análise Discriminante Linear
 \emph on
-Análise dos Componentes Principais
-\emph default
- e a 
-\emph on
-Análise Discriminante Linear.
+.
  
 \emph default
 No final do processo, as características reduzidas irão servir de entrada
- para uma 
-\emph on
-Máquina de Vetor de Suporte
-\emph default
- que irá ser responsável por classificar as pacientes em saudável e doente.
+ para uma Máquina de Vetor de Suporte que irá ser responsável por classificar
+ as pacientes em saudável e com anomalia.
  
 \end_layout
 
@@ -635,8 +631,8 @@ Analisar a variação de temperatura entre os diferentes tempos do exame,
 \end_layout
 
 \begin_layout Itemize
-Utilizar as características extraídas para gerar um classificador automático,
- que seja capaz de classificar corretamente novos exames.
+Utilizar as características extraídas para gerar uma Máquina de Vetor de
+ Suporte, que seja capaz de classificar corretamente novos exames.
 \end_layout
 
 \begin_layout Chapter
@@ -669,14 +665,22 @@ name "sub:fundamentation:termography"
 \begin_layout Standard
 A termografia é uma técnica que permite a visualização dos raios do espectro
  infravermelho de forma a mapear a temperatura de um objeto.
- A termografia infravermelha da mama é um tipo de exame que detecta a radiação
- infravermelha emitida pela superfície da mama produzindo um mapa de temperatura
- conhecido como termograma.
- A grande vantagem deste tipo de exame em relação aos exames mais conhecidos,
+ A termografia infravermelha da mama, é um tipo de exame que detecta a radiação
+ infravermelha emitida pela superfície da mama, produzindo um mapa de temperatur
+a conhecido como termograma.
+ 
+\end_layout
+
+\begin_layout Standard
+A grande vantagem deste tipo de exame em relação aos exames mais conhecidos,
  como a mamografia, é que este não utiliza radiação no processo de obtenção
  das imagens e também não causa incômodo físico ao paciente, pois não é
- necessário a compressão das mamas, como ocorre na termografia.
- Outro fator a se levar em consideração é o custo extremamente baixo e o
+ necessário a compressão das mamas, como ocorre na mamografia.
+ 
+\end_layout
+
+\begin_layout Standard
+Outro fator a se levar em consideração é o custo extremamente baixo e o
  fácil manuseio do equipamento necessário para obtenção do exame 
 \begin_inset CommandInset citation
 LatexCommand cite
@@ -2260,29 +2264,6 @@ Algumas técnicas de redução de dimensionalidade são descritas abaixo
 \end_layout
 
 \begin_layout Subsection
-Seleção de Características Univariada
-\end_layout
-
-\begin_layout Standard
-A seleção de características univariada seleciona as melhores características
- baseada em testes estatísticos univariados 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "scikit-learn-feat"
-
-\end_inset
-
-.
- Por exemplo, selecionar as 
-\begin_inset Formula $K$
-\end_inset
-
- melhores características através de um teste estatístico que indiquem as
- que melhor separam as classes de indivíduos de um conjunto de dados.
- 
-\end_layout
-
-\begin_layout Subsection
 Análise de Componentes Principais
 \end_layout
 
@@ -3735,14 +3716,7 @@ httt://visual.ic.uff.br/dmi
 
 .
  Mais informações sobre a base de imagens utilizada podem ser encontradas
- em 
-\begin_inset CommandInset citation
-LatexCommand cite
-key "silvaasmd"
-
-\end_inset
-
- e 
+ em  
 \begin_inset CommandInset citation
 LatexCommand cite
 key "silva2014new"
@@ -4137,84 +4111,8 @@ reference "sec:fundamentation:image_registration:otimizator:lbfgs"
 Utilizando a primeira sequência do conjunto de termograma como imagem fixa,
  executamos o algoritmo de registro 19 vezes, sendo que as sequências restantes
  são as imagens móveis.
- A Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:methodology:registration:result"
-
-\end_inset
-
- demostra a utilização do registro construído, na Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:methodology:image_registration:t2"
-
-\end_inset
-
- como imagem móvel e tendo a Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:methodology:image_registration:t1"
-
-\end_inset
-
- como imagem fixa.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float figure
-placement H
-wide false
-sideways false
-status open
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/methodology/registered_squared_differences1.png
-	scale 50
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Resultado da aplicação do registro na Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:methodology:image_registration:t2"
-
-\end_inset
-
- como móvel e a Figura 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:methodology:image_registration:t1"
-
-\end_inset
-
- como fixa.
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:methodology:registration:result"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
+ Após a aplicação do registro, os erros de postura são corrigidos, permitindo
+ que as sequências de uma TID sejam analisadas e comparadas.
 \end_layout
 
 \begin_layout Section
@@ -4418,7 +4316,7 @@ key "lincoln_thesis2015"
 \end_layout
 
 \begin_layout Section
-Extração de características 1
+Extração de características 
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:methodology:fps"
@@ -4464,19 +4362,6 @@ Dado o vetor
 , sendo eles:
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-CONTINUAR DAKI
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Itemize
 A temperatura de inicial, ou seja, o valor de 
 \begin_inset Formula $I_{1}(i,j).$
@@ -4484,8 +4369,8 @@ A temperatura de inicial, ou seja, o valor de
 
  Nota-se que atemperatura inicial da sequência de termogramas oferece uma
  boa discriminação, pois regiões com anomalias tendem a ficar mais definidas
- durante o processo de resfriamento no protocolo de aquisição de imagens
- e não possuem regiões equivalentes na mama oposta.
+ durante o processo de resfriamento e não possuem regiões equivalentes na
+ mama oposta.
  A Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4503,11 +4388,12 @@ O ganho de temperatura total dado por
 
 .
  Essa medida informa o quanto uma dada região se aqueceu ou esfriou durante
- o tempo de extração das características.
- Durante os teste realizados notamos regiões que sofrem algum tipo de anomalia
- tendem a ganhar mais temperatura durante o tempo de extração das imagens.
+ o tempo de aquisição dos termogramas.
+ Durante os testes realizados, foi possível notar que regiões com algum
+ tipo de anomalia tendem a ganhar mais temperatura durante o tempo de extração
+ das imagens.
  Em imagens saudáveis quando ocorre esse tipo de comportamento, geralmente
- a um tipo de espalhamento, de forma que ele aparece nas duas mamas.
+ existe um tipo de espelhamento, de forma que ele aparece nas duas mamas.
  Na Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4515,9 +4401,9 @@ reference "fig:fig:methodology:fps:feat_2:a"
 
 \end_inset
 
- vemos uma TID de paciente saudável.
- Notamos um aspecto simétrico entre as regiões.
- Já a Figura 
+ vemos uma TID de paciente saudável, onde existe um aspecto simétrico entre
+ as regiões.
+ A Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:fig:methodology:fps:feat_2:b"
@@ -4525,7 +4411,7 @@ reference "fig:fig:methodology:fps:feat_2:b"
 \end_inset
 
  possui uma região de alto ganho de temperatura em relação as demais da
- mama, coincidindo com a região em que o tumor existe.
+ mama, coincidindo com a região do tumor.
  
 \end_layout
 
@@ -4565,8 +4451,8 @@ reference "eq:methodology:fps:std_bt"
  Essa característica apresenta um grande fator de discriminância entres
  regiões saudáveis e com anomalias.
  Regiões saudáveis tendem a ganhar temperatura de forma uniforme durante
- a aquisição dos termogramas, ao contrário de regiões anômalas que variam
- bastante no ganho de temperatura.
+ a aquisição dos termogramas, ao contrário de regiões que possuem anomalia,
+ que variam bastante no ganho de temperatura.
  Dessa forma regiões saudáveis apresentam um valor para 
 \begin_inset Formula $S$
 \end_inset
@@ -4583,10 +4469,18 @@ reference "fig:methodology:fps:feat_4"
  saudável e em uma TID de paciente doente.
 \end_layout
 
+\begin_layout --Separator--
+
+\end_layout
+
+\begin_layout Standard
+Abaixo temos as definições dos valores utilizados:
+\end_layout
+
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-M=\frac{1}{19}\cdot\sum_{t=2}^{20}I_{t}(i,j)-I_{t-1}(i,j)\label{eq:methodology:fps:mean_bt}
+M=\frac{1}{N}\cdot\sum_{t=2}^{N}I_{t}(i,j)-I_{t-1}(i,j),\label{eq:methodology:fps:mean_bt}
 \end{equation}
 
 \end_inset
@@ -4597,19 +4491,31 @@ M=\frac{1}{19}\cdot\sum_{t=2}^{20}I_{t}(i,j)-I_{t-1}(i,j)\label{eq:methodology:f
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-S=\sqrt{\frac{1}{19}\cdot\sum_{t=2}^{20}((I_{t}(i,j)-I_{t-1}(i,j))-M)^{2}}\label{eq:methodology:fps:std_bt}
+S=\sqrt{\frac{1}{N}\cdot\sum_{t=2}^{N}((I_{t}(i,j)-I_{t-1}(i,j))-M)^{2}},\label{eq:methodology:fps:std_bt}
 \end{equation}
 
 \end_inset
 
+onde 
+\begin_inset Formula $M$
+\end_inset
 
+ é o ganho médio entre os tempos, 
+\begin_inset Formula $S$
+\end_inset
+
+ o desvio padrao entre os tempos e 
+\begin_inset Formula $N$
+\end_inset
+
+ a quantidade de tempos a ser considerado.
 \end_layout
 
 \begin_layout Standard
 Essas características quando analisadas em conjunto oferecem um grande discrimin
 ador entre as pacientes.
- É possível perceber a similaridade entre as mamas direita e esquerda nas
- Figuras 
+ Em uma paciente saudável, é possível perceber a similaridade entre as mamas
+ direita e esquerda como nas Figuras 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:methodology:fps:feat_1:a"
@@ -4630,16 +4536,19 @@ reference "fig:fig:methodology:fps:feat_3:a"
 
 \end_inset
 
-, e uma homogeneidade na Figura 
+, e uma homogeneidade no desvio padrão como na Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:methodology:fps:feat_4:a"
+reference "fig:fig:methodology:fps:feat_4:b"
 
 \end_inset
 
 .
- Essas imagens representam uma paciente saudável.
- Já nas Figuras 
+\end_layout
+
+\begin_layout Standard
+Em uma mama com algum tipo de anomalia, nota-se uma assimilaridade entre
+ as mamas, como nas Figuras 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:methodology:fps:feat_1:b"
@@ -4660,11 +4569,10 @@ reference "fig:fig:methodology:fps:feat_3:b"
 
 \end_inset
 
- a similaridade entre as mamas é quebrada por regiões de pico de valores
- que são coincidentes entre elas, e na Figura 
+ e uma maior heterogeneidade paro o desvio padrão, como na Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:methodology:fps:feat_4:b"
+reference "fig:fig:methodology:fps:feat_4:b"
 
 \end_inset
 
@@ -4776,8 +4684,8 @@ name "fig:methodology:fps:feat_1:b"
 \begin_layout Plain Layout
 Temperatura Inicial.
  Em (a) temos um termograma de paciente saudável, enquanto em (b) temos
- uma paciente com carcinoma ductal infiltrante.
- Note a assimetria existente em (b).
+ uma paciente com carcinoma ductal infiltrante, onde a região demarcada
+ infoma a localização.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -5095,7 +5003,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:methodology:fps:feat_4:a"
+name "fig:fig:methodology:fps:feat_4:a"
 
 \end_inset
 
@@ -5136,7 +5044,7 @@ status open
 \begin_layout Plain Layout
 \begin_inset CommandInset label
 LatexCommand label
-name "fig:methodology:fps:feat_4:b"
+name "fig:fig:methodology:fps:feat_4:b"
 
 \end_inset
 
@@ -5161,9 +5069,9 @@ name "fig:methodology:fps:feat_4:b"
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Desvio padrão do ganho de temperatura em uma TID.
- Em (a) temos um termograma de paciente saudável, enquanto em (b) temos
- uma paciente com lesão.
+Desvio padrão do ganho de temperatura entre os tempos da TID.
+ Em (a) vemos um exame de paciente saudável, enquanto em (b) temos uma paciente
+ com lesão na mama, onde a região demarcada informa a região do tumor.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -5188,27 +5096,9 @@ Elaborada pelo autor
 
 \end_layout
 
-\begin_layout Section
-Extração de Características 2
-\begin_inset CommandInset label
-LatexCommand label
-name "sec:methodology:sps"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
-A partir das imagens geradas na Seção 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:methodology:fps"
-
-\end_inset
-
-, são extraídas um conjunto de características baseadas em GLCM, definidas
- pelas Equações 
+A partir das imagens geradas acima, são extraídas um conjunto de características
+ de textura baseadas em GLCM, definidas pelas Equações 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:fundamentation:glcm:contraste"
@@ -5247,6 +5137,13 @@ reference "eq:fundamentationg:glcm:energia"
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:fundamentationg:glcm:correlação"
+
+\end_inset
+
+ mostradas no Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:fundamentation:glcm"
 
 \end_inset
 
@@ -5312,9 +5209,8 @@ reference "sec:methodology:fps"
 \end_layout
 
 \begin_layout Standard
-A partir das imagens convertidas para valores de níveis de cinza podemos
- extrair as GLCM.
- No total são extraídas 4 matrizes, com distâncias 
+A partir da conversão podemos extrair as GLCM.
+ No total são geradas 4 matrizes para cada imagem, com distâncias 
 \begin_inset Formula $(\Delta x=1,\Delta_{y}=0)$
 \end_inset
 
@@ -5331,9 +5227,9 @@ A partir das imagens convertidas para valores de níveis de cinza podemos
 \end_inset
 
 .
- A partir daí serão geradas as 6 características citadas acima para cada
- matriz, formando um total de 96 características que serão utilizadas na
- etapa de classificação da metodologia.
+ A partir daí serão geradas as 6 características citadas acima, formando
+ um total de 96 características que serão utilizadas na etapa de classificação
+ da metodologia.
 \end_layout
 
 \begin_layout Section
@@ -5350,48 +5246,23 @@ name "sec:methodology:reduction"
 \begin_layout Standard
 Essa etapa consiste em reduzir o conjunto de 96 características previamente
  extraídas para um conjunto menor e mais conciso de características.
- Foram utilizados os 3 métodos descritos na Seção 
+ Utilizando os 3 métodos descritos no Capítulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:fundamentation:dimensionality_reduction"
 
 \end_inset
 
-.
- Dessa forma temos distintos conjuntos de dados que serão utilizados na
- etapa de classificação, sendo eles:
+, transforma-se o conjuntos de dados originais em conjuntos distintos que
+ serão analisados individualmente na etapa de classificação, sendo eles:
 \end_layout
 
 \begin_layout Itemize
-K-best
-\emph on
- 
-\emph default
-com 
-\begin_inset Formula $K=40$
+PCA com 
+\begin_inset Formula $C=30$
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-K-best com 
-\begin_inset Formula $K=20.$
-\end_inset
-
-
-\end_layout
-
-\begin_layout Itemize
-K-best
-\emph on
- 
-\emph default
-com 
-\begin_inset Formula $K=10$
-\end_inset
-
-.
+, que projeta o conjunto de características em um novo espaço de 30 dimensões.
 \end_layout
 
 \begin_layout Itemize
@@ -5399,15 +5270,7 @@ PCA com
 \begin_inset Formula $C=20$
 \end_inset
 
-.
-\end_layout
-
-\begin_layout Itemize
-PCA com 
-\begin_inset Formula $C=10$
-\end_inset
-
-.
+, que projeta o conjunto de características em um novo espaço de 20 dimensões.
 \end_layout
 
 \begin_layout Itemize
@@ -5415,7 +5278,20 @@ LDA com
 \begin_inset Formula $C=1$
 \end_inset
 
-.
+, que projeta o conjunto de características em um novo espaço de 1 dimensão.
+\end_layout
+
+\begin_layout Itemize
+Combinação do PCA e LDA, onde o PCA com 
+\begin_inset Formula $C=40$
+\end_inset
+
+ é aplicado, reduzindo o espaço para 40 dimensões e em seguida o LDA com
+ 
+\begin_inset Formula $C=1$
+\end_inset
+
+ é utilizado, reduzindo o espaço para 1 dimensão.
 \end_layout
 
 \begin_layout Section
@@ -5424,24 +5300,24 @@ Classificação
 
 \begin_layout Standard
 Essa etapa consiste em classificar um determinado exame TID em saudável
- ou doente.
- Utilizando as características extraídas da Seção 
+ ou com algum tipo de anomalia.
+ São utilizadas as características extraídas no Capítulo 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:methodology:sps"
+reference "sec:methodology:fps"
 
 \end_inset
 
- e posteriormente reduzidas como entrada para uma SVM.
+ como entrada para uma SVM.
  
 \end_layout
 
 \begin_layout Standard
-Durante essa etapa o conjunto de características originais são subdividas
- em 2 conjuntos distintos que chamamos de base de treino e teste, que não
+Durante essa etapa, o conjunto de características originais são subdividas
+ em 2 conjuntos distintos que chamadas de base de treino e teste, que não
  possuem indivíduos em comum entre eles.
- Antes da etapa de treinamento de uma SVM, selecionamos as melhores característi
-cas através de um dos métodos descritos na Seção 
+ Antes do treinamento de uma SVM, transforma-se o espaço de características
+ através de um dos métodos descritos no Capítulo 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:methodology:reduction"
@@ -5449,19 +5325,28 @@ reference "sec:methodology:reduction"
 \end_inset
 
 .
- Essa seleção é feita na base de treino e depois aplicada na base de testes,
- dessa forma a base de teste não tem influência na seleção.
+ Essa transformação é calculada a partir da base de treino e depois aplicada
+ em ambas as bases, de forma que a base de teste não tem influência na geração
+ da transformação.
  
 \end_layout
 
 \begin_layout Standard
-A etapa de treinamento entra em ação, onde a base de treino juntamente com
- seus valores de classe é utilizada para encontrar os melhores vetores de
- suporte para a SVM.
- Após o termino do treinamento, a validação do modelo é executada, onde
- utilizamos a base de teste sem os valores de classe como entrada no modelo
- SVM, que irá classificar os indivíduos existentes na base.
- Os resultados são comparados com os valores de classe conhecidos para validação
+Na etapa de treinamento, a base de treino juntamente com seus valores de
+ classe é utilizada para encontrar os melhores vetores de suporte para a
+ SVM.
+ 
+\end_layout
+
+\begin_layout Standard
+Após o termino do treinamento, a validação do modelo é executada, onde utilizamo
+s a base de teste sem os valores de classe como entrada no modelo gerado,
+ que irá classificar os indivíduos existentes na base.
+ 
+\end_layout
+
+\begin_layout Standard
+Os resultados são comparados com os valores de classe conhecidos para validação
  do modelo.
  São extraídos os valores de acurácia (Equação 
 \begin_inset CommandInset ref
@@ -5541,18 +5426,26 @@ Resultados Parciais
 
 \begin_layout Standard
 Nesse capítulo são apresentados os resultados parciais da aplicação da metodolog
-ia para a classificação de termografias dinâmicas em saudável e doente.
- Os teste são aplicados 100 vezes consecutivas e a média dos resultados
- é analisada.
+ia para a classificação de termografias dinâmicas em saudável e com anomalia.
+ 
+\end_layout
+
+\begin_layout Standard
+Os teste são aplicados 100 vezes consecutivas e a média dos resultados é
+ analisada.
  Em cada teste, a base é inicialmente dividida em 80% dos casos para o treinamen
 to do SVM e 20% para validação do modelo.
  Os indivíduos são selecionados aleatoriamente de forma que a proporção
  entre as classes seja mantida.
  Como a base utilizada apresenta balanceamento de 1:1 entre as classes,
  não ocorre o desbalanceamento na etapa de treinamento e validação.
- Após a divisão das bases, a redução de dimensionalidade é utilizada, onde
- a base de treino é utilizada como referência para a analise de quais caracterís
-ticas são as mais eficientes.
+ 
+\end_layout
+
+\begin_layout Standard
+Após a divisão das bases, as técnicas de redução de dimensionalidade é utilizada
+, onde a base de treino é utilizada como referência para a análise de quais
+ características são as mais eficientes.
  As técnicas de redução utilizadas são as descritas na Seção 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -5583,7 +5476,7 @@ status open
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="8" columns="4">
+<lyxtabular version="3" rows="6" columns="4">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
@@ -5670,83 +5563,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-K-best, K=40
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-48,1%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-28,1%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-68,1%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-K-best, K=20
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-49,8%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-29,1%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-70,5%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-PCA, K=30
+PCA, C=30
 \end_layout
 
 \end_inset
@@ -5784,7 +5601,7 @@ PCA, K=30
 \begin_inset Text
 
 \begin_layout Plain Layout
-PCA, K=20
+PCA, C=20
 \end_layout
 
 \end_inset
@@ -5822,7 +5639,7 @@ PCA, K=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-LDA, K=1
+LDA, C=1
 \end_layout
 
 \end_inset
@@ -5860,7 +5677,15 @@ LDA, K=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-PCA+LDA, k1= 40, k2=1
+PCA+LDA, 
+\begin_inset Formula $C_{1}$
+\end_inset
+
+= 40, 
+\begin_inset Formula $C_{2}$
+\end_inset
+
+=1
 \end_layout
 
 \end_inset
@@ -5926,19 +5751,31 @@ name "tab:results:mean_table"
 \end_layout
 
 \begin_layout Standard
-Analisando a tabela, vemos que a estratégia sem reduzir as características
- não apresenta bom resultado, ficando abaixo dos 50% de acurácia.
- As técnicas 
-\emph on
-K-best
-\emph default
- e PCA também não produziram resultados satisfatórios.
- A técnica de redução que obteve um bom resultado foi a LDA, que sozinho
+Analisando a Tabela 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:results:mean_table"
+
+\end_inset
+
+, vemos que a estratégia sem reduzir as características não apresenta bom
+ resultado, ficando abaixo dos 50% de acurácia.
+ A utilização do PCA também não mostrou grande melhora nos resultados.
+\end_layout
+
+\begin_layout Standard
+A técnica de redução que obteve um bom resultado foi a LDA, que sozinha
  demonstrou ser a melhor para a redução das características.
  No entanto, a combinação da aplicação do PCA seguida da aplicação do LDA
  foi a que demonstrou melhores resultados nos testes realizados até o momento,
  onde a acurácia, sensibilidade e especificidade ficaram acima dos 80%.
  
+\end_layout
+
+\begin_layout Standard
+Como o PCA e LDA são técnicas que transformam o conjunto de características
+ em um novo espaço a partir de vetores formados por combinação linear de
+ todas as características, não é possível obter as melhores características,
 \end_layout
 
 \begin_layout Standard
@@ -5982,7 +5819,7 @@ Defesa de Monografia
 \end_layout
 
 \begin_layout Standard
-A Tabela
+A Tabela 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:cronograma:plano"
@@ -6330,7 +6167,7 @@ X
 \begin_inset Text
 
 \begin_layout Plain Layout
-
+X
 \end_layout
 
 \end_inset
@@ -6404,7 +6241,7 @@ X
 \begin_inset Text
 
 \begin_layout Plain Layout
-X
+
 \end_layout
 
 \end_inset
