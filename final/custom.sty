@@ -7,6 +7,7 @@
 \usepackage{helvet}
 \renewcommand{\familydefault}{\sfdefault}
 
+
 %altera a capa
 \renewcommand{\imprimircapa}{%
 	\begin{capa}
@@ -23,7 +24,8 @@
 }
 
 %altera folha de rosto
-\renewcommand{\imprimirfolhaderosto}{%
+\makeatletter
+\renewcommand{\folhaderostocontent}{%
 	\begin{center}
 		{\ABNTEXchapterfont \large \imprimirautor}\\[4.9cm]
 		{\ABNTEXchapterfont \bfseries \huge \imprimirtitulo}\\[3.3cm]
@@ -43,6 +45,7 @@
 		{\large \imprimirdata}
 	\end{center}
 }
+\makeatother
 
 
 

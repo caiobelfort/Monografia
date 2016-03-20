@@ -4,46 +4,8 @@
 \begin_header
 \textclass abntex2
 \begin_preamble
-\usepackage[alf]{abntex2cite}
-\usepackage{indentfirst}
-\usepackage{layout}
-\usepackage{helvet}
-\renewcommand{\familydefault}{\sfdefault}
 
-% Redefine comando imprimircapa
-\renewcommand{\imprimircapa}{
-\begin{center}
-{\large \imprimirinstituicao}\\[4.9cm]
-{\large \imprimirautor}\\[4.9cm]
-{\huge \imprimirtitulo}
-{\vfill}
-{\large \imprimirlocal}\\
-{\large \imprimirdata}
-\end{center}}
-%%%%
-
-% Redefine comando imprimirfolhaderosto
-\renewcommand{\imprimirfolhaderosto}{
-\begin{center}
-{\large \imprimirautor}\\[4.9cm]
-{\huge \imprimirtitulo}\\[3.3cm]
-\hspace{.45\textwidth}
-\begin{minipage}{.5\textwidth}
-\imprimirpreambulo
-\end{minipage}\\[3.3cm]
-\imprimirorientadorRotulo
-\imprimirorientador
-\vfill
-{\large \imprimirlocal}\\
-{\large \imprimirdata}
-\end{center}}
-%%%
-
-
-\counterwithout{equation}{chapter}
-\counterwithout{table}{part}
-
-\setlength{\parindent}{1.3cm}
+\usepackage{CUSTOM}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -215,6 +177,13 @@ status open
 imprimircapa
 \end_layout
 
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{page}{1}
+\end_layout
+
 \end_inset
 
 
@@ -248,7 +217,18 @@ status open
 
 
 \backslash
+setcounter{page}{2}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
 imprimirfolhaderosto
+\end_layout
+
+\begin_layout Plain Layout
+
 \end_layout
 
 \end_inset
@@ -337,22 +317,6 @@ Ao meu cachorro por sempre estar ao meu lado independente de qualquer coisa.
 \begin_layout Agradecimentos
 E a todos que contribuíram direta ou indiretamente para a elaboração deste
  trabalho.
-\end_layout
-
-\begin_layout Resumo
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-thispagestyle{empty}
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Resumo
