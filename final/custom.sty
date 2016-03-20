@@ -1,0 +1,51 @@
+%Costumização
+\ProvidesPackage{abntex2novopacote}[2016/20/03 Criacao desta customizacao do abnTeX2]
+
+\usepackage[alf]{abntex2cite}
+\usepackage{indentfirst}
+\usepackage{layout}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+%altera a capa
+\renewcommand{\imprimircapa}{%
+	\begin{capa}
+		\begin{center}
+			{\ABNTEXchapterfont\Large \imprimirinstituicao}\\[4.9cm]
+		
+			{\ABNTEXchapterfont\large\imprimirautor}\\[4.9cm]
+			{\ABNTEXchapterfont\bfseries\huge\imprimirtitulo}\\
+			\vfill
+			{\large\imprimirlocal}\\
+			{\large\imprimirdata}
+		\end{center}
+	\end{capa}	
+}
+
+%altera folha de rosto
+\renewcommand{\imprimirfolhaderosto}{%
+	\begin{center}
+		{\ABNTEXchapterfont \large \imprimirautor}\\[4.9cm]
+		{\ABNTEXchapterfont \bfseries \huge \imprimirtitulo}\\[3.3cm]
+		\hspace{.45\textwidth}
+		\begin{minipage}{.5\textwidth}
+			\SingleSpacing
+			\imprimirpreambulo
+		\end{minipage}\\[3.3cm]
+	\end{center}
+	{\large\imprimirorientadorRotulo~\imprimirorientador\par}	
+	\abntex@ifnotempty{\imprimircoorientador}{%
+		{\large\imprimircoorientadorRotulo~\imprimircoorientador}%
+	}%
+	\vfill
+	\begin{center}
+		{\large \imprimirlocal}\\
+		{\large \imprimirdata}
+	\end{center}
+}
+
+
+
+\counterwithout{equation}{section}
+\counterwithout{table}{section}
+\setlength{\parindent}{1.3cm}
