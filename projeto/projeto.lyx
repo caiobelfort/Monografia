@@ -2095,7 +2095,7 @@ key "glcm_tutorial"
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-Constraste=\sum_{i,j=0}^{N-1}P_{i,j}(i-j)^{2},\label{eq:fundamentation:glcm:contraste}
+Contraste=\sum_{i,j=0}^{N-1}P_{i,j}(i-j)^{2},\label{eq:fundamentation:glcm:contraste}
 \end{equation}
 
 \end_inset
@@ -2760,7 +2760,7 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Distancia inter-classes.
+Distância inter-classes.
  
 \begin_inset CommandInset label
 LatexCommand label
@@ -5139,45 +5139,10 @@ reference "eq:fundamentation:glcm:contraste"
 
 \end_inset
 
-,
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentation:glcm:dissimilaridade"
-
-\end_inset
-
-,
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentation:glcm:homogeneidade"
-
-\end_inset
-
-,
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentation:glcm:asm"
-
-\end_inset
-
-,
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentationg:glcm:energia"
-
-\end_inset
-
- e 
+-
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:fundamentationg:glcm:correlação"
-
-\end_inset
-
- mostradas no Capítulo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:fundamentation:glcm"
 
 \end_inset
 
@@ -5199,10 +5164,6 @@ X'=a-\frac{(X-X_{min})(b-a)}{X_{max}-X_{min}},\label{eq:methodology:feature_scal
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 onde 
 \begin_inset Formula $X$
 \end_inset
@@ -5378,7 +5339,7 @@ Na etapa de treinamento, a base de treino juntamente com seus valores de
 \end_layout
 
 \begin_layout Standard
-Após o termino do treinamento, a validação do modelo é executada, onde utilizamo
+Após o término do treinamento, a validação do modelo é executada, onde utilizamo
 s a base de teste sem os valores de classe como entrada no modelo gerado,
  que irá classificar os indivíduos existentes na base.
  Os resultados são comparados com os valores de classe conhecidos para validação
@@ -5442,11 +5403,7 @@ Especificidade=\frac{TN}{TN+FP}\label{eq:eq:methodology:classification:specifici
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
-onde 
+donde 
 \begin_inset Formula $TP,TN,FP$
 \end_inset
 
