@@ -95,7 +95,7 @@ Caio Nogueira Silva Belfort
 \end_layout
 
 \begin_layout Instituicao
-Universidade Federal do Maranhão
+UNIVERSIDADE FEDERAL DO MARANHÃO
 \begin_inset ERT
 status open
 
@@ -110,7 +110,7 @@ status open
 
 \end_inset
 
-Centro de Ciências Exatas e Tecnológicas
+CENTRO DE CIÊNCIAS EXATAS E TECNOLÓGICAS
 \begin_inset ERT
 status open
 
@@ -125,7 +125,7 @@ status open
 
 \end_inset
 
-Curso de Ciência da Computação
+CURSO DE CIÊNCIA DA COMPUTAÇÃO
 \end_layout
 
 \begin_layout Titulo
@@ -179,9 +179,6 @@ imprimircapa
 
 \begin_layout Plain Layout
 
-
-\backslash
-setcounter{page}{1}
 \end_layout
 
 \end_inset
@@ -212,13 +209,6 @@ Folha de Rosto
 \begin_layout Standard
 \begin_inset ERT
 status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-setcounter{page}{2}
-\end_layout
 
 \begin_layout Plain Layout
 
