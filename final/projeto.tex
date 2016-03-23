@@ -1,68 +1,70 @@
-%% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
-%% Do not edit unless you really know what you are doing.
-\documentclass[oneside,brazil,oldfontcommands]{abntex2}
-\usepackage[T1]{fontenc}
-\usepackage[latin9]{inputenc}
-\usepackage{geometry}
-\geometry{verbose,tmargin=3cm,bmargin=2cm,lmargin=3cm,rmargin=2cm}
-\pagestyle{plain}
-\setcounter{secnumdepth}{3}
-\setcounter{tocdepth}{3}
-\usepackage{float}
-\usepackage{textcomp}
-\usepackage{url}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{accents}
-\usepackage{graphicx}
+\documentclass[
+% -- opções da classe memoir --
+12pt,				% tamanho da fonte
+% openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
+oneside,			% para impressão apenas no anverso (apenas frente). Oposto a twoside
+a4paper,			% tamanho do papel. 
+% -- opções da classe abntex2 --
+%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
+%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
+%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
+%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
+% -- opções do pacote babel --
+english,			% idioma adicional para hifenização
+%french,				% idioma adicional para hifenização
+%spanish,			% idioma adicional para hifenização
+brazil				% o último idioma é o principal do documento
+]{abntex2ppgsi}
 
-\makeatletter
+% ---
+% Pacotes básicos 
+% ---
+% \usepackage{lmodern}			% Usa a fonte Latin Modern			
+\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
+\usepackage[latin19]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
+\usepackage{lastpage}			% Usado pela Ficha catalográfica
+\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
+\usepackage{color}				% Controle das cores
+\usepackage{graphicx}			% Inclusão de gráficos
+\usepackage{microtype} 			% para melhorias de justificação
+\usepackage{pdfpages}     %para incluir pdf
+\usepackage{algorithm}			%para ilustrações do tipo algoritmo
+\usepackage{mdwlist}			%para itens com espaço padrão da abnt
+\usepackage[noend]{algpseudocode}			%para ilustrações do tipo algoritmo
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
-\newcommand{\docedilla}[2]{\underaccent{#1\mathchar'30}{#2}}
-\newcommand{\cedilla}[1]{\mathpalette\docedilla{#1}}
+% ---
+% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
+% ---
+\usepackage{lipsum}				% para geração de dummy text
+% ---
 
-%% Because html converters don't know tabularnewline
-\providecommand{\tabularnewline}{\\}
+% ---
+% Pacotes de citações
+% ---
+\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
+\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
-\usepackage[alf]{abntex2cite}
-\usepackage{indentfirst}
-\usepackage{layout}
-\usepackage{helvet}
-\renewcommand{\familydefault}{\sfdefault}
+% --- 
+% CONFIGURAÇÕES DE PACOTES
+% --- 
 
-\usepackage{CUSTOM}
+% ---
+% Configurações do pacote backref
+% Usado sem a opção hyperpageref de backref
+\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
+% Texto padrão antes do número das páginas
+\renewcommand{\backref}{}
+% Define os textos da citação
+\renewcommand*{\backrefalt}[4]{
+	\ifcase #1 %
+	Nenhuma citação no texto.%
+	\or
+	Citado na página #2.%
+	\else
+	Citado #1 vezes nas páginas #2.%
+	\fi}%
+% ---
 
-% Redefine comando imprimirfolhaderosto
-\renewcommand{\imprimirfolhaderosto}{
-\begin{center}
-{\large \imprimirautor}\\[4.9cm]
-{\huge \imprimirtitulo}\\[3.3cm]
-\hspace{.45\textwidth}
-\begin{minipage}{.5\textwidth}
-\imprimirpreambulo
-\end{minipage}\\[3.3cm]
-\imprimirorientadorRotulo
-\imprimirorientador
-\vfill
-{\large \imprimirlocal}\\
-{\large \imprimirdata}
-\end{center}}
-%%%
-
-
-\counterwithout{equation}{chapter}
-\counterwithout{table}{part}
-
-\setlength{\parindent}{1.3cm}
-
-\@ifundefined{showcaptionsetup}{}{%
- \PassOptionsToPackage{caption=false}{subfig}}
-\usepackage{subfig}
-\makeatother
-
-\usepackage{babel}
 \begin{document}
 
 
@@ -70,8 +72,8 @@
 \autor{Caio Nogueira Silva Belfort}
 
 
-\instituicao{Universidade Federal do Maranhão\\Centro de Ciências Exatas e Tecnológicas\\Curso
-de Ciência da Computação}
+\instituicao{UNIVERSIDADE FEDERAL DO MARANHÃO\\CENTRO DE CIÊNCIAS EXATAS E TECNOLÓGICAS\\CURSO
+DE CIÊNCIA DA COMPUTAÇÃO}
 
 
 \titulo{Análise e Classificação de Termografias Dinâmicas da Mama Utilizando
@@ -95,11 +97,13 @@ do grau de Bacharel em Ciência da Computação.}
 
 \imprimircapa
 
+
 \newpage{}
 
 
 
 \imprimirfolhaderosto
+
 
 \newpage{}
 
@@ -138,8 +142,6 @@ coisa.
 E a todos que contribuíram direta ou indiretamente para a elaboração
 deste trabalho.\end{agradecimentos}
 \begin{resumo}
-\thispagestyle{empty}
-
 A termografia das mamas é um exame de imagem que utiliza a radiação
 infravermelha emitida naturalmente pelo corpo da paciente para detecção
 de anomalias. Possui a capacidade de detectar o câncer de mama mais
@@ -461,7 +463,7 @@ de acordo com a paleta de cores à direita da imagem.
 \par\end{centering}
 
 
-\fonte{\cite{silva2014new}}
+\sourcfonte{\cite{silva2014new}}
 \end{figure}
 
 
@@ -531,7 +533,7 @@ de uma imagem em outra. \label{fig:fundamentation:image_registration:mapping}}
 \par\end{centering}
 
 
-\fonte{\cite{ibanez2003itk}}
+\sourcfonte{\cite{ibanez2003itk}}
 \end{figure}
 
 
@@ -580,7 +582,7 @@ transformação, que otimiza a métrica entres as duas imagens.
 \par\end{centering}
 
 
-\fonte{\cite{parraga2008atlas}}
+\sourcfonte{\cite{parraga2008atlas}}
 \end{figure}
 
 
@@ -657,7 +659,7 @@ da imagem móvel, de forma que se assemelhem à imagem fixa.
 \par\end{centering}
 
 
-\fonte{\cite{schwarz2007non}}
+\sourcfonte{\cite{schwarz2007non}}
 \end{figure}
 
 
@@ -751,7 +753,7 @@ na imagem móvel.\label{fig:fundamentation:image_registration:grid}}
 \par\end{centering}
 
 
-\fonte{\cite{ibanez2003itk}}
+\sourcfonte{\cite{ibanez2003itk}}
 \end{figure}
 
 
@@ -1031,7 +1033,7 @@ que exemplifica o efeito da redução.
 \par\end{centering}
 
 
-\fonte{Elaborada pelo autor}
+\sourcfonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1045,7 +1047,7 @@ principais componentes.\label{fig:fundamentation:reduction:pca:samples_transform
 \par\end{centering}
 
 
-\fonte{Elaborada pelo autor}
+\sourcfonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1088,7 +1090,7 @@ maximize a distância entre classes (Figura \ref{fig:fundamentation:reduction:lda
 \par\end{centering}
 
 
-\fonte{Elaborada pelo autor}
+\sourcfonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1103,7 +1105,7 @@ maximize a distância entre classes (Figura \ref{fig:fundamentation:reduction:lda
 \par\end{centering}
 
 
-\fonte{Elaborada pelo autor}
+\sourcfonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1179,7 +1181,7 @@ espaço tridimensional para bidimensional.
 \par\end{centering}
 
 
-\fonte{Elaborada pelo autor}
+\sourcfonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1192,7 +1194,7 @@ espaço tridimensional para bidimensional.
 \par\end{centering}
 
 
-\fonte{Elaborada pelo autor}
+\sourcfonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1231,7 +1233,7 @@ gerados por uma SVM.
 \par\end{centering}
 
 
-\fonte{\cite{sklearn-svm}}
+\sourcfonte{\cite{sklearn-svm}}
 \end{figure}
 
 
@@ -1305,7 +1307,7 @@ os vetores de suporte são representados por círculos circunscritos.
 \par\end{centering}
 
 
-\fonte{Elaborada pelo autor}
+\sourcfonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1337,7 +1339,7 @@ utilizando uma função $K$.
 \par\end{centering}
 
 
-\fonte{Elaborada pelo autor}
+\sourcfonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1373,7 +1375,7 @@ apresenta o fluxo das etapas executadas.
 \par\end{centering}
 
 
-\fonte{Elaborada pelo autor}
+\sourcfonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1409,7 +1411,7 @@ de 20 imagens sequenciais com intervalos de tempo fixos.
 \par\end{centering}
 
 
-\fonte{\cite{silva2014new}}
+\sourcfonte{\cite{silva2014new}}
 \end{figure}
 
 
@@ -1452,7 +1454,7 @@ diferênça entre as regiões. }
 \centering{}\includegraphics[scale=0.2]{figures/methodology/series_diff}}
 
 
-\fonte{Elaborada pelo autor.}
+\sourcfonte{Elaborada pelo autor.}
 \end{figure}
 
 
@@ -1516,7 +1518,7 @@ de termogramas em uma TID.
 \centering{}\includegraphics[scale=0.5]{figures/methodology/roi_mask}}\hfill{}
 
 
-\fonte{\cite{lincoln_thesis2015}}
+\sourcfonte{\cite{lincoln_thesis2015}}
 \end{figure}
 
 
@@ -1611,7 +1613,7 @@ das outras características.
 \centering{}\includegraphics[scale=0.5]{figures/methodology/fps1_d}}\hfill{}
 
 
-\fonte{Elaborada pelo autor}
+\sourcfonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1628,7 +1630,7 @@ das outras características.
 \centering{}\includegraphics[scale=0.5]{figures/methodology/fps2_d}}\hfill{}
 
 
-\fonte{Elaborada pelo autor}
+\sourcfonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1645,7 +1647,7 @@ das outras características.
 \centering{}\includegraphics[scale=0.5]{figures/methodology/fps3_d}}\hfill{}
 
 
-\fonte{Elaborada pelo autor}
+\sourcfonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1662,7 +1664,7 @@ das outras características.
 \centering{}\includegraphics[scale=0.5]{figures/methodology/fps4_d}}\hfill{}
 
 
-\fonte{Elaborada pelo autor}
+\sourcfonte{Elaborada pelo autor}
 \end{figure}
 
 

@@ -5,7 +5,12 @@
 \textclass abntex2
 \begin_preamble
 
-\usepackage{CUSTOM}
+\usepackage{custom}
+
+\sloppy
+\clubpenalty=10000  % Para evitar linhas orfas
+\widowpenalty=10000 % Para evitar linhas viuvas
+\hyphenpenalty=10000 % Para não hifenizar
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -28,10 +33,10 @@
 \output_sync 0
 \bibtex_command default
 \index_command default
-\paperfontsize default
-\spacing single
+\paperfontsize 12
+\spacing other 1.5
 \use_hyperref false
-\papersize default
+\papersize a4paper
 \use_geometry true
 \use_package amsmath 1
 \use_package amssymb 1
@@ -62,8 +67,8 @@
 \bottommargin 2cm
 \secnumdepth 3
 \tocdepth 3
-\paragraph_separation indent
-\paragraph_indentation default
+\paragraph_separation skip
+\defskip medskip
 \quotes_language english
 \papercolumns 1
 \papersides 1
@@ -130,7 +135,7 @@ CURSO DE CIÊNCIA DA COMPUTAÇÃO
 
 \begin_layout Titulo
 Análise e Classificação de Termografias Dinâmicas da Mama Utilizando a Variação
- de Temperatura e Máquina de Vetor de Suporte
+ de Temperatura e Máquina de Vetores de Suporte
 \end_layout
 
 \begin_layout Local
@@ -293,7 +298,7 @@ Aos amigos e colegas do curso em especial para João, Caio, Jefferson e Giovanni
 \end_layout
 
 \begin_layout Agradecimentos
-Aos amigos do Núcleo de Computação Aplicada.
+Aos amigos do Núcleo de Computação Aplicada e LabPai.
 \end_layout
 
 \begin_layout Agradecimentos
@@ -332,7 +337,7 @@ co de doenças relacionadas ao tecido mamário.
  O vetor de característica é reduzido com de técnicas de redução de dimensionali
 dade, para posteriormente servir de entrada para uma máquina de vetor de
  suporte que irá efetuar a classificação em mama saudável ou anormal.
- A metodologia apresenta 83,1% de acurácia, 80,1 % de sensibilidade e 86,1%
+ A metodologia apresenta 84,7% de acurácia, 86,1% de sensibilidade e 83,3%
  de especificidade.
 \end_layout
 
@@ -377,7 +382,7 @@ The breast thermography is an image exam that uses the infrared radiation
  The feature vector is reduced with dimensionality reduction techniques,
  for serve as input for a support vector machine that will perform the classific
 ation as healthy or abnormal breast.
- The methodology presents 83,1% of accuracy, 80,1% of sensitivy and 86,1%
+ The methodology presents 84,7% of accuracy, 86,1% of sensitivity and 83,3%
  of specitivity.
 \end_layout
 
@@ -550,9 +555,9 @@ key "inca"
 \end_layout
 
 \begin_layout Standard
-A incidência câncer de mama aumenta em paralelo com o aumento da faixa etária,
- sendo que mulheres acima de 50 anos são mais suscetíveis ao desenvolvimento
- da patologia.
+A incidência do câncer de mama aumenta em paralelo com o aumento da faixa
+ etária, sendo que mulheres acima de 50 anos são mais suscetíveis ao desenvolvim
+ento da patologia.
  No entanto, existem outros fatores de risco que implicam numa maior chance
  de aparecimento, como o histórico desse tipo de câncer na família, gestação
  tardia, terapia de reposição hormonal e exposição à radiação.
@@ -573,27 +578,26 @@ Os exames mais tradicionais na detecção do câncer de mama são os exames
 \begin_layout Standard
 Apesar de ser o tipo de exame mais recomendado pelos especialistas, a mamografia
  é suscetível a falhas, já que mamas com alta densidade apresentam um grau
- de dificuldade elevado na detecção de tumores, que podem ficar escondidos
+ de dificuldade elevado na detecção de lesões, que podem ficar escondidas
  pelo tecido denso da mama.
  Mulheres jovens geralmente apresentam alta densidade nas mamas, tornando
  a mamografia um exame não recomendável para essa faixa etária, pois utiliza
- a radiação na geração das imagens, o que pode futuramente causar o aparecimento
- do câncer na paciente.
+ a radiação na geração das imagens.
  Dessa forma é necessário que outros tipos de exames sejam utilizados como
  forma de prevenção e diagnóstico precoce.
 \end_layout
 
 \begin_layout Standard
 A termografia mamária é um exame de imagem não radioativo capaz de auxiliar
- médicos especialistas na detecção de tumores que não seriam possíveis de
+ médicos especialistas na detecção de lesões que não seriam possíveis de
  descobrir através da mamografia.
  Esse tipo de exame utiliza a radiação infravermelha, emitida naturalmente
  pelo corpo da paciente, para detectar anomalias no padrão de temperatura
- das mamas, que pode indicar o aparecimento de alguma doênça.
+ das mamas, que pode indicar o aparecimento de alguma lesão.
 \end_layout
 
 \begin_layout Standard
-Regiões próximas a um tumor tendem a ter um aumento na vascularização, ocorrendo
+Regiões próximas de um tumor apresentam aumento na vascularização, ocorrendo
  uma maior circulação de sangue na região, que causará um aumento de temperatura
  em relação as outras regiões da mama.
  Esse aumento de temperatura é detectável através da termografia, permitindo
@@ -612,15 +616,6 @@ is são geradas, permitindo que o especialista analise a evolução na distribui
  A metodologia proposta utiliza as termografias dinâmicas para auxiliar
  médicos especialistas no diagnóstico precoce do câncer de mama.
  
-\end_layout
-
-\begin_layout Standard
-A motivação deste trabalho é ajudar médicos especialistas no diagnóstico
- precoce do câncer de mama, portanto qualquer informação que possa discriminar
- mamas saudáveis de mamas doentes é relevante.
- Várias técnicas de Processamento de Imagens e Aprendizado de Máquina são
- utilizadas para aumentar o nível de informação que uma termografia pode
- dar ao especialista.
 \end_layout
 
 \begin_layout Standard
@@ -663,8 +658,8 @@ Essas características podem ser reduzidas através de técnicas de redução
  
 \emph default
 No final do processo, as características reduzidas irão servir de entrada
- para uma Máquina de Vetor de Suporte que irá ser responsável por classificar
- as pacientes em saudável e com anomalia.
+ para uma Máquina de Vetores de Suporte que irá ser responsável por classificar
+ as pacientes em saudável e com lesão.
 \end_layout
 
 \begin_layout Section
@@ -698,12 +693,19 @@ o ao olho nu, portanto é fundamental a criação uma ferramenta que auxilie
 
 \begin_layout Section
 Objetivos 
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Objetivos"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
 Desenvolver uma metodologia computacional que analise um exame termográfico
  dinâmico das mamas, a fim de encontrar padrões que diferenciem mamas saudáveis
- de mamas com algum tipo de anomalia.
+ de mamas com algum tipo de lesão.
  
 \end_layout
 
@@ -726,20 +728,17 @@ Alguns objetivos extras são necessários para completar os objetivos gerais,
 \begin_layout Itemize
 Desenvolver técnicas que permitam a correção de postura em exames termográficos
  dinâmicos.
- Tais técnicas são conhecidas como registro de imagens, onde o resultado
- final pode variar muito de uma técnica utilizada para outra.
- Portanto, deve-se utilizar a que melhor se encaixe no problema.
 \end_layout
 
 \begin_layout Itemize
 Analisar a variação de temperatura entre os diferentes tempos do exame,
- gerando características que sejam capazes de diferenciar os exames de pacientes
- saudáveis de exames de pacientes doentes.
+ gerando características que sejam capazes de diferenciar os pacientes saudáveis
+ e doentes.
 \end_layout
 
 \begin_layout Itemize
-Utilizar as características extraídas para gerar uma Máquina de Vetor de
- Suporte, que seja capaz de classificar corretamente novos exames.
+Utilizar as características extraídas para gerar uma Máquina de Vetores
+ de Suporte, que seja capaz de classificar corretamente novos exames.
 \end_layout
 
 \begin_layout Section
@@ -769,10 +768,10 @@ reference "sec:fundamentation"
 
  aborda os conceitos fundamentais para o entendimento da metodologia.
  Nele são descritas as técnicas utilizadas e seu funcionamento.
- São citados: O câncer de mama; a termografia mamária; o registro de imagens;
- matrizes de coocorrência de níveis de cinza e suas características de textura;
- técnicas de redução de características como a análise discriminante linear
- e a análise de componentes principais; e as máquinas de vetor de suporte.
+ São citados: A termografia mamária; o registro de imagens; matrizes de
+ coocorrência de níveis de cinza e suas características de textura; técnicas
+ de redução de características como a análise discriminante linear e a análise
+ de componentes principais; e as máquinas de vetor de suporte.
 \end_layout
 
 \begin_layout Standard
@@ -826,8 +825,8 @@ name "chap:Trabalhos-Relacionados"
 \begin_layout Standard
 Neste capítulo são apresentados os trabalhos encontrados na literatura com
  o objetivo de detectar o câncer de mama através de termografias.
- Para cada trabalhos são abordados os pontos mais importantes e suas contribuiçõ
-es.
+ Para cada trabalho são abordados os pontos mais importantes e suas contribuiçõe
+s.
 \end_layout
 
 \begin_layout Standard
@@ -839,7 +838,7 @@ key "etehadtavakol2010application"
 \end_inset
 
  os algoritmos k-means e fuzzy c-means são utilizados para segmentar por
- cor termografias estáticas coloridas.
+ cor, termografias estáticas coloridas.
  É citado que regiões das mamas onde existe um tumor, possuem uma temperatura
  mais elevada que os tecidos saudáveis da mama, de forma que a metodologia
  do trabalho é feita para detectar essas regiões de alta temperatura.
@@ -885,7 +884,7 @@ o de tecidos saudáveis e de um tumor maligno.
  Foi constatado que as propriedades de multifractais são drasticamente alteradas
  em mamas com tumor maligno em relação à mamas saudáveis.
  Para mamas saudáveis foi encontrada uma dimensão multifractal que tem por
- característica uma mudança continua na função de densidade de probabilidade
+ característica uma mudança contínua na função de densidade de probabilidade
  da variação de temperatura através do tempo.
  Para mamas com tumor, os sinais térmicos apresentam uma variação de temperatura
  monofractal homogênea, evidenciada pela perda de complexidade.
@@ -933,7 +932,7 @@ name "sec:fundamentation"
 \end_layout
 
 \begin_layout Standard
-Nesta seção, serão abordados os conceitos necessários para o entendimento
+Neste capítulo, serão abordados os conceitos necessários para o entendimento
  da metologia proposta.
 \end_layout
 
@@ -1532,7 +1531,7 @@ As transformações deformáveis são capazes de efetuar deformações nas image
 \end_layout
 
 \begin_layout Subsubsection
-Transformações FFD baseadas em 
+Transformações por 
 \emph on
 B-Splines 
 \emph default
@@ -1548,11 +1547,11 @@ name "sec:fundamentation:image_registration:transform:bspline"
 
 \begin_layout Standard
 Um dos tipos de transformações não-rígidas mais comuns atualmente são as
- chamadas transformações deformação de forma livre (FFD) baseadas em 
+ chamadas transformações 
 \emph on
-B-splines
+por 
 \emph default
- cúbicas 
+B-splines cúbicas 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "yin2009mass"
@@ -1985,7 +1984,7 @@ key "burges2005learning"
 \end_layout
 
 \begin_layout Subsubsection
-LBFGS
+Limited-memory Broyden-Fletcher-Goldfarb-Shanno 
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:fundamentation:image_registration:otimizator:lbfgs"
@@ -2084,11 +2083,11 @@ A análise de textura é uma técnica importante na identificação de caracter�
 s em imagens digitais.
  Uma das primeiras técnicas utilizadas para a extração dessas características
  foram as matrizes de coocorrências de níveis de cinza também chamadas de
- GLCM
-\emph on
  
+\emph on
+Gray Level Co-ocurrence Matrix 
 \emph default
-(Gray Level Co-ocurrence Matrix) originalmente propostas em 
+(GLCM) originalmente propostas em 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "haralick1973textural"
@@ -2175,8 +2174,8 @@ key "sebastian2012gray"
 \begin_inset Formula $P(i,j|d,\theta)$
 \end_inset
 
- contém os valores da probabilidade de segunda ordem para mudanças entre
- os níveis de cinza 
+ contém os valores da de frequência relativa para mudanças entre os níveis
+ de cinza 
 \begin_inset Formula $i$
 \end_inset
 
@@ -2331,7 +2330,7 @@ key "glcm_tutorial"
 
 \end_inset
 
- temos as seguintes características que podem ser extraídas a partir de
+ temos as principais características que podem ser extraídas a partir de
  uma GLCM:
 \end_layout
 
@@ -2450,7 +2449,7 @@ onde
 \begin_inset Formula $P_{i,j}$
 \end_inset
 
-é a frequência de um par de pixels 
+é a frequência de um par de pixeis 
 \begin_inset Formula $i$
 \end_inset
 
@@ -3350,7 +3349,7 @@ Elaborada pelo autor
 \end_layout
 
 \begin_layout Section
-Máquinas de Vetor de Suporte 
+Máquinas de Vetores de Suporte 
 \end_layout
 
 \begin_layout Standard
@@ -3373,7 +3372,7 @@ Problemas de classificação geralmente envolvem dizer se um certo indivíduo
 \begin_layout Standard
 Atualmente existem diversas técnicas de aprendizado de máquina capazes de
  realizar essa tarefa com êxito e umas das principais técnicas utilizadas
- hoje em dia são as Máquinas de Vetor de Suporte (SVM).
+ hoje em dia são as Máquinas de Vetores de Suporte (SVM).
  
 \end_layout
 
@@ -3457,7 +3456,7 @@ name "fig:fundamentation:svm:hiperplanos"
 \align center
 \begin_inset Graphics
 	filename figures/fundamentation/svm/plot_separating_hyperplane.png
-	scale 75
+	scale 50
 
 \end_inset
 
@@ -3896,7 +3895,7 @@ onde
 \end_layout
 
 \begin_layout Chapter
-Metodologia 
+Metodologia Proposta 
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:metodologia"
@@ -3907,11 +3906,11 @@ name "sec:metodologia"
 \end_layout
 
 \begin_layout Standard
-Nesta seção, são apresentados os procedimentos propostos para a realização
+Neste capítulo, são apresentados os procedimentos propostos para a realização
  dos objetivos descritos na Seção 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:objectives"
+reference "sec:Objetivos"
 
 \end_inset
 
@@ -3981,7 +3980,7 @@ Aquisição de Imagens
 \begin_layout Standard
 A aquisição de imagens é uma etapa crucial na metodologia proposta, pois
  sem imagens para casos de teste não é possível validar a metodologia.
- Atualmente existem poucos bancos de imagem termográficas mamárias disponíveis
+ Atualmente existem poucos bancos de imagens termográficas mamárias disponíveis
  para o público geral, sendo a maioria deles de propósito privado.
  As imagens utilizadas neste trabalho são provenientes do 
 \emph on
@@ -4007,6 +4006,13 @@ key "silva2014new"
 
 \end_inset
 
+ e em 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lincoln_thesis2015"
+
+\end_inset
+
 .
 \end_layout
 
@@ -4027,9 +4033,9 @@ reference "fig:methodology:acquisition:mean_monitoring"
 
 \end_inset
 
-), ou 5 minutos de estresse foram aplicados, a refrigeração é interrompida
+), ou até que 5 minutos sejam transcorridos , a refrigeração é interrompida
  e a aquisição sequencial das imagens é iniciada, extraindo um total de
- 20 imagens sequenciais com intervalos de tempo fixos.
+ 20 imagens sequenciais com intervalos de 15 segundos entre as imagens.
 \end_layout
 
 \begin_layout Standard
@@ -4087,7 +4093,7 @@ key "silva2014new"
 
 \begin_layout Standard
 As imagens utilizadas possuem dimensão de 640 pixeis de largura e 480 pixeis
- de largura e foram utilizados os valores de temperatura (em graus célsius)
+ de largura e foram utilizados os valores de temperatura (em graus celsius)
  obtidos diretamente da câmera termográfica utilizada na aquisição.
  
 \end_layout
@@ -4095,7 +4101,7 @@ As imagens utilizadas possuem dimensão de 640 pixeis de largura e 480 pixeis
 \begin_layout Standard
 No total foram utilizados 70 exames previamente diagnosticados para aplicação
  desta metodologia, sendo que 35 são de pacientes saudáveis e os 35 restantes
- de pacientes que apresentam algum tipo de anomalia nas mamas.
+ de pacientes que apresentam algum tipo de lesão.
 \end_layout
 
 \begin_layout Section
@@ -4188,7 +4194,7 @@ status open
 
 \begin_layout Plain Layout
 Termogramas de tempos distintos.
- Tons mais claros denotam uma maior diferênça entre as regiões.
+ Tons mais claros denotam uma maior diferença entre as regiões.
  
 \end_layout
 
@@ -4340,10 +4346,10 @@ Para analisar as sequências de termogramas de um determinado exame é necessár
 \end_layout
 
 \begin_layout Itemize
-Métrica: Correlação Cruzada Normalizada (Capítulo 
+Métrica: Correlação Cruzada Normalizada (Seção
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "eq:fundamentation:image_registration:normalized_cross_correlation"
+reference "sec:fundamentation:image_registration:metric:ccn"
 
 \end_inset
 
@@ -4355,7 +4361,7 @@ Transformação:
 \emph on
 B-Splines
 \emph default
- (Capítulo 
+ (Seção 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:fundamentation:image_registration:transform:bspline"
@@ -4366,7 +4372,7 @@ reference "sec:fundamentation:image_registration:transform:bspline"
 \end_layout
 
 \begin_layout Itemize
-Interpolador: Linear (Capítulo 
+Interpolador: Linear (Seção 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:fundamentation:image_registration:interpolator:linear"
@@ -4377,7 +4383,7 @@ reference "sec:fundamentation:image_registration:interpolator:linear"
 \end_layout
 
 \begin_layout Itemize
-Otimizador: LBFGS (Capítulo 
+Otimizador: LBFGS (Seção 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:fundamentation:image_registration:otimizator:lbfgs"
@@ -4392,9 +4398,9 @@ reference "sec:fundamentation:image_registration:otimizator:lbfgs"
 \end_layout
 
 \begin_layout Standard
-Utilizando a primeira sequência do conjunto de termograma como imagem fixa,
- executamos o algoritmo de registro 19 vezes, sendo que as sequências restantes
- são as imagens móveis.
+Utilizando a primeira sequência do conjunto de termogramas como imagem fixa,
+ o processo é aplicado para cada termograma restante fazendo o papel de
+ imagem móvel, resultando em 19 aplicações sucessivas.
  Após a aplicação do registro, os erros de postura são corrigidos, permitindo
  que as sequências de uma TID sejam analisadas e comparadas.
 \end_layout
@@ -4424,8 +4430,8 @@ key "marques2012segmentaccao"
 \end_layout
 
 \begin_layout Standard
-Nesta metodologia a região de interesse é extraída de forma manual, através
- da utilização de um programa de visualização e edição de imagens.
+Nesta metodologia a região de interesse é extraída manualmente por um especialis
+ta, através da utilização de um programa de visualização e edição de imagens.
  
 \end_layout
 
@@ -4445,8 +4451,8 @@ key "abramoff2004image,rasband1997bethesda"
 \end_layout
 
 \begin_layout Standard
-Utilizando a máscara da sequência inicial é possível extrair as ROIs das
- demais sequências após a aplicação do registro dos termogramas (Capítulo
+Utilizando a máscara da sequência inicial, é possível extrair as ROIs das
+ demais sequências após a aplicação do registro dos termogramas (Seção
 \emph on
  
 \begin_inset CommandInset ref
@@ -4618,7 +4624,7 @@ name "sec:methodology:fps"
 Dado um exame TID, temos 20 sequências de termogramas, cada um correspondendo
  à um tempo distinto em ordem sequencial.
  É necessário extrair características que diferenciem as TID de pacientes
- saudáveis de TID de pacientes com algum tipo de anomalia.
+ saudáveis de TID de pacientes com algum tipo de lesão.
  
 \end_layout
 
@@ -4666,7 +4672,7 @@ reference "fig:methodology:fps:feat_1"
 
 \end_inset
 
- mostra a diferença entre uma TID saudável e outra com anomalia.
+ mostra a diferença entre uma TID saudável e outra com lesão.
 \end_layout
 
 \begin_layout Itemize
@@ -4678,7 +4684,7 @@ O ganho de temperatura total dado por
  Essa medida informa o quanto uma dada região se aqueceu ou esfriou durante
  o tempo de aquisição dos termogramas.
  Durante os testes realizados, foi possível notar que regiões com algum
- tipo de anomalia tendem a ganhar mais temperatura durante o tempo de extração
+ tipo de lesão tendem a ganhar mais temperatura durante o tempo de extração
  das imagens.
  Em imagens saudáveis quando ocorre esse tipo de comportamento, geralmente
  existe um tipo de espelhamento, de forma que ele aparece nas duas mamas.
@@ -4713,8 +4719,8 @@ reference "eq:methodology:fps:mean_bt"
 
 .
  Essa característica se assemelha ao ganho total de temperatura, onde regiões
- com algum tipo de anomalia tendem ter uma média maior que as demais regiões
- e não apresentam uma similaridade na mesma região da outra mama.
+ com lesão tendem ter uma média maior que as demais regiões e não apresentam
+ uma similaridade na mesma região da outra mama.
  A Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4739,13 +4745,13 @@ reference "eq:methodology:fps:std_bt"
  Essa característica apresenta um grande fator discriminativo entres regiões
  saudáveis e com anomalias.
  Regiões saudáveis tendem a ganhar temperatura de forma uniforme durante
- a aquisição dos termogramas, ao contrário de regiões que possuem anomalia,
+ a aquisição dos termogramas, ao contrário de regiões que possuem lesão,
  que variam bastante no ganho de temperatura.
  Dessa forma regiões saudáveis apresentam um valor para 
 \begin_inset Formula $S$
 \end_inset
 
- mais baixo em relação à regiões que possuem algum tipo de anomalia.
+ mais baixo em relação à regiões com lesão.
  A Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -4800,8 +4806,28 @@ onde
 \end_layout
 
 \begin_layout Standard
-Essas características quando analisadas em conjunto oferecem um grande discrimin
-ador entre as pacientes.
+Para cada valor estatístico extraído dos pixels da TID, é criada uma imagem
+ representativa.
+ No total 4 valores foram extraídos para cada pixel, resultando na criação
+ de 4 representações de uma TID.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+Figura AKI
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Essas representações quando analisadas em conjunto oferecem grande discriminação
+ entre as pacientes.
  Em uma paciente saudável, é possível perceber a similaridade entre as mamas
  direita e esquerda como nas Figuras 
 \begin_inset CommandInset ref
@@ -4810,14 +4836,7 @@ reference "fig:methodology:fps:feat_1:a"
 
 \end_inset
 
-, 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:fig:methodology:fps:feat_2:a"
-
-\end_inset
-
- e
+-
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:fig:methodology:fps:feat_3:a"
@@ -4827,7 +4846,7 @@ reference "fig:fig:methodology:fps:feat_3:a"
 , e uma homogeneidade no desvio padrão como na Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:fig:methodology:fps:feat_4:b"
+reference "fig:fig:methodology:fps:feat_4:a"
 
 \end_inset
 
@@ -4835,22 +4854,15 @@ reference "fig:fig:methodology:fps:feat_4:b"
 \end_layout
 
 \begin_layout Standard
-Em uma mama com algum tipo de anomalia, nota-se uma dissimilaridade entre
- as mamas, como nas Figuras 
+Em uma mama com algum tipo de lesão, nota-se uma dissimilaridade entre as
+ mamas, como nas Figuras 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:methodology:fps:feat_1:b"
 
 \end_inset
 
-,
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:fig:methodology:fps:feat_2:b"
-
-\end_inset
-
- e 
+-
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "fig:fig:methodology:fps:feat_3:b"
@@ -4865,8 +4877,12 @@ reference "fig:fig:methodology:fps:feat_4:b"
 \end_inset
 
  onde existem regiões com uma maior desvio padrão em relação as demais regiões
- da mama, coincidindo com as regiões de maior pico nas imagens das outras
- características.
+ da mama, coincidindo com as regiões que apresentam valores elevados nas
+ outras imagens 
+\end_layout
+
+\begin_layout Standard
+.
 \end_layout
 
 \begin_layout Standard
@@ -5374,64 +5390,9 @@ Elaborada pelo autor
 \end_layout
 
 \begin_layout Standard
-A partir das imagens geradas acima, são extraídas um conjunto de características
- de textura baseadas em GLCM, definidas pelas Equações 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentation:glcm:contraste"
-
-\end_inset
-
-,
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentation:glcm:dissimilaridade"
-
-\end_inset
-
-,
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentation:glcm:homogeneidade"
-
-\end_inset
-
-,
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentation:glcm:asm"
-
-\end_inset
-
-,
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentationg:glcm:energia"
-
-\end_inset
-
- e 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "eq:fundamentationg:glcm:correlação"
-
-\end_inset
-
- mostradas no Capítulo 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "sec:fundamentation:glcm"
-
-\end_inset
-
-.
- 
-\end_layout
-
-\begin_layout Standard
-Antes de gerar as GLCM é necessário converter a escala de valores para níveis
- de cinza.
- Essa conversão é obtida através de
+As representações são convertidas para o formato em escala de cinza, com
+ valores variando de 0 a 255.
+ A conversão é obtida por
 \end_layout
 
 \begin_layout Standard
@@ -5467,29 +5428,41 @@ onde
 \end_inset
 
  o valor mínimo desejado.
- No caso das imagens extraídas na Seção 
+\end_layout
+
+\begin_layout Standard
+A partir das representações, são extraídas um conjunto de características
+ de textura baseadas em GLCM, definidas pelas Equações
+\end_layout
+
+\begin_layout Standard
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:methodology:fps"
+reference "eq:fundamentation:glcm:contraste"
 
 \end_inset
 
- temos 
-\begin_inset Formula $a=0$
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentationg:glcm:correlação"
+
 \end_inset
 
- e 
-\begin_inset Formula $b=255$
+ mostradas na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:fundamentation:glcm"
+
 \end_inset
 
-, dessa forma serão convertidas em 256 níveis de cinza.
- A partir da conversão podemos extrair as GLCM.
+.
  
 \end_layout
 
 \begin_layout Standard
-Para cada imagem são geradas um conjunto de GLCMs, a partir de um conjunto
- de distâncias
+Para cada representação gerada, são geradas GLCMs a partir de um conjunto
+ distâncias 
 \begin_inset Formula $d=[d_{1},....,d_{n}]$
 \end_inset
 
@@ -5497,10 +5470,36 @@ Para cada imagem são geradas um conjunto de GLCMs, a partir de um conjunto
 \begin_inset Formula $\theta=[\theta_{1},...,\theta_{n}]$
 \end_inset
 
- .
- A partir de cada GLCM, são geradas as 6 características citadas acima,
- formando o vetor de características que será utilizado na etapa de classificaçã
-o da metodologia.
+.
+ Para cada GLCM são extraídas as 6 características dadas pelas Equações
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentation:glcm:contraste"
+
+\end_inset
+
+-
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "eq:fundamentationg:glcm:correlação"
+
+\end_inset
+
+.
+ Portanto o vetor de características é formado por 
+\begin_inset Formula $4\times d_{n}\times\theta_{n}\times6$
+\end_inset
+
+ características, onde 
+\begin_inset Formula $d_{n}$
+\end_inset
+
+ é a quantidade de distâncias e 
+\begin_inset Formula $\theta_{n}$
+\end_inset
+
+a quantidade de ângulos utilizados na geração das GLCMs.
 \end_layout
 
 \begin_layout Section
@@ -5515,9 +5514,9 @@ name "sec:methodology:reduction"
 \end_layout
 
 \begin_layout Standard
-Essa etapa consiste em reduzir o conjunto de 96 características previamente
+Essa etapa consiste em reduzir o conjunto de características previamente
  extraídas para um conjunto menor e mais conciso.
- Utilizando os 2 métodos descritos no Capítulo 
+ Utilizando os 2 métodos descritos na Seção 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:fundamentation:dimensionality_reduction"
@@ -5525,7 +5524,13 @@ reference "sec:fundamentation:dimensionality_reduction"
 \end_inset
 
 , transforma-se o conjunto de dados originais em conjuntos distintos que
- serão analisados individualmente na etapa de classificação, sendo eles:
+ serão analisados individualmente na etapa de classificação.
+ 
+\end_layout
+
+\begin_layout Standard
+As técnicas utilizadas foram testadas foram analisadas com várias composições,
+ sendo as que apresentaram melhores resultados foram:
 \end_layout
 
 \begin_layout Itemize
@@ -5533,7 +5538,7 @@ PCA com
 \begin_inset Formula $C=40$
 \end_inset
 
-, que projeta o conjunto de características em um novo espaço de 30 dimensões.
+, que projeta o conjunto de características em um novo espaço de 40 dimensões.
 \end_layout
 
 \begin_layout Itemize
@@ -5546,7 +5551,7 @@ PCA com
 
 \begin_layout Itemize
 LDA com 
-\begin_inset Formula $C=1$
+\begin_inset Formula $L=1$
 \end_inset
 
 , que projeta o conjunto de características em um novo espaço de 1 dimensão.
@@ -5559,10 +5564,24 @@ Combinação do PCA e LDA, onde o PCA com
 
  é aplicado, reduzindo o espaço para 40 dimensões e em seguida o LDA com
  
-\begin_inset Formula $C=1$
+\begin_inset Formula $L=1$
 \end_inset
 
  é utilizado, reduzindo o espaço para 1 dimensão.
+\end_layout
+
+\begin_layout Standard
+Os valores de 
+\begin_inset Formula $C$
+\end_inset
+
+ indicam a quantidade de componentes principais utilizados no PCA, enquanto
+ 
+\begin_inset Formula $L$
+\end_inset
+
+ indica a quantidade de discriminantes utilizados com o LDA.
+ 
 \end_layout
 
 \begin_layout Section
@@ -5571,8 +5590,8 @@ Classificação
 
 \begin_layout Standard
 Essa etapa consiste em classificar um determinado exame TID em saudável
- ou com algum tipo de anomalia.
- São utilizadas as características extraídas no Capítulo 
+ ou com lesão.
+ São utilizadas as características extraídas na Seção 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:methodology:fps"
@@ -5584,15 +5603,15 @@ reference "sec:methodology:fps"
 \end_layout
 
 \begin_layout Standard
-Durante essa etapa, o conjunto de características originais são subdividas
- em 2 conjuntos distintos que chamadas de base de treino e teste, que não
- possuem indivíduos em comum entre eles.
+O conjunto de características originais é dividida em 2 conjuntos distintos
+ que chamadas de base de treino e teste, que não possuem indivíduos em comum
+ entre eles.
  
 \end_layout
 
 \begin_layout Standard
-Antes do treinamento de uma SVM, transforma-se o espaço de características
- através de um dos métodos descritos no Capítulo 
+Os espaço de características das bases são transformados através de um dos
+ métodos descritos na Seção 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:methodology:reduction"
@@ -5601,29 +5620,28 @@ reference "sec:methodology:reduction"
 
 .
  Essa transformação é calculada a partir da base de treino e depois aplicada
- em ambas as bases, de forma que a base de teste não tem influência na geração
+ em ambas as bases, para que a base de teste não tenha influência na geração
  da transformação.
  
 \end_layout
 
 \begin_layout Standard
-Na etapa de treinamento, a base de treino juntamente com seus valores de
- classe, é utilizada para encontrar os melhores vetores de suporte para
- a SVM.
+Na etapa de treinamento do modelo, a base de treino em conjunto com seus
+ valores de classe, é utilizada para encontrar os melhores vetores de suporte
+ para a SVM através do processo de otimização.
  
 \end_layout
 
 \begin_layout Standard
-Após o termino do treinamento, a validação do modelo é executada, onde utilizamo
-s a base de teste sem os valores de classe como entrada no modelo gerado,
- que irá classificar os indivíduos existentes na base.
- Os resultados são comparados com os valores de classe conhecidos para validação
- do modelo.
+A validação do modelo é aplicada após o treinamento, onde utilizamos a base
+ de teste como entrada no modelo gerado, que irá classificar os indivíduos.
+ Os resultados são comparados com os valores de classe conhecidos.
  
 \end_layout
 
 \begin_layout Standard
-São extraídos os valores de acurácia (Equação 
+Para comparar os resultados são extraídos os valores de acurácia (Equação
+ 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:methodology:classification:acc"
@@ -5637,8 +5655,8 @@ reference "eq:eq:methodology:classification:sensitivity"
 
 \end_inset
 
-) que mede a taxa de acerto para os casos que possuem anomalia e a especificidad
-e (Equação 
+) que mede a taxa de acerto para os casos que possuem lesão e a especificidade
+ (Equação 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:eq:methodology:classification:specificity"
@@ -5704,7 +5722,7 @@ name "chap:Resultados"
 
 \begin_layout Standard
 Nesse capítulo são apresentados os resultados da aplicação da metodologia
- para a classificação de termografias dinâmicas em saudável e com anomalia.
+ para a classificação de termografias dinâmicas em saudável e com lesão.
 \end_layout
 
 \begin_layout Standard
@@ -5735,7 +5753,7 @@ Grupo 2:
 \begin_inset Formula $\theta=[0\text{º, }45\text{º},90\text{º},135\text{º}]$
 \end_inset
 
-, 244 características.
+, 288 características.
  
 \end_layout
 
@@ -5769,33 +5787,52 @@ Grupo 4:
 \end_layout
 
 \begin_layout Standard
-Um teste consiste na aplicação da metodologia 100 vezes consecutivas, onde
- os indivíduos da bases de treino e teste são escolhidos aleatoriamente
- para cada iteração, mantendo a proporção entre as classes
+Devido a quantidade pequena de indivíduos, a etapa de classificação é aplicada
+ 100 vezes, salvando os resultados de cada aplicação para posteriormente
+ os valores da média e desvio padrão (acurácia, sensibilidade e especificidade)
+ serem calculados.
+ 
 \end_layout
 
 \begin_layout Standard
-Após a divisão das bases, as técnicas de redução de dimensionalidade descritas
- no Capítulo 
+Em cada aplicação da etapa de classificação, a base de dados é dividida
+ em bases de treino e teste de forma aleatória, mantendo a proporção entre
+ as classes em ambas as bases.
+ 
+\end_layout
+
+\begin_layout Standard
+Após a divisão das bases, as técnicas de redução de características descritas
+ na Seção 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:methodology:reduction"
 
 \end_inset
 
- são utilizadas, onde a base de treino é utilizada como referência para
- a geração da matriz de transformação de cada técnica, sendo posteriormente
+ são aplicadas, onde a base de treino é utilizada como referência para a
+ geração da matriz de transformação de cada técnica, sendo posteriormente
  aplicada na base de teste.
- Cada técnica gera um novo conjunto de dados de treino e teste, onde a base
- de treino é utilizada para gerar o modelo SVM que irá classificar a base
- de testes.
  
 \end_layout
 
 \begin_layout Standard
-Ao final, os resultados são analisados separadamente para cada técnica de
- redução utilizada, onde a média e o desvio padrão da acurácia, sensibilidade
- e especificidade são mostrados.
+Cada técnica irá gerar um novo conjunto de dados de treino e teste, onde
+ a base de treino resultante de determinada técnica será utilizada para
+ gerar o modelo SVM que irá classificar a base de testes correlacionada.
+ Os resultados são analisados separadamente para cada técnica de redução
+ de características.
+\end_layout
+
+\begin_layout Standard
+Caso uma quantidade pequena de aplicações seja utilizada, os valores irão
+ variar bastante entre a execução entre um teste e outro, pois dependendo
+ de quais indivíduos sejam escolhidos para as bases de treino e teste, os
+ resultados podem conter ótimos valores ou péssimos valores (dependendo
+ de quão representativa é a base de treino).
+ Portanto, quanto maior o número de vezes que a aplicação da etapa de classifica
+ção for executada em um teste, menor será a variação de valores de média
+ e desvio padrão entre testes.
 \end_layout
 
 \begin_layout Standard
@@ -5853,15 +5890,27 @@ A técnica que conseguiu o melhor resultado foi a aplicação conjunto do PCA
  seguido da aplicação do LDA no conjunto de características gerados pelo
  PCA.
  Em todos os grupos, temos uma sensibilidade médias acima dos 80%.
- A Tabela 
+ 
+\end_layout
+
+\begin_layout Standard
+Nas Tabelas 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:results:g1_8020"
+
+\end_inset
+
+-
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:results:g4_8020"
 
 \end_inset
 
- referente ao grupo 4 apresentou os melhores resultados entre os 4 grupos
- analisados.
+ O grupo 3 (480 características originais) foi o que apresentou os melhores
+ resultados gerais, onde a técnica de redução do PCA combinado com LDA apresento
+u resultados bem superiores aos demais grupos estudados.
 \end_layout
 
 \begin_layout Standard
@@ -5869,13 +5918,14 @@ reference "tab:results:g4_8020"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Resultados do Grupo 1 na proporção 80/20.
+Resultados do Grupo 1 (96 características) na proporção 80/20 (56 exames
+ para treino, 14 para teste).
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:results:g1_8020"
@@ -5893,12 +5943,50 @@ name "tab:results:g1_8020"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="4">
+<lyxtabular version="3" rows="7" columns="4">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Acurácia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sensibilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Especificidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -5913,7 +6001,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-Acurácia
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -5922,7 +6010,7 @@ Acurácia
 \begin_inset Text
 
 \begin_layout Plain Layout
-Sensibilidade
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -5931,7 +6019,7 @@ Sensibilidade
 \begin_inset Text
 
 \begin_layout Plain Layout
-Especificidade
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -5951,7 +6039,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-48.9% ~ 9.8%
+48,9% ~ 9,8%
 \end_layout
 
 \end_inset
@@ -5960,7 +6048,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-16.3% ~ 16.5%
+16,3% ~ 16,5%
 \end_layout
 
 \end_inset
@@ -5969,7 +6057,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-81.4% ~ 21.9%
+81,4% ~ 21,9%
 \end_layout
 
 \end_inset
@@ -5989,7 +6077,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-50.9% ~ 9.0%
+50,9% ~ 9,0%
 \end_layout
 
 \end_inset
@@ -5998,7 +6086,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-21.6% ~ 18.9%
+21,6% ~ 18,9%
 \end_layout
 
 \end_inset
@@ -6007,7 +6095,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-80.3% ~ 22.7%
+80,3% ~ 22,7%
 \end_layout
 
 \end_inset
@@ -6027,7 +6115,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-50.7% ~ 9.6% 
+50,7% ~ 9,6% 
 \end_layout
 
 \end_inset
@@ -6036,7 +6124,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-19.1% ~ 18.4% 
+19,1% ~ 18,4% 
 \end_layout
 
 \end_inset
@@ -6045,7 +6133,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-82.3% ~ 20.3%
+82,3% ~ 20,3%
 \end_layout
 
 \end_inset
@@ -6056,7 +6144,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-LDA, C=1
+LDA, L=1
 \end_layout
 
 \end_inset
@@ -6065,7 +6153,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-72.0% ~ 13.6%
+72,0% ~ 13,6%
 \end_layout
 
 \end_inset
@@ -6074,7 +6162,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-76.1% ~ 19.6% 
+76,1% ~ 19,6% 
 \end_layout
 
 \end_inset
@@ -6083,7 +6171,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-67.9% ~ 17.9%
+67,9% ~ 17,9%
 \end_layout
 
 \end_inset
@@ -6094,15 +6182,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-PCA+LDA, 
-\begin_inset Formula $C_{1}$
-\end_inset
-
-= 40, 
-\begin_inset Formula $C_{2}$
-\end_inset
-
-=1
+PCA+LDA, C= 40, L=1
 \end_layout
 
 \end_inset
@@ -6111,7 +6191,9 @@ PCA+LDA,
 \begin_inset Text
 
 \begin_layout Plain Layout
-78.5% ~ 11.0%
+
+\series bold
+78,5% ~ 11,0%
 \end_layout
 
 \end_inset
@@ -6120,7 +6202,9 @@ PCA+LDA,
 \begin_inset Text
 
 \begin_layout Plain Layout
-83.4% ~ 15.2% 
+
+\series bold
+83,4% ~ 15,2% 
 \end_layout
 
 \end_inset
@@ -6129,7 +6213,9 @@ PCA+LDA,
 \begin_inset Text
 
 \begin_layout Plain Layout
-73.6% ~ 17.2%
+
+\series bold
+73,6% ~ 17,2%
 \end_layout
 
 \end_inset
@@ -6152,13 +6238,14 @@ PCA+LDA,
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Resultados do Grupo 2 na proporção 80/20.
+Resultados do Grupo 2 (288 características) na proporção 80/20 (56 exames
+ para treino, 14 para teste).
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:results:g2_8020"
@@ -6176,12 +6263,50 @@ name "tab:results:g2_8020"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="4">
+<lyxtabular version="3" rows="7" columns="4">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Acurácia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sensibilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Especificidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -6196,7 +6321,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-Acurácia
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -6205,7 +6330,7 @@ Acurácia
 \begin_inset Text
 
 \begin_layout Plain Layout
-Sensibilidade
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -6214,7 +6339,7 @@ Sensibilidade
 \begin_inset Text
 
 \begin_layout Plain Layout
-Especificidade
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -6234,7 +6359,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-47.9% ~ 8.9%
+47,9% ~ 8,9%
 \end_layout
 
 \end_inset
@@ -6243,7 +6368,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-20.3% ~ 20.6%
+20,3% ~ 20,6%
 \end_layout
 
 \end_inset
@@ -6252,7 +6377,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-75.6% ~ 27.1%
+75,6% ~ 27,1%
 \end_layout
 
 \end_inset
@@ -6272,7 +6397,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-47.8% ~ 10.3%
+47,8% ~ 10,3%
 \end_layout
 
 \end_inset
@@ -6281,7 +6406,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-23.1% ~ 20.7%
+23,1% ~ 20,7%
 \end_layout
 
 \end_inset
@@ -6290,7 +6415,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-72.4% ~ 30.9%
+72,4% ~ 30,9%
 \end_layout
 
 \end_inset
@@ -6310,7 +6435,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-47.0% ~ 9.3%
+47,0% ~ 9,3%
 \end_layout
 
 \end_inset
@@ -6319,7 +6444,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-22.1% ~ 21.4%
+22,1% ~ 21,4%
 \end_layout
 
 \end_inset
@@ -6328,7 +6453,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-71.9% ~ 30.7%
+71,9% ~ 30,7%
 \end_layout
 
 \end_inset
@@ -6339,7 +6464,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-LDA, C=1
+LDA, L=1
 \end_layout
 
 \end_inset
@@ -6348,7 +6473,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-79.1% ~ 8.4%
+79,1% ~ 8,4%
 \end_layout
 
 \end_inset
@@ -6357,7 +6482,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-81.4% ~ 13.8%
+81,4% ~ 13,8%
 \end_layout
 
 \end_inset
@@ -6366,7 +6491,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-76.9% ~ 13.8%
+76,9% ~ 13,8%
 \end_layout
 
 \end_inset
@@ -6377,15 +6502,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-PCA+LDA, 
-\begin_inset Formula $C_{1}$
-\end_inset
-
-= 40, 
-\begin_inset Formula $C_{2}$
-\end_inset
-
-=1
+PCA+LDA, C= 40, L=1
 \end_layout
 
 \end_inset
@@ -6394,7 +6511,9 @@ PCA+LDA,
 \begin_inset Text
 
 \begin_layout Plain Layout
-79.0% ~ 9.1% 
+
+\series bold
+79,0% ~ 9,1% 
 \end_layout
 
 \end_inset
@@ -6403,7 +6522,9 @@ PCA+LDA,
 \begin_inset Text
 
 \begin_layout Plain Layout
-80.1% ~ 12.6%
+
+\series bold
+80,1% ~ 12,6%
 \end_layout
 
 \end_inset
@@ -6412,7 +6533,9 @@ PCA+LDA,
 \begin_inset Text
 
 \begin_layout Plain Layout
-77.9% ~ 15.8%
+
+\series bold
+77,9% ~ 15,8%
 \end_layout
 
 \end_inset
@@ -6435,13 +6558,14 @@ PCA+LDA,
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Resultados do Grupo 3 na proporção 80/20.
+Resultados do Grupo 3 (480 características) na proporção 80/20 (56 exames
+ para treino, 14 para teste).
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:results:g3_8020"
@@ -6459,12 +6583,50 @@ name "tab:results:g3_8020"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="4">
+<lyxtabular version="3" rows="7" columns="4">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Acurácia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sensibilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Especificidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -6479,7 +6641,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-Acurácia
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -6488,7 +6650,7 @@ Acurácia
 \begin_inset Text
 
 \begin_layout Plain Layout
-Sensibilidade
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -6497,7 +6659,7 @@ Sensibilidade
 \begin_inset Text
 
 \begin_layout Plain Layout
-Especificidade
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -6517,7 +6679,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-48.9% ~ 8.2%
+48,9% ~ 8,2%
 \end_layout
 
 \end_inset
@@ -6526,7 +6688,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-21.3% ~ 20.2%
+21,3% ~ 20,2%
 \end_layout
 
 \end_inset
@@ -6535,7 +6697,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-76.6% ~ 27.1%
+76,6% ~ 27,1%
 \end_layout
 
 \end_inset
@@ -6555,7 +6717,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-48.6% ~ 10.6%
+48,6% ~ 10,6%
 \end_layout
 
 \end_inset
@@ -6564,7 +6726,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-25.4% ~ 22.8%
+25,4% ~ 22,8%
 \end_layout
 
 \end_inset
@@ -6573,7 +6735,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-71.9% ~ 31.1%
+71,9% ~ 31,1%
 \end_layout
 
 \end_inset
@@ -6593,7 +6755,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-49.1% ~ 9.7%
+49,1% ~ 9,7%
 \end_layout
 
 \end_inset
@@ -6602,7 +6764,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-23.4% ~ 23.3%
+23,4% ~ 23,3%
 \end_layout
 
 \end_inset
@@ -6611,7 +6773,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-74.7% ~ 28.7%
+74,7% ~ 28,7%
 \end_layout
 
 \end_inset
@@ -6622,7 +6784,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-LDA, C=1
+LDA, L=1
 \end_layout
 
 \end_inset
@@ -6631,7 +6793,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-79.1% ~ 10.1%
+79,1% ~ 10,1%
 \end_layout
 
 \end_inset
@@ -6640,7 +6802,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-80.6% ~ 15.1%
+80,6% ~ 15,1%
 \end_layout
 
 \end_inset
@@ -6649,7 +6811,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-77.7% ~ 15.8%
+77,7% ~ 15,8%
 \end_layout
 
 \end_inset
@@ -6660,15 +6822,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-PCA+LDA, 
-\begin_inset Formula $C_{1}$
-\end_inset
-
-= 40, 
-\begin_inset Formula $C_{2}$
-\end_inset
-
-=1
+PCA+LDA, C=40, L=1
 \end_layout
 
 \end_inset
@@ -6677,7 +6831,9 @@ PCA+LDA,
 \begin_inset Text
 
 \begin_layout Plain Layout
-84.7% ~ 8.1%
+
+\series bold
+84,7% ~ 8.1%
 \end_layout
 
 \end_inset
@@ -6686,7 +6842,9 @@ PCA+LDA,
 \begin_inset Text
 
 \begin_layout Plain Layout
-86.1% ~ 12.4%
+
+\series bold
+86,1% ~ 12,4%
 \end_layout
 
 \end_inset
@@ -6695,7 +6853,9 @@ PCA+LDA,
 \begin_inset Text
 
 \begin_layout Plain Layout
-83.3% ~ 12.6%
+
+\series bold
+83,3% ~ 12,6%
 \end_layout
 
 \end_inset
@@ -6718,13 +6878,14 @@ PCA+LDA,
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Resultados do Grupo 4 na proporção 80/20.
+Resultados do Grupo 4 (576 características) na proporção 80/20 (56 exames
+ para treino, 14 para teste) .
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:results:g4_8020"
@@ -6742,12 +6903,50 @@ name "tab:results:g4_8020"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="4">
+<lyxtabular version="3" rows="7" columns="4">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Acurácia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sensibilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Especificidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -6762,7 +6961,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-Acurácia
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -6771,7 +6970,7 @@ Acurácia
 \begin_inset Text
 
 \begin_layout Plain Layout
-Sensibilidade
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -6780,7 +6979,7 @@ Sensibilidade
 \begin_inset Text
 
 \begin_layout Plain Layout
-Especificidade
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -6800,7 +6999,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-48.1% ~ 9.6% 
+48,1% ~ 9,6% 
 \end_layout
 
 \end_inset
@@ -6809,7 +7008,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-22.9% ~ 23.6%
+22,9% ~ 23,6%
 \end_layout
 
 \end_inset
@@ -6818,7 +7017,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-73.3% ~ 29.0%
+73,3% ~ 29,0%
 \end_layout
 
 \end_inset
@@ -6838,7 +7037,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-48.4% ~ 9.0%
+48,4% ~ 9,0%
 \end_layout
 
 \end_inset
@@ -6847,7 +7046,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-19.4% ~ 21.4% 
+19,4% ~ 21,4% 
 \end_layout
 
 \end_inset
@@ -6856,7 +7055,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-77.4% ~ 27.7%
+77,4% ~ 27,7%
 \end_layout
 
 \end_inset
@@ -6876,7 +7075,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-48.3% ~ 9.7%
+48,3% ~ 9,7%
 \end_layout
 
 \end_inset
@@ -6885,7 +7084,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-25.4% ~ 21.9%
+25,4% ~ 21,9%
 \end_layout
 
 \end_inset
@@ -6894,7 +7093,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-71.1% ~ 29.2%
+71,1% ~ 29,2%
 \end_layout
 
 \end_inset
@@ -6905,7 +7104,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-LDA, C=1
+LDA, L=1
 \end_layout
 
 \end_inset
@@ -6914,7 +7113,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-80.4% ~ 11.0%
+80,4% ~ 11,0%
 \end_layout
 
 \end_inset
@@ -6923,7 +7122,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-80.6% ~ 14.1%
+80,6% ~ 14,1%
 \end_layout
 
 \end_inset
@@ -6932,7 +7131,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-80.1% ~ 16.0%
+80,1% ~ 16,0%
 \end_layout
 
 \end_inset
@@ -6943,15 +7142,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-PCA+LDA, 
-\begin_inset Formula $C_{1}$
-\end_inset
-
-= 40, 
-\begin_inset Formula $C_{2}$
-\end_inset
-
-=1
+PCA+LDA, C= 40, L=1
 \end_layout
 
 \end_inset
@@ -6960,7 +7151,9 @@ PCA+LDA,
 \begin_inset Text
 
 \begin_layout Plain Layout
-82.2% ~ 9.1%
+
+\series bold
+82,2% ~ 9,1%
 \end_layout
 
 \end_inset
@@ -6969,7 +7162,9 @@ PCA+LDA,
 \begin_inset Text
 
 \begin_layout Plain Layout
-82.2% ~ 9.1%
+
+\series bold
+82,2% ~ 9,1%
 \end_layout
 
 \end_inset
@@ -6978,7 +7173,9 @@ PCA+LDA,
 \begin_inset Text
 
 \begin_layout Plain Layout
-85.3% ~ 12.2%
+
+\series bold
+85,3% ~ 12,2%
 \end_layout
 
 \end_inset
@@ -7021,13 +7218,18 @@ As técnicas de redução agem da mesma forma que o apresentado para a proporç�
  Em especial a Tabela 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:results:g4_6040"
+reference "tab:results:g3_6040"
 
 \end_inset
 
- que apresentou o melhor resultado de todos os testes para o caso da aplicação
- do PCA seguido do LDA, onde a acurácia média dos 100 testes é de 83.1%,
- a sensibilidade 80.1% e a especifidade de 86.1% 
+ que apresenta os resultados do grupo 3, onde a aplicação do PCA seguido
+ do LDA, obteve 82,9% de acurácia, 83,6% de sensibilidade e 83,0% de especificid
+ade.
+\end_layout
+
+\begin_layout Standard
+Em ambas as proporções, o grupo de demonstrou os melhores foi o grupo 3,
+ composto por 480 características, geradas a partir de 20 GLCMs.
 \end_layout
 
 \begin_layout Standard
@@ -7035,13 +7237,14 @@ reference "tab:results:g4_6040"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Resultados do Grupo 1 na proporção 60/40.
+Resultados do Grupo 1 (96 características) na proporção 60/40 (36 exames
+ para treino, 34 para teste).
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:results:g1_6040"
@@ -7059,12 +7262,50 @@ name "tab:results:g1_6040"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="4">
+<lyxtabular version="3" rows="7" columns="4">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Acurácia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sensibilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Especificidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -7079,7 +7320,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-Acurácia
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -7088,7 +7329,7 @@ Acurácia
 \begin_inset Text
 
 \begin_layout Plain Layout
-Sensibilidade
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -7097,7 +7338,7 @@ Sensibilidade
 \begin_inset Text
 
 \begin_layout Plain Layout
-Especificidade
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -7117,7 +7358,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-50.1% ~ 10.0%
+50,1% ~ 10,0%
 \end_layout
 
 \end_inset
@@ -7126,7 +7367,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-20.4% ~ 17.8%
+20,4% ~ 17,8%
 \end_layout
 
 \end_inset
@@ -7135,7 +7376,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-79.9% ~ 23.2%
+79,9% ~ 23,2%
 \end_layout
 
 \end_inset
@@ -7155,7 +7396,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-48.4% ~ 9.6%
+48,4% ~ 9,6%
 \end_layout
 
 \end_inset
@@ -7164,7 +7405,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-17.9% ~ 19.3% 
+17,9% ~ 19,3% 
 \end_layout
 
 \end_inset
@@ -7173,7 +7414,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-79.0% ~ 25.0%
+79,0% ~ 25,0%
 \end_layout
 
 \end_inset
@@ -7193,7 +7434,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-50.6% ~ 9.2%
+50,6% ~ 9,2%
 \end_layout
 
 \end_inset
@@ -7202,7 +7443,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-23.7% ~ 20.9%
+23,7% ~ 20,9%
 \end_layout
 
 \end_inset
@@ -7211,7 +7452,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-77.6% ~ 27.8%
+77,6% ~ 27,8%
 \end_layout
 
 \end_inset
@@ -7222,7 +7463,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-LDA, C=1
+LDA, L=1
 \end_layout
 
 \end_inset
@@ -7231,7 +7472,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-74.2% ~ 13.1%
+74,2% ~ 13,1%
 \end_layout
 
 \end_inset
@@ -7240,7 +7481,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-78.1% ~ 15.6%
+78,1% ~ 15,6%
 \end_layout
 
 \end_inset
@@ -7249,7 +7490,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-70.3% ~ 19.3%
+70,3% ~ 19,3%
 \end_layout
 
 \end_inset
@@ -7260,15 +7501,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-PCA+LDA, 
-\begin_inset Formula $C_{1}$
-\end_inset
-
-= 40, 
-\begin_inset Formula $C_{2}$
-\end_inset
-
-=1
+PCA+LDA, C= 40, L=1
 \end_layout
 
 \end_inset
@@ -7277,7 +7510,9 @@ PCA+LDA,
 \begin_inset Text
 
 \begin_layout Plain Layout
-77.1% ~ 10.6%
+
+\series bold
+77,1% ~ 10,6%
 \end_layout
 
 \end_inset
@@ -7286,7 +7521,9 @@ PCA+LDA,
 \begin_inset Text
 
 \begin_layout Plain Layout
-80.9% ~ 14.0%
+
+\series bold
+80,9% ~ 14,0%
 \end_layout
 
 \end_inset
@@ -7295,573 +7532,9 @@ PCA+LDA,
 \begin_inset Text
 
 \begin_layout Plain Layout
-73.4% ~ 15.3%
-\end_layout
 
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Resultados do Grupo 2 na proporção 60/40.
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:results:g2_6040"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="4">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Método
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Acurácia
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Sensibilidade
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Especificidade
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Sem redução
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-49.4% ~ 8.6%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-25.3% ~ 22.1%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-73.4% ~ 27.3%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-PCA, C=40
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-48.0% ~ 9.4%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-25.1% ~ 24.5%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-70.9% ~ 28.1%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-PCA, C=20
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-48.9% ~ 9.1%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-26.9% ~ 21.6%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-70.9% ~ 27.5%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-LDA, C=1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-80.2% ~ 9.3%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-82.0% ~ 15.1%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-78.4% ~ 14.2%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-PCA+LDA, 
-\begin_inset Formula $C_{1}$
-\end_inset
-
-= 40, 
-\begin_inset Formula $C_{2}$
-\end_inset
-
-=1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-80.9% ~ 9.9%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-83.6% ~ 14.3%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-78.3% ~ 14.1%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-</lyxtabular>
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset Float table
-placement H
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-Resultados do Grupo 3 na proporção 60/40.
-\begin_inset CommandInset label
-LatexCommand label
-name "tab:results:g3_6040"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="4">
-<features rotate="0" tabularvalignment="middle">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<column alignment="center" valignment="top">
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Método
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Acurácia
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Sensibilidade
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Especificidade
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-Sem redução
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-49.4% ~ 8.8% 
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-23.3% ~ 24.2%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-75.6% ~ 29.4%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-PCA, C=40
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-47.0% ~ 9.0%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-25.0% ~ 22.8%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-69.0% ~ 30.3%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-PCA, C=20
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-49.1% ~ 9.7%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-23.4% ~ 23.3%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-74.7% ~ 28.7%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-LDA, C=1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-69.0% ~ 30.3%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-79.6% ~ 15.2%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-78.9% ~ 16.8%
-\end_layout
-
-\end_inset
-</cell>
-</row>
-<row>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-PCA+LDA, 
-\begin_inset Formula $C_{1}$
-\end_inset
-
-= 40, 
-\begin_inset Formula $C_{2}$
-\end_inset
-
-=1
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-82.9% ~ 7.5%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-82.7% ~ 12.8%
-\end_layout
-
-\end_inset
-</cell>
-<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
-\begin_inset Text
-
-\begin_layout Plain Layout
-83.0% ~ 10.6%
+\series bold
+73,4% ~ 15,3%
 \end_layout
 
 \end_inset
@@ -7890,10 +7563,11 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Resultados do Grupo 4 na proporção 60/40.
+Resultados do Grupo 2 (288 características) na proporção 60/40 (36 exames
+ para treino, 34 para teste).
 \begin_inset CommandInset label
 LatexCommand label
-name "tab:results:g4_6040"
+name "tab:results:g2_6040"
 
 \end_inset
 
@@ -7908,12 +7582,50 @@ name "tab:results:g4_6040"
 \begin_layout Plain Layout
 \align center
 \begin_inset Tabular
-<lyxtabular version="3" rows="6" columns="4">
+<lyxtabular version="3" rows="7" columns="4">
 <features rotate="0" tabularvalignment="middle">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
 <column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Acurácia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sensibilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Especificidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
 <row>
 <cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
 \begin_inset Text
@@ -7928,7 +7640,7 @@ Método
 \begin_inset Text
 
 \begin_layout Plain Layout
-Acurácia
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -7937,7 +7649,7 @@ Acurácia
 \begin_inset Text
 
 \begin_layout Plain Layout
-Sensibilidade
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -7946,7 +7658,7 @@ Sensibilidade
 \begin_inset Text
 
 \begin_layout Plain Layout
-Especificidade
+Média~Desvio
 \end_layout
 
 \end_inset
@@ -7966,7 +7678,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-48.4% ~ 8.1%
+49,4% ~ 8,6%
 \end_layout
 
 \end_inset
@@ -7975,7 +7687,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-24.4% ~ 24.0%
+25,3% ~ 22,1%
 \end_layout
 
 \end_inset
@@ -7984,7 +7696,7 @@ Sem redução
 \begin_inset Text
 
 \begin_layout Plain Layout
-72.3% ~ 30.5%
+73,4% ~ 27,3%
 \end_layout
 
 \end_inset
@@ -8004,7 +7716,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-49.1% ~ 8.9%
+48,0% ~ 9,4%
 \end_layout
 
 \end_inset
@@ -8013,7 +7725,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-25.6% ~ 24.8%
+25,1% ~ 24,5%
 \end_layout
 
 \end_inset
@@ -8022,7 +7734,7 @@ PCA, C=40
 \begin_inset Text
 
 \begin_layout Plain Layout
-72.7% ~ 30.0%
+70,9% ~ 28,1%
 \end_layout
 
 \end_inset
@@ -8042,7 +7754,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-46.9% ~ 8.9%
+48,9% ~ 9,1%
 \end_layout
 
 \end_inset
@@ -8051,7 +7763,7 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-23.6% ~ 23.2%
+26,9% ~ 21,6%
 \end_layout
 
 \end_inset
@@ -8060,7 +7772,327 @@ PCA, C=20
 \begin_inset Text
 
 \begin_layout Plain Layout
-70.3% ~ 30.7%
+70,9% ~ 27,5%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LDA, L=1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+80,2% ~ 9,3%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+82,0% ~ 15,1%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+78,4% ~ 14,2%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PCA+LDA, C= 40, L=1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+80,9% ~ 9,9%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+83,6% ~ 14,3%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+78,3% ~ 14,1%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+placement H
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Resultados do Grupo 3 (480 características) na proporção 60/40 (36 exames
+ para treino, 34 para teste).
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:results:g3_6040"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Acurácia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sensibilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Especificidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Método
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Média~Desvio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Média~Desvio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Média~Desvio
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sem redução
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+49,4% ~ 8,8% 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23,3% ~ 24,2%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+75,6% ~ 29,4%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PCA, C=40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+47,0% ~ 9,0%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25.0% ~ 22,8%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+69,0% ~ 30,3%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PCA, C=20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+49,1% ~ 9,7%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23.4% ~ 23,3%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+74,7% ~ 28,7%
 \end_layout
 
 \end_inset
@@ -8080,7 +8112,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-82.6% ~ 8.8% 
+69,0% ~ 30,3%
 \end_layout
 
 \end_inset
@@ -8089,7 +8121,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-81.7% ~ 14.2%
+79.6% ~ 15,2%
 \end_layout
 
 \end_inset
@@ -8098,7 +8130,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-83.4% ~ 13.5%
+78,9% ~ 16,8%
 \end_layout
 
 \end_inset
@@ -8109,15 +8141,7 @@ LDA, C=1
 \begin_inset Text
 
 \begin_layout Plain Layout
-PCA+LDA, 
-\begin_inset Formula $C_{1}$
-\end_inset
-
-= 40, 
-\begin_inset Formula $C_{2}$
-\end_inset
-
-=1
+PCA+LDA, C=40, L=1
 \end_layout
 
 \end_inset
@@ -8128,7 +8152,7 @@ PCA+LDA,
 \begin_layout Plain Layout
 
 \series bold
-83.1% ~ 8.7%
+82,9% ~ 7,5%
 \end_layout
 
 \end_inset
@@ -8139,7 +8163,7 @@ PCA+LDA,
 \begin_layout Plain Layout
 
 \series bold
-80.1% ~ 14.8%
+82.7% ~ 12,8%
 \end_layout
 
 \end_inset
@@ -8150,7 +8174,7 @@ PCA+LDA,
 \begin_layout Plain Layout
 
 \series bold
-86.1% ~ 13.2%
+83,0% ~ 10,6%
 \end_layout
 
 \end_inset
@@ -8169,8 +8193,333 @@ PCA+LDA,
 \end_layout
 
 \begin_layout Standard
-A metodologia apresenta um alto valor de desvio padrão na execução dos 100
- testes, o que pode ser relacionado ao tamanho reduzido da base.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Resultados do Grupo 4 (576 características) na proporção 60/40 (36 exames
+ para treino, 34 para teste).
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:results:g4_6040"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Tabular
+<lyxtabular version="3" rows="7" columns="4">
+<features rotate="0" tabularvalignment="middle">
+<column alignment="decimal" decimal_point="." valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell multicolumn="1" alignment="decimal" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Acurácia
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sensibilidade
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Especificidade
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Método
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Média~Desvio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Média~Desvio
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Média~Desvio
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Sem redução
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+48,4% ~ 8,1%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+24,4% ~ 24,0%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+72,3% ~ 30,5%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PCA, C=40
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+49,1% ~ 8,9%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+25,6% ~ 24,8%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+72,7% ~ 30,0%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PCA, C=20
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+46,9% ~ 8,9%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+23,6% ~ 23,2%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+70,3% ~ 30,7%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+LDA, L=1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+82,6% ~ 8,8% 
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+81,7% ~ 14,2%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+83,4% ~ 13,5%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="decimal" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+PCA+LDA, C= 40, L=1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+83,1% ~ 8,7%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+80,1% ~ 14.8%
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\series bold
+86,1% ~ 13,2%
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Devido a pequena base de exames, outras proporções de separação não foram
+ utilizadas, pois a base de treino fica extramente reduzida, não sendo o
+ suficiente para gerar um bom modelo SVM.
+\end_layout
+
+\begin_layout Standard
+Nota-se um alto valor de desvio padrão na execução dos testes, o que pode
+ ser relacionado ao tamanho reduzido da base.
  A escolha dos indivíduos para treino e teste tem grande influência no resultado
 , onde algumas iterações apresentam 100% de acurácia, o que indica que a
  base de treino foi bem representativa.
@@ -8194,9 +8543,40 @@ Sobre as técnicas de redução de características apresentadas, nota-se que
 \end_layout
 
 \begin_layout Standard
-Os resultados mostrados são promissores e com a utilização de novas característi
-cas e utilização de uma base com maior quantidade de casos, os resultados
- podem melhorar substancialmente.
+Outros valores para 
+\begin_inset Formula $C$
+\end_inset
+
+ no caso PCA foram testados, porém os demonstrados nos resultados foram
+ os que apresentaram os melhores resultados, em especial na combinação com
+ o LDA.
+ Já o parâmetro 
+\begin_inset Formula $L$
+\end_inset
+
+ do LDA é limitado pela quantidade de classes no problema, pois a quantidade
+ de discriminantes significativos gerados sempre é a igual a quantidade
+ de classes menos um.
+ Portanto para o caso de classificação binária, apenas um discriminante
+ é utilizado.
+ 
+\end_layout
+
+\begin_layout Standard
+Os resultados mostrados são promissores devido a simplicidade das técnicas
+ aplicadas.
+ Técnicas mais robustas para extração de características podem apresentar
+ melhores resultados.
+ 
+\end_layout
+
+\begin_layout Standard
+Um fator de bastante influência é a quantidade relativamente pequena de
+ exames TID utilizados na metodologia.
+ No total, foram utilizados 70 exames, sendo 35 saudáveis e 35 com alguma
+ lesão.
+ É possível que uma base maior apresente melhores resultados, pois existiriam
+ mais casos para treinar o modelo SVM.
 \end_layout
 
 \begin_layout Chapter
@@ -8214,25 +8594,106 @@ name "chap:Conclusão"
 A metodologia apresenta uma forma de auxiliar médicos especialistas na detecção
  do câncer de mama.
  O objetivo não é indicar o local suspeito, apenas dizer se um determinado
- paciente apresenta ou não algum tipo de anomalia na região das mamas.
+ paciente apresenta ou não algum tipo de lesão na região das mamas.
  
 \end_layout
 
 \begin_layout Standard
-A termografia é um exame que não deve ser utilizado isoladamente para a
- detecção desse tipo de câncer, mas em conjunto com outros tipos de exame,
- como a mamografia.
- A vantagem desse tipo de imagem é que o equipamento utilizado para extração
- das imagens é fácil de carregar, permitindo a locomoção para diferentes
- lugares.
- Apesar disso, é necessário um ambiente controlado na etapa de extração
- das imagens.
+É importante ressaltar que a termografia não deve ser utilizado isoladamente
+ para a detecção desse tipo de câncer, mas deve ser utilizada como um exame
+ complementar aos demais, como a mamografia.
+ 
 \end_layout
 
 \begin_layout Standard
-A metodologia possui resultados promissores, apresentando 83,1% de acurácia,
- 80,1% de sensibilidade e 86,1% de especificidade.
+A vantagem desse tipo de imagem é a forma como é adquirida, pois não utiliza
+ nenhum forma de radiação ionizante e não causa desconforto físico na paciente.
+ Outra vantagem é o que equipamento (câmera térmica) é relativamente mais
+ barato que um mamógrafo e é de fácil locomoção, tornando ideal como um
+ exame de triagem em populações residentes em locais menos acessíveis.
+\end_layout
+
+\begin_layout Standard
+Este trabalho apresentou um método para diagnóstico assistido de lesões
+ mamárias através de exames termográficos dinâmicos, utilizando representações
+ estatísticas da TID e características de textura baseadas em GLCM das represent
+ações geradas.
+ Os testes foram divididos de acordo com o método de redução de características
+ utilizado, onde para cada método aplicou-se a etapa de classificação 100
+ vezes consecutivas, analisando a média e desvio padrão dos resultados adquirido
+s.
+ Em cada uma das 100 classificações, a base é dividida aleatoriamente, seguindo
+ as proporções 80/20% e 60/40% para treino e teste.
  
+\end_layout
+
+\begin_layout Standard
+Os resultados apresentados no Capítulo 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "chap:Resultados"
+
+\end_inset
+
+ demonstram desempenho promissor na tarefa de classificação.
+ Em todos os testes executados, a combinação do PCA e LDA como técnica de
+ redução de características, consegui melhorar o desempenho de forma substancial
+, onde o melhor resultado encontrado atingiu 84,7% de acurácia, 86,1% de
+ sensibilidade e 83,3% de especificidade.
+ 
+\end_layout
+
+\begin_layout Standard
+Analisando a metodologia por partes, percebemos que:
+\end_layout
+
+\begin_layout Itemize
+A composição da técnica de registro de imagens apresentada na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:methodology:image_registration"
+
+\end_inset
+
+ demonstrou bons resultados para o problema da correção de postura entre
+ os tempos da paciente.
+ Porém, outras técnicas ou composições do registro de imagem podem apresentar
+ resultados superiores.
+ Um estudo mais aprofundado sobre problema pode ser feito para avaliar qual
+ a melhor forma para resolvê-lo.
+\end_layout
+
+\begin_layout Itemize
+As representações de uma TID geradas na Seção 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:methodology:fps"
+
+\end_inset
+
+ já apresentam uma forma de auxiliar médicos especialistas na detecção de
+ lesões, pois tornam visíveis características do exame que não seriam possíveis
+ de perceber apenas com a visualização a olho nu da sequência de termogramas.
+ Outros valores podem gerar representações que adicionei mais informações
+ importantes, tornando o método mais robusto, se utilizado em conjunto com
+ as já existentes.
+\end_layout
+
+\begin_layout Itemize
+Das técnicas de redução de características, a combinação do PCA e LDA demonstrou
+ grande valor para melhorar o processo de classificação, corrigindo principalmen
+te os baixos valores de sensibilidade apresentados.
+\end_layout
+
+\begin_layout Standard
+A metodologia apresentada ainda encontra-se em fase de desenvolvimento,
+ podendo alcançar resultados melhores em um futuro próximo.
+\end_layout
+
+\begin_layout Standard
+Por fim, o trabalho apresenta resultados promissores, que podem ajudar médicos
+ especialistas no diagnóstico precoce do câncer de mama (e outras doenças),
+ aumentando as chances de cura em mulheres atingidas por essa patologia.
 \end_layout
 
 \begin_layout Section
@@ -8240,24 +8701,29 @@ Trabalhos Futuros
 \end_layout
 
 \begin_layout Standard
-O maior impasse na metodologia é pequena base de imagens disponível.
- Foram utilizadas apenas 70 imagens na metodologia, longe da quantidade
- ideal para algoritmos de aprendizado de máquina.
- Com a obtenção de uma base maior, é possível que os resultados melhores
- de forma substancial.
+Devido a metodologia ainda estar em fase de desenvolvimento, as técnicas
+ utilizadas podem ser revisadas e substituídas por outras novas.
+ Portando, segue os seguintes tópicos de estudo propostos:
+\end_layout
+
+\begin_layout Itemize
+Realizar um estudo detalhado sobre qual a melhor técnica de correção de
+ postura em exames termográfica dinâmicos das mamas.
  
 \end_layout
 
-\begin_layout Standard
-Novos formas de discriminar exames saudáveis de exames doentes também devem
- ser estudadas, com o objetivo de incluí-las na metodologia, deixando-a
- mais robusta e mais precisa.
+\begin_layout Itemize
+Estudar novos valores estatísticos capazes de gerar boas representações
+ de uma TID.
 \end_layout
 
-\begin_layout Standard
-Um estudo sobre qual a melhor técnica de registro para o problema de correção
- da postura em uma TID também pode ser efetuado, já que o registro é uma
- técnica custosa e influência drasticamente os resultados finais.
+\begin_layout Itemize
+Estudar novas características que possam ser extraídas das representações.
+\end_layout
+
+\begin_layout Itemize
+Adquirir mais exames, aumentando a base de dados e posteriormente tornando
+ a metodologia mais robusta e menos suscetível à erros.
 \end_layout
 
 \begin_layout Standard
