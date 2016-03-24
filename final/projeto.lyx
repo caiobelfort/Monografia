@@ -11,6 +11,10 @@
 \clubpenalty=10000  % Para evitar linhas orfas
 \widowpenalty=10000 % Para evitar linhas viuvas
 \hyphenpenalty=10000 % Para não hifenizar
+
+\counterwithout{equation}{chapter}
+\counterwithout{table}{part}
+\setlength{\parindent}{1.3cm}
 \end_preamble
 \use_default_options true
 \maintain_unincluded_children false
@@ -263,7 +267,213 @@ Folha de Aprovação
 \end_layout
 
 \begin_layout Standard
-FOLHA DE APROVACAO
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+ABNTEXchapterfont 
+\backslash
+large 
+\backslash
+imprimirautor}
+\backslash
+
+\backslash
+[3.0cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+{
+\backslash
+ABNTEXchapterfont 
+\backslash
+bfseries 
+\backslash
+large 
+\backslash
+imprimirtitulo}
+\backslash
+
+\backslash
+[1.50cm]
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace{.45
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{minipage}{.5
+\backslash
+textwidth}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+SingleSpacing
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+imprimirpreambulo
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{minipage}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+Aprovada em :  
+\backslash
+ 
+\backslash
+ 
+\backslash
+ 
+\backslash
+ /  
+\backslash
+ 
+\backslash
+ 
+\backslash
+ 
+\backslash
+  /
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+BANCA EXAMINADORA
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+assinatura{
+\backslash
+imprimirorientador 
+\backslash
+
+\backslash
+ Doutor em Informática 
+\backslash
+
+\backslash
+ Universidade Federal do Maranhão}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+assinatura{Prof.
+ Dr.
+ João Dallyson Sousa de Almeida 
+\backslash
+
+\backslash
+ Doutor em Engenharia de Eletricidade 
+\backslash
+
+\backslash
+ Universidade Federal do Maranhão}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+assinatura{Prof.
+ Ms.
+ Stelmo Magalhães Barros Netto 
+\backslash
+
+\backslash
+ Mestre em Engenharia de Eletricidade 
+\backslash
+
+\backslash
+ Universidade Federal do Maranhão}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+vfill
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+imprimirlocal
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+imprimirdata
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -316,10 +526,10 @@ E a todos que contribuíram direta ou indiretamente para a elaboração deste
 
 \begin_layout Resumo
 A termografia das mamas é um exame de imagem que utiliza a radiação infravermelh
-a emitida naturalmente pelo corpo da paciente para detecção de anomalias.
- Possui a capacidade de detectar o câncer de mama mais precocemente que
- a mamografia, sem causar nenhum efeito colateral ou incômodo físico na
- paciente.
+a emitida naturalmente pelo corpo da paciente para detecção de lesões.
+ Possui a capacidade de detectar o câncer de mama de forma mais precoce
+ do que a mamografia, sem causar nenhum efeito colateral ou incômodo físico
+ na paciente.
  O processamento de imagens médicas é uma área que vem ganhando destaque
  recentemente, pois metodologias de diagnóstico automático podem auxiliar
  médicos especialistas na detecção de doenças de forma precoce, aumentando
@@ -328,21 +538,25 @@ a emitida naturalmente pelo corpo da paciente para detecção de anomalias.
 ias dinâmicas da mama, como forma de auxiliar médicos especialistas no diagnósti
 co de doenças relacionadas ao tecido mamário.
  O registro de imagens é utilizado para efetuar a correção do erro de postura
- entre os diversos tempos de uma termografia dinâmica.
+ entre as diversos sequências de uma termografia dinâmica.
  Valores estatísticos são utilizados para medir a variação de temperatura
- entre os tempos, formando novas imagens a partir da termografia original.
+ entre as sequências, formando representações da termografia original.
  Em seguida a extração de características de textura é efetuada em cada
- imagem estatística, formando um conjunto de valores conhecido como vetor
- de características.
- O vetor de característica é reduzido com de técnicas de redução de dimensionali
-dade, para posteriormente servir de entrada para uma máquina de vetor de
- suporte que irá efetuar a classificação em mama saudável ou anormal.
+ representação, formando um conjunto de valores conhecido como vetor de
+ características.
+ Técnicas de redução de características são aplicadas no vetor de característica
+s que irá servir de entrada para uma máquina de vetores de suporte que irá
+ efetuar a classificação em mama saudável ou com lesão.
  A metodologia apresenta 84,7% de acurácia, 86,1% de sensibilidade e 83,3%
  de especificidade.
 \end_layout
 
 \begin_layout Resumo
-Palavras chave: Câncer, Mama, Termografia, Aprendizado de Máquina
+
+\series bold
+Palavras chave:
+\series default
+ Câncer, Mama, Termografia, Aprendizado de Máquina
 \end_layout
 
 \begin_layout Standard
@@ -364,7 +578,7 @@ status open
 \end_inset
 
 The breast thermography is an image exam that uses the infrared radiation
- emitted naturally by the body of the patient to detect anomalies.
+ emitted naturally by the body of the patient to detect lesions.
  It has the ability to detect breast cancer earlier than mammography, without
  causing any side effects or physical discomfort to the patient.
  The medical image processing is an area that has been gaining attention
@@ -374,20 +588,24 @@ The breast thermography is an image exam that uses the infrared radiation
  thermography, in order to help physicians in the early diagnosis of breast
  diseases.
  The image registration is used to apply the correction in posture between
- the times of a dynamic thermography.
+ the sequences of a dynamic thermography.
  Statistical values are used to measure the temperature variation between
- the times, forming new images derived from the original exam.
+ the sequences, forming represantations of the original thermography.
  Then the extraction of texture features is performed for each statistical
  image, forming a set of values known as feature vector.
- The feature vector is reduced with dimensionality reduction techniques,
- for serve as input for a support vector machine that will perform the classific
-ation as healthy or abnormal breast.
+ Features reduction techniques are applied to the feature vector that will
+ be input into a support vector machine that will perform the classification
+ in healthy breast or with lesion.
  The methodology presents 84,7% of accuracy, 86,1% of sensitivity and 83,3%
  of specitivity.
 \end_layout
 
 \begin_layout Resumo
-Keywords: Cancer, Breast, Thermography, Machine Learning
+
+\series bold
+Keywords:
+\series default
+ Cancer, Breast, Thermography, Machine Learning
 \end_layout
 
 \begin_layout Standard
@@ -703,7 +921,7 @@ name "sec:Objetivos"
 \end_layout
 
 \begin_layout Standard
-Desenvolver uma metodologia computacional que analise um exame termográfico
+Desenvolver uma metodologia computacional que analíse um exame termográfico
  dinâmico das mamas, a fim de encontrar padrões que diferenciem mamas saudáveis
  de mamas com algum tipo de lesão.
  
@@ -733,7 +951,7 @@ Desenvolver técnicas que permitam a correção de postura em exames termográfi
 \begin_layout Itemize
 Analisar a variação de temperatura entre os diferentes tempos do exame,
  gerando características que sejam capazes de diferenciar os pacientes saudáveis
- e doentes.
+ e com lesão.
 \end_layout
 
 \begin_layout Itemize
@@ -1547,9 +1765,9 @@ name "sec:fundamentation:image_registration:transform:bspline"
 
 \begin_layout Standard
 Um dos tipos de transformações não-rígidas mais comuns atualmente são as
- chamadas transformações 
+ chamadas transformações por
 \emph on
-por 
+ 
 \emph default
 B-splines cúbicas 
 \begin_inset CommandInset citation
@@ -4194,7 +4412,7 @@ status open
 
 \begin_layout Plain Layout
 Termogramas de tempos distintos.
- Tons mais claros denotam uma maior diferença entre as regiões.
+ Tons mais claros em (c) grande diferença entre as regiões.
  
 \end_layout
 
@@ -4399,8 +4617,8 @@ reference "sec:fundamentation:image_registration:otimizator:lbfgs"
 
 \begin_layout Standard
 Utilizando a primeira sequência do conjunto de termogramas como imagem fixa,
- o processo é aplicado para cada termograma restante fazendo o papel de
- imagem móvel, resultando em 19 aplicações sucessivas.
+ o processo é aplicado para cada sequência restante fazendo o papel de imagem
+ móvel, resultando em 19 aplicações sucessivas.
  Após a aplicação do registro, os erros de postura são corrigidos, permitindo
  que as sequências de uma TID sejam analisadas e comparadas.
 \end_layout
@@ -5861,56 +6079,8 @@ reference "tab:results:g4_8020"
 
 \end_inset
 
- que possui um desvio padrão de 30% na especificidade para o teste sem aplicação
+ que possui um desvio padrão de 29% na especificidade para o teste sem aplicação
  da redução.
-\end_layout
-
-\begin_layout Standard
-O PCA não apresenta um bom desempenho quando aplicado sozinho no conjunto
- de características.
- Em certas ocasiões possui um resultado até pior que os testes aplicados
- sem utilização da redução.
- Apesar disso, a utilização do PCA com os 40 melhores PCs se mostrou superior
- em relação a utilização com os 20 melhores PCs.
-\end_layout
-
-\begin_layout Standard
-O LDA conseguiu melhorar substancialmente a sensibilidade média dos resultados.
- Também foi capaz de melhorar o desvio padrão para a sensibilidade de especifici
-dade.
- Outro fator notável é que a utilização de mais características, tende a
- melhorar o resultado de forma tímida.
- 
-\end_layout
-
-\begin_layout Standard
-A técnica que conseguiu o melhor resultado foi a aplicação conjunto do PCA
- seguido do LDA.
- Primeiramente a redução é feita através de PCA com os 40 melhores PCs,
- seguido da aplicação do LDA no conjunto de características gerados pelo
- PCA.
- Em todos os grupos, temos uma sensibilidade médias acima dos 80%.
- 
-\end_layout
-
-\begin_layout Standard
-Nas Tabelas 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:results:g1_8020"
-
-\end_inset
-
--
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "tab:results:g4_8020"
-
-\end_inset
-
- O grupo 3 (480 características originais) foi o que apresentou os melhores
- resultados gerais, onde a técnica de redução do PCA combinado com LDA apresento
-u resultados bem superiores aos demais grupos estudados.
 \end_layout
 
 \begin_layout Standard
@@ -5918,7 +6088,7 @@ u resultados bem superiores aos demais grupos estudados.
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6238,7 +6408,7 @@ PCA+LDA, C= 40, L=1
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6558,7 +6728,7 @@ PCA+LDA, C= 40, L=1
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6878,7 +7048,7 @@ PCA+LDA, C=40, L=1
 placement H
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7194,6 +7364,36 @@ PCA+LDA, C= 40, L=1
 \end_layout
 
 \begin_layout Standard
+O PCA não apresenta um bom desempenho quando aplicado sozinho no conjunto
+ de características.
+ Em certas ocasiões possui um resultado até pior que os testes aplicados
+ sem utilização da redução.
+ Apesar disso, a utilização do PCA com os 40 melhores PCs se mostrou superior
+ em relação a utilização com os 20 melhores PCs.
+\end_layout
+
+\begin_layout Standard
+O LDA conseguiu melhorar substancialmente a sensibilidade média dos resultados.
+ Também foi capaz de melhorar o desvio padrão para a sensibilidade e especificid
+ade.
+ Outro fator notável é que a utilização de mais características, tende a
+ melhorar o resultado de forma tímida.
+ 
+\end_layout
+
+\begin_layout Standard
+A técnica que conseguiu o melhor resultado foi a aplicação conjunto do PCA
+ seguido do LDA.
+ Primeiramente a redução é feita através de PCA com os 40 melhores PCs,
+ seguido da aplicação do LDA no conjunto de características gerados pelo
+ PCA.
+ Em todos os grupos, temos uma sensibilidade médias acima dos 80%.
+ O grupo 3 (480 características originais) foi o que apresentou os melhores
+ resultados para a propoção 80/20%, onde a técnica de redução do PCA combinado
+ com LDA apresentou resultados bem superiores aos demais grupos estudados.
+\end_layout
+
+\begin_layout Standard
 As Tabelas 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -7213,8 +7413,8 @@ reference "tab:results:g4_6040"
 \end_layout
 
 \begin_layout Standard
-As técnicas de redução agem da mesma forma que o apresentado para a proporção
- 80/20.
+As técnicas de redução agem da mesma forma que o apresentado na proporção
+ 80/20%.
  Em especial a Tabela 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -8547,9 +8747,8 @@ Outros valores para
 \begin_inset Formula $C$
 \end_inset
 
- no caso PCA foram testados, porém os demonstrados nos resultados foram
- os que apresentaram os melhores resultados, em especial na combinação com
- o LDA.
+ no caso PCA foram testados, porém os valores mostrados foram os que apresentara
+m os melhores resultados, em especial na combinação com o LDA.
  Já o parâmetro 
 \begin_inset Formula $L$
 \end_inset
@@ -8599,9 +8798,9 @@ A metodologia apresenta uma forma de auxiliar médicos especialistas na detecç�
 \end_layout
 
 \begin_layout Standard
-É importante ressaltar que a termografia não deve ser utilizado isoladamente
- para a detecção desse tipo de câncer, mas deve ser utilizada como um exame
- complementar aos demais, como a mamografia.
+É importante ressaltar que a termografia não deve ser utilizada isoladamente
+ para a detecção desse tipo de câncer, mas como um exame complementar aos
+ demais, como a mamografia.
  
 \end_layout
 
@@ -8619,10 +8818,10 @@ Este trabalho apresentou um método para diagnóstico assistido de lesões
  estatísticas da TID e características de textura baseadas em GLCM das represent
 ações geradas.
  Os testes foram divididos de acordo com o método de redução de características
- utilizado, onde para cada método aplicou-se a etapa de classificação 100
+ utilizado, onde para cada método, aplicou-se a etapa de classificação 100
  vezes consecutivas, analisando a média e desvio padrão dos resultados adquirido
 s.
- Em cada uma das 100 classificações, a base é dividida aleatoriamente, seguindo
+ Em cada uma das 100 iterações, a base é dividida aleatoriamente, seguindo
  as proporções 80/20% e 60/40% para treino e teste.
  
 \end_layout
@@ -8637,14 +8836,14 @@ reference "chap:Resultados"
 
  demonstram desempenho promissor na tarefa de classificação.
  Em todos os testes executados, a combinação do PCA e LDA como técnica de
- redução de características, consegui melhorar o desempenho de forma substancial
-, onde o melhor resultado encontrado atingiu 84,7% de acurácia, 86,1% de
+ redução de características, conseguiu melhorar o desempenho de forma substancia
+l, onde o melhor resultado encontrado atingiu 84,7% de acurácia, 86,1% de
  sensibilidade e 83,3% de especificidade.
  
 \end_layout
 
 \begin_layout Standard
-Analisando a metodologia por partes, percebemos que:
+Analisando a metodologia por partes, nota-se que:
 \end_layout
 
 \begin_layout Itemize
@@ -8659,8 +8858,8 @@ reference "sec:methodology:image_registration"
  os tempos da paciente.
  Porém, outras técnicas ou composições do registro de imagem podem apresentar
  resultados superiores.
- Um estudo mais aprofundado sobre problema pode ser feito para avaliar qual
- a melhor forma para resolvê-lo.
+ Um estudo mais aprofundado sobre o problema pode ser feito para avaliar
+ qual a melhor forma para resolvê-lo.
 \end_layout
 
 \begin_layout Itemize
@@ -8671,9 +8870,10 @@ reference "sec:methodology:fps"
 
 \end_inset
 
- já apresentam uma forma de auxiliar médicos especialistas na detecção de
- lesões, pois tornam visíveis características do exame que não seriam possíveis
- de perceber apenas com a visualização a olho nu da sequência de termogramas.
+, já apresentam uma forma de auxiliar médicos especialistas na detecção
+ de lesões, pois tornam visíveis características do exame que não seriam
+ possíveis de perceber apenas com a visualização a olho nu da sequência
+ de termogramas.
  Outros valores podem gerar representações que adicionei mais informações
  importantes, tornando o método mais robusto, se utilizado em conjunto com
  as já existentes.

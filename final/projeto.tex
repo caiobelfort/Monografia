@@ -1,70 +1,52 @@
-\documentclass[
-% -- opções da classe memoir --
-12pt,				% tamanho da fonte
-% openright,			% capítulos começam em pág ímpar (insere página vazia caso preciso)
-oneside,			% para impressão apenas no anverso (apenas frente). Oposto a twoside
-a4paper,			% tamanho do papel. 
-% -- opções da classe abntex2 --
-%chapter=TITLE,		% títulos de capítulos convertidos em letras maiúsculas
-%section=TITLE,		% títulos de seções convertidos em letras maiúsculas
-%subsection=TITLE,	% títulos de subseções convertidos em letras maiúsculas
-%subsubsection=TITLE,% títulos de subsubseções convertidos em letras maiúsculas
-% -- opções do pacote babel --
-english,			% idioma adicional para hifenização
-%french,				% idioma adicional para hifenização
-%spanish,			% idioma adicional para hifenização
-brazil				% o último idioma é o principal do documento
-]{abntex2ppgsi}
+%% LyX 2.1.4 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[12pt,oneside,brazil,oldfontcommands]{abntex2}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=2cm,lmargin=3cm,rmargin=2cm}
+\pagestyle{plain}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
+\setlength{\parskip}{\medskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{float}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{accents}
+\usepackage{graphicx}
+\setSpacing{1.5}
 
-% ---
-% Pacotes básicos 
-% ---
-% \usepackage{lmodern}			% Usa a fonte Latin Modern			
-\usepackage[T1]{fontenc}		% Selecao de codigos de fonte.
-\usepackage[latin19]{inputenc}		% Codificacao do documento (conversão automática dos acentos)
-\usepackage{lastpage}			% Usado pela Ficha catalográfica
-\usepackage{indentfirst}		% Indenta o primeiro parágrafo de cada seção.
-\usepackage{color}				% Controle das cores
-\usepackage{graphicx}			% Inclusão de gráficos
-\usepackage{microtype} 			% para melhorias de justificação
-\usepackage{pdfpages}     %para incluir pdf
-\usepackage{algorithm}			%para ilustrações do tipo algoritmo
-\usepackage{mdwlist}			%para itens com espaço padrão da abnt
-\usepackage[noend]{algpseudocode}			%para ilustrações do tipo algoritmo
+\makeatletter
 
-% ---
-% Pacotes adicionais, usados apenas no âmbito do Modelo Canônico do abnteX2
-% ---
-\usepackage{lipsum}				% para geração de dummy text
-% ---
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\newcommand{\docedilla}[2]{\underaccent{#1\mathchar'30}{#2}}
+\newcommand{\cedilla}[1]{\mathpalette\docedilla{#1}}
 
-% ---
-% Pacotes de citações
-% ---
-\usepackage[brazilian,hyperpageref]{backref}	 % Paginas com as citações na bibl
-\usepackage[alf]{abntex2cite}	% Citações padrão ABNT
+%% Because html converters don't know tabularnewline
+\providecommand{\tabularnewline}{\\}
 
-% --- 
-% CONFIGURAÇÕES DE PACOTES
-% --- 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 
-% ---
-% Configurações do pacote backref
-% Usado sem a opção hyperpageref de backref
-\renewcommand{\backrefpagesname}{Citado na(s) página(s):~}
-% Texto padrão antes do número das páginas
-\renewcommand{\backref}{}
-% Define os textos da citação
-\renewcommand*{\backrefalt}[4]{
-	\ifcase #1 %
-	Nenhuma citação no texto.%
-	\or
-	Citado na página #2.%
-	\else
-	Citado #1 vezes nas páginas #2.%
-	\fi}%
-% ---
+\usepackage{custom}
 
+\sloppy
+\clubpenalty=10000  % Para evitar linhas orfas
+\widowpenalty=10000 % Para evitar linhas viuvas
+\hyphenpenalty=10000 % Para não hifenizar
+
+\counterwithout{equation}{chapter}
+\counterwithout{table}{part}
+\setlength{\parindent}{1.3cm}
+
+\@ifundefined{showcaptionsetup}{}{%
+ \PassOptionsToPackage{caption=false}{subfig}}
+\usepackage{subfig}
+\makeatother
+
+\usepackage{babel}
 \begin{document}
 
 
@@ -77,7 +59,7 @@ DE CIÊNCIA DA COMPUTAÇÃO}
 
 
 \titulo{Análise e Classificação de Termografias Dinâmicas da Mama Utilizando
-a Variação de Temperatura e Máquina de Vetor de Suporte}
+a Variação de Temperatura e Máquina de Vetores de Suporte}
 
 
 \local{São Luís}
@@ -113,7 +95,25 @@ FICHA CATALOGRAFICA
 
 
 
-FOLHA DE APROVACAO
+\begin{center}
+{\ABNTEXchapterfont \large \imprimirautor}\\[3.0cm]
+{\ABNTEXchapterfont \bfseries \large \imprimirtitulo}\\[1.50cm]
+\hspace{.45\textwidth}
+\begin{minipage}{.5\textwidth}
+\SingleSpacing
+\imprimirpreambulo
+\end{minipage}
+\end{center}
+Aprovada em :  \ \ \ \ /  \ \ \ \  /
+\begin{center}
+BANCA EXAMINADORA
+\assinatura{\imprimirorientador \\ Doutor em Informática \\ Universidade Federal do Maranhão}
+\assinatura{Prof. Dr. João Dallyson Sousa de Almeida \\ Doutor em Engenharia de Eletricidade \\ Universidade Federal do Maranhão}
+\assinatura{Prof. Ms. Stelmo Magalhães Barros Netto \\ Mestre em Engenharia de Eletricidade \\ Universidade Federal do Maranhão}
+\vfill
+\imprimirlocal\\
+\imprimirdata
+\end{center}
 
 \newpage{}
 \begin{agradecimentos}
@@ -132,7 +132,7 @@ Federal do Maranhão pelo conhecimento passado durante as disciplinas.
 Aos amigos e colegas do curso em especial para João, Caio, Jefferson
 e Giovanni pelo apoio durante a graduação.
 
-Aos amigos do Núcleo de Computação Aplicada.
+Aos amigos do Núcleo de Computação Aplicada e LabPai.
 
 A FAPEMA pelo apoio financeiro durante a iniciação científica.
 
@@ -144,8 +144,8 @@ deste trabalho.\end{agradecimentos}
 \begin{resumo}
 A termografia das mamas é um exame de imagem que utiliza a radiação
 infravermelha emitida naturalmente pelo corpo da paciente para detecção
-de anomalias. Possui a capacidade de detectar o câncer de mama mais
-precocemente que a mamografia, sem causar nenhum efeito colateral
+de lesões. Possui a capacidade de detectar o câncer de mama de forma
+mais precoce do que a mamografia, sem causar nenhum efeito colateral
 ou incômodo físico na paciente. O processamento de imagens médicas
 é uma área que vem ganhando destaque recentemente, pois metodologias
 de diagnóstico automático podem auxiliar médicos especialistas na
@@ -154,24 +154,25 @@ Este trabalho apresenta uma metodologia de processamento e análise
 de termografias dinâmicas da mama, como forma de auxiliar médicos
 especialistas no diagnóstico de doenças relacionadas ao tecido mamário.
 O registro de imagens é utilizado para efetuar a correção do erro
-de postura entre os diversos tempos de uma termografia dinâmica. Valores
-estatísticos são utilizados para medir a variação de temperatura entre
-os tempos, formando novas imagens a partir da termografia original.
+de postura entre as diversos sequências de uma termografia dinâmica.
+Valores estatísticos são utilizados para medir a variação de temperatura
+entre as sequências, formando representações da termografia original.
 Em seguida a extração de características de textura é efetuada em
-cada imagem estatística, formando um conjunto de valores conhecido
-como vetor de características. O vetor de característica é reduzido
-com de técnicas de redução de dimensionalidade, para posteriormente
-servir de entrada para uma máquina de vetor de suporte que irá efetuar
-a classificação em mama saudável ou anormal. A metodologia apresenta
-83,1\% de acurácia, 80,1 \% de sensibilidade e 86,1\% de especificidade.
+cada representação, formando um conjunto de valores conhecido como
+vetor de características. Técnicas de redução de características são
+aplicadas no vetor de características que irá servir de entrada para
+uma máquina de vetores de suporte que irá efetuar a classificação
+em mama saudável ou com lesão. A metodologia apresenta 84,7\% de acurácia,
+86,1\% de sensibilidade e 83,3\% de especificidade.
 
-Palavras chave: Câncer, Mama, Termografia, Aprendizado de Máquina
+\textbf{Palavras chave:} Câncer, Mama, Termografia, Aprendizado de
+Máquina
 \end{resumo}
 \newpage{}
 \begin{resumo}
 [Abstract]The breast thermography is an image exam that uses the
 infrared radiation emitted naturally by the body of the patient to
-detect anomalies. It has the ability to detect breast cancer earlier
+detect lesions. It has the ability to detect breast cancer earlier
 than mammography, without causing any side effects or physical discomfort
 to the patient. The medical image processing is an area that has been
 gaining attention recently because automatic diagnostic methodologies
@@ -179,17 +180,18 @@ can help specialists in detecting diseases in early stages, increasing
 the chances of cure. This work presents a processing and analysis
 methodology of dynamic breast thermography, in order to help physicians
 in the early diagnosis of breast diseases. The image registration
-is used to apply the correction in posture between the times of a
-dynamic thermography. Statistical values are used to measure the temperature
-variation between the times, forming new images derived from the original
-exam. Then the extraction of texture features is performed for each
-statistical image, forming a set of values known as feature vector.
-The feature vector is reduced with dimensionality reduction techniques,
-for serve as input for a support vector machine that will perform
-the classification as healthy or abnormal breast. The methodology
-presents 83,1\% of accuracy, 80,1\% of sensitivy and 86,1\% of specitivity.
+is used to apply the correction in posture between the sequences of
+a dynamic thermography. Statistical values are used to measure the
+temperature variation between the sequences, forming represantations
+of the original thermography. Then the extraction of texture features
+is performed for each statistical image, forming a set of values known
+as feature vector. Features reduction techniques are applied to the
+feature vector that will be input into a support vector machine that
+will perform the classification in healthy breast or with lesion.
+The methodology presents 84,7\% of accuracy, 86,1\% of sensitivity
+and 83,3\% of specitivity.
 
-Keywords: Cancer, Breast, Thermography, Machine Learning
+\textbf{Keywords:} Cancer, Breast, Thermography, Machine Learning
 \end{resumo}
 \newpage{}
 
@@ -221,10 +223,10 @@ tardiamente, as chances de cura são extremamente reduzidas, tornando
 o diagnóstico precoce um dos fatores mais importantes na redução da
 taxa de mortalidade desse tipo de doença. 
 
-A incidência câncer de mama aumenta em paralelo com o aumento da faixa
-etária, sendo que mulheres acima de 50 anos são mais suscetíveis ao
-desenvolvimento da patologia. No entanto, existem outros fatores de
-risco que implicam numa maior chance de aparecimento, como o histórico
+A incidência do câncer de mama aumenta em paralelo com o aumento da
+faixa etária, sendo que mulheres acima de 50 anos são mais suscetíveis
+ao desenvolvimento da patologia. No entanto, existem outros fatores
+de risco que implicam numa maior chance de aparecimento, como o histórico
 desse tipo de câncer na família, gestação tardia, terapia de reposição
 hormonal e exposição à radiação. 
 
@@ -237,22 +239,21 @@ para detectar regiões de alta densidade nas mamas.
 
 Apesar de ser o tipo de exame mais recomendado pelos especialistas,
 a mamografia é suscetível a falhas, já que mamas com alta densidade
-apresentam um grau de dificuldade elevado na detecção de tumores,
-que podem ficar escondidos pelo tecido denso da mama. Mulheres jovens
+apresentam um grau de dificuldade elevado na detecção de lesões, que
+podem ficar escondidas pelo tecido denso da mama. Mulheres jovens
 geralmente apresentam alta densidade nas mamas, tornando a mamografia
 um exame não recomendável para essa faixa etária, pois utiliza a radiação
-na geração das imagens, o que pode futuramente causar o aparecimento
-do câncer na paciente. Dessa forma é necessário que outros tipos de
-exames sejam utilizados como forma de prevenção e diagnóstico precoce.
+na geração das imagens. Dessa forma é necessário que outros tipos
+de exames sejam utilizados como forma de prevenção e diagnóstico precoce.
 
 A termografia mamária é um exame de imagem não radioativo capaz de
-auxiliar médicos especialistas na detecção de tumores que não seriam
+auxiliar médicos especialistas na detecção de lesões que não seriam
 possíveis de descobrir através da mamografia. Esse tipo de exame utiliza
 a radiação infravermelha, emitida naturalmente pelo corpo da paciente,
 para detectar anomalias no padrão de temperatura das mamas, que pode
-indicar o aparecimento de alguma doênça.
+indicar o aparecimento de alguma lesão.
 
-Regiões próximas a um tumor tendem a ter um aumento na vascularização,
+Regiões próximas de um tumor apresentam aumento na vascularização,
 ocorrendo uma maior circulação de sangue na região, que causará um
 aumento de temperatura em relação as outras regiões da mama. Esse
 aumento de temperatura é detectável através da termografia, permitindo
@@ -267,13 +268,6 @@ que o especialista analise a evolução na distribuição de calor nas
 mamas da paciente. A metodologia proposta utiliza as termografias
 dinâmicas para auxiliar médicos especialistas no diagnóstico precoce
 do câncer de mama. 
-
-A motivação deste trabalho é ajudar médicos especialistas no diagnóstico
-precoce do câncer de mama, portanto qualquer informação que possa
-discriminar mamas saudáveis de mamas doentes é relevante. Várias técnicas
-de Processamento de Imagens e Aprendizado de Máquina são utilizadas
-para aumentar o nível de informação que uma termografia pode dar ao
-especialista.
 
 Durante um exame de termografia dinâmico, a paciente executa movimentos
 involuntários, causados pela respiração e pelo ajuste de postura,
@@ -297,8 +291,8 @@ Essas características podem ser reduzidas através de técnicas de redução
 de características como a técnica de Análise dos Componentes Principais
 e a Análise Discriminante Linear\emph{. }No final do processo, as
 características reduzidas irão servir de entrada para uma Máquina
-de Vetor de Suporte que irá ser responsável por classificar as pacientes
-em saudável e com anomalia.
+de Vetores de Suporte que irá ser responsável por classificar as pacientes
+em saudável e com lesão.
 
 
 \section{Motivação}
@@ -322,11 +316,11 @@ comportamento ao olho nu, portanto é fundamental a criação uma ferramenta
 que auxilie os especialista na analise de termografias mamárias dinâmicas.
 
 
-\section{Objetivos }
+\section{Objetivos \label{sec:Objetivos}}
 
-Desenvolver uma metodologia computacional que analise um exame termográfico
+Desenvolver uma metodologia computacional que analíse um exame termográfico
 dinâmico das mamas, a fim de encontrar padrões que diferenciem mamas
-saudáveis de mamas com algum tipo de anomalia. 
+saudáveis de mamas com algum tipo de lesão. 
 
 
 \subsection{Objetivos Específicos \label{sec:objectives:specific_objectives}}
@@ -335,14 +329,11 @@ Alguns objetivos extras são necessários para completar os objetivos
 gerais, sendo eles:
 \begin{itemize}
 \item Desenvolver técnicas que permitam a correção de postura em exames
-termográficos dinâmicos. Tais técnicas são conhecidas como registro
-de imagens, onde o resultado final pode variar muito de uma técnica
-utilizada para outra. Portanto, deve-se utilizar a que melhor se encaixe
-no problema.
+termográficos dinâmicos.
 \item Analisar a variação de temperatura entre os diferentes tempos do exame,
-gerando características que sejam capazes de diferenciar os exames
-de pacientes saudáveis de exames de pacientes doentes.
-\item Utilizar as características extraídas para gerar uma Máquina de Vetor
+gerando características que sejam capazes de diferenciar os pacientes
+saudáveis e com lesão.
+\item Utilizar as características extraídas para gerar uma Máquina de Vetores
 de Suporte, que seja capaz de classificar corretamente novos exames.
 \end{itemize}
 
@@ -354,11 +345,11 @@ da metodologia proposta.
 
 O Capítulo \ref{sec:fundamentation} aborda os conceitos fundamentais
 para o entendimento da metodologia. Nele são descritas as técnicas
-utilizadas e seu funcionamento. São citados: O câncer de mama; a termografia
-mamária; o registro de imagens; matrizes de coocorrência de níveis
-de cinza e suas características de textura; técnicas de redução de
-características como a análise discriminante linear e a análise de
-componentes principais; e as máquinas de vetor de suporte.
+utilizadas e seu funcionamento. São citados: A termografia mamária;
+o registro de imagens; matrizes de coocorrência de níveis de cinza
+e suas características de textura; técnicas de redução de características
+como a análise discriminante linear e a análise de componentes principais;
+e as máquinas de vetor de suporte.
 
 A metodologia é apresentada no Capítulo \ref{sec:metodologia}, iniciando
 com a aquisição do banco de imagens seguido da aplicação do registro
@@ -378,11 +369,11 @@ finais e os trabalhos futuros.
 
 Neste capítulo são apresentados os trabalhos encontrados na literatura
 com o objetivo de detectar o câncer de mama através de termografias.
-Para cada trabalhos são abordados os pontos mais importantes e suas
+Para cada trabalho são abordados os pontos mais importantes e suas
 contribuições.
 
 Em \cite{etehadtavakol2010application} os algoritmos k-means e fuzzy
-c-means são utilizados para segmentar por cor termografias estáticas
+c-means são utilizados para segmentar por cor, termografias estáticas
 coloridas. É citado que regiões das mamas onde existe um tumor, possuem
 uma temperatura mais elevada que os tecidos saudáveis da mama, de
 forma que a metodologia do trabalho é feita para detectar essas regiões
@@ -404,7 +395,7 @@ utilizadas para gerar séries temporais, onde a análise multifractal
 saudáveis e de um tumor maligno. Foi constatado que as propriedades
 de multifractais são drasticamente alteradas em mamas com tumor maligno
 em relação à mamas saudáveis. Para mamas saudáveis foi encontrada
-uma dimensão multifractal que tem por característica uma mudança continua
+uma dimensão multifractal que tem por característica uma mudança contínua
 na função de densidade de probabilidade da variação de temperatura
 através do tempo. Para mamas com tumor, os sinais térmicos apresentam
 uma variação de temperatura monofractal homogênea, evidenciada pela
@@ -429,7 +420,7 @@ e que possuem resultados que comprovam a eficácia desse tipo de exame.
 
 \chapter{Fundamentação Teórica \label{sec:fundamentation}}
 
-Nesta seção, serão abordados os conceitos necessários para o entendimento
+Neste capítulo, serão abordados os conceitos necessários para o entendimento
 da metologia proposta.
 
 
@@ -463,7 +454,7 @@ de acordo com a paleta de cores à direita da imagem.
 \par\end{centering}
 
 
-\sourcfonte{\cite{silva2014new}}
+\fonte{\cite{silva2014new}}
 \end{figure}
 
 
@@ -533,7 +524,7 @@ de uma imagem em outra. \label{fig:fundamentation:image_registration:mapping}}
 \par\end{centering}
 
 
-\sourcfonte{\cite{ibanez2003itk}}
+\fonte{\cite{ibanez2003itk}}
 \end{figure}
 
 
@@ -582,7 +573,7 @@ transformação, que otimiza a métrica entres as duas imagens.
 \par\end{centering}
 
 
-\sourcfonte{\cite{parraga2008atlas}}
+\fonte{\cite{parraga2008atlas}}
 \end{figure}
 
 
@@ -639,14 +630,14 @@ tipo de transformação são geralmente chamados de registros não-rígidos
 ou deformáveis. 
 
 
-\subsubsection{Transformações FFD baseadas em \emph{B-Splines }cúbicas \label{sec:fundamentation:image_registration:transform:bspline}}
+\subsubsection{Transformações por \emph{B-Splines }cúbicas \label{sec:fundamentation:image_registration:transform:bspline}}
 
 Um dos tipos de transformações não-rígidas mais comuns atualmente
-são as chamadas transformações deformação de forma livre (FFD) baseadas
-em \emph{B-splines} cúbicas \cite{yin2009mass}. A ideia básica desse
-tipo de transformação é manipular a grade de pixeis a partir dos chamados
-pontos de controle. Essa manipulação permite criar um campo de deslocamento,
-que irá mapear os pixels da imagem móvel. A Figura \ref{fig:fundamentation:registration:transform:ffd:campo}
+são as chamadas transformações por\emph{ }B-splines cúbicas \cite{yin2009mass}.
+A ideia básica desse tipo de transformação é manipular a grade de
+pixeis a partir dos chamados pontos de controle. Essa manipulação
+permite criar um campo de deslocamento, que irá mapear os pixels da
+imagem móvel. A Figura \ref{fig:fundamentation:registration:transform:ffd:campo}
 mostra o campo de deslocamento que é utilizado para mapear os pixels
 da imagem móvel, de forma que se assemelhem à imagem fixa.
 
@@ -659,7 +650,7 @@ da imagem móvel, de forma que se assemelhem à imagem fixa.
 \par\end{centering}
 
 
-\sourcfonte{\cite{schwarz2007non}}
+\fonte{\cite{schwarz2007non}}
 \end{figure}
 
 
@@ -753,7 +744,7 @@ na imagem móvel.\label{fig:fundamentation:image_registration:grid}}
 \par\end{centering}
 
 
-\sourcfonte{\cite{ibanez2003itk}}
+\fonte{\cite{ibanez2003itk}}
 \end{figure}
 
 
@@ -782,7 +773,7 @@ utilizados, como os Algoritmos Genéticos\emph{ \cite{whitley1994genetic}
 }e o Gradiente Descendente \cite{burges2005learning}.
 
 
-\subsubsection{LBFGS\label{sec:fundamentation:image_registration:otimizator:lbfgs}}
+\subsubsection{Limited-memory Broyden-Fletcher-Goldfarb-Shanno \label{sec:fundamentation:image_registration:otimizator:lbfgs}}
 
 O Limited-memory Broyden-Fletcher-Goldfarb-Shanno (LBFGS) é um método
 de otimização bastante comum em problemas de registro de imagens.
@@ -821,11 +812,11 @@ O número de iterações é um parâmetro variável e é definido pelo usuário.
 A análise de textura é uma técnica importante na identificação de
 características em imagens digitais. Uma das primeiras técnicas utilizadas
 para a extração dessas características foram as matrizes de coocorrências
-de níveis de cinza também chamadas de GLCM\emph{ }(Gray Level Co-ocurrence
-Matrix) originalmente propostas em \cite{haralick1973textural}. Desde
-então elas vem sendo bastante utilizadas em várias aplicações de análise
-de textura e permanecem sendo uma ferramenta importante no domínio
-de análise de texturas \cite{sebastian2012gray}.
+de níveis de cinza também chamadas de \emph{Gray Level Co-ocurrence
+Matrix }(GLCM) originalmente propostas em \cite{haralick1973textural}.
+Desde então elas vem sendo bastante utilizadas em várias aplicações
+de análise de textura e permanecem sendo uma ferramenta importante
+no domínio de análise de texturas \cite{sebastian2012gray}.
 
 A GLCM é uma técnica utilizada para extrair características estatísticas
 de segunda ordem \cite{albregtsen2008statistical}, ou seja, a medição
@@ -839,9 +830,9 @@ de cinza, uma GLCM $G$ é uma matriz quadrada de ordem $N$ \cite{sebastian2012gra
 O elemento da matriz $P(i,j|\Delta x,\Delta y)$ é a frequência relativa
 em que dois pixeis de intensidade $(i,j)$, separados por uma distância
 $(\Delta x,\Delta y)$, são vizinhos. Também é possível dizer que
-o elemento $P(i,j|d,\theta)$ contém os valores da probabilidade de
-segunda ordem para mudanças entre os níveis de cinza $i$ e $j$ em
-uma distância $d$ e um ângulo $\theta$ \cite{albregtsen2008statistical}.
+o elemento $P(i,j|d,\theta)$ contém os valores da de frequência relativa
+para mudanças entre os níveis de cinza $i$ e $j$ em uma distância
+$d$ e um ângulo $\theta$ \cite{albregtsen2008statistical}.
 
 Seja $I$ uma imagem de dimensões $W\times H$, então uma GLCM de
 $I$ é definida pela Equação \ref{eq:glcm:def}.
@@ -875,7 +866,7 @@ uma distância $k$ em uma determinada direção $d$ \cite{sebastian2012gray}.
 A partir de uma GLCM, é possível extrair um conjunto de características
 que descrevem a textura de determinada imagem \cite{albregtsen2008statistical},
 disponíveis em \cite{haralick1973textural,haralick1979statistical,conners1984segmentation}.
-De acordo com \cite{glcm_tutorial} temos as seguintes características
+De acordo com \cite{glcm_tutorial} temos as principais características
 que podem ser extraídas a partir de uma GLCM:
 
 \begin{equation}
@@ -927,7 +918,7 @@ Correla\cedilla{c}\tilde{a}o=\sum_{i,j=0}^{N-1}P_{i,j}\left[\frac{(i-\mu_{i})\cd
 \sigma_{j}^{2}=\sum_{i,j=0}^{N-1}P_{i,j}(j-\mu_{j})^{2},\label{eq:fundamentationg:lcm:variation_j}
 \end{equation}
 onde $N$ é quantidade de níveis de cinza $P_{i,j}$é a frequência
-de um par de pixels $i$ e $j$ serem vizinhos. 
+de um par de pixeis $i$ e $j$ serem vizinhos. 
 
 
 \section{Redução de Dimensionalidade\label{sec:fundamentation:dimensionality_reduction}}
@@ -1033,7 +1024,7 @@ que exemplifica o efeito da redução.
 \par\end{centering}
 
 
-\sourcfonte{Elaborada pelo autor}
+\fonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1047,7 +1038,7 @@ principais componentes.\label{fig:fundamentation:reduction:pca:samples_transform
 \par\end{centering}
 
 
-\sourcfonte{Elaborada pelo autor}
+\fonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1090,7 +1081,7 @@ maximize a distância entre classes (Figura \ref{fig:fundamentation:reduction:lda
 \par\end{centering}
 
 
-\sourcfonte{Elaborada pelo autor}
+\fonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1105,7 +1096,7 @@ maximize a distância entre classes (Figura \ref{fig:fundamentation:reduction:lda
 \par\end{centering}
 
 
-\sourcfonte{Elaborada pelo autor}
+\fonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1181,7 +1172,7 @@ espaço tridimensional para bidimensional.
 \par\end{centering}
 
 
-\sourcfonte{Elaborada pelo autor}
+\fonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1194,19 +1185,19 @@ espaço tridimensional para bidimensional.
 \par\end{centering}
 
 
-\sourcfonte{Elaborada pelo autor}
+\fonte{Elaborada pelo autor}
 \end{figure}
 
 
 
-\section{Máquinas de Vetor de Suporte }
+\section{Máquinas de Vetores de Suporte }
 
 Problemas de classificação geralmente envolvem dizer se um certo indivíduo
 pertence à classe $A$,$B$ ou $C$.
 
 Atualmente existem diversas técnicas de aprendizado de máquina capazes
 de realizar essa tarefa com êxito e umas das principais técnicas utilizadas
-hoje em dia são as Máquinas de Vetor de Suporte (SVM). 
+hoje em dia são as Máquinas de Vetores de Suporte (SVM). 
 
 Foram originalmente propostas por \cite{cortes1995support} como um
 classificador binário, capaz de dizer se um determinado indivíduo
@@ -1229,11 +1220,11 @@ gerados por uma SVM.
 
 
 \begin{centering}
-\includegraphics[scale=0.75]{figures/fundamentation/svm/plot_separating_hyperplane}
+\includegraphics[scale=0.5]{figures/fundamentation/svm/plot_separating_hyperplane}
 \par\end{centering}
 
 
-\sourcfonte{\cite{sklearn-svm}}
+\fonte{\cite{sklearn-svm}}
 \end{figure}
 
 
@@ -1307,7 +1298,7 @@ os vetores de suporte são representados por círculos circunscritos.
 \par\end{centering}
 
 
-\sourcfonte{Elaborada pelo autor}
+\fonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1339,7 +1330,7 @@ utilizando uma função $K$.
 \par\end{centering}
 
 
-\sourcfonte{Elaborada pelo autor}
+\fonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1358,11 +1349,12 @@ K(x_{i},y_{i})=exp(-\gamma||x_{i}-y_{i}||^{2})\label{eq:fundamentation:svm:rbf}
 onde $\gamma=1/\sigma^{2}$, onde $\sigma$ é a variância.
 
 
-\chapter{Metodologia \label{sec:metodologia}}
+\chapter{Metodologia Proposta \label{sec:metodologia}}
 
-Nesta seção, são apresentados os procedimentos propostos para a realização
-dos objetivos descritos na Seção \ref{sec:objectives}. A Figura \ref{fig:metothology:fluxogram}
-apresenta o fluxo das etapas executadas. 
+Neste capítulo, são apresentados os procedimentos propostos para a
+realização dos objetivos descritos na Seção \ref{sec:Objetivos}.
+A Figura \ref{fig:metothology:fluxogram} apresenta o fluxo das etapas
+executadas. 
 
 \begin{figure}[H]
 \begin{centering}
@@ -1375,7 +1367,7 @@ apresenta o fluxo das etapas executadas.
 \par\end{centering}
 
 
-\sourcfonte{Elaborada pelo autor}
+\fonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1384,21 +1376,21 @@ apresenta o fluxo das etapas executadas.
 
 A aquisição de imagens é uma etapa crucial na metodologia proposta,
 pois sem imagens para casos de teste não é possível validar a metodologia.
-Atualmente existem poucos bancos de imagem termográficas mamárias
+Atualmente existem poucos bancos de imagens termográficas mamárias
 disponíveis para o público geral, sendo a maioria deles de propósito
 privado. As imagens utilizadas neste trabalho são provenientes do
 \emph{Database for Mastology Research with Infrared Image }- DMR-IR,
 acessível através da interface on-line \url{httt://visual.ic.uff.br/dmi}.
 Mais informações sobre a base de imagens utilizada podem ser encontradas
-em  \cite{silva2014new}.
+em  \cite{silva2014new} e em \cite{lincoln_thesis2015}.
 
 De acordo com \cite{silva2014new}, no protocolo de termografias dinâmicas
 as pacientes são submetidas a um estresse térmico causado pela refrigeração
 por um ventilador elétrico. Quando a média de temperatura entre as
 mamas é de 30.5ºC (Figura \ref{fig:methodology:acquisition:mean_monitoring}),
-ou 5 minutos de estresse foram aplicados, a refrigeração é interrompida
+ou até que 5 minutos sejam transcorridos , a refrigeração é interrompida
 e a aquisição sequencial das imagens é iniciada, extraindo um total
-de 20 imagens sequenciais com intervalos de tempo fixos.
+de 20 imagens sequenciais com intervalos de 15 segundos entre as imagens.
 
 \begin{figure}[H]
 \begin{centering}
@@ -1411,19 +1403,18 @@ de 20 imagens sequenciais com intervalos de tempo fixos.
 \par\end{centering}
 
 
-\sourcfonte{\cite{silva2014new}}
+\fonte{\cite{silva2014new}}
 \end{figure}
 
 
 As imagens utilizadas possuem dimensão de 640 pixeis de largura e
 480 pixeis de largura e foram utilizados os valores de temperatura
-(em graus célsius) obtidos diretamente da câmera termográfica utilizada
+(em graus celsius) obtidos diretamente da câmera termográfica utilizada
 na aquisição. 
 
 No total foram utilizados 70 exames previamente diagnosticados para
 aplicação desta metodologia, sendo que 35 são de pacientes saudáveis
-e os 35 restantes de pacientes que apresentam algum tipo de anomalia
-nas mamas.
+e os 35 restantes de pacientes que apresentam algum tipo de lesão.
 
 
 \section{Registro das Imagens\label{sec:methodology:image_registration}}
@@ -1441,8 +1432,8 @@ e $P_{t}(i,j)$ é o valor de pixel na posição $(i,j)$ no tempo $t$.
 involuntária da paciente.
 
 \begin{figure}[H]
-\caption{Termogramas de tempos distintos. Tons mais claros denotam uma maior
-diferênça entre as regiões. }
+\caption{Termogramas de tempos distintos. Tons mais claros em (c) grande diferença
+entre as regiões. }
 
 
 \subfloat[\label{fig:methodology:image_registration:t1}]{
@@ -1454,7 +1445,7 @@ diferênça entre as regiões. }
 \centering{}\includegraphics[scale=0.2]{figures/methodology/series_diff}}
 
 
-\sourcfonte{Elaborada pelo autor.}
+\fonte{Elaborada pelo autor.}
 \end{figure}
 
 
@@ -1465,18 +1456,18 @@ construção do registro, as seguintes técnicas foram utilizadas:
 
 
 \begin{itemize}
-\item Métrica: Correlação Cruzada Normalizada (Capítulo \ref{eq:fundamentation:image_registration:normalized_cross_correlation})
-\item Transformação: \emph{B-Splines} (Capítulo \ref{sec:fundamentation:image_registration:transform:bspline})
-\item Interpolador: Linear (Capítulo \ref{sec:fundamentation:image_registration:interpolator:linear})
-\item Otimizador: LBFGS (Capítulo \ref{sec:fundamentation:image_registration:otimizator:lbfgs})
+\item Métrica: Correlação Cruzada Normalizada (Seção\ref{sec:fundamentation:image_registration:metric:ccn})
+\item Transformação: \emph{B-Splines} (Seção \ref{sec:fundamentation:image_registration:transform:bspline})
+\item Interpolador: Linear (Seção \ref{sec:fundamentation:image_registration:interpolator:linear})
+\item Otimizador: LBFGS (Seção \ref{sec:fundamentation:image_registration:otimizator:lbfgs})
 \end{itemize}
 
 
-Utilizando a primeira sequência do conjunto de termograma como imagem
-fixa, executamos o algoritmo de registro 19 vezes, sendo que as sequências
-restantes são as imagens móveis. Após a aplicação do registro, os
-erros de postura são corrigidos, permitindo que as sequências de uma
-TID sejam analisadas e comparadas.
+Utilizando a primeira sequência do conjunto de termogramas como imagem
+fixa, o processo é aplicado para cada sequência restante fazendo o
+papel de imagem móvel, resultando em 19 aplicações sucessivas. Após
+a aplicação do registro, os erros de postura são corrigidos, permitindo
+que as sequências de uma TID sejam analisadas e comparadas.
 
 
 \section{Extração da Região de Interesse}
@@ -1490,17 +1481,18 @@ Alguns métodos de segmentação automática são encontrados na literatura
 \cite{marques2012segmentaccao}, porém existem limitações que não
 tornam possíveis a utilização desse tipo de técnica.
 
-Nesta metodologia a região de interesse é extraída de forma manual,
-através da utilização de um programa de visualização e edição de imagens. 
+Nesta metodologia a região de interesse é extraída manualmente por
+um especialista, através da utilização de um programa de visualização
+e edição de imagens. 
 
 Apesar de cada TID possuir um total de 20 sequências de termogramas,
 apenas a sequência no tempo inicial é utilizada para gerar a máscara
 binária, que é responsável por demarcar a ROI segmentada manualmente
 através do software ImageJ \cite{abramoff2004image,rasband1997bethesda}. 
 
-Utilizando a máscara da sequência inicial é possível extrair as ROIs
+Utilizando a máscara da sequência inicial, é possível extrair as ROIs
 das demais sequências após a aplicação do registro dos termogramas
-(Capítulo\emph{ \ref{sec:methodology:image_registration}}). A Figura
+(Seção\emph{ \ref{sec:methodology:image_registration}}). A Figura
 \ref{fig:methodology:roi:segmentation} demonstra a etapa de segmentação
 manual utilizando o mouse para desenhar o polígono que definirá a
 ROI. Como resultado uma máscara binária (Figura \ref{fig:methodology:roi:mask})
@@ -1518,7 +1510,7 @@ de termogramas em uma TID.
 \centering{}\includegraphics[scale=0.5]{figures/methodology/roi_mask}}\hfill{}
 
 
-\sourcfonte{\cite{lincoln_thesis2015}}
+\fonte{\cite{lincoln_thesis2015}}
 \end{figure}
 
 
@@ -1528,7 +1520,7 @@ de termogramas em uma TID.
 Dado um exame TID, temos 20 sequências de termogramas, cada um correspondendo
 à um tempo distinto em ordem sequencial. É necessário extrair características
 que diferenciem as TID de pacientes saudáveis de TID de pacientes
-com algum tipo de anomalia. 
+com algum tipo de lesão. 
 
 Dado o vetor $p=[I_{1}(i,j),I_{2}(i,j),...I_{20}(i,j)]$, onde $I_{t}(i,j)$
 é o valor de temperatura do termograma de tempo $t$ na posição $(i,j)$,
@@ -1539,36 +1531,36 @@ que a temperatura inicial da sequência de termogramas oferece uma
 boa discriminação, pois regiões com anomalias tendem a ficar mais
 definidas durante o processo de resfriamento e não possuem regiões
 equivalentes na mama oposta. A Figura \ref{fig:methodology:fps:feat_1}
-mostra a diferença entre uma TID saudável e outra com anomalia.
+mostra a diferença entre uma TID saudável e outra com lesão.
 \item O ganho de temperatura total dado por $G=I_{20}(i,j)-I_{1}(i,j)$.
 Essa medida informa o quanto uma dada região se aqueceu ou esfriou
 durante o tempo de aquisição dos termogramas. Durante os testes realizados,
-foi possível notar que regiões com algum tipo de anomalia tendem a
-ganhar mais temperatura durante o tempo de extração das imagens. Em
-imagens saudáveis quando ocorre esse tipo de comportamento, geralmente
-existe um tipo de espelhamento, de forma que ele aparece nas duas
-mamas. A Figura \ref{fig:fig:methodology:fps:feat_2:a} mostra uma
-TID de paciente saudável, onde existe um aspecto simétrico entre as
-regiões. A Figura \ref{fig:fig:methodology:fps:feat_2:b} possui uma
-região de alto ganho de temperatura em relação as demais regiões da
-mama, coincidindo com a região do tumor demarcada. 
+foi possível notar que regiões com algum tipo de lesão tendem a ganhar
+mais temperatura durante o tempo de extração das imagens. Em imagens
+saudáveis quando ocorre esse tipo de comportamento, geralmente existe
+um tipo de espelhamento, de forma que ele aparece nas duas mamas.
+A Figura \ref{fig:fig:methodology:fps:feat_2:a} mostra uma TID de
+paciente saudável, onde existe um aspecto simétrico entre as regiões.
+A Figura \ref{fig:fig:methodology:fps:feat_2:b} possui uma região
+de alto ganho de temperatura em relação as demais regiões da mama,
+coincidindo com a região do tumor demarcada. 
 \item O ganho médio de temperatura entres os tempos dado pela Equação \ref{eq:methodology:fps:mean_bt}.
 Essa característica se assemelha ao ganho total de temperatura, onde
-regiões com algum tipo de anomalia tendem ter uma média maior que
-as demais regiões e não apresentam uma similaridade na mesma região
-da outra mama. A Figura \ref{fig:methodology:fps:feat_3} apresenta
-o resultado da extração dessa característica em uma TID de paciente
-saudável e em uma TID de paciente doente.
+regiões com lesão tendem ter uma média maior que as demais regiões
+e não apresentam uma similaridade na mesma região da outra mama. A
+Figura \ref{fig:methodology:fps:feat_3} apresenta o resultado da
+extração dessa característica em uma TID de paciente saudável e em
+uma TID de paciente doente.
 \item O desvio padrão do ganho de temperatura entres os tempos dada pela
 Equação \ref{eq:methodology:fps:std_bt}. Essa característica apresenta
 um grande fator discriminativo entres regiões saudáveis e com anomalias.
 Regiões saudáveis tendem a ganhar temperatura de forma uniforme durante
-a aquisição dos termogramas, ao contrário de regiões que possuem anomalia,
+a aquisição dos termogramas, ao contrário de regiões que possuem lesão,
 que variam bastante no ganho de temperatura. Dessa forma regiões saudáveis
-apresentam um valor para $S$ mais baixo em relação à regiões que
-possuem algum tipo de anomalia. A Figura \ref{fig:methodology:fps:feat_4}
-apresenta o desvio padrão do ganho de temperatura em uma TID de paciente
-saudável e em uma TID de paciente doente.
+apresentam um valor para $S$ mais baixo em relação à regiões com
+lesão. A Figura \ref{fig:methodology:fps:feat_4} apresenta o desvio
+padrão do ganho de temperatura em uma TID de paciente saudável e em
+uma TID de paciente doente.
 \end{itemize}
 
 
@@ -1585,20 +1577,26 @@ S=\sqrt{\frac{1}{N}\cdot\sum_{t=2}^{N}((I_{t}(i,j)-I_{t-1}(i,j))-M)^{2}},\label{
 onde $M$ é o ganho médio entre os tempos, $S$ o desvio padrão entre
 os tempos e $N$ a quantidade de tempos a ser considerado.
 
-Essas características quando analisadas em conjunto oferecem um grande
-discriminador entre as pacientes. Em uma paciente saudável, é possível
-perceber a similaridade entre as mamas direita e esquerda como nas
-Figuras \ref{fig:methodology:fps:feat_1:a}, \ref{fig:fig:methodology:fps:feat_2:a}
-e\ref{fig:fig:methodology:fps:feat_3:a}, e uma homogeneidade no desvio
-padrão como na Figura \ref{fig:fig:methodology:fps:feat_4:b}.
+Para cada valor estatístico extraído dos pixels da TID, é criada uma
+imagem representativa. No total 4 valores foram extraídos para cada
+pixel, resultando na criação de 4 representações de uma TID.
 
-Em uma mama com algum tipo de anomalia, nota-se uma dissimilaridade
-entre as mamas, como nas Figuras \ref{fig:methodology:fps:feat_1:b},\ref{fig:fig:methodology:fps:feat_2:b}
-e \ref{fig:fig:methodology:fps:feat_3:b} e uma maior heterogeneidade
-para o desvio padrão, como na Figura \ref{fig:fig:methodology:fps:feat_4:b}
+
+
+Essas representações quando analisadas em conjunto oferecem grande
+discriminação entre as pacientes. Em uma paciente saudável, é possível
+perceber a similaridade entre as mamas direita e esquerda como nas
+Figuras \ref{fig:methodology:fps:feat_1:a}-\ref{fig:fig:methodology:fps:feat_3:a},
+e uma homogeneidade no desvio padrão como na Figura \ref{fig:fig:methodology:fps:feat_4:a}.
+
+Em uma mama com algum tipo de lesão, nota-se uma dissimilaridade entre
+as mamas, como nas Figuras \ref{fig:methodology:fps:feat_1:b}-\ref{fig:fig:methodology:fps:feat_3:b}
+e uma maior heterogeneidade para o desvio padrão, como na Figura \ref{fig:fig:methodology:fps:feat_4:b}
 onde existem regiões com uma maior desvio padrão em relação as demais
-regiões da mama, coincidindo com as regiões de maior pico nas imagens
-das outras características.
+regiões da mama, coincidindo com as regiões que apresentam valores
+elevados nas outras imagens 
+
+.
 
 \begin{figure}[H]
 \caption{Temperatura Inicial. \label{fig:methodology:fps:feat_1}}
@@ -1613,7 +1611,7 @@ das outras características.
 \centering{}\includegraphics[scale=0.5]{figures/methodology/fps1_d}}\hfill{}
 
 
-\sourcfonte{Elaborada pelo autor}
+\fonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1630,7 +1628,7 @@ das outras características.
 \centering{}\includegraphics[scale=0.5]{figures/methodology/fps2_d}}\hfill{}
 
 
-\sourcfonte{Elaborada pelo autor}
+\fonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1647,7 +1645,7 @@ das outras características.
 \centering{}\includegraphics[scale=0.5]{figures/methodology/fps3_d}}\hfill{}
 
 
-\sourcfonte{Elaborada pelo autor}
+\fonte{Elaborada pelo autor}
 \end{figure}
 
 
@@ -1664,17 +1662,12 @@ das outras características.
 \centering{}\includegraphics[scale=0.5]{figures/methodology/fps4_d}}\hfill{}
 
 
-\sourcfonte{Elaborada pelo autor}
+\fonte{Elaborada pelo autor}
 \end{figure}
 
 
-A partir das imagens geradas acima, são extraídas um conjunto de características
-de textura baseadas em GLCM, definidas pelas Equações \ref{eq:fundamentation:glcm:contraste},\ref{eq:fundamentation:glcm:dissimilaridade},\ref{eq:fundamentation:glcm:homogeneidade},\ref{eq:fundamentation:glcm:asm},\ref{eq:fundamentationg:glcm:energia}
-e \ref{eq:fundamentationg:glcm:correla=0000E7=0000E3o} mostradas
-no Capítulo \ref{sec:fundamentation:glcm}. 
-
-Antes de gerar as GLCM é necessário converter a escala de valores
-para níveis de cinza. Essa conversão é obtida através de
+As representações são convertidas para o formato em escala de cinza,
+com valores variando de 0 a 255. A conversão é obtida por
 
 \begin{equation}
 X'=a-\frac{(X-X_{min})(b-a)}{X_{max}-X_{min}},\label{eq:methodology:feature_scaling}
@@ -1683,67 +1676,78 @@ X'=a-\frac{(X-X_{min})(b-a)}{X_{max}-X_{min}},\label{eq:methodology:feature_scal
 
 onde $X$ é o conjunto de valores, $X_{min}$ o menor valor valor
 do conjunto, $X_{max}$ o maior valor, $b$ o valor máximo desejado
-e $a$ o valor mínimo desejado. No caso das imagens extraídas na Seção
-\ref{sec:methodology:fps} temos $a=0$ e $b=255$, dessa forma serão
-convertidas em 256 níveis de cinza. A partir da conversão podemos
-extrair as GLCM. 
+e $a$ o valor mínimo desejado.
 
-Para cada imagem são geradas um conjunto de GLCMs, a partir de um
-conjunto de distâncias$d=[d_{1},....,d_{n}]$ e um conjunto de ângulos
-$\theta=[\theta_{1},...,\theta_{n}]$ . A partir de cada GLCM, são
-geradas as 6 características citadas acima, formando o vetor de características
-que será utilizado na etapa de classificação da metodologia.
+A partir das representações, são extraídas um conjunto de características
+de textura baseadas em GLCM, definidas pelas Equações
+
+\ref{eq:fundamentation:glcm:contraste}-\ref{eq:fundamentationg:glcm:correla=0000E7=0000E3o}
+mostradas na Seção \ref{sec:fundamentation:glcm}. 
+
+Para cada representação gerada, são geradas GLCMs a partir de um conjunto
+distâncias $d=[d_{1},....,d_{n}]$ e um conjunto de ângulos $\theta=[\theta_{1},...,\theta_{n}]$.
+Para cada GLCM são extraídas as 6 características dadas pelas Equações
+\ref{eq:fundamentation:glcm:contraste}-\ref{eq:fundamentationg:glcm:correla=0000E7=0000E3o}.
+Portanto o vetor de características é formado por $4\times d_{n}\times\theta_{n}\times6$
+características, onde $d_{n}$ é a quantidade de distâncias e $\theta_{n}$a
+quantidade de ângulos utilizados na geração das GLCMs.
 
 
 \section{Redução de Características\label{sec:methodology:reduction}}
 
-Essa etapa consiste em reduzir o conjunto de 96 características previamente
+Essa etapa consiste em reduzir o conjunto de características previamente
 extraídas para um conjunto menor e mais conciso. Utilizando os 2 métodos
-descritos no Capítulo \ref{sec:fundamentation:dimensionality_reduction},
+descritos na Seção \ref{sec:fundamentation:dimensionality_reduction},
 transforma-se o conjunto de dados originais em conjuntos distintos
-que serão analisados individualmente na etapa de classificação, sendo
-eles:
+que serão analisados individualmente na etapa de classificação. 
+
+As técnicas utilizadas foram testadas foram analisadas com várias
+composições, sendo as que apresentaram melhores resultados foram:
 \begin{itemize}
 \item PCA com $C=40$, que projeta o conjunto de características em um novo
-espaço de 30 dimensões.
+espaço de 40 dimensões.
 \item PCA com $C=20$, que projeta o conjunto de características em um novo
 espaço de 20 dimensões.
-\item LDA com $C=1$, que projeta o conjunto de características em um novo
+\item LDA com $L=1$, que projeta o conjunto de características em um novo
 espaço de 1 dimensão.
 \item Combinação do PCA e LDA, onde o PCA com $C=40$ é aplicado, reduzindo
-o espaço para 40 dimensões e em seguida o LDA com $C=1$ é utilizado,
+o espaço para 40 dimensões e em seguida o LDA com $L=1$ é utilizado,
 reduzindo o espaço para 1 dimensão.
 \end{itemize}
+Os valores de $C$ indicam a quantidade de componentes principais
+utilizados no PCA, enquanto $L$ indica a quantidade de discriminantes
+utilizados com o LDA. 
+
 
 \section{Classificação}
 
 Essa etapa consiste em classificar um determinado exame TID em saudável
-ou com algum tipo de anomalia. São utilizadas as características extraídas
-no Capítulo \ref{sec:methodology:fps} como entrada para uma SVM. 
+ou com lesão. São utilizadas as características extraídas na Seção
+\ref{sec:methodology:fps} como entrada para uma SVM. 
 
-Durante essa etapa, o conjunto de características originais são subdividas
-em 2 conjuntos distintos que chamadas de base de treino e teste, que
-não possuem indivíduos em comum entre eles. 
+O conjunto de características originais é dividida em 2 conjuntos
+distintos que chamadas de base de treino e teste, que não possuem
+indivíduos em comum entre eles. 
 
-Antes do treinamento de uma SVM, transforma-se o espaço de características
-através de um dos métodos descritos no Capítulo \ref{sec:methodology:reduction}.
+Os espaço de características das bases são transformados através de
+um dos métodos descritos na Seção \ref{sec:methodology:reduction}.
 Essa transformação é calculada a partir da base de treino e depois
-aplicada em ambas as bases, de forma que a base de teste não tem influência
+aplicada em ambas as bases, para que a base de teste não tenha influência
 na geração da transformação. 
 
-Na etapa de treinamento, a base de treino juntamente com seus valores
-de classe, é utilizada para encontrar os melhores vetores de suporte
-para a SVM. 
+Na etapa de treinamento do modelo, a base de treino em conjunto com
+seus valores de classe, é utilizada para encontrar os melhores vetores
+de suporte para a SVM através do processo de otimização. 
 
-Após o termino do treinamento, a validação do modelo é executada,
-onde utilizamos a base de teste sem os valores de classe como entrada
-no modelo gerado, que irá classificar os indivíduos existentes na
-base. Os resultados são comparados com os valores de classe conhecidos
-para validação do modelo. 
+A validação do modelo é aplicada após o treinamento, onde utilizamos
+a base de teste como entrada no modelo gerado, que irá classificar
+os indivíduos. Os resultados são comparados com os valores de classe
+conhecidos. 
 
-São extraídos os valores de acurácia (Equação \ref{eq:methodology:classification:acc})
-que mede a taxa de acerto geral, a sensibilidade (Equação \ref{eq:eq:methodology:classification:sensitivity})
-que mede a taxa de acerto para os casos que possuem anomalia e a especificidade
+Para comparar os resultados são extraídos os valores de acurácia (Equação
+\ref{eq:methodology:classification:acc}) que mede a taxa de acerto
+geral, a sensibilidade (Equação \ref{eq:eq:methodology:classification:sensitivity})
+que mede a taxa de acerto para os casos que possuem lesão e a especificidade
 (Equação \ref{eq:eq:methodology:classification:specificity}) que
 mede a taxa de acerto de casos saudáveis.
 
@@ -1767,7 +1771,7 @@ verdadeiro negativo, falso positivo e falso negativo, respectivamente.
 \chapter{Resultados\label{chap:Resultados}}
 
 Nesse capítulo são apresentados os resultados da aplicação da metodologia
-para a classificação de termografias dinâmicas em saudável e com anomalia.
+para a classificação de termografias dinâmicas em saudável e com lesão.
 
 Os testes foram divididos em grupos de acordo com as distâncias e
 ângulos utilizados para gerar as GLCMs. Temos os seguintes grupos:
@@ -1775,7 +1779,7 @@ Os testes foram divididos em grupos de acordo com as distâncias e
 \item Grupo 1: $d=[1]$, $\theta=[0\text{º, }45\text{º},90\text{º},135\text{º}],$
 96 características. 
 \item Grupo 2: $d=[1,3,5]$, $\theta=[0\text{º, }45\text{º},90\text{º},135\text{º}]$,
-244 características. 
+288 características. 
 \item Grupo 3: $d=[1,3,5,7,9]$, $\theta=[0\text{º, }45\text{º},90\text{º},135\text{º}]$,
 480 características. 
 \item Grupo 4: $d=[1,3,5,7,9,11]$, $\theta=[0\text{º, }45\text{º},90\text{º},135\text{º}]$,
@@ -1783,21 +1787,35 @@ Os testes foram divididos em grupos de acordo com as distâncias e
 \end{itemize}
 
 
-Um teste consiste na aplicação da metodologia 100 vezes consecutivas,
-onde os indivíduos da bases de treino e teste são escolhidos aleatoriamente
-para cada iteração, mantendo a proporção entre as classes
+Devido a quantidade pequena de indivíduos, a etapa de classificação
+é aplicada 100 vezes, salvando os resultados de cada aplicação para
+posteriormente os valores da média e desvio padrão (acurácia, sensibilidade
+e especificidade) serem calculados. 
 
-Após a divisão das bases, as técnicas de redução de dimensionalidade
-descritas no Capítulo \ref{sec:methodology:reduction} são utilizadas,
+Em cada aplicação da etapa de classificação, a base de dados é dividida
+em bases de treino e teste de forma aleatória, mantendo a proporção
+entre as classes em ambas as bases. 
+
+Após a divisão das bases, as técnicas de redução de características
+descritas na Seção \ref{sec:methodology:reduction} são aplicadas,
 onde a base de treino é utilizada como referência para a geração da
 matriz de transformação de cada técnica, sendo posteriormente aplicada
-na base de teste. Cada técnica gera um novo conjunto de dados de treino
-e teste, onde a base de treino é utilizada para gerar o modelo SVM
-que irá classificar a base de testes. 
+na base de teste. 
 
-Ao final, os resultados são analisados separadamente para cada técnica
-de redução utilizada, onde a média e o desvio padrão da acurácia,
-sensibilidade e especificidade são mostrados.
+Cada técnica irá gerar um novo conjunto de dados de treino e teste,
+onde a base de treino resultante de determinada técnica será utilizada
+para gerar o modelo SVM que irá classificar a base de testes correlacionada.
+Os resultados são analisados separadamente para cada técnica de redução
+de características.
+
+Caso uma quantidade pequena de aplicações seja utilizada, os valores
+irão variar bastante entre a execução entre um teste e outro, pois
+dependendo de quais indivíduos sejam escolhidos para as bases de treino
+e teste, os resultados podem conter ótimos valores ou péssimos valores
+(dependendo de quão representativa é a base de treino). Portanto,
+quanto maior o número de vezes que a aplicação da etapa de classificação
+for executada em um teste, menor será a variação de valores de média
+e desvio padrão entre testes.
 
 As Tabelas \ref{tab:results:g1_8020}-\ref{tab:results:g4_8020} mostram
 os resultados para a proporção de 80\% dos indivíduos como base de
@@ -1806,7 +1824,115 @@ utilização das características sem a aplicação de redução apresenta
 um baixo valor médio de sensibilidade, enquanto a especificidade se
 manteve entre 70\%. Nota-se o alto valor para o desvio padrão, principalmente
 na Tabela \ref{tab:results:g4_8020} que possui um desvio padrão de
-30\% na especificidade para o teste sem aplicação da redução.
+29\% na especificidade para o teste sem aplicação da redução.
+
+\begin{table}[H]
+\caption{Resultados do Grupo 1 (96 características) na proporção 80/20 (56
+exames para treino, 14 para teste).\label{tab:results:g1_8020}}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|}
+\hline 
+ & Acurácia & Sensibilidade & Especificidade\tabularnewline
+\hline 
+Método & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio\tabularnewline
+\hline 
+\hline 
+Sem redução & 48,9\% \textasciitilde{} 9,8\% & 16,3\% \textasciitilde{} 16,5\% & 81,4\% \textasciitilde{} 21,9\%\tabularnewline
+\hline 
+PCA, C=40 & 50,9\% \textasciitilde{} 9,0\% & 21,6\% \textasciitilde{} 18,9\% & 80,3\% \textasciitilde{} 22,7\%\tabularnewline
+\hline 
+PCA, C=20 & 50,7\% \textasciitilde{} 9,6\%  & 19,1\% \textasciitilde{} 18,4\%  & 82,3\% \textasciitilde{} 20,3\%\tabularnewline
+\hline 
+LDA, L=1 & 72,0\% \textasciitilde{} 13,6\% & 76,1\% \textasciitilde{} 19,6\%  & 67,9\% \textasciitilde{} 17,9\%\tabularnewline
+\hline 
+PCA+LDA, C= 40, L=1 & \textbf{78,5\% \textasciitilde{} 11,0\%} & \textbf{83,4\% \textasciitilde{} 15,2\% } & \textbf{73,6\% \textasciitilde{} 17,2\%}\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+ 
+
+\begin{table}[H]
+\caption{Resultados do Grupo 2 (288 características) na proporção 80/20 (56
+exames para treino, 14 para teste).\label{tab:results:g2_8020}}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|}
+\hline 
+ & Acurácia & Sensibilidade & Especificidade\tabularnewline
+\hline 
+Método & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio\tabularnewline
+\hline 
+\hline 
+Sem redução & 47,9\% \textasciitilde{} 8,9\% & 20,3\% \textasciitilde{} 20,6\% & 75,6\% \textasciitilde{} 27,1\%\tabularnewline
+\hline 
+PCA, C=40 & 47,8\% \textasciitilde{} 10,3\% & 23,1\% \textasciitilde{} 20,7\% & 72,4\% \textasciitilde{} 30,9\%\tabularnewline
+\hline 
+PCA, C=20 & 47,0\% \textasciitilde{} 9,3\% & 22,1\% \textasciitilde{} 21,4\% & 71,9\% \textasciitilde{} 30,7\%\tabularnewline
+\hline 
+LDA, L=1 & 79,1\% \textasciitilde{} 8,4\% & 81,4\% \textasciitilde{} 13,8\% & 76,9\% \textasciitilde{} 13,8\%\tabularnewline
+\hline 
+PCA+LDA, C= 40, L=1 & \textbf{79,0\% \textasciitilde{} 9,1\% } & \textbf{80,1\% \textasciitilde{} 12,6\%} & \textbf{77,9\% \textasciitilde{} 15,8\%}\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\caption{Resultados do Grupo 3 (480 características) na proporção 80/20 (56
+exames para treino, 14 para teste).\label{tab:results:g3_8020}}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|}
+\hline 
+ & Acurácia & Sensibilidade & Especificidade\tabularnewline
+\hline 
+Método & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio\tabularnewline
+\hline 
+\hline 
+Sem redução & 48,9\% \textasciitilde{} 8,2\% & 21,3\% \textasciitilde{} 20,2\% & 76,6\% \textasciitilde{} 27,1\%\tabularnewline
+\hline 
+PCA, C=40 & 48,6\% \textasciitilde{} 10,6\% & 25,4\% \textasciitilde{} 22,8\% & 71,9\% \textasciitilde{} 31,1\%\tabularnewline
+\hline 
+PCA, C=20 & 49,1\% \textasciitilde{} 9,7\% & 23,4\% \textasciitilde{} 23,3\% & 74,7\% \textasciitilde{} 28,7\%\tabularnewline
+\hline 
+LDA, L=1 & 79,1\% \textasciitilde{} 10,1\% & 80,6\% \textasciitilde{} 15,1\% & 77,7\% \textasciitilde{} 15,8\%\tabularnewline
+\hline 
+PCA+LDA, C=40, L=1 & \textbf{84,7\% \textasciitilde{} 8.1\%} & \textbf{86,1\% \textasciitilde{} 12,4\%} & \textbf{83,3\% \textasciitilde{} 12,6\%}\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
+
+\begin{table}[H]
+\caption{Resultados do Grupo 4 (576 características) na proporção 80/20 (56
+exames para treino, 14 para teste) .\label{tab:results:g4_8020}}
+
+
+\centering{}%
+\begin{tabular}{|c|c|c|c|}
+\hline 
+ & Acurácia & Sensibilidade & Especificidade\tabularnewline
+\hline 
+Método & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio\tabularnewline
+\hline 
+\hline 
+Sem redução & 48,1\% \textasciitilde{} 9,6\%  & 22,9\% \textasciitilde{} 23,6\% & 73,3\% \textasciitilde{} 29,0\%\tabularnewline
+\hline 
+PCA, C=40 & 48,4\% \textasciitilde{} 9,0\% & 19,4\% \textasciitilde{} 21,4\%  & 77,4\% \textasciitilde{} 27,7\%\tabularnewline
+\hline 
+PCA, C=20 & 48,3\% \textasciitilde{} 9,7\% & 25,4\% \textasciitilde{} 21,9\% & 71,1\% \textasciitilde{} 29,2\%\tabularnewline
+\hline 
+LDA, L=1 & 80,4\% \textasciitilde{} 11,0\% & 80,6\% \textasciitilde{} 14,1\% & 80,1\% \textasciitilde{} 16,0\%\tabularnewline
+\hline 
+PCA+LDA, C= 40, L=1 & \textbf{82,2\% \textasciitilde{} 9,1\%} & \textbf{82,2\% \textasciitilde{} 9,1\%} & \textbf{85,3\% \textasciitilde{} 12,2\%}\tabularnewline
+\hline 
+\end{tabular}
+\end{table}
+
 
 O PCA não apresenta um bom desempenho quando aplicado sozinho no conjunto
 de características. Em certas ocasiões possui um resultado até pior
@@ -1816,228 +1942,150 @@ a utilização com os 20 melhores PCs.
 
 O LDA conseguiu melhorar substancialmente a sensibilidade média dos
 resultados. Também foi capaz de melhorar o desvio padrão para a sensibilidade
-de especificidade. Outro fator notável é que a utilização de mais
-características, tende a melhorar o resultado de forma tímida. 
+e especificidade. Outro fator notável é que a utilização de mais características,
+tende a melhorar o resultado de forma tímida. 
 
 A técnica que conseguiu o melhor resultado foi a aplicação conjunto
 do PCA seguido do LDA. Primeiramente a redução é feita através de
 PCA com os 40 melhores PCs, seguido da aplicação do LDA no conjunto
 de características gerados pelo PCA. Em todos os grupos, temos uma
-sensibilidade médias acima dos 80\%. A Tabela \ref{tab:results:g4_8020}
-referente ao grupo 4 apresentou os melhores resultados entre os 4
-grupos analisados.
-
-\begin{table}[H]
-\caption{Resultados do Grupo 1 na proporção 80/20.\label{tab:results:g1_8020}}
-
-
-\centering{}%
-\begin{tabular}{|c|c|c|c|}
-\hline 
-Método & Acurácia & Sensibilidade & Especificidade\tabularnewline
-\hline 
-\hline 
-Sem redução & 48.9\% \textasciitilde{} 9.8\% & 16.3\% \textasciitilde{} 16.5\% & 81.4\% \textasciitilde{} 21.9\%\tabularnewline
-\hline 
-PCA, C=40 & 50.9\% \textasciitilde{} 9.0\% & 21.6\% \textasciitilde{} 18.9\% & 80.3\% \textasciitilde{} 22.7\%\tabularnewline
-\hline 
-PCA, C=20 & 50.7\% \textasciitilde{} 9.6\%  & 19.1\% \textasciitilde{} 18.4\%  & 82.3\% \textasciitilde{} 20.3\%\tabularnewline
-\hline 
-LDA, C=1 & 72.0\% \textasciitilde{} 13.6\% & 76.1\% \textasciitilde{} 19.6\%  & 67.9\% \textasciitilde{} 17.9\%\tabularnewline
-\hline 
-PCA+LDA, $C_{1}$= 40, $C_{2}$=1 & 78.5\% \textasciitilde{} 11.0\% & 83.4\% \textasciitilde{} 15.2\%  & 73.6\% \textasciitilde{} 17.2\%\tabularnewline
-\hline 
-\end{tabular}
-\end{table}
- 
-
-\begin{table}[H]
-\caption{Resultados do Grupo 2 na proporção 80/20.\label{tab:results:g2_8020}}
-
-
-\centering{}%
-\begin{tabular}{|c|c|c|c|}
-\hline 
-Método & Acurácia & Sensibilidade & Especificidade\tabularnewline
-\hline 
-\hline 
-Sem redução & 47.9\% \textasciitilde{} 8.9\% & 20.3\% \textasciitilde{} 20.6\% & 75.6\% \textasciitilde{} 27.1\%\tabularnewline
-\hline 
-PCA, C=40 & 47.8\% \textasciitilde{} 10.3\% & 23.1\% \textasciitilde{} 20.7\% & 72.4\% \textasciitilde{} 30.9\%\tabularnewline
-\hline 
-PCA, C=20 & 47.0\% \textasciitilde{} 9.3\% & 22.1\% \textasciitilde{} 21.4\% & 71.9\% \textasciitilde{} 30.7\%\tabularnewline
-\hline 
-LDA, C=1 & 79.1\% \textasciitilde{} 8.4\% & 81.4\% \textasciitilde{} 13.8\% & 76.9\% \textasciitilde{} 13.8\%\tabularnewline
-\hline 
-PCA+LDA, $C_{1}$= 40, $C_{2}$=1 & 79.0\% \textasciitilde{} 9.1\%  & 80.1\% \textasciitilde{} 12.6\% & 77.9\% \textasciitilde{} 15.8\%\tabularnewline
-\hline 
-\end{tabular}
-\end{table}
-
-
-\begin{table}[H]
-\caption{Resultados do Grupo 3 na proporção 80/20.\label{tab:results:g3_8020}}
-
-
-\centering{}%
-\begin{tabular}{|c|c|c|c|}
-\hline 
-Método & Acurácia & Sensibilidade & Especificidade\tabularnewline
-\hline 
-\hline 
-Sem redução & 48.9\% \textasciitilde{} 8.2\% & 21.3\% \textasciitilde{} 20.2\% & 76.6\% \textasciitilde{} 27.1\%\tabularnewline
-\hline 
-PCA, C=40 & 48.6\% \textasciitilde{} 10.6\% & 25.4\% \textasciitilde{} 22.8\% & 71.9\% \textasciitilde{} 31.1\%\tabularnewline
-\hline 
-PCA, C=20 & 49.1\% \textasciitilde{} 9.7\% & 23.4\% \textasciitilde{} 23.3\% & 74.7\% \textasciitilde{} 28.7\%\tabularnewline
-\hline 
-LDA, C=1 & 79.1\% \textasciitilde{} 10.1\% & 80.6\% \textasciitilde{} 15.1\% & 77.7\% \textasciitilde{} 15.8\%\tabularnewline
-\hline 
-PCA+LDA, $C_{1}$= 40, $C_{2}$=1 & 84.7\% \textasciitilde{} 8.1\% & 86.1\% \textasciitilde{} 12.4\% & 83.3\% \textasciitilde{} 12.6\%\tabularnewline
-\hline 
-\end{tabular}
-\end{table}
-
-
-\begin{table}[H]
-\caption{Resultados do Grupo 4 na proporção 80/20.\label{tab:results:g4_8020}}
-
-
-\centering{}%
-\begin{tabular}{|c|c|c|c|}
-\hline 
-Método & Acurácia & Sensibilidade & Especificidade\tabularnewline
-\hline 
-\hline 
-Sem redução & 48.1\% \textasciitilde{} 9.6\%  & 22.9\% \textasciitilde{} 23.6\% & 73.3\% \textasciitilde{} 29.0\%\tabularnewline
-\hline 
-PCA, C=40 & 48.4\% \textasciitilde{} 9.0\% & 19.4\% \textasciitilde{} 21.4\%  & 77.4\% \textasciitilde{} 27.7\%\tabularnewline
-\hline 
-PCA, C=20 & 48.3\% \textasciitilde{} 9.7\% & 25.4\% \textasciitilde{} 21.9\% & 71.1\% \textasciitilde{} 29.2\%\tabularnewline
-\hline 
-LDA, C=1 & 80.4\% \textasciitilde{} 11.0\% & 80.6\% \textasciitilde{} 14.1\% & 80.1\% \textasciitilde{} 16.0\%\tabularnewline
-\hline 
-PCA+LDA, $C_{1}$= 40, $C_{2}$=1 & 82.2\% \textasciitilde{} 9.1\% & 82.2\% \textasciitilde{} 9.1\% & 85.3\% \textasciitilde{} 12.2\%\tabularnewline
-\hline 
-\end{tabular}
-\end{table}
-
+sensibilidade médias acima dos 80\%. O grupo 3 (480 características
+originais) foi o que apresentou os melhores resultados para a propoção
+80/20\%, onde a técnica de redução do PCA combinado com LDA apresentou
+resultados bem superiores aos demais grupos estudados.
 
 As Tabelas \ref{tab:results:g1_6040}-\ref{tab:results:g4_6040} mostram
 os resultados para aplicação da metodologia com a proporção de 60\%
 dos indivíduos para treino e os 40\% restantes para teste.
 
-As técnicas de redução agem da mesma forma que o apresentado para
-a proporção 80/20. Em especial a Tabela \ref{tab:results:g4_6040}
-que apresentou o melhor resultado de todos os testes para o caso da
-aplicação do PCA seguido do LDA, onde a acurácia média dos 100 testes
-é de 83.1\%, a sensibilidade 80.1\% e a especifidade de 86.1\% 
+As técnicas de redução agem da mesma forma que o apresentado na proporção
+80/20\%. Em especial a Tabela \ref{tab:results:g3_6040} que apresenta
+os resultados do grupo 3, onde a aplicação do PCA seguido do LDA,
+obteve 82,9\% de acurácia, 83,6\% de sensibilidade e 83,0\% de especificidade.
+
+Em ambas as proporções, o grupo de demonstrou os melhores foi o grupo
+3, composto por 480 características, geradas a partir de 20 GLCMs.
 
 \begin{table}[H]
-\caption{Resultados do Grupo 1 na proporção 60/40.\label{tab:results:g1_6040}}
+\caption{Resultados do Grupo 1 (96 características) na proporção 60/40 (36
+exames para treino, 34 para teste).\label{tab:results:g1_6040}}
 
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
 \hline 
-Método & Acurácia & Sensibilidade & Especificidade\tabularnewline
+ & Acurácia & Sensibilidade & Especificidade\tabularnewline
+\hline 
+Método & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio\tabularnewline
 \hline 
 \hline 
-Sem redução & 50.1\% \textasciitilde{} 10.0\% & 20.4\% \textasciitilde{} 17.8\% & 79.9\% \textasciitilde{} 23.2\%\tabularnewline
+Sem redução & 50,1\% \textasciitilde{} 10,0\% & 20,4\% \textasciitilde{} 17,8\% & 79,9\% \textasciitilde{} 23,2\%\tabularnewline
 \hline 
-PCA, C=40 & 48.4\% \textasciitilde{} 9.6\% & 17.9\% \textasciitilde{} 19.3\%  & 79.0\% \textasciitilde{} 25.0\%\tabularnewline
+PCA, C=40 & 48,4\% \textasciitilde{} 9,6\% & 17,9\% \textasciitilde{} 19,3\%  & 79,0\% \textasciitilde{} 25,0\%\tabularnewline
 \hline 
-PCA, C=20 & 50.6\% \textasciitilde{} 9.2\% & 23.7\% \textasciitilde{} 20.9\% & 77.6\% \textasciitilde{} 27.8\%\tabularnewline
+PCA, C=20 & 50,6\% \textasciitilde{} 9,2\% & 23,7\% \textasciitilde{} 20,9\% & 77,6\% \textasciitilde{} 27,8\%\tabularnewline
 \hline 
-LDA, C=1 & 74.2\% \textasciitilde{} 13.1\% & 78.1\% \textasciitilde{} 15.6\% & 70.3\% \textasciitilde{} 19.3\%\tabularnewline
+LDA, L=1 & 74,2\% \textasciitilde{} 13,1\% & 78,1\% \textasciitilde{} 15,6\% & 70,3\% \textasciitilde{} 19,3\%\tabularnewline
 \hline 
-PCA+LDA, $C_{1}$= 40, $C_{2}$=1 & 77.1\% \textasciitilde{} 10.6\% & 80.9\% \textasciitilde{} 14.0\% & 73.4\% \textasciitilde{} 15.3\%\tabularnewline
+PCA+LDA, C= 40, L=1 & \textbf{77,1\% \textasciitilde{} 10,6\%} & \textbf{80,9\% \textasciitilde{} 14,0\%} & \textbf{73,4\% \textasciitilde{} 15,3\%}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
 
 
 \begin{table}[H]
-\caption{Resultados do Grupo 2 na proporção 60/40.\label{tab:results:g2_6040}}
+\caption{Resultados do Grupo 2 (288 características) na proporção 60/40 (36
+exames para treino, 34 para teste).\label{tab:results:g2_6040}}
 
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
 \hline 
-Método & Acurácia & Sensibilidade & Especificidade\tabularnewline
+ & Acurácia & Sensibilidade & Especificidade\tabularnewline
+\hline 
+Método & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio\tabularnewline
 \hline 
 \hline 
-Sem redução & 49.4\% \textasciitilde{} 8.6\% & 25.3\% \textasciitilde{} 22.1\% & 73.4\% \textasciitilde{} 27.3\%\tabularnewline
+Sem redução & 49,4\% \textasciitilde{} 8,6\% & 25,3\% \textasciitilde{} 22,1\% & 73,4\% \textasciitilde{} 27,3\%\tabularnewline
 \hline 
-PCA, C=40 & 48.0\% \textasciitilde{} 9.4\% & 25.1\% \textasciitilde{} 24.5\% & 70.9\% \textasciitilde{} 28.1\%\tabularnewline
+PCA, C=40 & 48,0\% \textasciitilde{} 9,4\% & 25,1\% \textasciitilde{} 24,5\% & 70,9\% \textasciitilde{} 28,1\%\tabularnewline
 \hline 
-PCA, C=20 & 48.9\% \textasciitilde{} 9.1\% & 26.9\% \textasciitilde{} 21.6\% & 70.9\% \textasciitilde{} 27.5\%\tabularnewline
+PCA, C=20 & 48,9\% \textasciitilde{} 9,1\% & 26,9\% \textasciitilde{} 21,6\% & 70,9\% \textasciitilde{} 27,5\%\tabularnewline
 \hline 
-LDA, C=1 & 80.2\% \textasciitilde{} 9.3\% & 82.0\% \textasciitilde{} 15.1\% & 78.4\% \textasciitilde{} 14.2\%\tabularnewline
+LDA, L=1 & 80,2\% \textasciitilde{} 9,3\% & 82,0\% \textasciitilde{} 15,1\% & 78,4\% \textasciitilde{} 14,2\%\tabularnewline
 \hline 
-PCA+LDA, $C_{1}$= 40, $C_{2}$=1 & 80.9\% \textasciitilde{} 9.9\% & 83.6\% \textasciitilde{} 14.3\% & 78.3\% \textasciitilde{} 14.1\%\tabularnewline
+PCA+LDA, C= 40, L=1 & \textbf{80,9\% \textasciitilde{} 9,9\%} & \textbf{83,6\% \textasciitilde{} 14,3\%} & \textbf{78,3\% \textasciitilde{} 14,1\%}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
 
 
 \begin{table}[H]
-\caption{Resultados do Grupo 3 na proporção 60/40.\label{tab:results:g3_6040}}
+\caption{Resultados do Grupo 3 (480 características) na proporção 60/40 (36
+exames para treino, 34 para teste).\label{tab:results:g3_6040}}
 
 
 \centering{}%
 \begin{tabular}{|c|c|c|c|}
 \hline 
-Método & Acurácia & Sensibilidade & Especificidade\tabularnewline
+ & Acurácia & Sensibilidade & Especificidade\tabularnewline
+\hline 
+Método & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio\tabularnewline
 \hline 
 \hline 
-Sem redução & 49.4\% \textasciitilde{} 8.8\%  & 23.3\% \textasciitilde{} 24.2\% & 75.6\% \textasciitilde{} 29.4\%\tabularnewline
+Sem redução & 49,4\% \textasciitilde{} 8,8\%  & 23,3\% \textasciitilde{} 24,2\% & 75,6\% \textasciitilde{} 29,4\%\tabularnewline
 \hline 
-PCA, C=40 & 47.0\% \textasciitilde{} 9.0\% & 25.0\% \textasciitilde{} 22.8\% & 69.0\% \textasciitilde{} 30.3\%\tabularnewline
+PCA, C=40 & 47,0\% \textasciitilde{} 9,0\% & 25.0\% \textasciitilde{} 22,8\% & 69,0\% \textasciitilde{} 30,3\%\tabularnewline
 \hline 
-PCA, C=20 & 49.1\% \textasciitilde{} 9.7\% & 23.4\% \textasciitilde{} 23.3\% & 74.7\% \textasciitilde{} 28.7\%\tabularnewline
+PCA, C=20 & 49,1\% \textasciitilde{} 9,7\% & 23.4\% \textasciitilde{} 23,3\% & 74,7\% \textasciitilde{} 28,7\%\tabularnewline
 \hline 
-LDA, C=1 & 69.0\% \textasciitilde{} 30.3\% & 79.6\% \textasciitilde{} 15.2\% & 78.9\% \textasciitilde{} 16.8\%\tabularnewline
+LDA, C=1 & 69,0\% \textasciitilde{} 30,3\% & 79.6\% \textasciitilde{} 15,2\% & 78,9\% \textasciitilde{} 16,8\%\tabularnewline
 \hline 
-PCA+LDA, $C_{1}$= 40, $C_{2}$=1 & 82.9\% \textasciitilde{} 7.5\% & 82.7\% \textasciitilde{} 12.8\% & 83.0\% \textasciitilde{} 10.6\%\tabularnewline
+PCA+LDA, C=40, L=1 & \textbf{82,9\% \textasciitilde{} 7,5\%} & \textbf{82.7\% \textasciitilde{} 12,8\%} & \textbf{83,0\% \textasciitilde{} 10,6\%}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
 
 
-\begin{table}[H]
-\caption{Resultados do Grupo 4 na proporção 60/40.\label{tab:results:g4_6040}}
+\begin{table}
+\caption{Resultados do Grupo 4 (576 características) na proporção 60/40 (36
+exames para treino, 34 para teste).\label{tab:results:g4_6040}}
 
 
 \centering{}%
-\begin{tabular}{|c|c|c|c|}
+\begin{tabular}{|r@{\extracolsep{0pt}.}l|c|c|c|}
 \hline 
-Método & Acurácia & Sensibilidade & Especificidade\tabularnewline
+\multicolumn{2}{|c|}{} & Acurácia & Sensibilidade & Especificidade\tabularnewline
+\hline 
+\multicolumn{2}{|c|}{Método} & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio & Média\textasciitilde{}Desvio\tabularnewline
 \hline 
 \hline 
-Sem redução & 48.4\% \textasciitilde{} 8.1\% & 24.4\% \textasciitilde{} 24.0\% & 72.3\% \textasciitilde{} 30.5\%\tabularnewline
+\multicolumn{2}{|c|}{Sem redução} & 48,4\% \textasciitilde{} 8,1\% & 24,4\% \textasciitilde{} 24,0\% & 72,3\% \textasciitilde{} 30,5\%\tabularnewline
 \hline 
-PCA, C=40 & 49.1\% \textasciitilde{} 8.9\% & 25.6\% \textasciitilde{} 24.8\% & 72.7\% \textasciitilde{} 30.0\%\tabularnewline
+\multicolumn{2}{|c|}{PCA, C=40} & 49,1\% \textasciitilde{} 8,9\% & 25,6\% \textasciitilde{} 24,8\% & 72,7\% \textasciitilde{} 30,0\%\tabularnewline
 \hline 
-PCA, C=20 & 46.9\% \textasciitilde{} 8.9\% & 23.6\% \textasciitilde{} 23.2\% & 70.3\% \textasciitilde{} 30.7\%\tabularnewline
+\multicolumn{2}{|c|}{PCA, C=20} & 46,9\% \textasciitilde{} 8,9\% & 23,6\% \textasciitilde{} 23,2\% & 70,3\% \textasciitilde{} 30,7\%\tabularnewline
 \hline 
-LDA, C=1 & 82.6\% \textasciitilde{} 8.8\%  & 81.7\% \textasciitilde{} 14.2\% & 83.4\% \textasciitilde{} 13.5\%\tabularnewline
+\multicolumn{2}{|c|}{LDA, L=1} & 82,6\% \textasciitilde{} 8,8\%  & 81,7\% \textasciitilde{} 14,2\% & 83,4\% \textasciitilde{} 13,5\%\tabularnewline
 \hline 
-PCA+LDA, $C_{1}$= 40, $C_{2}$=1 & \textbf{83.1\% \textasciitilde{} 8.7\%} & \textbf{80.1\% \textasciitilde{} 14.8\%} & \textbf{86.1\% \textasciitilde{} 13.2\%}\tabularnewline
+\multicolumn{2}{|c|}{PCA+LDA, C= 40, L=1} & \textbf{83,1\% \textasciitilde{} 8,7\%} & \textbf{80,1\% \textasciitilde{} 14.8\%} & \textbf{86,1\% \textasciitilde{} 13,2\%}\tabularnewline
 \hline 
 \end{tabular}
 \end{table}
 
 
-A metodologia apresenta um alto valor de desvio padrão na execução
-dos 100 testes, o que pode ser relacionado ao tamanho reduzido da
-base. A escolha dos indivíduos para treino e teste tem grande influência
-no resultado, onde algumas iterações apresentam 100\% de acurácia,
-o que indica que a base de treino foi bem representativa. Porém, existem
-casos com péssimos resultados, indicando que a base de treino não
-foi capaz de representar de forma adequada o problema. Portanto, uma
-base de imagens relativamente maior pode apresentar um resultado bem
-superior aos mostrados até aqui.
+Devido a pequena base de exames, outras proporções de separação não
+foram utilizadas, pois a base de treino fica extramente reduzida,
+não sendo o suficiente para gerar um bom modelo SVM.
+
+Nota-se um alto valor de desvio padrão na execução dos testes, o que
+pode ser relacionado ao tamanho reduzido da base. A escolha dos indivíduos
+para treino e teste tem grande influência no resultado, onde algumas
+iterações apresentam 100\% de acurácia, o que indica que a base de
+treino foi bem representativa. Porém, existem casos com péssimos resultados,
+indicando que a base de treino não foi capaz de representar de forma
+adequada o problema. Portanto, uma base de imagens relativamente maior
+pode apresentar um resultado bem superior aos mostrados até aqui.
 
 Sobre as técnicas de redução de características apresentadas, nota-se
 que o LDA foi de grande valor nos resultados finais, gerando um conjunto
@@ -2048,9 +2096,23 @@ das características originais. Dessa forma, não é possível saber quais
 as melhores características para a resolução do problema, já que todas
 elas contribuem para a formação do novo espaço. 
 
-Os resultados mostrados são promissores e com a utilização de novas
-características e utilização de uma base com maior quantidade de casos,
-os resultados podem melhorar substancialmente.
+Outros valores para $C$ no caso PCA foram testados, porém os valores
+mostrados foram os que apresentaram os melhores resultados, em especial
+na combinação com o LDA. Já o parâmetro $L$ do LDA é limitado pela
+quantidade de classes no problema, pois a quantidade de discriminantes
+significativos gerados sempre é a igual a quantidade de classes menos
+um. Portanto para o caso de classificação binária, apenas um discriminante
+é utilizado. 
+
+Os resultados mostrados são promissores devido a simplicidade das
+técnicas aplicadas. Técnicas mais robustas para extração de características
+podem apresentar melhores resultados. 
+
+Um fator de bastante influência é a quantidade relativamente pequena
+de exames TID utilizados na metodologia. No total, foram utilizados
+70 exames, sendo 35 saudáveis e 35 com alguma lesão. É possível que
+uma base maior apresente melhores resultados, pois existiriam mais
+casos para treinar o modelo SVM.
 
 
 \chapter{Conclusão\label{chap:Conclus=0000E3o}}
@@ -2058,35 +2120,78 @@ os resultados podem melhorar substancialmente.
 A metodologia apresenta uma forma de auxiliar médicos especialistas
 na detecção do câncer de mama. O objetivo não é indicar o local suspeito,
 apenas dizer se um determinado paciente apresenta ou não algum tipo
-de anomalia na região das mamas. 
+de lesão na região das mamas. 
 
-A termografia é um exame que não deve ser utilizado isoladamente para
-a detecção desse tipo de câncer, mas em conjunto com outros tipos
-de exame, como a mamografia. A vantagem desse tipo de imagem é que
-o equipamento utilizado para extração das imagens é fácil de carregar,
-permitindo a locomoção para diferentes lugares. Apesar disso, é necessário
-um ambiente controlado na etapa de extração das imagens.
+É importante ressaltar que a termografia não deve ser utilizada isoladamente
+para a detecção desse tipo de câncer, mas como um exame complementar
+aos demais, como a mamografia. 
 
-A metodologia possui resultados promissores, apresentando 83,1\% de
-acurácia, 80,1\% de sensibilidade e 86,1\% de especificidade. 
+A vantagem desse tipo de imagem é a forma como é adquirida, pois não
+utiliza nenhum forma de radiação ionizante e não causa desconforto
+físico na paciente. Outra vantagem é o que equipamento (câmera térmica)
+é relativamente mais barato que um mamógrafo e é de fácil locomoção,
+tornando ideal como um exame de triagem em populações residentes em
+locais menos acessíveis.
+
+Este trabalho apresentou um método para diagnóstico assistido de lesões
+mamárias através de exames termográficos dinâmicos, utilizando representações
+estatísticas da TID e características de textura baseadas em GLCM
+das representações geradas. Os testes foram divididos de acordo com
+o método de redução de características utilizado, onde para cada método,
+aplicou-se a etapa de classificação 100 vezes consecutivas, analisando
+a média e desvio padrão dos resultados adquiridos. Em cada uma das
+100 iterações, a base é dividida aleatoriamente, seguindo as proporções
+80/20\% e 60/40\% para treino e teste. 
+
+Os resultados apresentados no Capítulo \ref{chap:Resultados} demonstram
+desempenho promissor na tarefa de classificação. Em todos os testes
+executados, a combinação do PCA e LDA como técnica de redução de características,
+conseguiu melhorar o desempenho de forma substancial, onde o melhor
+resultado encontrado atingiu 84,7\% de acurácia, 86,1\% de sensibilidade
+e 83,3\% de especificidade. 
+
+Analisando a metodologia por partes, nota-se que:
+\begin{itemize}
+\item A composição da técnica de registro de imagens apresentada na Seção
+\ref{sec:methodology:image_registration} demonstrou bons resultados
+para o problema da correção de postura entre os tempos da paciente.
+Porém, outras técnicas ou composições do registro de imagem podem
+apresentar resultados superiores. Um estudo mais aprofundado sobre
+o problema pode ser feito para avaliar qual a melhor forma para resolvê-lo.
+\item As representações de uma TID geradas na Seção \ref{sec:methodology:fps},
+já apresentam uma forma de auxiliar médicos especialistas na detecção
+de lesões, pois tornam visíveis características do exame que não seriam
+possíveis de perceber apenas com a visualização a olho nu da sequência
+de termogramas. Outros valores podem gerar representações que adicionei
+mais informações importantes, tornando o método mais robusto, se utilizado
+em conjunto com as já existentes.
+\item Das técnicas de redução de características, a combinação do PCA e
+LDA demonstrou grande valor para melhorar o processo de classificação,
+corrigindo principalmente os baixos valores de sensibilidade apresentados.
+\end{itemize}
+A metodologia apresentada ainda encontra-se em fase de desenvolvimento,
+podendo alcançar resultados melhores em um futuro próximo.
+
+Por fim, o trabalho apresenta resultados promissores, que podem ajudar
+médicos especialistas no diagnóstico precoce do câncer de mama (e
+outras doenças), aumentando as chances de cura em mulheres atingidas
+por essa patologia.
 
 
 \section{Trabalhos Futuros}
 
-O maior impasse na metodologia é pequena base de imagens disponível.
-Foram utilizadas apenas 70 imagens na metodologia, longe da quantidade
-ideal para algoritmos de aprendizado de máquina. Com a obtenção de
-uma base maior, é possível que os resultados melhores de forma substancial. 
-
-Novos formas de discriminar exames saudáveis de exames doentes também
-devem ser estudadas, com o objetivo de incluí-las na metodologia,
-deixando-a mais robusta e mais precisa.
-
-Um estudo sobre qual a melhor técnica de registro para o problema
-de correção da postura em uma TID também pode ser efetuado, já que
-o registro é uma técnica custosa e influência drasticamente os resultados
-finais.
-
+Devido a metodologia ainda estar em fase de desenvolvimento, as técnicas
+utilizadas podem ser revisadas e substituídas por outras novas. Portando,
+segue os seguintes tópicos de estudo propostos:
+\begin{itemize}
+\item Realizar um estudo detalhado sobre qual a melhor técnica de correção
+de postura em exames termográfica dinâmicos das mamas. 
+\item Estudar novos valores estatísticos capazes de gerar boas representações
+de uma TID.
+\item Estudar novas características que possam ser extraídas das representações.
+\item Adquirir mais exames, aumentando a base de dados e posteriormente
+tornando a metodologia mais robusta e menos suscetível à erros.
+\end{itemize}
 \bibliographystyle{abntex2-num}
 \bibliography{references}
 
