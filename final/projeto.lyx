@@ -6,14 +6,14 @@
 \begin_preamble
 
 \usepackage{custom}
-
+\usepackage{pdfpages}
 \sloppy
 \clubpenalty=10000  % Para evitar linhas orfas
 \widowpenalty=10000 % Para evitar linhas viuvas
 \hyphenpenalty=10000 % Para não hifenizar
 
 \counterwithout{equation}{chapter}
-\counterwithout{table}{part}
+\counterwithout{table}{chapter}
 \setlength{\parindent}{1.3cm}
 \end_preamble
 \use_default_options true
@@ -243,7 +243,33 @@ imprimirfolhaderosto
 \end_layout
 
 \begin_layout Standard
-FICHA CATALOGRAFICA 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{fichacatalografica}
+\end_layout
+
+\begin_layout Plain Layout
+
+	
+\backslash
+includepdf{ficha}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{fichacatalografica}
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -778,7 +804,14 @@ A incidência do câncer de mama aumenta em paralelo com o aumento da faixa
 ento da patologia.
  No entanto, existem outros fatores de risco que implicam numa maior chance
  de aparecimento, como o histórico desse tipo de câncer na família, gestação
- tardia, terapia de reposição hormonal e exposição à radiação.
+ tardia, terapia de reposição hormonal e exposição à radiação 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "inca2"
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -787,7 +820,7 @@ Os exames mais tradicionais na detecção do câncer de mama são os exames
  de toque e a mamografia.
  O exame de toque é um exame de triagem, onde o própria mulher pode procurar
  por nódulos nos seios.
- Porém, nem sempre o câncer resulta em aparecimento de nódulos.
+ Porém, nem sempre o câncer resulta em aparecimento de nódulos palpáveis.
  Dessa forma, a mamografia se tornou um exame essencial nos dias de hoje,
  pois utiliza os raios-x para detectar regiões de alta densidade nas mamas.
  
@@ -797,10 +830,14 @@ Os exames mais tradicionais na detecção do câncer de mama são os exames
 Apesar de ser o tipo de exame mais recomendado pelos especialistas, a mamografia
  é suscetível a falhas, já que mamas com alta densidade apresentam um grau
  de dificuldade elevado na detecção de lesões, que podem ficar escondidas
- pelo tecido denso da mama.
- Mulheres jovens geralmente apresentam alta densidade nas mamas, tornando
- a mamografia um exame não recomendável para essa faixa etária, pois utiliza
- a radiação na geração das imagens.
+ pelo tecido denso da mama 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "minamimoto2015detection"
+
+\end_inset
+
+.
  Dessa forma é necessário que outros tipos de exames sejam utilizados como
  forma de prevenção e diagnóstico precoce.
 \end_layout
@@ -810,8 +847,15 @@ A termografia mamária é um exame de imagem não radioativo capaz de auxiliar
  médicos especialistas na detecção de lesões que não seriam possíveis de
  descobrir através da mamografia.
  Esse tipo de exame utiliza a radiação infravermelha, emitida naturalmente
- pelo corpo da paciente, para detectar anomalias no padrão de temperatura
- das mamas, que pode indicar o aparecimento de alguma lesão.
+ pelo corpo da paciente , para detectar anomalias no padrão de temperatura
+ das mamas, que podem indicar o aparecimento de alguma lesão 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "lincoln_thesis2015"
+
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -820,7 +864,14 @@ Regiões próximas de um tumor apresentam aumento na vascularização, ocorrendo
  em relação as outras regiões da mama.
  Esse aumento de temperatura é detectável através da termografia, permitindo
  que especialistas detectem a formação de um tumor antes mesmo que ele seja
- palpável.
+ palpável 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "borchartt2013breast"
+
+\end_inset
+
+.
  
 \end_layout
 
@@ -858,7 +909,7 @@ B-Splines
 \end_layout
 
 \begin_layout Standard
-Logo após, a etapa de extração de características é executada, onde os pixeis
+Logo após, a etapa de extração de características é executada, onde os pixels
  de mesma posição e diferentes tempos da termografia são analisados como
  uma série de tempo, produzindo um conjunto de valores estatísticos para
  cada pixel, formando novas imagens a partir da termografia dinâmica original.
@@ -870,14 +921,14 @@ Logo após, a etapa de extração de características é executada, onde os pixe
 \begin_layout Standard
 Essas características podem ser reduzidas através de técnicas de redução
  de características como a técnica de Análise dos Componentes Principais
- e a Análise Discriminante Linear
+ seguida pela Análise Discriminante Linear
 \emph on
 .
  
 \emph default
 No final do processo, as características reduzidas irão servir de entrada
  para uma Máquina de Vetores de Suporte que irá ser responsável por classificar
- as pacientes em saudável e com lesão.
+ as pacientes em saudável ou com lesão.
 \end_layout
 
 \begin_layout Section
@@ -889,16 +940,22 @@ O diagnóstico precoce do câncer de mama é um fator extremamente importante
  para aumentar as chances de cura e reduzir as taxas de mortalidade.
  A mamografia não é recomendada para pacientes jovens e que possuem mamas
  densas, pois existe a dificuldade na detecção de nódulos nesse tipo de
- mama, que ficam escondidos no tecido da mama.
+ mama, que ficam escondidos no tecido da mama 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "minamimoto2015detection"
+
+\end_inset
+
+.
  A radiação também é um fator que torna a mamografia um exame que deve ser
  aplicado com cautela.
  
 \end_layout
 
 \begin_layout Standard
-A termografia mamária apresenta um baixo custo e não possui os efeitos da
- radiação, além do mais é capaz de detectar tumores antes mesmos de estes
- serem palpáveis.
+A termografia mamária não possui os efeitos da radiação, além do mais é
+ capaz de detectar tumores antes mesmos de estes serem palpáveis.
  A termografia mamária dinâmica analisa o comportamento de temperatura das
  mamas em um determinado tempo, sendo de grande auxílio na detecção de tumores.
 \end_layout
@@ -939,13 +996,13 @@ name "sec:objectives:specific_objectives"
 \end_layout
 
 \begin_layout Standard
-Alguns objetivos extras são necessários para completar os objetivos gerais,
- sendo eles:
+Alguns objetivos específicos são necessários para completar o objetivos
+ geral, sendo eles:
 \end_layout
 
 \begin_layout Itemize
-Desenvolver técnicas que permitam a correção de postura em exames termográficos
- dinâmicos.
+Desenvolver técnicas que permitam a correção de erros postura gerados durante
+ a aquisição de exames termográficos dinâmicos.
 \end_layout
 
 \begin_layout Itemize
@@ -1072,7 +1129,7 @@ key "junior2013detecccao"
 \end_inset
 
  é apresentada uma metodologia para detecção de regiões suspeitas na mama
- através termografia estática.
+ através termografias estáticas.
  A detecção é feita a partir da análise de assimetria entre as mamas direita
  e esquerda.
  As mamas são segmentadas e em seguida são mapeadas para o mesmo espaço
@@ -1124,8 +1181,8 @@ key "lincoln_thesis2015"
  de vários tamanhos.
  Para cada janela o valor máximo de temperatura de cada tempo é utilizado
  para criar um conjunto de dados.
- Esses dados são agrupados através do K-means, onde um conjunto de métricas
- é gerado e são utilizadas para um algoritmo de aprendizado de máquina.
+ Esses dados são agrupados através do K-means, onde métricas são geradas
+ e utilizadas por um algoritmo de aprendizado de máquina.
  O trabalho utiliza várias técnicas para demostrar a eficiência do método,
  onde foi possível obter um acerto de 100% para alguns classificadores utilizado
 s.
@@ -1256,17 +1313,6 @@ key "silva2014new"
 
 \end_layout
 
-\begin_layout Subsection
-Termografia Estática
-\begin_inset CommandInset label
-LatexCommand label
-name "sub:fundamentation:termography:static"
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Standard
 A termografia estática (TI), é o tipo de termografia onde a medição de temperatu
 ra é feita uma única vez.
@@ -1288,10 +1334,6 @@ key "lincoln_thesis2015"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Subsection
-Termografia Dinâmica
 \end_layout
 
 \begin_layout Standard
@@ -1335,8 +1377,8 @@ key "lincoln_thesis2015"
 Na prática a TID monitora as mudanças na temperatura da pele, onde o estímulo
  térmico, como uma corrente de ar, produz um contraste entre tecidos saudáveis
  e doentes.
- Regiões saudáveis da mama tendem a apresentar uma evolução uniforme, enquanto
- as regiões doentes possuem evolução mais aleatória 
+ Regiões saudáveis da mama tendem a apresentar uma evolução temperatura
+ uniforme, enquanto as regiões doentes possuem evolução mais aleatória 
 \begin_inset CommandInset citation
 LatexCommand cite
 key "amalu2004nondestructive"
@@ -1344,7 +1386,69 @@ key "amalu2004nondestructive"
 \end_inset
 
 .
+ A Figura 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:Termografia-dinâmica."
+
+\end_inset
+
+ mostra os termogramas em sequência em uma TID.
  
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Termografia dinâmica.
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Termografia-dinâmica."
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\noindent
+\align center
+\begin_inset Graphics
+	filename figures/fundamentation/termography/termography_dym.png
+	scale 75
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Fonte
+Elaborada pelo autor
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -1529,7 +1633,7 @@ reference "fig:fluxo-registro"
 \end_inset
 
  mostra o fluxograma básico de um processo de registro de imagens.
- O conjunto de entrada básico de um processo de registro de imagens é composto
+ Os componentes básicos de um processo de registro de imagens é composto
  por:
 \end_layout
 
@@ -1543,7 +1647,7 @@ Imagem móvel: imagem que será transformada para o espaço de coordenadas
 \end_layout
 
 \begin_layout Itemize
-Transformação: função que irá ser responsável por mapear os pixeis da imagem
+Transformação: função que irá ser responsável por mapear os pixels da imagem
  móvel na imagem fixa.
  Geralmente é responsável por dar nome ao registro.
 \end_layout
@@ -1777,7 +1881,7 @@ key "yin2009mass"
 \end_inset
 
 .
- A ideia básica desse tipo de transformação é manipular a grade de pixeis
+ A ideia básica desse tipo de transformação é manipular a grade de pixels
  a partir dos chamados pontos de controle.
  Essa manipulação permite criar um campo de deslocamento, que irá mapear
  os pixels da imagem móvel.
@@ -1931,7 +2035,7 @@ j=|\frac{y}{\delta_{y}}|-1,\label{eq:fundamentation:image_registration:ffd_bspli
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-z=|\frac{z}{\delta_{z}}|-1,\label{eq:fundamentation:image_registration:ffd_bspline:p3}
+k=|\frac{z}{\delta_{z}}|-1,\label{eq:fundamentation:image_registration:ffd_bspline:p3}
 \end{equation}
 
 \end_inset
@@ -1964,7 +2068,7 @@ v=\frac{y}{\delta_{y}}-(j+1),\label{eq:fundamentation:image_registration:ffd_bsp
 \begin_layout Standard
 \begin_inset Formula 
 \begin{equation}
-w=\frac{z}{\delta_{z}}-(z+1).\label{eq:fundamentation:image_registration:ffd_bspline:p6}
+w=\frac{z}{\delta_{z}}-(k+1).\label{eq:fundamentation:image_registration:ffd_bspline:p6}
 \end{equation}
 
 \end_inset
@@ -2030,9 +2134,8 @@ onde
 \end_layout
 
 \begin_layout Standard
-Um parâmetro muito importante nesse tipo de transformação é a resolução
- da grade de controle, pois a partir dela serão gerados os campos de deslocament
-os.
+Um parâmetro importante nesse tipo de transformação é a resolução da grade
+ de controle, pois a partir dela serão gerados os campos de deslocamentos.
  Uma grade muito espaçosa permite a modelagem de transformações deformáveis
  globais, enquanto uma grade mais fina modela deformações altamente locais
  
@@ -2051,7 +2154,7 @@ Interpolador
 
 \begin_layout Standard
 No processo do registro, a métrica geralmente compara os valores de intensidade
- dos pixeis da imagem fixa com os pixels correspondentes na imagem móvel
+ dos pixels da imagem fixa com os pixels correspondentes na imagem móvel
  transformada.
  Quando transformamos um ponto de um espaço para o outro através de uma
  transformação, este geralmente irá ser mapeado para uma posição fora da
@@ -2139,7 +2242,7 @@ name "sec:fundamentation:image_registration:interpolator:linear"
 \end_layout
 
 \begin_layout Standard
-O interpolador linear assume que os valores de intensidade dos pixeis variam
+O interpolador linear assume que os valores de intensidade dos pixels variam
  de forma linear entre as posições de grade.
  Dessa forma, os valores interpolados serão contínuos espacialmente, porém
  o gradiente de intensidade será descontínuo na grade.
@@ -2379,7 +2482,7 @@ key "sebastian2012gray"
 \begin_inset Formula $P(i,j|\Delta x,\Delta y)$
 \end_inset
 
- é a frequência relativa em que dois pixeis de intensidade 
+ é a frequência relativa em que dois pixels de intensidade 
 \begin_inset Formula $(i,j)$
 \end_inset
 
@@ -2667,7 +2770,7 @@ onde
 \begin_inset Formula $P_{i,j}$
 \end_inset
 
-é a frequência de um par de pixeis 
+é a frequência de um par de pixels 
 \begin_inset Formula $i$
 \end_inset
 
@@ -2790,7 +2893,7 @@ O PCA reduz a dimensionalidade encontrando os principais componentes
 (PCs) do conjunto de dados.
  Os PCs são vetores formados pela combinação linear das características
  originais que apresentam maior dispersão.
- Por exemplo, o primeiro PC é o que possui maior variância, Temos 
+ Por exemplo, o primeiro PC é o que possui maior variância, temos 
 \begin_inset Formula $s_{1}=x^{T}w_{1}$
 \end_inset
 
@@ -2939,7 +3042,7 @@ onde
 \end_layout
 
 \begin_layout Standard
-É uma técnica muito útil quando as características originais não oferecem
+O PCA é uma técnica muito útil quando as características originais não oferecem
  muita variação nos dados, transformando o conjunto em um novo espaço com
  menor dimensão onde as novas características possuem uma melhor dispersão.
  A Figura 
@@ -3096,13 +3199,10 @@ key "fisher1936use"
 
 \end_inset
 
- como um problema 
+ como um problema de duas classes, que foi generalizado para um problema
+ de múltiplas classes
 \emph on
-2-class
-\emph default
-, que foi generalizado para um problema 
-\emph on
-multi-class 
+ 
 \emph default
 em 
 \begin_inset CommandInset citation
@@ -4310,8 +4410,11 @@ key "silva2014new"
 \end_layout
 
 \begin_layout Standard
-As imagens utilizadas possuem dimensão de 640 pixeis de largura e 480 pixeis
- de largura e foram utilizados os valores de temperatura (em graus celsius)
+As imagens utilizadas possuem dimensão de 
+\begin_inset Formula $640\times480$
+\end_inset
+
+ pixels e foram utilizados os valores de temperatura (em graus celsius)
  obtidos diretamente da câmera termográfica utilizada na aquisição.
  
 \end_layout
@@ -4337,38 +4440,16 @@ name "sec:methodology:image_registration"
 Durante o protocolo de aquisição de imagens, é natural que a paciente execute
  movimentos involuntários causados pela respiração e ajuste de postura.
  Esses movimentos causam diferenças espaciais de uma sequência para a outra.
- As Figuras 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:methodology:image_registration:t1"
-
-\end_inset
-
- e 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "fig:methodology:image_registration:t2"
-
-\end_inset
-
- são termogramas sequências de tempos 
-\begin_inset Formula $t=1$
-\end_inset
-
- e 
-\begin_inset Formula $t=2$
-\end_inset
-
-, respectivamente.
  A Figura 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "fig:methodology:image_registration:squared_diff"
+reference "fig:Diferença-entre-termogramas"
 
 \end_inset
 
- apresenta a diferença quadrática 
-\begin_inset Formula $d=(P_{t}(i,j)-P_{t}(i,j))^{2}$
+ apresenta a diferença entre dois termogramas de tempos distintos, definida
+ por 
+\begin_inset Formula $d=\sqrt{(P_{t}(i,j)-P_{t}(i,j))^{2}}$
 \end_inset
 
 , onde 
@@ -4411,8 +4492,14 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Termogramas de tempos distintos.
- Tons mais claros em (c) grande diferença entre as regiões.
+Diferença entre termogramas em tempos distintos.
+ 
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:Diferença-entre-termogramas"
+
+\end_inset
+
  
 \end_layout
 
@@ -4422,121 +4509,11 @@ Termogramas de tempos distintos.
 \end_layout
 
 \begin_layout Plain Layout
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:methodology:image_registration:t1"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
+\noindent
 \align center
 \begin_inset Graphics
 	filename figures/methodology/series1.png
-	scale 20
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset space \hfill{}
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:methodology:image_registration:t2"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/methodology/series2.png
-	scale 20
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\begin_inset space \hfill{}
-\end_inset
-
-
-\begin_inset Float figure
-wide false
-sideways false
-status collapsed
-
-\begin_layout Plain Layout
-\begin_inset Caption Standard
-
-\begin_layout Plain Layout
-\begin_inset CommandInset label
-LatexCommand label
-name "fig:methodology:image_registration:squared_diff"
-
-\end_inset
-
-
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Plain Layout
-\align center
-\begin_inset Graphics
-	filename figures/methodology/series_diff.png
-	scale 20
-
-\end_inset
-
-
-\end_layout
+	scale 40
 
 \end_inset
 
@@ -4643,8 +4620,8 @@ key "marques2012segmentaccao"
 
 \end_inset
 
-, porém existem limitações que não tornam possíveis a utilização desse tipo
- de técnica.
+, porém existem limitações quanto a forma das mamas, que não tornam possíveis
+ a utilização desse tipo de técnica.
 \end_layout
 
 \begin_layout Standard
@@ -5028,19 +5005,6 @@ Para cada valor estatístico extraído dos pixels da TID, é criada uma imagem
  representativa.
  No total 4 valores foram extraídos para cada pixel, resultando na criação
  de 4 representações de uma TID.
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-Figura AKI
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -5621,10 +5585,6 @@ X'=a-\frac{(X-X_{min})(b-a)}{X_{max}-X_{min}},\label{eq:methodology:feature_scal
 
 \end_inset
 
-
-\end_layout
-
-\begin_layout Standard
 onde 
 \begin_inset Formula $X$
 \end_inset
@@ -5650,10 +5610,7 @@ onde
 
 \begin_layout Standard
 A partir das representações, são extraídas um conjunto de características
- de textura baseadas em GLCM, definidas pelas Equações
-\end_layout
-
-\begin_layout Standard
+ de textura baseadas em GLCM, definidas pelas Equações 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "eq:fundamentation:glcm:contraste"
@@ -5747,8 +5704,8 @@ reference "sec:fundamentation:dimensionality_reduction"
 \end_layout
 
 \begin_layout Standard
-As técnicas utilizadas foram testadas foram analisadas com várias composições,
- sendo as que apresentaram melhores resultados foram:
+As técnicas utilizadas foram analisadas com várias composições, sendo as
+ que apresentaram melhores resultados foram:
 \end_layout
 
 \begin_layout Itemize
@@ -5821,8 +5778,8 @@ reference "sec:methodology:fps"
 \end_layout
 
 \begin_layout Standard
-O conjunto de características originais é dividida em 2 conjuntos distintos
- que chamadas de base de treino e teste, que não possuem indivíduos em comum
+O conjunto de características original é dividido em 2 subconjuntos distintos
+ chamados de base de treino e teste, que não possuem indivíduos em comum
  entre eles.
  
 \end_layout
@@ -5941,10 +5898,7 @@ name "chap:Resultados"
 \begin_layout Standard
 Nesse capítulo são apresentados os resultados da aplicação da metodologia
  para a classificação de termografias dinâmicas em saudável e com lesão.
-\end_layout
-
-\begin_layout Standard
-Os testes foram divididos em grupos de acordo com as distâncias e ângulos
+ Os testes foram divididos em grupos de acordo com as distâncias e ângulos
  utilizados para gerar as GLCMs.
  Temos os seguintes grupos:
 \end_layout
@@ -6005,10 +5959,11 @@ Grupo 4:
 \end_layout
 
 \begin_layout Standard
-Devido a quantidade pequena de indivíduos, a etapa de classificação é aplicada
- 100 vezes, salvando os resultados de cada aplicação para posteriormente
- os valores da média e desvio padrão (acurácia, sensibilidade e especificidade)
- serem calculados.
+Devido a quantidade pequena de indivíduos, os resultados podem variar bastante
+ entre uma iteração e outra, dessa forma, a etapa de classificação é aplicada
+ 100 vezes consecutivas, salvando os resultados de cada aplicação para posterior
+mente os valores da média e desvio padrão da acurácia, sensibilidade e especific
+idade serem calculados.
  
 \end_layout
 
@@ -6035,15 +5990,16 @@ reference "sec:methodology:reduction"
 \end_layout
 
 \begin_layout Standard
-Cada técnica irá gerar um novo conjunto de dados de treino e teste, onde
- a base de treino resultante de determinada técnica será utilizada para
- gerar o modelo SVM que irá classificar a base de testes correlacionada.
+Cada técnica de redução de características irá gerar um novo conjunto de
+ dados de treino e teste, onde a base de treino resultante de determinada
+ técnica será utilizada para gerar o modelo SVM que irá classificar a base
+ de testes correlacionada.
  Os resultados são analisados separadamente para cada técnica de redução
  de características.
 \end_layout
 
 \begin_layout Standard
-Caso uma quantidade pequena de aplicações seja utilizada, os valores irão
+Caso uma quantidade pequena de iterações seja utilizada, os valores irão
  variar bastante entre a execução entre um teste e outro, pois dependendo
  de quais indivíduos sejam escolhidos para as bases de treino e teste, os
  resultados podem conter ótimos valores ou péssimos valores (dependendo
@@ -6069,9 +6025,10 @@ reference "tab:results:g4_8020"
 \end_inset
 
  mostram os resultados para a proporção de 80% dos indivíduos como base
- de treino e 20% como base de teste, onde os resultados mostram que a utilização
- das características sem a aplicação de redução apresenta um baixo valor
- médio de sensibilidade, enquanto a especificidade se manteve entre 70%.
+ de treino e 20% como base de teste.
+ Os resultados mostram que a utilização das características sem a aplicação
+ de redução apresenta um baixo valor médio de sensibilidade, enquanto a
+ especificidade se manteve entre 70% e 80%.
  Nota-se o alto valor para o desvio padrão, principalmente na Tabela 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -6088,7 +6045,7 @@ reference "tab:results:g4_8020"
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6408,7 +6365,7 @@ PCA+LDA, C= 40, L=1
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -6728,7 +6685,7 @@ PCA+LDA, C= 40, L=1
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7048,7 +7005,7 @@ PCA+LDA, C=40, L=1
 placement H
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -7367,7 +7324,7 @@ PCA+LDA, C= 40, L=1
 O PCA não apresenta um bom desempenho quando aplicado sozinho no conjunto
  de características.
  Em certas ocasiões possui um resultado até pior que os testes aplicados
- sem utilização da redução.
+ sem utilização da redução de características.
  Apesar disso, a utilização do PCA com os 40 melhores PCs se mostrou superior
  em relação a utilização com os 20 melhores PCs.
 \end_layout
@@ -7387,7 +7344,7 @@ A técnica que conseguiu o melhor resultado foi a aplicação conjunto do PCA
  Primeiramente a redução é feita através de PCA com os 40 melhores PCs,
  seguido da aplicação do LDA no conjunto de características gerados pelo
  PCA.
- Em todos os grupos, temos uma sensibilidade médias acima dos 80%.
+ Em todos os grupos, a sensibilidade média fica acima dos 80%.
  O grupo 3 (480 características originais) foi o que apresentou os melhores
  resultados para a propoção 80/20%, onde a técnica de redução do PCA combinado
  com LDA apresentou resultados bem superiores aos demais grupos estudados.
@@ -7413,23 +7370,18 @@ reference "tab:results:g4_6040"
 \end_layout
 
 \begin_layout Standard
-As técnicas de redução agem da mesma forma que o apresentado na proporção
- 80/20%.
+As técnicas de redução de características agem da mesma forma que o apresentado
+ na proporção 80/20%.
  Em especial a Tabela 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab:results:g3_6040"
+reference "tab:results:g4_6040"
 
 \end_inset
 
- que apresenta os resultados do grupo 3, onde a aplicação do PCA seguido
- do LDA, obteve 82,9% de acurácia, 83,6% de sensibilidade e 83,0% de especificid
+ que apresenta os resultados do grupo 4, onde a aplicação do PCA seguido
+ do LDA, obteve 83,1% de acurácia, 80,1% de sensibilidade e 86,1% de especificid
 ade.
-\end_layout
-
-\begin_layout Standard
-Em ambas as proporções, o grupo de demonstrou os melhores foi o grupo 3,
- composto por 480 características, geradas a partir de 20 GLCMs.
 \end_layout
 
 \begin_layout Standard
@@ -7443,8 +7395,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Resultados do Grupo 1 (96 características) na proporção 60/40 (36 exames
- para treino, 34 para teste).
+Resultados do Grupo 1 (96 características) na proporção 60/40 (42 exames
+ para treino, 28 para teste).
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:results:g1_6040"
@@ -7763,8 +7715,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Resultados do Grupo 2 (288 características) na proporção 60/40 (36 exames
- para treino, 34 para teste).
+Resultados do Grupo 2 (288 características) na proporção 60/40 (42 exames
+ para treino, 28 para teste).
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:results:g2_6040"
@@ -8083,8 +8035,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Resultados do Grupo 3 (480 características) na proporção 60/40 (36 exames
- para treino, 34 para teste).
+Resultados do Grupo 3 (480 características) na proporção 60/40 (42 exames
+ para treino, 28 para teste).
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:results:g3_6040"
@@ -8394,6 +8346,7 @@ PCA+LDA, C=40, L=1
 
 \begin_layout Standard
 \begin_inset Float table
+placement H
 wide false
 sideways false
 status open
@@ -8402,8 +8355,8 @@ status open
 \begin_inset Caption Standard
 
 \begin_layout Plain Layout
-Resultados do Grupo 4 (576 características) na proporção 60/40 (36 exames
- para treino, 34 para teste).
+Resultados do Grupo 4 (576 características) na proporção 60/40 (42 exames
+ para treino, 28 para teste).
 \begin_inset CommandInset label
 LatexCommand label
 name "tab:results:g4_6040"
@@ -8725,8 +8678,8 @@ Nota-se um alto valor de desvio padrão na execução dos testes, o que pode
  base de treino foi bem representativa.
  Porém, existem casos com péssimos resultados, indicando que a base de treino
  não foi capaz de representar de forma adequada o problema.
- Portanto, uma base de imagens relativamente maior pode apresentar um resultado
- bem superior aos mostrados até aqui.
+ Portanto, uma base de imagens maior pode apresentar um resultado superior
+ aos mostrados até aqui.
 \end_layout
 
 \begin_layout Standard
@@ -8737,8 +8690,8 @@ Sobre as técnicas de redução de características apresentadas, nota-se que
  através de uma matriz de transformação composta por combinações lineares
  das características originais.
  Dessa forma, não é possível saber quais as melhores características para
- a resolução do problema, já que todas elas contribuem para a formação do
- novo espaço.
+ a resolução do problema, já que as características resultantes são combinações
+ lineares de todas as características de entrada.
  
 \end_layout
 
@@ -8807,9 +8760,9 @@ A metodologia apresenta uma forma de auxiliar médicos especialistas na detecç�
 \begin_layout Standard
 A vantagem desse tipo de imagem é a forma como é adquirida, pois não utiliza
  nenhum forma de radiação ionizante e não causa desconforto físico na paciente.
- Outra vantagem é o que equipamento (câmera térmica) é relativamente mais
- barato que um mamógrafo e é de fácil locomoção, tornando ideal como um
- exame de triagem em populações residentes em locais menos acessíveis.
+ Outra vantagem é que o equipamento de aquisição (câmera térmica) é relativament
+e mais barato que um mamógrafo e é de fácil locomoção, tornando ideal como
+ um exame de triagem em populações residentes em locais menos acessíveis.
 \end_layout
 
 \begin_layout Standard
@@ -8874,7 +8827,7 @@ reference "sec:methodology:fps"
  de lesões, pois tornam visíveis características do exame que não seriam
  possíveis de perceber apenas com a visualização a olho nu da sequência
  de termogramas.
- Outros valores podem gerar representações que adicionei mais informações
+ Outros valores podem gerar representações que adicione, mais informações
  importantes, tornando o método mais robusto, se utilizado em conjunto com
  as já existentes.
 \end_layout
@@ -8883,11 +8836,6 @@ reference "sec:methodology:fps"
 Das técnicas de redução de características, a combinação do PCA e LDA demonstrou
  grande valor para melhorar o processo de classificação, corrigindo principalmen
 te os baixos valores de sensibilidade apresentados.
-\end_layout
-
-\begin_layout Standard
-A metodologia apresentada ainda encontra-se em fase de desenvolvimento,
- podendo alcançar resultados melhores em um futuro próximo.
 \end_layout
 
 \begin_layout Standard
@@ -8930,7 +8878,7 @@ Adquirir mais exames, aumentando a base de dados e posteriormente tornando
 \begin_inset CommandInset bibtex
 LatexCommand bibtex
 bibfiles "references"
-options "abntex2-num"
+options "abntex2-alf"
 
 \end_inset
 
