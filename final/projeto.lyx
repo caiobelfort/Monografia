@@ -300,201 +300,7 @@ status open
 
 
 \backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-{
-\backslash
-ABNTEXchapterfont 
-\backslash
-large 
-\backslash
-imprimirautor}
-\backslash
-
-\backslash
-[3.0cm]
-\end_layout
-
-\begin_layout Plain Layout
-
-{
-\backslash
-ABNTEXchapterfont 
-\backslash
-bfseries 
-\backslash
-large 
-\backslash
-imprimirtitulo}
-\backslash
-
-\backslash
-[1.50cm]
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-hspace{.45
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{minipage}{.5
-\backslash
-textwidth}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-SingleSpacing
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-imprimirpreambulo
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{minipage}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-Aprovada em :  
-\backslash
- 
-\backslash
- 
-\backslash
- 
-\backslash
- /  
-\backslash
- 
-\backslash
- 
-\backslash
- 
-\backslash
-  /
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{center}
-\end_layout
-
-\begin_layout Plain Layout
-
-BANCA EXAMINADORA
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-assinatura{
-\backslash
-imprimirorientador 
-\backslash
-
-\backslash
- Doutor em Informática 
-\backslash
-
-\backslash
- Universidade Federal do Maranhão}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-assinatura{Prof.
- Dr.
- João Dallyson Sousa de Almeida 
-\backslash
-
-\backslash
- Doutor em Engenharia de Eletricidade 
-\backslash
-
-\backslash
- Universidade Federal do Maranhão}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-assinatura{Prof.
- Ms.
- Stelmo Magalhães Barros Netto 
-\backslash
-
-\backslash
- Mestre em Engenharia de Eletricidade 
-\backslash
-
-\backslash
- Universidade Federal do Maranhão}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-vfill
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-imprimirlocal
-\backslash
-
-\backslash
-
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-imprimirdata
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-end{center}
+includepdf{faprovacao}
 \end_layout
 
 \end_inset
@@ -4310,7 +4116,7 @@ status open
 
 \begin_layout Plain Layout
 
-httt://visual.ic.uff.br/dmi
+http://visual.ic.uff.br/dmi
 \end_layout
 
 \end_inset
@@ -5636,8 +5442,8 @@ reference "sec:fundamentation:glcm"
 \end_layout
 
 \begin_layout Standard
-Para cada representação gerada, são geradas GLCMs a partir de um conjunto
- distâncias 
+Para cada representação, são geradas GLCMs a partir de um conjunto distâncias
+ 
 \begin_inset Formula $d=[d_{1},....,d_{n}]$
 \end_inset
 
